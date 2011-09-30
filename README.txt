@@ -1,5 +1,5 @@
-About .NET Extensions
-=====================
+About NExtra
+============
 
 Author:		Daniel Saidi [daniel.saidi@gmail.com]
 Web site:	http://danielsaidi.github.com/NExtra
@@ -15,7 +15,7 @@ is well structured and intuitive.
 I continously add new functionality that I create, no matter
 which part of the .NET Framework it regards. Implementations
 that I find in blog post or such will contain links to their
-original implementations.
+original implementations. 
 
 Contributions to the library are more than welcome. Just let
 me know if you want to help out in any way.
