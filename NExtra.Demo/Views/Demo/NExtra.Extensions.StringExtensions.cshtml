@@ -1,0 +1,36 @@
+@model DemoModel
+
+@{
+    var query = Request.QueryString["value"];
+    var value = query.IsNullOrEmpty() ? "" : query;
+}
+
+@Model.GetTypeSummary(typeof(NExtra.Extensions.StringExtensions))
+
+<p>@Html.GlobalResource(Resources.Language.EnterStringToExtend):</p>
+
+<div class="container input">
+  <input type="text" id="txtValue" value="@query" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterValue)");
+    $('button').click(function () { location.href = '@Model.PostUrl?value=' + $('#txtValue').val() + '&spacer' });
+</script>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var value = @Json.Encode(value);
+
+value.CountSubstring("foo") => @value.CountSubstring("foo")
+value.IsNullOrEmpty()       => @value.IsNullOrEmpty()
+value.Shorten(10)           => @Json.Encode(value.Shorten(10))
+value.Shorten(10, "...")    => @Json.Encode(value.Shorten(10, "..."))
+value.Split(",")            => @Json.Encode(string.Join("\",\"", value.Split(",")))
+value.Split&lt;int&gt;(",")       => @Json.Encode(string.Join(",", value.Split<int>(",")))
+value.To&lt;int&gt;()             => @(value.To<int>())
+value.ToEnum&lt;TypeCode&gt;(TypeCode.Int32) => @(value.ToEnum<TypeCode>(TypeCode.Int32))</pre>
+</div>

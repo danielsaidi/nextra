@@ -1,0 +1,34 @@
+﻿@model DemoModel
+
+@{
+    var query = Request.QueryString["value"];
+    var value = query.IsNullOrEmpty(false) ? "" : query;
+
+    var requiredAttribute = new IpAddressAttribute();
+    var optionalAttribute = new IpAddressAttribute(false);
+}
+
+@Model.GetTypeSummary(typeof(IpAddressAttribute))
+
+<p>@Html.GlobalResource(Resources.Language.EnterValueToValidate):</p>
+
+<div class="container input">
+  <input type="text" id="txtValue" value="@query" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterValue)");
+    $('button').click(function () { location.href = '@Model.PostUrl?value=' + $('#txtValue').val() + '&spacer' });
+</script>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var requiredAttribute = new IpAddressAttribute();
+var optionalAttribute = new IpAddressAttribute(false);
+
+requiredAttribute.IsValid(@Json.Encode(value)) => @requiredAttribute.IsValid(value)
+optionalAttribute.IsValid(@Json.Encode(value)) => @optionalAttribute.IsValid(value)</pre>
+</div>

@@ -1,0 +1,33 @@
+@model DemoModel
+
+@{
+    var pattern = Request.QueryString["pattern"] ?? "";
+    var value = Request.QueryString["value"] ?? "";
+    var optionalAttribute = new NExtra.DataAnnotations.OptionalRegularExpressionAttribute(value);
+    var mandatoryAttribute = new NExtra.DataAnnotations.OptionalRegularExpressionAttribute(value);
+}
+
+<p class="ingress">@Html.GlobalResource(Resources.Language.EventArgs_TypeSummary)</p>
+
+<p>@Html.GlobalResource(Resources.Language.EnterValueToWrapInEventArgs):</p>
+
+<div class="container input">
+  <input type="text" id="txtValue" value="@value" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterPattern)");
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterValue)");
+    $('button').click(function () { location.href = '@Model.PostUrl?value=' + $('#txtValue').val() });
+</script>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var value = @Json.Encode(value);
+var args = new NExtra.EventArgs&lt;string&gt;();
+  
+args.Object => @Json.Encode(args.Object)</pre>
+</div>

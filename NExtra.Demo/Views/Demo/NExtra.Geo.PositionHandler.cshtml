@@ -1,0 +1,70 @@
+﻿@model DemoModel
+
+@{
+    var latQuery1 = Request.QueryString["lat1"];
+    var latQuery2 = Request.QueryString["lat2"];
+    var longQuery1 = Request.QueryString["long1"];
+    var longQuery2 = Request.QueryString["long2"];
+    
+    var latitude1 = latQuery1.IsNullOrEmpty() ? 0.0 : double.Parse(latQuery1);
+    var latitude2 = latQuery2.IsNullOrEmpty() ? 0.0 : double.Parse(latQuery2);
+    var longitude1 = longQuery1.IsNullOrEmpty() ? 0.0 : double.Parse(longQuery1);
+    var longitude2 = longQuery2.IsNullOrEmpty() ? 0.0 : double.Parse(longQuery2);
+
+    var pos1 = new Position(latitude1, longitude1);
+    var pos2 = new Position(latitude2, longitude2);
+    var handler = new PositionHandler();
+
+    var bearing = handler.CalculateBearing(pos1, pos2);
+    var distanceKm = handler.CalculateDistance(pos1, pos2, DistanceUnit.Kilometers);
+    var distanceMiles = handler.CalculateDistance(pos1, pos2, DistanceUnit.Miles);
+    var rhumbBearing = handler.CalculateRhumbBearing(pos1, pos2);
+    var rhumbDistanceKm = handler.CalculateRhumbDistance(pos1, pos2, DistanceUnit.Kilometers);
+    var rhumbDistanceMiles = handler.CalculateRhumbDistance(pos1, pos2, DistanceUnit.Miles);
+}
+
+@Model.GetTypeSummary(typeof(PositionHandler))
+
+<p>@Html.GlobalResource(Resources.Language.EnterLatitudeAndLongitudeToHandlePositions):</p>
+
+<div class="container input two">
+  <input type="text" id="txtLat1" class="txtLat" value="@latQuery1" />
+  <input type="text" id="txtLong1" class="txtLong" value="@longQuery1" />
+  <input type="text" id="txtLat2" class="txtLat" value="@latQuery2" />
+  <input type="text" id="txtLong2" class="txtLong" value="@longQuery2" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtLat1").watermark("@Html.GlobalResource(Resources.Language.EnterLatitude)");
+    $("#txtLat2").watermark("@Html.GlobalResource(Resources.Language.EnterLatitude)");
+    $("#txtLong1").watermark("@Html.GlobalResource(Resources.Language.EnterLongitude)");
+    $("#txtLong2").watermark("@Html.GlobalResource(Resources.Language.EnterLongitude)");
+    $('button').click(function () { location.href = '@Model.PostUrl?lat1=' + $('#txtLat1').val() + '&long1=' + $('#txtLong1').val() + '&lat2=' + $('#txtLat2').val() + '&long2=' + $('#txtLong2').val() });
+</script>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var pos1 = new Position(@Json.Encode(latitude1), @Json.Encode(longitude1));
+var pos2 = new Position(@Json.Encode(latitude2), @Json.Encode(longitude2));
+var handler = new PositionHandler();
+
+var bearing = handler.CalculateBearing(pos1, pos2);
+var distanceKm = handler.CalculateDistance(pos1, pos2, DistanceUnit.Kilometers);
+var distanceMiles = handler.CalculateDistance(pos1, pos2, DistanceUnit.Miles);
+var rhumbBearing = handler.CalculateRhumbBearing(pos1, pos2);
+var rhumbDistanceKm = handler.CalculateRhumbDistance(pos1, pos2, DistanceUnit.Kilometers);
+var rhumbDistanceMiles = handler.CalculateRhumbDistance(pos1, pos2, DistanceUnit.Miles);
+
+PositionHandler.EarthRadiusInKilometers  => @Json.Encode(PositionHandler.EarthRadiusInKilometers)
+PositionHandler.EarthRadiusInMiles       => @Json.Encode(PositionHandler.EarthRadiusInMiles)
+
+bearing            => @Json.Encode(bearing)
+distanceKm         => @Json.Encode(distanceKm)
+distanceMiles      => @Json.Encode(distanceMiles)
+rhumbBearing       => @Json.Encode(rhumbBearing)
+rhumbDistanceKm    => @Json.Encode(rhumbDistanceKm)
+rhumbDistanceMiles => @Json.Encode(rhumbDistanceMiles)</pre>
+</div>

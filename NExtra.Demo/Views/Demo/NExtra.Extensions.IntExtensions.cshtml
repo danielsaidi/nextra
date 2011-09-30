@@ -1,0 +1,30 @@
+﻿@model DemoModel
+
+@{
+    var query = Request.QueryString["value"];
+    var value = query.IsNullOrEmpty() ? 0 : int.Parse(query);
+}
+
+@Model.GetTypeSummary(typeof(IntExtensions))
+
+<p>@Html.GlobalResource(Resources.Language.EnterNumericalToExtend):</p>
+
+<div class="container input">
+  <input type="text" id="txtValue" value="@query" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterValue)");
+    $('button').click(function () { location.href = '@Model.PostUrl?value=' + $('#txtValue').val() });
+</script>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var value = @value;
+
+value.IsEven() => @value.IsEven()
+value.IsOdd()  => @value.IsOdd()</pre>
+</div>

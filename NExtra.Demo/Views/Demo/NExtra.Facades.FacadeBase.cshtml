@@ -1,0 +1,19 @@
+﻿@model DemoModel
+
+@{
+    var facade1 = new FacadeBase<int>(25);
+    var facade2 = new FacadeBase<string>("foo");
+}
+
+<p class="ingress">@Html.GlobalResource(Resources.Language.FacadeBase_TypeSummary)</p>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample + Resources.Language.UsingTheViewModelClass):</p>
+
+<div class="container code">
+  <pre>
+var facade1 = new FacadeBase&lt;int&gt;(25);
+var facade2 = new FacadeBase&lt;string&gt;("foo");
+
+facade1.BaseInstance.GetType().FullName => @Json.Encode(facade1.BaseInstance.GetType().FullName)
+facade2.BaseInstance.GetType().FullName => @Json.Encode(facade2.BaseInstance.GetType().FullName)</pre>
+</div>

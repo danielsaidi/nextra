@@ -1,0 +1,12 @@
+#main { margin: 0 auto 100px auto; width: 900px; }
+#main-header { overflow: hidden; position: relative; height: 100px; }
+#main-logo { position: absolute; }
+#main-logo { top: 10px; left: -15px; }
+
+#main-menu { font-size: 0.8em; }
+#main-menu li a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#main-menu li.selected { font-weight: bold; font-size:1.3em; font-style:italic; }
+#main-menu span, #main-menu a { margin: -3px 0px 0px 3px; display: block; }
+
+#main-body { font-size: 1.4em; background: white; padding: 20px; padding-top: 30px; }
+#main-body .right > h1 { margin-top: -2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

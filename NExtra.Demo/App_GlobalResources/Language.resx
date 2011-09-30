@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CheckInbox" xml:space="preserve">
+    <value>Remember to check your SPAM-box. The e-mail could end up there ;)</value>
+  </data>
+  <data name="CheckSpamBox" xml:space="preserve">
+    <value>Remember to check your SPAM-box. It should be empty, since no mail is sent ;)</value>
+  </data>
+  <data name="CodeSample" xml:space="preserve">
+    <value>Code sample</value>
+  </data>
+  <data name="ControllerExtensions_MethodDescription" xml:space="preserve">
+    <value>In a controller class, access the extension methods by using "this.", as such:</value>
+  </data>
+  <data name="ControllerExtensions_Testing_MethodDescription" xml:space="preserve">
+    <value>In test context, use the CallWithModelValidation method to automatically apply model validation when calling an action that requires it. By default, model validation is not applied, which causes model errors to be ignored by unit tests.</value>
+  </data>
+  <data name="DateTimeExtensions_WeekComment" xml:space="preserve">
+    <value>The week methods can also be adjusted to support ISO8601, localization etc. but that is left out of this demo.</value>
+  </data>
+  <data name="DocumentationOutput" xml:space="preserve">
+    <value>Documentation output</value>
+  </data>
+  <data name="EmailFromMail" xml:space="preserve">
+    <value>demo@nextra</value>
+  </data>
+  <data name="EmailFromName" xml:space="preserve">
+    <value>.NET Extensions</value>
+  </data>
+  <data name="EmailNonSenderBody" xml:space="preserve">
+    <value>This e-mail should not be sent</value>
+  </data>
+  <data name="EmailNonSenderSubject" xml:space="preserve">
+    <value>Testing EmailNonSender</value>
+  </data>
+  <data name="EmailSenderBody" xml:space="preserve">
+    <value>This e-mail should be sent</value>
+  </data>
+  <data name="EmailSenderSubject" xml:space="preserve">
+    <value>Testing EmailSender</value>
+  </data>
+  <data name="EnterAngleToConvert" xml:space="preserve">
+    <value>Enter a double-valued angle in either degrees or radians to convert it</value>
+  </data>
+  <data name="EnterCookieName" xml:space="preserve">
+    <value>Enter cookie name</value>
+  </data>
+  <data name="EnterCookieNameAndValue" xml:space="preserve">
+    <value>Enter a cookie name and an optional value (no value =&gt; no set)</value>
+  </data>
+  <data name="EnterCookieValue" xml:space="preserve">
+    <value>Enter cookie value</value>
+  </data>
+  <data name="EnterDateTimeToExtend" xml:space="preserve">
+    <value>Enter a date to apply available extension methods on it</value>
+  </data>
+  <data name="EnterDistanceToConvert" xml:space="preserve">
+    <value>Enter a distance in either kilometers or miles to convert it</value>
+  </data>
+  <data name="EnterFileSize" xml:space="preserve">
+    <value>Enter a file size</value>
+  </data>
+  <data name="EnterFileSizeAndFormat" xml:space="preserve">
+    <value>Enter a file size (in bytes) to present it in a readable fashion</value>
+  </data>
+  <data name="EnterFileUrl" xml:space="preserve">
+    <value>Enter a file URL</value>
+  </data>
+  <data name="EnterFileUrlToLoad" xml:space="preserve">
+    <value>Enter a file URL to load the file via the facade class.</value>
+  </data>
+  <data name="EnterHtml5StringToConvert" xml:space="preserve">
+    <value>Enter a string to convert any HTML5 content within it</value>
+  </data>
+  <data name="EnterLatitude" xml:space="preserve">
+    <value>Enter a latitude</value>
+  </data>
+  <data name="EnterLatitudeAndLongitudeToCreatePosition" xml:space="preserve">
+    <value>Enter a latitude and longitude to create a Position instance</value>
+  </data>
+  <data name="EnterLatitudeAndLongitudeToHandlePositions" xml:space="preserve">
+    <value>Enter two latitudes and longitudes to handle the positions</value>
+  </data>
+  <data name="EnterLimitValue" xml:space="preserve">
+    <value>Enter a value to limit</value>
+  </data>
+  <data name="EnterLongitude" xml:space="preserve">
+    <value>Enter a longitude</value>
+  </data>
+  <data name="EnterMaxValue" xml:space="preserve">
+    <value>Enter a max value</value>
+  </data>
+  <data name="EnterMinValue" xml:space="preserve">
+    <value>Enter a min value</value>
+  </data>
+  <data name="EnterName" xml:space="preserve">
+    <value>Enter a name</value>
+  </data>
+  <data name="EnterNumberFormat" xml:space="preserve">
+    <value>Enter a number format</value>
+  </data>
+  <data name="EnterNumericalToExtend" xml:space="preserve">
+    <value>Enter a numerical value to apply available extension methods on it</value>
+  </data>
+  <data name="EnterPattern" xml:space="preserve">
+    <value>Enter a regex pattern</value>
+  </data>
+  <data name="EnterPatternAndValueToValidate" xml:space="preserve">
+    <value>Enter a regex pattern and a value to validate the value with the attribute</value>
+  </data>
+  <data name="EnterString" xml:space="preserve">
+    <value>Enter a string</value>
+  </data>
+  <data name="EnterStringToAddToStateBag" xml:space="preserve">
+    <value>Enter a string to add it to a StateBag instance and access it strongly typed</value>
+  </data>
+  <data name="EnterStringToExtend" xml:space="preserve">
+    <value>Enter a string to apply available extension methods on it</value>
+  </data>
+  <data name="EnterStringToHash" xml:space="preserve">
+    <value>Enter a string to hash</value>
+  </data>
+  <data name="EnterStringToLoadFeed" xml:space="preserve">
+    <value>Enter a valid RSS feed URL (like the one that is used by default) to load the feed with the syndication feed loader.
+
+To inspect the result (which is ust presented as a JSON object), just copy the string into a text editor.</value>
+  </data>
+  <data name="EnterStringToLoadFile" xml:space="preserve">
+    <value>Enter a valid file URL (like the one that is used by default) to load the file with the virtual file handler.</value>
+  </data>
+  <data name="EnterTwoValuesToExtendObject" xml:space="preserve">
+    <value>Enter two values to apply extension methods to a resulting key-value pair</value>
+  </data>
+  <data name="EnterTwoValuesToJson" xml:space="preserve">
+    <value>Enter two values to serialize a string list with JSON</value>
+  </data>
+  <data name="EnterUriToExtend" xml:space="preserve">
+    <value>Enter a URI to apply available extension methods on it</value>
+  </data>
+  <data name="EnterValue" xml:space="preserve">
+    <value>Enter a value</value>
+  </data>
+  <data name="EnterValueToAffectOutput" xml:space="preserve">
+    <value>The current action uses an OutputModelAttribute that requires that the query variable "value" has the value "json". Enter "json" in the text box to try it out:</value>
+  </data>
+  <data name="EnterValueToExtendedCollection" xml:space="preserve">
+    <value>Enter a string to add it to a StringCollection</value>
+  </data>
+  <data name="EnterValueToHash" xml:space="preserve">
+    <value>Enter a value to hash it</value>
+  </data>
+  <data name="EnterValueToSendEmail" xml:space="preserve">
+    <value>Use the form below to send an e-mail</value>
+  </data>
+  <data name="EnterValueToSimulateEmail" xml:space="preserve">
+    <value>Use the form below to simulate sending an e-mail</value>
+  </data>
+  <data name="EnterValueToValidate" xml:space="preserve">
+    <value>Enter a value in the box below, to validate it with the attribute</value>
+  </data>
+  <data name="EnterValueToWrapInEventArgs" xml:space="preserve">
+    <value>Enter a value to wrap it in an EventArgs instance</value>
+  </data>
+  <data name="EnterValueToWrapInNullable" xml:space="preserve">
+    <value>Enter a value to wrap it in a Nullable instance</value>
+  </data>
+  <data name="EnterYourEmail" xml:space="preserve">
+    <value>Enter your e-mail address</value>
+  </data>
+  <data name="EventArgs_TypeSummary" xml:space="preserve">
+    <value>This class is a generic version of the native EventArgs class. It embeds an object that can be accessed within a raised event.</value>
+  </data>
+  <data name="FacadeBase_TypeSummary" xml:space="preserve">
+    <value>This class can wrap any base class and expose it as a property.</value>
+  </data>
+  <data name="GenerateHash" xml:space="preserve">
+    <value>Generate hash value</value>
+  </data>
+  <data name="Html5ElementConvertModuleDescription1" xml:space="preserve">
+    <value>In the site styles, nav is green and .nav is red. So, if the box below is green, you are viewing HTML5. If not, you're a HTML4 kind o' person.</value>
+  </data>
+  <data name="Html5ElementConvertModuleDescription2" xml:space="preserve">
+    <value>Have a look in the web.config file to see how the module is applied for the site.</value>
+  </data>
+  <data name="IComparableExtensions_LimitDescription" xml:space="preserve">
+    <value>Limit can be used to limit any IComparable (here, String) between two values</value>
+  </data>
+  <data name="IEnumerableExtensions_MethodDescriptions" xml:space="preserve">
+    <value>Paginate can be used to Skip and Take in one step. The various OrderBy and ThenBy methods can be used to sort collections by property name</value>
+  </data>
+  <data name="IQueryableExtensions_MethodDescriptions" xml:space="preserve">
+    <value>Paginate can be used to Skip and Take in one step. The various OrderBy and ThenBy methods can be used to sort collections by property name</value>
+  </data>
+  <data name="ItemsPerPage" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="LoadAssembly" xml:space="preserve">
+    <value>Load assembly</value>
+  </data>
+  <data name="LoadAssemblyDocumentation" xml:space="preserve">
+    <value>Load documentation for a .NET Extensions assembly</value>
+  </data>
+  <data name="LoadMemberInfoDocumentation" xml:space="preserve">
+    <value>Load documentation for any member of the current view model class</value>
+  </data>
+  <data name="LoadMethodInfoDocumentation" xml:space="preserve">
+    <value>Load documentation for any method in the current view model class</value>
+  </data>
+  <data name="LoadTypeDocumentation" xml:space="preserve">
+    <value>Load documentation for the current view model class (DemoModel)</value>
+  </data>
+  <data name="NExtra" xml:space="preserve">
+    <value>.NET Extensions</value>
+  </data>
+  <data name="NotDocumentedMember" xml:space="preserve">
+    <value>No documentation is specified for the selected member</value>
+  </data>
+  <data name="NotDocumentedMethod" xml:space="preserve">
+    <value>No documentation is specified for the selected method</value>
+  </data>
+  <data name="NotDocumentedType" xml:space="preserve">
+    <value>No documentation is specified for the selected type</value>
+  </data>
+  <data name="Nullable_TypeSummary" xml:space="preserve">
+    <value>This class can be used to make non-nullable reference types behave like nullable reference types, such as int? and bool?</value>
+  </data>
+  <data name="OrderBy" xml:space="preserve">
+    <value>Order by</value>
+  </data>
+  <data name="PageLinks" xml:space="preserve">
+    <value>page links</value>
+  </data>
+  <data name="PaginationContext_TypeSummary" xml:space="preserve">
+    <value>This class can handle the pagination for any IEnumerable or IQueryable collection. It can calculate the number of pages for collection, given a certain page size, and can also determine how it can be paginated, according to the current page number.</value>
+  </data>
+  <data name="SelectAssembly" xml:space="preserve">
+    <value>=== Select assembly ===</value>
+  </data>
+  <data name="SelectAssemblyToExtend" xml:space="preserve">
+    <value>Select an assembly to apply available extension methods on it</value>
+  </data>
+  <data name="SelectMember" xml:space="preserve">
+    <value>=== Select member ===</value>
+  </data>
+  <data name="SelectMethod" xml:space="preserve">
+    <value>=== Select method ===</value>
+  </data>
+  <data name="SendEmailWithMessage" xml:space="preserve">
+    <value>Send as message</value>
+  </data>
+  <data name="SendEmailWithParameters" xml:space="preserve">
+    <value>Send with params</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="ShowMax" xml:space="preserve">
+    <value>Show max</value>
+  </data>
+  <data name="TestClassNotDemoed" xml:space="preserve">
+    <value>This class can not be demoed here. Download the source code to see examples.</value>
+  </data>
+  <data name="ThenBy" xml:space="preserve">
+    <value>Then by</value>
+  </data>
+  <data name="ThisIsANav" xml:space="preserve">
+    <value>In the original source, this is a nav element</value>
+  </data>
+  <data name="TryItOut" xml:space="preserve">
+    <value>Try it out</value>
+  </data>
+  <data name="UsingTheViewModelClass" xml:space="preserve">
+    <value>using the view model class</value>
+  </data>
+  <data name="XmlDocumentationHandlerComment" xml:space="preserve">
+    <value>For methods and constructors, this demo will only retrieve documentation for the parameterless ones.  This is just due to laziness :)</value>
+  </data>
+</root>

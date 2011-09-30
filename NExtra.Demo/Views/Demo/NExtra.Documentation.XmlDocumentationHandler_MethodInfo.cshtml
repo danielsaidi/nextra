@@ -1,0 +1,55 @@
+﻿@model DemoModel
+
+@{
+    var methodInfoName = Request.QueryString["methodInfo"];
+    var output = Resources.Language.NotDocumentedMethod;
+    MemberInfo[] memberInfo = null;
+    
+    if (!methodInfoName.IsNullOrEmpty())
+    {
+        try
+        {
+            memberInfo = typeof(DemoModel).GetMember(methodInfoName);
+
+            var extractor = new XmlDocumentationHandler();
+            var documentation = extractor.ExtractMemberInfoXmlDocumentation(memberInfo[0]);
+            var sw = new StringWriter();
+            var xw = new XmlTextWriter(sw);
+            
+            documentation.WriteTo(xw);
+            output = sw.ToString();
+        }
+        catch {}
+    }
+}
+
+<p>@Html.GlobalResource(Resources.Language.LoadMethodInfoDocumentation):</p>
+
+<div class="container input">
+  <select id="selMethodInfo">
+    <option>@Html.GlobalResource(Resources.Language.SelectMethod)</option>
+    @foreach (var info in typeof(DemoModel).GetMethods()) {
+    <option @(methodInfoName == @info.Name ? "selected='selected'" : "")>@info.Name</option>
+    }
+  </select>
+  <button class="methodInfo">@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $('button.methodInfo').click(function () { location.href = '@Model.PostUrl?methodInfo=' + $('#selMethodInfo').val() });
+</script>
+
+@if (!methodInfoName.IsNullOrEmpty())
+{
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+    
+<div class="container code">
+<pre>
+var methodInfo = typeof(DemoModel).GetMember(@Json.Encode(methodInfoName));
+var extractor = new XmlDocumentationHandler();
+var documentation = extractor.ExtractMemberInfoXmlDocumentation(methodInfo[0]);
+
+//@Html.GlobalResource(Resources.Language.DocumentationOutput):
+@output</pre>
+</div>
+}

@@ -1,0 +1,34 @@
+﻿@model DemoModel
+
+@{ var converter = new Html5ElementConverter(); }
+
+@Model.GetTypeSummary(typeof(Html5ElementConverter))
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var converter = new Html5ElementConverter();
+
+converter.ConvertHtml("&lt;address&gt;test&lt;/address&gt;") => @converter.ConvertHtml("<address>test</address>")
+converter.ConvertHtml("&lt;time&gt;test&lt;/time&gt;") => @converter.ConvertHtml("<time>test</time>")
+
+converter.ConvertHtml("&lt;nav&gt;test&lt;/nav&gt;") => @converter.ConvertHtml("<nav>test</nav>")
+converter.ConvertHtml("&lt;section&gt;test&lt;/section&gt;") => @converter.ConvertHtml("<section>test</section>")
+converter.ConvertHtml("&lt;header&gt;test&lt;/header&gt;") => @converter.ConvertHtml("<header>test</header>")
+converter.ConvertHtml("&lt;aside&gt;test&lt;/aside&gt;") => @converter.ConvertHtml("<aside>test</aside>")
+converter.ConvertHtml("&lt;footer&gt;test&lt;/footer&gt;") => @converter.ConvertHtml("<footer>test</footer>")
+converter.ConvertHtml("&lt;article&gt;test&lt;/article&gt;") => @converter.ConvertHtml("<article>test</article>")
+converter.ConvertHtml("&lt;hgroup&gt;test&lt;/hgroup&gt;") => @converter.ConvertHtml("<hgroup>test</hgroup>")
+converter.ConvertHtml("&lt;figure&gt;test&lt;/figure&gt;") => @converter.ConvertHtml("<figure>test</figure>")
+converter.ConvertHtml("&lt;figcaption&gt;test&lt;/figcaption&gt;") => @converter.ConvertHtml("<figcaption>test</figcaption>")
+converter.ConvertHtml("&lt;dialog&gt;test&lt;/dialog&gt;") => @converter.ConvertHtml("<dialog>test</dialog>")
+converter.ConvertHtml("&lt;meter&gt;test&lt;/meter&gt;") => @converter.ConvertHtml("<meter>test</meter>")
+converter.ConvertHtml("&lt;progress&gt;test&lt;/progress&gt;") => @converter.ConvertHtml("<progress>test</progress>")
+converter.ConvertHtml("&lt;video&gt;test&lt;/video&gt;") => @converter.ConvertHtml("<video>test</video>")
+converter.ConvertHtml("&lt;audio&gt;test&lt;/audio&gt;") => @converter.ConvertHtml("<audio>test</audio>")
+converter.ConvertHtml("&lt;details&gt;test&lt;/details&gt;") => @converter.ConvertHtml("<details>test</details>")
+converter.ConvertHtml("&lt;datagrid&gt;test&lt;/datagrid&gt;") => @converter.ConvertHtml("<datagrid>test</datagrid>")
+converter.ConvertHtml("&lt;menu&gt;test&lt;/menu&gt;") => @converter.ConvertHtml("<menu>test</menu>")
+converter.ConvertHtml("&lt;command&gt;test&lt;/command&gt;") => @converter.ConvertHtml("<command>test</command>")</pre>
+</div>

@@ -1,0 +1,23 @@
+@model DemoModel
+
+@Model.GetTypeSummary(typeof(NExtra.Mvc.Testing.ControllerExtensions))
+
+<p>@Html.GlobalResource(Resources.Language.ControllerExtensions_Testing_MethodDescription)</p>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+[Test]
+public void NUnitTestThatTestsAControllerActionWithModelValidationYeahYeah()
+{
+    var controller = new BlogController();
+    var blogPost = new BlogPost();
+
+    var result = (ViewResult)controller.CallWithModelValidation(c => c.Create(blogPost), blogPost);
+    
+    Assert.That(result.ViewData.Model, Is.EqualTo(blogPost));
+    Assert.That(result.ViewData.ModelState.IsValid, Is.False);
+    Assert.That(result.ViewData.ModelState["Name"].Errors[0].ErrorMessage, Is.EqualTo("A blog post must have a title"));
+}</pre>
+</div>

@@ -1,0 +1,22 @@
+﻿@model DemoModel
+
+@{
+    var remover = new HtmlRemover();
+    var html = "<table><tr><td><p><span>Test</span></p></td></tr></table>";
+}
+
+@Model.GetTypeSummary(typeof(HtmlRemover))
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var remover = new HtmlRemover();
+var html = "&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;&lt;span&gt;Test&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+var list = new List&lt;string&gt;{"p","span"};
+
+remover.RemoveHtml(html)                => "@remover.RemoveHtml(html)"
+remover.RemoveHtmlElement(html, "span") => "@remover.RemoveHtmlElement(html, "span")"
+remover.RemoveHtmlElements(html, list)  => "@remover.RemoveHtmlElements(html, new List<string>{"p","span"})"
+remover.RemoveHtmlTableElements(html)   => "@remover.RemoveHtmlTableElements(html)"</pre>
+</div>

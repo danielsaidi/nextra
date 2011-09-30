@@ -1,0 +1,10 @@
+_ReSharper*
+
+*.ReSharper.user
+
+*.user
+*.suo
+
+**/.git
+**/bin
+**/obj

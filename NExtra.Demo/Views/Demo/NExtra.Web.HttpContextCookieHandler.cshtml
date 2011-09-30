@@ -1,0 +1,49 @@
+﻿@model DemoModel
+
+@{
+    var nameQuery = Request.QueryString["name"];
+    var valueQuery = Request.QueryString["value"];
+
+    var name = nameQuery.IsNullOrEmpty() ? "defaultCookie" : nameQuery;
+    var value = valueQuery.IsNullOrEmpty() ? "" : valueQuery;
+
+    var handler = new HttpContextCookieHandler();
+
+    if (!value.IsNullOrEmpty()) {
+        handler.SetCookieValue(name, value, DateTime.Now.AddMinutes(10));
+    }
+}
+
+@Model.GetTypeSummary(typeof(HttpContextCookieHandler))
+
+<p>@Html.GlobalResource(Resources.Language.EnterCookieNameAndValue):</p>
+
+<div class="container input two">
+  <input type="text" id="txtName" value="@nameQuery" />
+  <input type="text" id="txtValue" value="@valueQuery" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtName").watermark("@Resources.Language.EnterCookieName");
+    $("#txtValue").watermark("@Resources.Language.EnterCookieValue");
+    $('button').click(function () { location.href = '@Model.PostUrl?name=' + $('#txtName').val() + '&value=' + $('#txtValue').val() });
+</script>
+
+@if (!value.IsNullOrEmpty()) {
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var name = @Json.Encode(name);
+var value = @Json.Encode(value);
+
+var handler = new HttpContextCookieHandler();
+handler.SetCookieValue(name, value, DateTime.Now.AddMinutes(10));
+
+handler.CookieExists(name)           => @handler.CookieExists(name)
+handler.GetCookie(name)              => @Json.Encode(handler.GetCookie(name))
+handler.GetCookieValue(name)         => @Json.Encode(handler.GetCookieValue<string>(name))
+handler.GetCookieValue&lt;string&gt;(name) => @Json.Encode(handler.GetCookieValue(name))</pre>
+</div>
+}

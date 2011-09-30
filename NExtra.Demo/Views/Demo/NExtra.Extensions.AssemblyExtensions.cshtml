@@ -1,0 +1,68 @@
+﻿@model DemoModel
+
+@{
+    var assemblyName = Request.QueryString["value"];
+    var assembly = assemblyName.IsNullOrEmpty()
+        ? null
+        : ViewBag.DemoAssemblies.Where(x => x.GetName().Name == assemblyName).FirstOrDefault();
+}
+
+@Model.GetTypeSummary(typeof(AssemblyExtensions))
+
+<p>@Html.GlobalResource(Resources.Language.SelectAssemblyToExtend):</p>
+
+<div class="container input">
+  <select id="selAssembly">
+    @foreach (var ass in ViewBag.DemoAssemblies)
+    {
+    <option @(ass == assembly ? "selected='selected'" : "")>@ass.GetName().Name</option>
+    }
+  </select>
+  <button class="assembly">@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $('button.assembly').click(function () { location.href = '@Model.PostUrl?value=' + $('#selAssembly').val() });
+</script>
+
+@if (assembly != null)
+{
+    var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+    
+    var namespaces = assembly.GetNamespaces();
+    var namespaceTypes = assembly.GetNamespaceTypes(namespaces[0]);
+    var namespaceTypesNames = namespaceTypes.Select(type => type.Name).ToList();
+    var typesThatInherit = assembly.GetTypesThatInherit(typeof(RegularExpressionAttribute)).Select(type => type.Name).ToList();
+    var typesThatImplement = assembly.GetTypesThatImplement(typeof(ICanExtractAssemblyXmlDocumentation)).Select(type => type.Name).ToList();
+
+    var allTypesThatInherit = allAssemblies.GetTypesThatInherit(typeof(RegularExpressionAttribute)).Select(type => type.Name).ToList();
+    var allTypesThatImplement = allAssemblies.GetTypesThatImplement(typeof(ICanExtractAssemblyXmlDocumentation)).Select(type => type.Name).ToList();
+    
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+    
+<div class="container code">
+  <pre>
+var assembly = Assembly.Load(@assemblyName);
+var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+assembly.GetCompanyName()     => @Json.Encode(assembly.GetCompanyName())
+assembly.GetCopyrightHolder() => @Json.Encode(assembly.GetCopyrightHolder())
+assembly.GetDescription()     => @Json.Encode(assembly.GetDescription())
+assembly.GetProductName()     => @Json.Encode(assembly.GetProductName())
+assembly.GetTitle()           => @Json.Encode(assembly.GetTitle())
+assembly.GetVersion()         => @assembly.GetVersion()
+
+assembly.GetNamespaces()      => @Json.Encode(namespaces)}
+assembly.GetNamespaceTypes(assembly.GetNamespaces()[0])
+                              => @Json.Encode(namespaceTypesNames)}
+assembly.GetTypesThatInherit(typeof(RegularExpressionAttribute))
+                              => @Json.Encode(typesThatInherit)}
+assembly.GetTypesThatImplement(typeof(ICanExtractAssemblyXmlDocumentation))
+                              => @Json.Encode(typesThatImplement)}         
+allAssemblies.GetTypesThatInherit(typeof(RegularExpressionAttribute))
+                              => @Json.Encode(allTypesThatInherit)}
+allAssemblies.GetTypesThatImplement(typeof(ICanExtractAssemblyXmlDocumentation))
+                              => @Json.Encode(allTypesThatImplement)}
+
+</div>
+}

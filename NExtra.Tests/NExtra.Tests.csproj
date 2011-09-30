@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1879A65-F761-4AE0-A621-22AC5CD58B41}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NExtra.Tests</RootNamespace>
+    <AssemblyName>NExtra.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NSubstitute">
+      <HintPath>..\Lib\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="EventArgsBehavior.cs" />
+    <Compile Include="Extensions\IDictionaryExtensionsBehavior.cs" />
+    <Compile Include="Extensions\WebRequestExtensionsBehavior.cs" />
+    <Compile Include="Localization\HierarchicalResourceManagerFacadeBehavior.cs" />
+    <Compile Include="ValidationAttributes\MinLengthAttributeBehavior.cs" />
+    <Compile Include="ValidationAttributes\IpAddressAttributeBehavior.cs" />
+    <Compile Include="ValidationAttributes\EmailAddressAttributeBehavior.cs" />
+    <Compile Include="ValidationAttributes\GuidAttributeBehavior.cs" />
+    <Compile Include="ValidationAttributes\SwedishPostalCodeAttributeBehavior.cs" />
+    <Compile Include="ValidationAttributes\SwedishSsnAttributeBehavior.cs" />
+    <Compile Include="ValidationAttributes\UrlAttributeBehavior.cs" />
+    <Compile Include="Extensions\AssemblyExtensionsBehavior.cs" />
+    <Compile Include="Extensions\StructExtensionsBehavior.cs" />
+    <Compile Include="Extensions\ObjectExtensionsBehavior.cs" />
+    <Compile Include="Extensions\StringCollectionExtensionsBehavior.cs" />
+    <Compile Include="Extensions\EnumExtensionsBehavior.cs" />
+    <Compile Include="Extensions\IQueryableExtensionsBehavior.cs" />
+    <Compile Include="Extensions\IEnumerableExtensionsBehavior.cs" />
+    <Compile Include="Facades\FacadeBaseBehavior.cs" />
+    <Compile Include="Geo\AngleConverterBehavior.cs" />
+    <Compile Include="Geo\DistanceConverterBehavior.cs" />
+    <Compile Include="Geo\PositionHandlerBehavior.cs" />
+    <Compile Include="IO\FileSizePresenterBehavior.cs" />
+    <Compile Include="NullableBehavior.cs" />
+    <Compile Include="Extensions\IntExtensionsBehavior.cs" />
+    <Compile Include="Extensions\DateTimeExtensionsBehavior.cs" />
+    <Compile Include="Extensions\IComparableExtensionsBehavior.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pagination\PaginationContextBehavior.cs" />
+    <Compile Include="Extensions\StringExtensionsBehavior.cs" />
+    <Compile Include="Extensions\UriExtensionsBehavior.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NExtra\NExtra.csproj">
+      <Project>{0366F0F5-D14B-4262-A862-EFDE39CA68F2}</Project>
+      <Name>NExtra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

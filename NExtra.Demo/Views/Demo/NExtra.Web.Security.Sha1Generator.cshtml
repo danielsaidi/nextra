@@ -1,0 +1,29 @@
+﻿@model DemoModel
+
+@{
+    var generator = new Sha1Generator();
+    var value = Request.QueryString["value"] == null ? "" : Request.QueryString["value"];
+}
+
+@Model.GetTypeSummary(typeof(Sha1Generator))
+
+<p>@Html.GlobalResource(Resources.Language.EnterValueToHash):</p>
+
+<div class="container input">
+  <input type="text" id="txtValue" value="@value" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterValue)");
+    $('button').click(function () { location.href = '@Model.PostUrl?value=' + $('#txtValue').val() });
+</script>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var generator = new Sha1Generator();
+
+generator.GenerateHashValue("@value") => @Json.Encode(generator.GenerateHashValue(value))</pre>
+</div>

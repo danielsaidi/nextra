@@ -1,0 +1,10 @@
+@model DemoModel
+
+@Model.GetTypeSummary(typeof(XmlDocumentationHandler))
+
+<p>@Html.GlobalResource(Resources.Language.XmlDocumentationHandlerComment)</p>
+
+@{ Html.RenderPartial("NExtra.Documentation.XmlDocumentationHandler_Assembly"); }
+@{ Html.RenderPartial("NExtra.Documentation.XmlDocumentationHandler_Type"); }
+@{ Html.RenderPartial("NExtra.Documentation.XmlDocumentationHandler_MemberInfo"); }
+@{ Html.RenderPartial("NExtra.Documentation.XmlDocumentationHandler_MethodInfo"); }

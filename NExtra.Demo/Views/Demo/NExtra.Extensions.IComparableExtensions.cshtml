@@ -1,0 +1,36 @@
+﻿@model DemoModel
+
+@{
+    var value = Request.QueryString["value"] ?? String.Empty;
+    var minValue = Request.QueryString["minValue"] ?? String.Empty;
+    var maxValue = Request.QueryString["maxValue"] ?? String.Empty;
+    var result = value.Limit(minValue, maxValue);
+}
+
+@Model.GetTypeSummary(typeof(IComparableExtensions))
+
+<p>@Html.GlobalResource(Resources.Language.IComparableExtensions_LimitDescription):</p>
+
+<div class="container input three">
+  <input type="text" id="txtMin" value="@minValue" />
+  <input type="text" id="txtMax" value="@maxValue" />
+  <input type="text" id="txtValue" value="@value" />
+  <script type="text/javascript"></script>
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtMin").watermark("@Html.GlobalResource(Resources.Language.EnterMinValue)");
+    $("#txtMax").watermark("@Html.GlobalResource(Resources.Language.EnterMaxValue)");
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterLimitValue)");
+    $('button').click(function () { location.href = '@Model.PostUrl?value=' + $('#txtValue').val() + '&minValue=' + $('#txtMin').val() + '&maxValue=' + $('#txtMax').val(); });
+</script>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var value = @Json.Encode(value);
+
+value.Limit(@Json.Encode(minValue), @Json.Encode(maxValue)) => @Json.Encode(value.Limit(minValue, maxValue));</pre>
+</div>

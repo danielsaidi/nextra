@@ -1,0 +1,10 @@
+﻿@model DemoModel
+
+@Model.GetTypeSummary(typeof(DistanceUnit))
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+Enum.GetNames(typeof(DistanceUnit)) => @Json.Encode(Enum.GetNames(typeof(DistanceUnit)))</pre>
+</div>

@@ -1,0 +1,51 @@
+﻿@model DemoModel
+
+@{
+    var sender = new EmailNonSender();
+    var fromName = Resources.Language.EmailFromName;
+    var fromMail = Resources.Language.EmailFromMail;
+    var toMail = Request.QueryString["toMail"] == null ? "" : Request.QueryString["toMail"];
+    var subject = Resources.Language.EmailNonSenderSubject;
+    var body = Resources.Language.EmailNonSenderBody;
+    var sendAsMessage = Request.QueryString["asMessage"] != null;
+    
+    if (!toMail.IsNullOrEmpty())
+    {
+        if (sendAsMessage) { sender.SendEmail(new MailMessage(fromMail, toMail, subject, body)); }
+        else { sender.SendEmail(fromName, fromMail, toMail, subject, body); }
+    }
+}
+
+@Model.GetTypeSummary(typeof(EmailNonSender))
+
+<p>@Html.GlobalResource(Resources.Language.EnterValueToSimulateEmail):</p>
+
+<div class="container input short">
+  <input type="text" id="txtEmail" value="@toMail" />
+  <button>@Html.GlobalResource(Resources.Language.SendEmailWithParameters)</button>
+  <button title="&asMessage=1">@Html.GlobalResource(Resources.Language.SendEmailWithMessage)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtEmail").watermark("@Html.GlobalResource(Resources.Language.EnterYourEmail )");
+    $('button').click(function () { location.href = '@Model.PostUrl?toMail=' + $('#txtEmail').val() + $(this).attr("title") });
+</script>
+
+@if (!toMail.IsNullOrEmpty()) {
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+    <pre>
+var sender = new EmailNonSender();
+var fromName = "@fromName";
+var fromMail = "@fromMail";
+var toMail = "@toMail";
+var subject = "@subject";
+var body = "@body";
+
+@if (sendAsMessage) {<text>sender.SendEmail(new MailMessage(fromMail, toMail, subject, body));</text>}
+else {<text>sender.SendEmail(fromName, fromMail, toMail, subject, body);</text>}</pre>
+</div>
+
+<p>@Html.GlobalResource(Resources.Language.CheckSpamBox)</p>
+}

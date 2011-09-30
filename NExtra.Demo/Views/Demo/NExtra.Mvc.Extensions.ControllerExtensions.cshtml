@@ -1,0 +1,11 @@
+@model DemoModel
+
+@Model.GetTypeSummary(typeof(NExtra.Mvc.Extensions.ControllerExtensions))
+
+<p>@Html.GlobalResource(Resources.Language.ControllerExtensions_MethodDescription)</p>
+
+<div class="container code">
+  <pre>
+this.Action  => @Json.Encode(Model.ActionName);
+this.Name    => @Json.Encode(Model.ControllerName);</pre>
+</div>

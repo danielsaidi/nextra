@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.EpiServer", "NExtra.EpiServer\NExtra.EpiServer.csproj", "{FC896362-8BDC-4DF5-B879-E8DECAF54EB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.EPiServer.Tests", "NExtra.EPiServer.Tests\NExtra.EPiServer.Tests.csproj", "{92A70C14-D67A-4B73-BA8A-F2AE3EC261C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC896362-8BDC-4DF5-B879-E8DECAF54EB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC896362-8BDC-4DF5-B879-E8DECAF54EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC896362-8BDC-4DF5-B879-E8DECAF54EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC896362-8BDC-4DF5-B879-E8DECAF54EB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A70C14-D67A-4B73-BA8A-F2AE3EC261C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A70C14-D67A-4B73-BA8A-F2AE3EC261C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A70C14-D67A-4B73-BA8A-F2AE3EC261C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A70C14-D67A-4B73-BA8A-F2AE3EC261C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+﻿@model DemoModel
+
+@Model.GetTypeSummary(typeof(LocalResourceHelper))
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+@@Html.LocalResource(this, "Test") => "@Html.LocalResource(this, "Test")"</pre>
+</div>

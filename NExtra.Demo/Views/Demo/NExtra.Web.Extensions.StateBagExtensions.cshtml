@@ -1,0 +1,35 @@
+﻿@model DemoModel
+
+@{
+    var query = Request.QueryString["value"];
+    var value = query.IsNullOrEmpty(false) ? "" : query;
+
+    var stateBag = new StateBag();
+    stateBag.Set("value", value);
+}
+
+@Model.GetTypeSummary(typeof(StateBagExtensions))
+
+<p>@Html.GlobalResource(Resources.Language.EnterStringToAddToStateBag):</p>
+
+<div class="container input">
+  <input type="text" id="txtValue" value="@query" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterValue)");
+    $('button').click(function () { location.href = '@Model.PostUrl?value=' + $('#txtValue').val() + '&spacer' });
+</script>
+
+<p>@Html.GlobalResource(Resources.Language.CodeSample):</p>
+
+<div class="container code">
+  <pre>
+var stateBag = new StateBag();
+
+stateBag.Set("value", @Json.Encode(value));
+
+stateBag.Get&lt;string&gt;("value", "fallback")    => @Json.Encode(stateBag.Get<string>("value", "fallback"))
+stateBag.Get&lt;string&gt;("nonValue", "fallback") => @Json.Encode(stateBag.Get<string>("nonValue", "fallback"))</pre>
+</div>
