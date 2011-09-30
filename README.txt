@@ -36,14 +36,12 @@ but that you are more than welcome spread the word.
 Documentation
 =============
 
-The solution is fully documented and uses Doxygen to extract
-a HTML documentation for each new release. The documentation
-can be found at my personal web site:
+The solution  documentation can be found at my personal site:
 
     >> http://saidi.se/doc/nextra
 	
-If I haven't updated the documentation for a certain release,
-send me an e-mail and I'll do it asap.
+If I haven't updated the documentation for a new release, be
+a doll and send me an e-mail, and I'll do it asap.
 
 
 
