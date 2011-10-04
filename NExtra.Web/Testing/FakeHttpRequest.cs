@@ -10,6 +10,7 @@ namespace NExtra.Web.Testing
     {
         private readonly bool isAuthenticated;
         private readonly Uri url;
+        private Uri urlReferrer;
 
 
         ///<summary>
@@ -47,6 +48,25 @@ namespace NExtra.Web.Testing
         public override Uri Url
         {
             get { return url; }
+        }
+
+        /// <summary>
+        /// The URL of the request.
+        /// </summary>
+        public override Uri UrlReferrer
+        {
+            get { return urlReferrer; }
+        }
+
+
+
+        /// <summary>
+        /// Set a new value for the UrlReferrer property.
+        /// </summary>
+        /// <param name="newValue">The new value to set.</param>
+        public void SetUrlReferrer(Uri newValue)
+        {
+            urlReferrer = newValue;
         }
     }
 }

@@ -112,6 +112,16 @@ namespace NExtra.Web.Security.Abstractions
         MembershipUser CreateUser(string userName, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status);
 
         /// <summary>
+        /// Create a new membership user.
+        /// </summary>
+        /// <param name="userName">The user name.</param>
+        /// <param name="password">The user password.</param>
+        /// <param name="email">The user's e-mail address.</param>
+        /// <param name="isApproved">Whether or not the user should be approved from start.</param>
+        /// <returns>The creation result.</returns>
+        MembershipCreateStatus CreateUser(string userName, string password, string email, bool isApproved);
+
+        /// <summary>
         /// Delete a certain user.
         /// </summary>
         /// <param name="userName">The name of the user to delete.</param>

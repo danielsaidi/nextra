@@ -157,6 +157,21 @@ namespace NExtra.Web.Security
         }
 
         /// <summary>
+        /// Create a new membership user.
+        /// </summary>
+        /// <param name="userName">The user name.</param>
+        /// <param name="password">The user password.</param>
+        /// <param name="email">The user's e-mail address.</param>
+        /// <param name="isApproved">Whether or not the user should be approved from start.</param>
+        /// <returns>The creation result.</returns>
+        public MembershipCreateStatus CreateUser(string userName, string password, string email, bool isApproved)
+        {
+            MembershipCreateStatus result;
+            Membership.CreateUser(userName, password, email, string.Empty, string.Empty, isApproved, null, out result);
+            return result;
+        }
+
+        /// <summary>
         /// Delete a certain user.
         /// </summary>
         /// <param name="userName">The name of the user to delete.</param>
