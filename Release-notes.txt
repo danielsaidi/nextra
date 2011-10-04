@@ -43,6 +43,14 @@ have to write when creating model-bound forms in ASP.NET MVC.
 I have also added some other HTML helpers - the Conditional helper,
 which is generic, can be used to output one of two possible values
 depending on a boolean expression.
+
+The MemberrshipService has been extended, and now provides several
+new methods so that it serves as a facade class for the Membership
+as well as the MembershipUser class. Use it if you must modify the
+way the class behaves, or when you need to unit test functionality
+that uses it. Some properties and methods are left out, since I do
+not think that they are that interesting. Let me know if you think
+differently. The old IMembershipFacade is deleted.
 	
 The new NExtra.Logging namespace contains a few new classes, enums
 and interfaces that can be used when working with logging. For now,
@@ -54,11 +62,9 @@ native EventArgs class. Use it to add a typed object with your arg.
 
 The new NExtra.Extensions.IDictionaryExtensions class has a couple
 of handy extension methods. The new WebRequestExtensions class can
-be used to simplify working with web requests.
-
-The old NExtra.Extensions.UriExtensions class has a new Uri-
-based GetRootUri method that will replace the old Root method. The
-old Root() method is now marked as obsolete.
+be used to work with webrequests. Finally, the UriExtensions class
+has a new Uri-based GetRootUri method. It replaces the old string-
+based Root method, which is now marked as obsolete.
 
 
 
