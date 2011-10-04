@@ -39,6 +39,10 @@ form element (EditorFor, TextAreaFor etc.) in a structure with one
 div with a LabelFor and one with the provided editor as well as an
 editor-bound ValidationMessageFor. It can reduce the code that you
 have to write when creating model-bound forms in ASP.NET MVC.
+
+I have also added some other HTML helpers - the Conditional helper,
+which is generic, can be used to output one of two possible values
+depending on a boolean expression.
 	
 The new NExtra.Logging namespace contains a few new classes, enums
 and interfaces that can be used when working with logging. For now,

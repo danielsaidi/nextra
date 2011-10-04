@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,7 +53,8 @@
     <Compile Include="ActionFilters\OutputModelAttribute.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\WebViewPageExtensions.cs" />
-    <Compile Include="HtmlHelpers\BlockForHelper.cs" />
+    <Compile Include="HtmlHelpers\FormBlockForHelper.cs" />
+    <Compile Include="HtmlHelpers\ConditionalHelper.cs" />
     <Compile Include="HtmlHelpers\GlobalResourceHelper.cs" />
     <Compile Include="HtmlHelpers\ResourceStringHelper.cs" />
     <Compile Include="HtmlHelpers\LocalResourceHelper.cs" />

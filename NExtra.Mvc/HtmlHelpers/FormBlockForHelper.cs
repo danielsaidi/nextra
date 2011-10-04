@@ -8,17 +8,21 @@ using System.Web.Mvc.Html;
 namespace NExtra.Mvc.HtmlHelpers
 {
     /// <summary>
-    /// This class is used by the various BlockFor helpers. It is used
-    /// to generate general markup that surrounds the editor component.
+    /// This class can be used to generate a form block for a
+    /// model expression. It will embed an editor, such as an
+    /// EditorFor, a TextBoxFor etc. in a div structure, with
+    /// a LabelFor within an editor-label div, as well as the
+    /// editor as well as a ValidationMessageFor in an editor-
+    /// field div.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public static class BlockForHelper
+    public static class FormBlockForHelper
     {
         /// <summary>
-        /// Generate an editor block.
+        /// Generate a form block.
         /// </summary>
         /// <typeparam name="TModel">Model type.</typeparam>
         /// <typeparam name="TValue">Value type.</typeparam>
