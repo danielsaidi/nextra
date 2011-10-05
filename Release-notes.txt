@@ -12,21 +12,25 @@ Blog:		http://danielsaidi.wordpress.com
 NExtra 2.4.0.0		2011-10-01
 ==============================
 
-From now on, the .NET Extensions project is renamed to NExtra. The
-project will be hosted on GitHub instead of Google Code.
+So many new stuff and a brand new project name. I think this calls
+for a small version leap.
 
-I change the name to NExtra, since .NET Extensions is very general
-and says nothing about the library at all, except giving the wrong
-impression that it only contains extension methods.
+What about the new project name? From now on, the project has been
+renamed to NExtra. The project will be hosted on GitHub instead of
+Google Code.
 
-I have decided to switch from Google Code to GitHub, since I enjoy
-working with git and find GitHub to be a better alternative for my
-various source code projects. Google Code has been great, but it's
-time to move on.
+I decided to change the name to NExtra, since .NET Extensions is a
+very general name that says nothing about the library, except give
+the wrong impression that it only contains extension methods.
+
+I decided to switch from Google Code to GitHub since I host almost
+all of my other personal projects there. Google Code has been (and
+is still) great, but it is time to standardize how I host projects.
 
 I have updated the URLs at the top of this file with new addresses.
 I will wait with removing the old Google Code project until I have
 changed this info at my blog, my personal web site etc.
+
 
 But what about the news?
 
@@ -59,6 +63,15 @@ when facading log4net in various projects.
 
 The new generic NExtra.EventArgs class is a generic version of the
 native EventArgs class. Use it to add a typed object with your arg.
+
+The new IConsole and ConsoleFacade classes are, so far, small, and
+only contains two write methods for working towards the Console. I
+use them in a project, but they should probably be extended in the 
+future. Use them if you need to abstract working with the console.
+
+The new Diagnostics.ProcessFacade class and its interface are also
+new tools for working toward Process. I use them in a project. Use
+them if you need to abstract working with processes.
 
 The new NExtra.Extensions.IDictionaryExtensions class has a couple
 of handy extension methods. The new WebRequestExtensions class can
