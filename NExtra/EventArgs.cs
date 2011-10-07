@@ -6,11 +6,11 @@ namespace NExtra
     /// This class is a generic version of the native System.EventArgs.
     /// It embeds an object that can be accessed within a raised event.
     /// </summary>
-    /// <typeparam name="T">The type to embed.</typeparam>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
+    /// <typeparam name="T">The type to embed.</typeparam>
     public class EventArgs<T> : EventArgs
     {
         /// <summary>

@@ -46,5 +46,22 @@ namespace NExtra.Tests.Extensions
 
             Assert.That(obj.Count, Is.EqualTo(4));
         }
+
+
+        [Test, ExpectedException(typeof(KeyNotFoundException))]
+        public void Get_ShouldFailForNonExistingValye()
+        {
+            var result = obj.Get("foobar");
+
+            Assert.That(result, Is.Null);
+        }
+
+        [Test]
+        public void Get_ShouldReturnExistingValue()
+        {
+            var result = obj.Get("foo");
+
+            Assert.That(result, Is.EqualTo("bar"));
+        }
     }
 }

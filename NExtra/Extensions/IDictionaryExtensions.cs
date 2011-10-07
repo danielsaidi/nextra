@@ -15,16 +15,20 @@ namespace NExtra.Extensions
         ///<summary>
         /// Add a range of items to a dictionary.
         ///</summary>
-        ///<param name="dictionary">The dictionary to add the range to.</param>
-        ///<param name="range">The range of items to add.</param>
-        ///<typeparam name="T">The key type.</typeparam>
-        ///<typeparam name="K">The value type.</typeparam>
         public static void AddRange<T, K>(this IDictionary<T, K> dictionary, IDictionary<T, K> range)
         {
             foreach (var dictionaryEntry in range.Where(dictionaryEntry => !dictionary.ContainsKey(dictionaryEntry.Key)))
             {
                 dictionary.Add(dictionaryEntry);
             }
+        }
+        
+        /// <summary>
+        /// Retrieve a value from the dictionary.
+        /// </summary>
+        public static K Get<T, K>(this IDictionary<T, K> dictionary, T key)
+        {
+            return dictionary[key];
         }
     }
 }

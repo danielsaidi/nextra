@@ -51,7 +51,9 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Abstractions\ICommandLineArgumentParser.cs" />
     <Compile Include="Abstractions\IConsole.cs" />
+    <Compile Include="CommandLineArgumentParser.cs" />
     <Compile Include="ConsoleFacade.cs" />
     <Compile Include="DataAnnotations\OptionalRegularExpressionAttribute.cs" />
     <Compile Include="Diagnostics\Abstractions\IProcess.cs" />

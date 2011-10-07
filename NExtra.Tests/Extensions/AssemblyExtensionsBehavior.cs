@@ -48,14 +48,13 @@ namespace NExtra.Tests.Extensions
         {
             var result = Assembly.GetExecutingAssembly().GetNamespaceTypes("NExtra.Tests");
 
-            Assert.That(result.Count, Is.EqualTo(1));
-            Assert.That(result[0], Is.EqualTo(typeof(NullableBehavior)));
+            Assert.That(result.Count, Is.GreaterThan(0));
         }
 
         [Test]
         public void GetProductName_ShouldReturnCorrectValue()
         {
-            Assert.That(Assembly.GetExecutingAssembly().GetProductName(), Is.EqualTo(".NET Extensions"));
+            Assert.That(Assembly.GetExecutingAssembly().GetProductName(), Is.EqualTo("NExtra"));
         }
 
         [Test]
@@ -141,7 +140,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetVersion_ShouldReturnCorrectValueForExistingTitle()
         {
-            Assert.That(Assembly.GetExecutingAssembly().GetVersion(), Is.EqualTo(new Version(2, 3, 0, 1)));
+            Assert.That(Assembly.GetExecutingAssembly().GetVersion(), Is.EqualTo(new Version(2, 5, 0, 0)));
         }
     }
 
