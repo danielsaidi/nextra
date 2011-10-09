@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -78,10 +78,10 @@
     <Compile Include="Security\Abstractions\IRoleService.cs" />
     <Compile Include="Security\FormsAuthenticationService.cs" />
     <Compile Include="Security\Md5Generator.cs" />
-    <Compile Include="Security\MembershipService.cs">
+    <Compile Include="Security\MembershipFacade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Security\RoleService.cs" />
+    <Compile Include="Security\RolesFacade.cs" />
     <Compile Include="Security\Sha1Generator.cs" />
     <Compile Include="SyndicationFeedLoader.cs" />
     <Compile Include="Testing\FakeMembershipUser.cs" />

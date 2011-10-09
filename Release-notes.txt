@@ -62,10 +62,10 @@ They should probably be extended as well.
 I have added some extension classes to NExtra.Extensions, and have
 added methods to already existing classes.
 
-The NExtra.Web.Security.MembershipService has been extended and is
-now a better facade for Membership and MembershipUser. Use it when
-you want modify the way the class behaves or when you need to unit
-test functionality that uses it.
+The NExtra.Web.Security.MembershipFacade has been extended to be a
+more complete facade for the Membership and MembershipUser classes
+than it was before. Use it when you have to change how the classes
+behaves or when you need to unit test functionality that uses it.
 
 The new NExtra.Mvc.HtmlHelpers.FormBlockForHelper class can wrap a
 form element (EditorFor, TextAreaFor etc.) in a structure with one
