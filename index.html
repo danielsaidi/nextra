@@ -32,15 +32,26 @@
 <body>
 	<a href="http://github.com/danielsaidi/NExtra"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>
 	
-	<header>
-		<div class="content">
-			<a href="">
-				<img src="content/img/logo.png" />
-			</a>
+	<div class="header">
+		<div class="content two-col">
+			<div>
+				<a href="">
+					<img src="content/img/logo.png" alt=".NExtra logotype" />
+				</a>
+			</div>
+			<div class="aside">
+				<ul>
+					<li class="selected">Home</li>
+					<li><a href="http://github.com/danielsaidi/NExtra">Code</a></li>
+					<li><a href="http://danielsaidi.wordpress.com">Blog</a></li>
+					<li><a href="javascript:alert('Coming soon!')">Demos</a></li>
+					<li><a href="mailto:daniel.saidi@gmail.com">Support</a></li>
+				</ul>
+			</div>
 		</div>	
-	</header>
+	</div>
 	
-	<article>
+	<div class="article">
 		<div>
 			<div class="content">
 				<div class="shadow">
@@ -50,31 +61,88 @@
 							<h2>.NExtra is a library project with extended functionality to the .NET Framework.</h2>
 							<p>The library contains utilities, extension methods, various stuff for MVC, WPF, Web Forms, Windows Forms etc.</p>
 						</div>
-						<aside>
+						<div class="aside">
 							<h3>Download the latest version</h3>
 							<a href="http://github.com/danielsaidi/NExtra/downloads" class="button">
 								Download .NExtra <span id="version"></span>
 							</a>
 							<p>..or grab it directly from Visual Studio, using <a href="http://nuget.org/">NuGet</a></p>
-						</aside>
+						</div>
 					</div>
 					
 					<hr />
 					
-					<div class="three-col">
-						<aside>Left</aside>
-						<div>Middle</div>
-						<aside>Right</aside>
-					</div>					
+					<div class="three-col cred-buttons">
+						<div class="aside">
+							Hosted at:<br/>
+							<div class="cred-button">
+								<a href="http://github.com/NExtra" title="Go to the .NExtra GitHub project site"><img src="content/img/github.png" alt="GitHub logo" /></a>
+							</div>
+						</div>
+						<div class="middle">
+							Powered by:
+							<div class="cred-button">
+								<a href="http://www.microsoft.com/net" title="Read more about the .NET Framework"><img src="content/img/dotnet.png" alt=".NET logo" /></a>
+							</div>
+						</div>
+						<div class="aside">
+							Funded by...you:
+							<div class="cred-button">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+									<input type="hidden" name="cmd" value="_s-xclick">
+									<input type="hidden" name="hosted_button_id" value="2RNW6KTUYD2EA">
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<hr />
+					
+					<div class="share-buttons fc">
+						<div class="twitter">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-text=".NExtra is a library with extended functionality for the .NET Framework. Check it out! http://danielsaidi.github.com/NExtra #dotnet #dotnextra" data-count="horizontal" data-via="danielsaidi">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+						</div>
+						
+						<div class="googleplus">
+							<g:plusone></g:plusone>
+						</div>
+						
+						<div class="facebook">
+							<div id="fb-root"></div>
+							<script>(function(d, s, id) {
+							  var js, fjs = d.getElementsByTagName(s)[0];
+							  if (d.getElementById(id)) {return;}
+							  js = d.createElement(s); js.id = id;
+							  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+							  fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));</script>
+							<div class="fb-like" data-href="http://danielsaidi.github.com/NExtra" data-send="true" data-width="450" data-layout="button_count" data-show-faces="false"></div>
+						</div>
+					</div>
+					
+					<hr/>
+					
+					<div class="license">
+						Cloney is released under the <a href="http://www.opensource.org/licenses/mit-license.php" title="Read more about the MIT license">MIT license</a>, which means that you can do much about anything you want with it.
+					</div>
+					
 				</div>
 			</div>
 		</div>
-	</article>
+	</div>
 	
-	<footer>
-		<div class="content">
+	<div class="footer">
+		<div class="content two-col">
+			<div>© Copyright 2011 by <a href="http://www.saidi.se" title="Visit the developer web site">Daniel Saidi</a></div>
+			<div class="aside">
+				<a href="http://github.com/NExtra" title="Go to the .NExtra project site">Project site</a> ∙ 
+				<a href="http://github.com/NExtra/Downloads" title="Go to the .NExtra download section">Downloads</a> ∙ 
+				<a href="http://github.com/NExtra/Issues" title="Report an .NExtra related issue">Report an issue</a>
+			</div>
 		</div>
-  </footer>
+	</div>
 </body>
 
 </html>
