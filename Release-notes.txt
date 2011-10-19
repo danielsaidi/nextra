@@ -9,7 +9,7 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
-.NExtra 2.4.0.0		2011-10-19
+.NExtra 2.5.0.0		2011-10-19
 ==============================
 
 Many new stuff and a new project name. I think this calls for some
