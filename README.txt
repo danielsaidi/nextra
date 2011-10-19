@@ -5,7 +5,7 @@ Author:		Daniel Saidi [daniel.saidi@gmail.com]
 Web site:	http://danielsaidi.github.com/NExtra
 Project:	http://github.com/danielsaidi/NExtra
 Doc:		http://dotnextra.com/Documentation
-Blog:		http://danielsaidi.wordpress.com
+Blog:		http://danielsaidi.wordpress.com 
 
 
 NExtra is an open-source library with extended functionality
