@@ -4,40 +4,36 @@ Release notes
 Author:		Daniel Saidi [daniel.saidi@gmail.com]
 Web site:	http://danielsaidi.github.com/NExtra
 Project:	http://github.com/danielsaidi/NExtra
-Doc:		http://saidi.se/doc/nextra
+Doc:		http://dotnextra.com/Documentation
 Blog:		http://danielsaidi.wordpress.com
 
 
 
-NExtra 2.4.0.0		2011-10-01
+.NExtra 2.4.0.0		2011-10-19
 ==============================
 
-So many new stuff and a brand new project name. I think this calls
-for a version leap.
+Many new stuff and a new project name. I think this calls for some
+minor version leaping.
 
-I decided to change the name to NExtra, since .NET Extensions is a
-very general name that says nothing about the library, except give
-the wrong impression that it only contains extension methods.
+I have changed the name from .NET Extensions to .NExtra, since the
+old name was very general and said nothing about the library. This
+new name will, I hope, work better.
 
 I decided to switch from Google Code to GitHub since I host almost
 all of my other personal projects there. Google Code has been (and
-is still) great, but it is time to standardize how I host projects.
+is still) great, but GitHub works better for me.
 
-From now on, less documentation will be written as well, since the
-situation has become quite absurd. Most of the code in this NExtra
-is quite self-explanatory, and I have caught myself writing absurd
-documentation only because all previous code is documented. I will
-still document each class, though.
-
+From now on, I will write less documentation for .NExtra since the
+most of the code in this NExtra is self-explanatory. I have caught
+myself writing absurd documentation only because all previous code
+has been documented.
 
 But what about the news?
-------------------------
 
-This version of NExtra contains many new features; for instance an
-editor block MVC helper, abstract logging utilities, generic event
-arguments, a command argument parser, as well as several extension
-method additions. I will list the changes from the most general to
-the most specific.
+This new version contains several new features, like an MVC helper,
+logging utilities, a generic event arguments, a (borrowed) command
+argument parser, several extension method additions etc. So, there
+is a lot of new stuff to play around with.
 
 The new generic NExtra.EventArgs class is a generic version of the
 native EventArgs class. Use it to add a typed object with your arg.
@@ -52,20 +48,17 @@ and interfaces that can be used when working with logging.
 
 The new IConsole and ConsoleFacade are (so far) small and contains
 two write methods for working towards the Console. I use them in a
-private project, so it only contains functionality that I use, for
-now at least.
+private project, so they only has methods that I use, for now.
 
 The same goes for Diagnostics.ProcessFacade and IProcess. They are
 rather small, and can be used for working toward the Process class.
 They should probably be extended as well.
 
-I have added some extension classes to NExtra.Extensions, and have
-added methods to already existing classes.
+I have added a couple of extension classes to NExtra.Extensions. I
+have also added methods to already existing classes.
 
 The NExtra.Web.Security.MembershipFacade has been extended to be a
-more complete facade for the Membership and MembershipUser classes
-than it was before. Use it when you have to change how the classes
-behaves or when you need to unit test functionality that uses it.
+more complete facade for the Membership and MembershipUser classes.
 
 The new NExtra.Mvc.HtmlHelpers.FormBlockForHelper class can wrap a
 form element (EditorFor, TextAreaFor etc.) in a structure with one
@@ -73,7 +66,9 @@ div with a LabelFor and one with the provided editor as well as an
 editor-bound ValidationMessageFor.
 
 The new NExtra.Mvc.HtmlHelpers.Conditional can be used to output a
-value out of two possible ones, depending on a boolean expression.
+value out of two possible ones, depending on a bool expression. It
+can be used to avoid having to write all those nasty if-statements
+in your views.
 
 
 

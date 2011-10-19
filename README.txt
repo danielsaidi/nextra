@@ -4,13 +4,12 @@ About NExtra
 Author:		Daniel Saidi [daniel.saidi@gmail.com]
 Web site:	http://danielsaidi.github.com/NExtra
 Project:	http://github.com/danielsaidi/NExtra
+Doc:		http://dotnextra.com/Documentation
 Blog:		http://danielsaidi.wordpress.com
 
 
-NExtra is a library with extended functionality for the .NET
-Framework. It contains tools, extension methods, interfaces,
-utilities, UI components this, that etc. etc. Hopefully, it
-is well structured and intuitive.
+NExtra is an open-source library with extended functionality
+for the .NET Framework.
 
 I continously add new functionality that I create, no matter
 which part of the .NET Framework it regards. Implementations
