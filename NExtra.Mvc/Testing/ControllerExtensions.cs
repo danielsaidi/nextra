@@ -37,7 +37,11 @@ namespace NExtra.Mvc.Testing
 
             //Add each model error to the model state
             foreach (var error in validator.ValidationErrors)
-                controller.ModelState.AddModelError(error.MemberNames.First(), error.ErrorMessage);
+            {
+                var defaultKey = "N/A" + new Random().Next();
+                var memberName = error.MemberNames.FirstOrDefault() ?? defaultKey;
+                controller.ModelState.AddModelError(memberName, error.ErrorMessage);
+            }
 
             //Return the action
             return action(controller);

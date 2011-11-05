@@ -9,6 +9,16 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
+.NExtra 2.5.0.1		2011-xx-xx
+==============================
+
+I have fixed a bug in NExtra.Mvc.Testing.ControllerExtensions. The
+CallWithModelValidation method used to assume that the MemberNames
+property of each error did always contain an element. However, for
+Compare validators, this is not the case. The bug is fixed.
+
+
+
 .NExtra 2.5.0.0		2011-10-19
 ==============================
 
