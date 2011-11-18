@@ -14,6 +14,17 @@ namespace NExtra.ValidationAttributes
 	public class SwedishPostalCodeAttribute : RegularExpressionAttribute
     {
 	    public SwedishPostalCodeAttribute(bool optionalSpace = false)
-			: base(optionalSpace ? "^\\d{3}\\ ?\\d{2}$" : "^\\d{5}$") { }
+            : base(Expression(optionalSpace)) { }
+
+
+        private const string NoSpaceExpression = "^\\d{5}$";
+
+        private const string OptionalSpaceExpression = "^\\d{3}\\ ?\\d{2}$";
+
+
+        public static string Expression(bool optionalSpace)
+        {
+            return optionalSpace ? OptionalSpaceExpression : NoSpaceExpression;
+        }
 	}
 }

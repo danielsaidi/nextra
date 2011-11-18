@@ -18,24 +18,31 @@ namespace NExtra.ValidationAttributes
 	/// </remarks>
 	public class SwedishSsnAttribute : RegularExpressionAttribute
     {
-	    public SwedishSsnAttribute(bool requireDash = true)
-            : base(requireDash ? "^\\d{6}-\\d{4}$" : "^\\d{10}$") { }
+	    public SwedishSsnAttribute(bool dash = true)
+            : base(Expression(dash)) { }
 
+
+        private const string DashExpression = "^\\d{6}-\\d{4}$";
+        
+        private const string NoDashExpression = "^\\d{10}$";
+
+        
+        public static string Expression(bool dash)
+        {
+            return dash ? DashExpression : NoDashExpression;
+        }
 
 		public override bool IsValid(object value)
 		{
-            //Abort if the value is null
             if (value == null)
                 return false;
 
-            //Abort if basic validation failed
             if (!base.IsValid(value))
                 return false;
 
             //Remove possible dash
 			var noDash = value.ToString().Replace("-", "");
 
-            //Return false if the value is too short
             if (noDash.Length < 10)
                 return false;
 

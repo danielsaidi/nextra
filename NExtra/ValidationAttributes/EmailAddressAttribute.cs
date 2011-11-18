@@ -11,8 +11,11 @@ namespace NExtra.ValidationAttributes
 	/// Link:       http://www.saidi.se/nextra
 	/// </remarks>
 	public class EmailAddressAttribute : RegularExpressionAttribute
-	{
+    {
 		public EmailAddressAttribute()
-			: base(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$") { }
+			: base(Expression) { }
+
+        public const string Expression =
+            @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$";
 	}
 }

@@ -13,6 +13,9 @@ namespace NExtra.ValidationAttributes
 	public class GuidAttribute : RegularExpressionAttribute
     {
 		public GuidAttribute()
-            : base(@"^(\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}{0,1})$") { }
-	}
+            : base(Expression) { }
+
+	    public const string Expression =
+	        @"^(\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}{0,1})$";
+    }
 }

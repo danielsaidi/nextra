@@ -21,6 +21,14 @@ The NExtra.Localization.HieararchicalResourceManagerFacade now has
 two constructors instead of the previous one with one required and
 one optional parameter.
 
+In order to make client-side validation easier to use with all the
+attributes that come with .NExtra, all regex-based attributes will
+expose their internal expressions as constant Expression variables
+from now on. If you decorate a property with [Email], it will work
+server-side. If, however, you also (or only) decorate the property
+with [RegularExpressionAttribute(EmailAddressAttribute.Expression)]
+it will work client-side as well.
+
 Besides this, the most important thing with this release is how it
 changes the behavior of its validation attributes. If you use them,
 it is VERY important that you read on.
@@ -32,11 +40,6 @@ this will affect how they behave.
 For instance, a property that is decorated with the [EmailAddress]
 attribute alone will now be valid if it is an empty string as well.
 To make it required, combine it with the Required attribute.
-
-This change makes the validation attributes more flexible and once
-again client-side applicable once again (like they once was). When
-I introduced the OptionalRegularExpressionAttribute, I did not see
-the server-side limitation coming.
 
 So, the OptionalRegularExpressionAttribute is not used anymore. It
 is marked as obsolete and will be removed in 2.6.

@@ -13,6 +13,9 @@ namespace NExtra.ValidationAttributes
 	public class UrlAttribute : RegularExpressionAttribute
 	{
 		public UrlAttribute()
-			: base(@"^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?") { }
+			: base(Expression) { }
+
+	    public const string Expression =
+	        @"^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?";
 	}
 }
