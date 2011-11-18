@@ -7,34 +7,16 @@ namespace NExtra.Tests.ValidationAttributes
 	public class EmailAddressAttributeBehavior
 	{
         [Test]
-        public void IsValid_ShouldReturnFalseForNullAndRequired()
+        public void IsValid_ShouldReturnTrueForNullValue()
         {
-            Assert.That(new EmailAddressAttribute().IsValid(null), Is.False);
+            Assert.That(new EmailAddressAttribute().IsValid(null), Is.True);
         }
 
         [Test]
-        public void IsValid_ShouldReturnTrueForNullAndOptional()
+        public void IsValid_ShouldReturnFalseForEmptyString()
         {
-            Assert.That(new EmailAddressAttribute(false).IsValid(null), Is.True);
+            Assert.That(new EmailAddressAttribute().IsValid(""), Is.True);
         }
-
-        [Test]
-        public void IsValid_ShouldReturnFalseForEmptyStringAndRequired()
-        {
-            Assert.That(new EmailAddressAttribute().IsValid(""), Is.False);
-        }
-
-        [Test]
-        public void IsValid_ShouldReturnTrueForEmptyStringAndOptional()
-        {
-            Assert.That(new EmailAddressAttribute(false).IsValid(""), Is.True);
-        }
-
-		[Test]
-		public void IsValid_ShouldReturnFalseForStartDot()
-		{
-			Assert.That(new EmailAddressAttribute().IsValid(".foo.bar@foobar.com"), Is.False);
-		}
 
 		[Test]
 		public void IsValid_ShouldReturnFalseForEndDot()

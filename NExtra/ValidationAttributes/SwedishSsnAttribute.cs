@@ -1,5 +1,4 @@
-using NExtra.DataAnnotations;
-using NExtra.Extensions;
+using System.ComponentModel.DataAnnotations;
 
 namespace NExtra.ValidationAttributes
 {
@@ -17,32 +16,23 @@ namespace NExtra.ValidationAttributes
     /// conditions, e.g. that the region must be correct, inherit this
     /// class and override the IsValid method.
 	/// </remarks>
-	public class SwedishSsnAttribute : OptionalRegularExpressionAttribute
+	public class SwedishSsnAttribute : RegularExpressionAttribute
     {
-	    /// <summary>
-	    /// Create an instance of the attribute class.
-	    /// </summary>
-	    /// <param name="required">Whether or not the attribute is required.</param>
-	    /// <param name="requireDash">Whether or not the value should have a dash at the 7th position.</param>
-	    public SwedishSsnAttribute(bool required = true, bool requireDash = true)
-            : base(requireDash ? "^\\d{6}-\\d{4}$" : "^\\d{10}$", required) { }
+	    public SwedishSsnAttribute(bool requireDash = true)
+            : base(requireDash ? "^\\d{6}-\\d{4}$" : "^\\d{10}$") { }
 
-        /// <summary>
-        /// Validate whether or not an object is valid according to the attribute.
-        /// </summary>
-        /// <param name="value">The object to validate.</param>
-        /// <returns>Whether or not the object is valid.</returns>
+
 		public override bool IsValid(object value)
 		{
+            //Abort if the value is null
+            if (value == null)
+                return false;
+
             //Abort if basic validation failed
             if (!base.IsValid(value))
                 return false;
 
-            //Return true if basic validation succeeded and required is false
-            if (base.IsValid(value) && !Required)
-                return true;
-
-			//Remove possible dash
+            //Remove possible dash
 			var noDash = value.ToString().Replace("-", "");
 
             //Return false if the value is too short

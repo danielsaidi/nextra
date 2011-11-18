@@ -6,12 +6,6 @@ namespace NExtra.Web.Tests
 	[TestFixture]
 	public class SyndicationFeedLoaderBehavior
 	{
-		[Test]
-		public void Load_ShouldReturnDefaultObjectForInvalidUrl()
-		{
-			Assert.That(new SyndicationFeedLoader().Load(null).Items.Count(), Is.EqualTo(0));
-		}
-
 		[Test, Ignore]
 		public void Load_ShouldReturnPopulatedItemListForValidUrl()
 		{

@@ -15,7 +15,38 @@ Blog:		http://danielsaidi.wordpress.com
 I have fixed a bug in NExtra.Mvc.Testing.ControllerExtensions. The
 CallWithModelValidation method used to assume that the MemberNames
 property of each error did always contain an element. However, for
-Compare validators, this is not the case. The bug is fixed.
+Compare validators, this is not the case.
+
+The NExtra.Localization.HieararchicalResourceManagerFacade now has
+two constructors instead of the previous one with one required and
+one optional parameter.
+
+Besides this, the most important thing with this release is how it
+changes the behavior of its validation attributes. If you use them,
+it is VERY important that you read on.
+
+No attributes inherit from OptionalRegularExpressionAttribute from
+now on. Instead, they inherit from RegularExpressionAttribute, and
+this will affect how they behave.
+
+For instance, a property that is decorated with the [EmailAddress]
+attribute alone will now be valid if it is an empty string as well.
+To make it required, combine it with the Required attribute.
+
+This change makes the validation attributes more flexible and once
+again client-side applicable once again (like they once was). When
+I introduced the OptionalRegularExpressionAttribute, I did not see
+the server-side limitation coming.
+
+So, the OptionalRegularExpressionAttribute is not used anymore. It
+is marked as obsolete and will be removed in 2.6.
+
+The affected validation attributes are:
+NExtra.ValidationAttributes.EmailAddressAtttribute
+NExtra.ValidationAttributes.GuidAtttribute
+NExtra.ValidationAttributes.IpAddressAttribute
+NExtra.ValidationAttributes.SwedishPostalCodeAttribute
+NExtra.ValidationAttributes.SwedishSsnAttribute
 
 
 

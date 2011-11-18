@@ -7,27 +7,15 @@ namespace NExtra.Tests.ValidationAttributes
 	public class UrlAttributeBehavior
 	{
 		[Test]
-		public void IsValid_ShouldReturnFalseForNullAndRequired()
+		public void IsValid_ShouldReturnTrueForNullValue()
 		{
-			Assert.That(new UrlAttribute().IsValid(null), Is.False);
-		}
-
-        [Test]
-        public void IsValid_ShouldReturnTrueForNullAndOptional()
-        {
-            Assert.That(new UrlAttribute(false).IsValid(null), Is.True);
+			Assert.That(new UrlAttribute().IsValid(null), Is.True);
         }
 
 		[Test]
-		public void IsValid_ShouldReturnFalseForEmptyStringAndRequired()
-		{
-			Assert.That(new UrlAttribute().IsValid(""), Is.False);
-		}
-
-        [Test]
-        public void IsValid_ShouldReturnTrueForEmptyStringAndOptional()
+		public void IsValid_ShouldReturnTrueForEmptyString()
         {
-            Assert.That(new UrlAttribute(false).IsValid(""), Is.True);
+            Assert.That(new UrlAttribute().IsValid(""), Is.True);
         }
 
 		[Test]

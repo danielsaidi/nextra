@@ -1,4 +1,4 @@
-using NExtra.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace NExtra.ValidationAttributes
 {
@@ -10,13 +10,9 @@ namespace NExtra.ValidationAttributes
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://www.saidi.se/nextra
 	/// </remarks>
-	public class UrlAttribute : OptionalRegularExpressionAttribute
+	public class UrlAttribute : RegularExpressionAttribute
 	{
-        /// <summary>
-        /// Create an instance of the class.
-        /// </summary>
-        /// <param name="required">Whether or not the attribute is required.</param>
-		public UrlAttribute(bool required = true)
-			: base(@"^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?", required) { }
+		public UrlAttribute()
+			: base(@"^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?") { }
 	}
 }

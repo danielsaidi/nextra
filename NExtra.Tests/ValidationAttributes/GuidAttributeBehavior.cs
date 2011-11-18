@@ -8,27 +8,15 @@ namespace NExtra.Tests.ValidationAttributes
 	public class GuidAttributeBehavior
     {
         [Test]
-        public void IsValid_ShouldReturnFalseForNullAndRequired()
+        public void IsValid_ShouldReturnTrueForNullValue()
         {
-            Assert.That(new GuidAttribute().IsValid(null), Is.False);
+            Assert.That(new GuidAttribute().IsValid(null), Is.True);
         }
 
         [Test]
-        public void IsValid_ShouldReturnTrueForNullAndOptional()
+        public void IsValid_ShouldReturnTrueForEmptyString()
         {
-            Assert.That(new GuidAttribute(false).IsValid(null), Is.True);
-        }
-
-        [Test]
-        public void IsValid_ShouldReturnFalseForEmptyStringAndRequired()
-        {
-            Assert.That(new GuidAttribute().IsValid(""), Is.False);
-        }
-
-        [Test]
-        public void IsValid_ShouldReturnTrueForEmptyStringAndOptional()
-        {
-            Assert.That(new GuidAttribute(false).IsValid(""), Is.True);
+            Assert.That(new GuidAttribute().IsValid(""), Is.True);
         }
 
 		[Test]

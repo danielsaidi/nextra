@@ -7,27 +7,15 @@ namespace NExtra.Tests.ValidationAttributes
 	public class IpAddressAttributeBehavior
     {
         [Test]
-        public void IsValid_ShouldReturnFalseForNullAndRequired()
+        public void IsValid_ShouldReturnTrueForNullValue()
         {
-            Assert.That(new IpAddressAttribute().IsValid(null), Is.False);
+            Assert.That(new IpAddressAttribute().IsValid(null), Is.True);
         }
 
         [Test]
-        public void IsValid_ShouldReturnTrueForNullAndOptional()
+        public void IsValid_ShouldReturnFalseForEmptyString()
         {
-            Assert.That(new IpAddressAttribute(false).IsValid(null), Is.True);
-        }
-
-        [Test]
-        public void IsValid_ShouldReturnFalseForEmptyStringAndRequired()
-        {
-            Assert.That(new IpAddressAttribute().IsValid(""), Is.False);
-        }
-
-        [Test]
-        public void IsValid_ShouldReturnTrueForEmptyStringAndOptional()
-        {
-            Assert.That(new IpAddressAttribute(false).IsValid(""), Is.True);
+            Assert.That(new IpAddressAttribute().IsValid(""), Is.True);
         }
 
 		[Test]

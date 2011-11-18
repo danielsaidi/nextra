@@ -140,7 +140,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetVersion_ShouldReturnCorrectValueForExistingTitle()
         {
-            Assert.That(Assembly.GetExecutingAssembly().GetVersion(), Is.EqualTo(new Version(2, 5, 0, 0)));
+            Assert.That(Assembly.GetExecutingAssembly().GetVersion(), Is.GreaterThan(new Version(2, 5, 0, 0)));
         }
     }
 
