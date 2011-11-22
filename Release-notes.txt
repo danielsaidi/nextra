@@ -44,6 +44,8 @@ NExtra.ValidationAttributes.IpAddressAttribute
 NExtra.ValidationAttributes.SwedishPostalCodeAttribute
 NExtra.ValidationAttributes.SwedishSsnAttribute
 
+Since it is no longer used, the OptionalRegularExpressionAttribute
+class has been removed. If anyone else uses it, well...let me know.
 
 
 

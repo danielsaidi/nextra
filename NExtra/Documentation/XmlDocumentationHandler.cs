@@ -93,11 +93,11 @@ namespace NExtra.Documentation
         /// Extract XML documentation for an assembly.
         /// </summary>
         /// <param name="assembly">The assembly of interest.</param>
-        /// <param name="xmlDocumentationFile">The path to the XML documentation file.</param>
+        /// <param name="xmlFilePath">The path to the XML documentation file.</param>
         /// <returns>XML documentation document.</returns>
-        public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlDocumentationFile)
+        public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlFilePath)
         {
-            return assemblyXmlDocumentationExtractor.ExtractAssemblyXmlDocumentation(assembly, xmlDocumentationFile);
+            return assemblyXmlDocumentationExtractor.ExtractAssemblyXmlDocumentation(assembly, xmlFilePath);
         }
 
         /// <summary>

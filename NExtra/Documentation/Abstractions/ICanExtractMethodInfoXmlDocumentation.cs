@@ -15,10 +15,8 @@ namespace NExtra.Documentation.Abstractions
     public interface ICanExtractMethodInfoXmlDocumentation
     {
         /// <summary>
-        /// Extract XML documentation data for a certain MemberInfo instance.
+        /// Extract XML documentation for a certain MethodInfo instance.
         /// </summary>
-        /// <param name="methodInfo">The MethodInfo instance of interest.</param>
-        /// <returns>The resulting documentation element.</returns>
         XmlElement ExtractMethodInfoXmlDocumentation(MethodInfo methodInfo);
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace NExtra.Abstractions
 {
     ///<summary>
-    /// This interface can be implemented by classes
-    /// that can be used to work towards the Console.
+    /// This interface can be implemented by classes that
+    /// can be used to work with the static Console class.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

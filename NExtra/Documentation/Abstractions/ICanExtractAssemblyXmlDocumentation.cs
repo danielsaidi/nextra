@@ -4,8 +4,8 @@ using System.Xml;
 namespace NExtra.Documentation.Abstractions
 {
     /// <summary>
-    /// This interface can be implemented by classes that should
-    /// be able to extract XML documentation data from assemblies.
+    /// This interface can be implemented by classes that can
+    /// be used to extract XML documentation from assemblies.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -14,20 +14,15 @@ namespace NExtra.Documentation.Abstractions
     public interface ICanExtractAssemblyXmlDocumentation
     {
         /// <summary>
-        /// Extract XML documentation data from an assembly,
-        /// using its name to locate the documentation data.
+        /// Extract XML documentation for an assembly, using
+        /// a default documentation file location.
         /// </summary>
-        /// <param name="assembly">The assembly of interest.</param>
-        /// <returns>The resulting XML document.</returns>
         XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly);
 
         /// <summary>
-        /// Extract XML documentation data from an assembly,
-        /// using a custom path to the XML documentation file.
+        /// Extract XML documentation for an assembly, using
+        /// a custom documentation file location.
         /// </summary>
-        /// <param name="assembly">The assembly of interest.</param>
-        /// <param name="xmlDocumentationFile">The path to the XML documentation file.</param>
-        /// <returns>The resulting XML document.</returns>
-        XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlDocumentationFile);
+        XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlFilePath);
     }
 }

@@ -8,8 +8,8 @@ using NExtra.Documentation.Abstractions;
 namespace NExtra.Documentation.Extractors
 {
     ///<summary>
-    /// This class can be used to extract documentation for assemblies
-    /// that are shipped together with an XML documentation file.
+    /// This class can be used to extract documentation for
+    /// assemblies that have an XML documentation file.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -30,10 +30,10 @@ namespace NExtra.Documentation.Extractors
 
 
         /// <summary>
-        /// Extract XML documentation for an assembly.
+        /// Extract XML documentation for an assembly, using
+        /// the default documentation file location (next to
+        /// the assembly, but with an .xml file type).
         /// </summary>
-        /// <param name="assembly">The assembly of interest.</param>
-        /// <returns>XML documentation document.</returns>
         public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly)
         {
             if (cache.ContainsKey(assembly))
@@ -45,18 +45,17 @@ namespace NExtra.Documentation.Extractors
             return ExtractAssemblyXmlDocumentation(assembly, xmlDocumentationFile);
         }
 
-        /// <summary>
-        /// Extract XML documentation for an assembly.
-        /// </summary>
-        /// <param name="assembly">The assembly of interest.</param>
-        /// <param name="xmlDocumentationFile">The path to the XML documentation file.</param>
-        /// <returns>XML documentation document.</returns>
-        public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlDocumentationFile)
-        {
-            if (!File.Exists(xmlDocumentationFile))
-                throw new FileNotFoundException(String.Format("The XML documentation file {0} does not exist. Make sure that the file is generated when building the assembly.", xmlDocumentationFile));
 
-            var streamReader = new StreamReader(xmlDocumentationFile);
+        /// <summary>
+        /// Extract XML documentation for an assembly using
+        /// a custom documentation file location.
+        /// </summary>
+        public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlFilePath)
+        {
+            if (!File.Exists(xmlFilePath))
+                throw new FileNotFoundException(String.Format("The XML documentation file {0} does not exist. Make sure that the file is generated when building the assembly.", xmlFilePath));
+
+            var streamReader = new StreamReader(xmlFilePath);
             var xmlDocument = new XmlDocument();
             xmlDocument.Load(streamReader);
             streamReader.Close();

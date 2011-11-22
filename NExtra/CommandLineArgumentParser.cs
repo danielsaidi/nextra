@@ -17,19 +17,14 @@ namespace NExtra
     /// </summary>
     /// <remarks>
     /// The original implementation, made by Richard Lopes,
-    /// has been refactored to fit the code conventions of
-    /// the .NExtra library. It implements an interface so
-    /// that it can be replaced with other implementations.
-    /// The original implementation can be found here:
+    /// has been refactored to implement an interface that
+    /// replaced with other implementations.
+    /// 
+    /// The original implementation can be found at:
     /// http://www.codeproject.com/KB/recipes/command_line.aspx 
     /// </remarks>
     public class CommandLineArgumentParser : ICommandLineArgumentParser
     {
-        /// <summary>
-        /// Parse an argument collection.
-        /// </summary>
-        /// <param name="args">The argument collection to parse.</param>
-        /// <returns>The resulting argument dictionary.</returns>
         public IDictionary<string, string> ParseCommandLineArguments(IEnumerable<string> args)
         {
             var parameters = new Dictionary<string, string>();

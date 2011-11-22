@@ -4,8 +4,8 @@ using System.Security;
 namespace NExtra.Diagnostics.Abstractions
 {
     ///<summary>
-    /// This interface can be implemented by classes
-    /// that can be used to work towards the Console.
+    /// This interface can be implemented by classes that
+    /// can be used to work with the static Process class.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

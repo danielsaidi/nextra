@@ -5,7 +5,8 @@ using NExtra.Documentation.Abstractions;
 namespace NExtra.Documentation.Extractors
 {
     ///<summary>
-    /// This class can be used to extract XML documentation for type methods.
+    /// This class can be used to extract XML documentation
+    /// data for MethodInfo instances.
     ///</summary>
     /// <remarks>
     /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
@@ -16,21 +17,13 @@ namespace NExtra.Documentation.Extractors
         private readonly ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor;
 
 
-        /// <summary>
-        /// Create an instance of the class.
-        /// </summary>
-        /// <param name="xmlDocumentationElementExtractor">ICanExtractXmlDocumentationElement implementation.</param>
+        /// <param name="xmlDocumentationElementExtractor">The element documentation extractor to use.</param>
         public MethodInfoXmlDocumentationExtractor(ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor)
         {
             this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
         }
 
 
-        /// <summary>
-        /// Extract XML documentation for a MethodInfo instance.
-        /// </summary>
-        /// <param name="methodInfo">The MethodInfo instance of interest.</param>
-        /// <returns>XML documentation element.</returns>
         public XmlElement ExtractMethodInfoXmlDocumentation(MethodInfo methodInfo)
         {
             var parametersString = "";

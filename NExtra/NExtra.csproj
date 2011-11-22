@@ -55,7 +55,6 @@
     <Compile Include="Abstractions\IConsole.cs" />
     <Compile Include="CommandLineArgumentParser.cs" />
     <Compile Include="ConsoleFacade.cs" />
-    <Compile Include="DataAnnotations\OptionalRegularExpressionAttribute.cs" />
     <Compile Include="Diagnostics\Abstractions\IProcess.cs" />
     <Compile Include="Diagnostics\ProcessFacade.cs" />
     <Compile Include="EventArgs.cs" />

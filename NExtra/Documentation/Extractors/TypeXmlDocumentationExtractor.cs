@@ -14,22 +14,15 @@ namespace NExtra.Documentation.Extractors
     public class TypeXmlDocumentationExtractor : ICanExtractTypeXmlDocumentation
     {
         private readonly ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor;
+        
 
-        /// <summary>
-        /// Create an instance of the class.
-        /// </summary>
-        /// <param name="xmlDocumentationElementExtractor">ICanExtractXmlDocumentationElement implementation.</param>
+        /// <param name="xmlDocumentationElementExtractor">The element documentation extractor to use.</param>
         public TypeXmlDocumentationExtractor(ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor)
         {
             this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
         }
 
 
-        /// <summary>
-        /// Extract XML documentation for a Type.
-        /// </summary>
-        /// <param name="type">The Type of interest.</param>
-        /// <returns>XML documentation element.</returns>
         public XmlElement ExtractTypeXmlDocumentation(Type type)
         {
             return xmlDocumentationElementExtractor.ExtractXmlDocumentationElement(type, 'T', "");

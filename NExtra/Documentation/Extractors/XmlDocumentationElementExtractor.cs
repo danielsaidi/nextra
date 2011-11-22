@@ -8,8 +8,7 @@ namespace NExtra.Documentation.Extractors
     ///<summary>
     /// This class can be used to extract documentation elements for
     /// any type, constructor, member, method etc. It is intended to
-    /// be used indirectly by the various default extractors in this
-    /// namespace, but can naturally be used directly as well.
+    /// be used indirectly by the extractors in this namespace.
     /// </summary>
     /// <remarks>
     /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
@@ -20,10 +19,7 @@ namespace NExtra.Documentation.Extractors
         private readonly ICanExtractAssemblyXmlDocumentation assemblyXmlDocumentationExtractor;
 
 
-        /// <summary>
-        /// Create an instance of the class.
-        /// </summary>
-        /// <param name="assemblyXmlDocumentationExtractor">ICanExtractAssemblyXmlDocumentation implementation.</param>
+        /// <param name="assemblyXmlDocumentationExtractor">The assembly documentation extractor to use.</param>
         public XmlDocumentationElementExtractor(ICanExtractAssemblyXmlDocumentation assemblyXmlDocumentationExtractor)
         {
             this.assemblyXmlDocumentationExtractor = assemblyXmlDocumentationExtractor;
@@ -31,7 +27,7 @@ namespace NExtra.Documentation.Extractors
 
 
         /// <summary>
-        /// Extract an XML documentation element.
+        /// Extract documentation for an XML element.
         /// </summary>
         /// <param name="type">The type of interest.</param>
         /// <param name="prefix">The type's documentation prefix.</param>

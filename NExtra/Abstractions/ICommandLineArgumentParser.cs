@@ -4,7 +4,7 @@ namespace NExtra.Abstractions
 {
     ///<summary>
     /// This interface can be implemented by classes
-    /// that can be used to parse command line args.
+    /// that can be used to handle command line args.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
