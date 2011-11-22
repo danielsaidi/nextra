@@ -9,7 +9,7 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
-.NExtra 2.5.0.1		2011-xx-xx
+.NExtra 2.5.1.0		2011-xx-xx
 ==============================
 
 I have fixed a bug in NExtra.Mvc.Testing.ControllerExtensions. The
@@ -19,30 +19,23 @@ Compare validators, this is not the case.
 
 The NExtra.Localization.HieararchicalResourceManagerFacade now has
 two constructors instead of the previous one with one required and
-one optional parameter.
+one optional parameter. I will probably remove optional parameters
+elsewhere in future versions.
 
 In order to make client-side validation easier to use with all the
-attributes that come with .NExtra, all regex-based attributes will
-expose their internal expressions as constant Expression variables
-from now on. If you decorate a property with [Email], it will work
-server-side. If, however, you also (or only) decorate the property
-with [RegularExpressionAttribute(EmailAddressAttribute.Expression)]
-it will work client-side as well.
+validation attributes in NExtra.ValidationAttributes, every regex-
+based attribute now expose its internal expression, so that models
+can use either the attribute directly or embed the expression in a
+RegularExpressionAttribute (which works client-side).
 
-Besides this, the most important thing with this release is how it
-changes the behavior of its validation attributes. If you use them,
-it is VERY important that you read on.
-
-No attributes inherit from OptionalRegularExpressionAttribute from
-now on. Instead, they inherit from RegularExpressionAttribute, and
-this will affect how they behave.
+Finally and VERY IMPORTANT, is that no NExtra.ValidationAttributes
+inherit from OptionalRegularExpressionAttribute from now on. These
+classes now inherit directly from RegularExpressionAttribute. This
+will affect how they behave.
 
 For instance, a property that is decorated with the [EmailAddress]
-attribute alone will now be valid if it is an empty string as well.
-To make it required, combine it with the Required attribute.
-
-So, the OptionalRegularExpressionAttribute is not used anymore. It
-is marked as obsolete and will be removed in 2.6.
+attribute alone will be valid if it is an empty string as well. To
+make it required, combine it with the Required attribute.
 
 The affected validation attributes are:
 NExtra.ValidationAttributes.EmailAddressAtttribute
@@ -50,6 +43,7 @@ NExtra.ValidationAttributes.GuidAtttribute
 NExtra.ValidationAttributes.IpAddressAttribute
 NExtra.ValidationAttributes.SwedishPostalCodeAttribute
 NExtra.ValidationAttributes.SwedishSsnAttribute
+
 
 
 
