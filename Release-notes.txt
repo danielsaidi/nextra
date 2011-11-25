@@ -28,6 +28,13 @@ based attribute now expose its internal expression, so that models
 can use either the attribute directly or embed the expression in a
 RegularExpressionAttribute (which works client-side).
 
+The NExtra.Mvc.ActionFilters.OutputModelAttribute has been renamed
+to JsonForQueryStringAttribute. It's quite more obvious.
+
+The NExtra.Mvc.Extensions.WebViewPageExtensions has been rewritten
+to use the HtmlHelper classes for local and global resources. Both
+can be used, although only one should really be needed.
+
 Finally and VERY IMPORTANT, is that no NExtra.ValidationAttributes
 inherit from OptionalRegularExpressionAttribute from now on. These
 classes now inherit directly from RegularExpressionAttribute. This
@@ -43,13 +50,6 @@ The affected validation attributes are:
 
 Since it is no longer used, the OptionalRegularExpressionAttribute
 class has been removed. If anyone else uses it, well...let me know.
-
-The NExtra.Mvc.ActionFilters.OutputModelAttribute has been renamed
-to JsonForQueryStringAttribute. It's quite more obvious.
-
-The NExtra.Mvc.Extensions.WebViewPageExtensions has been rewritten
-to use the HtmlHelper classes for local and global resources. Both
-can be used, although only one should really be needed.
 
 
 

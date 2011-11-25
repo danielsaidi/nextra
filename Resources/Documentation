@@ -45,7 +45,7 @@ PROJECT_BRIEF          =
 # exceed 55 pixels and the maximum width should not exceed 200 pixels. 
 # Doxygen will copy the logo to the output directory.
 
-PROJECT_LOGO           = "C:/Users/Daniel Saidi/Documents/Visual Studio 2010/Projects/NExtra/Resources/Documentation_files/content/img/logo.png"
+PROJECT_LOGO           = Documentation_files/content/img/logo.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) 
 # base path where the generated documentation will be put. 

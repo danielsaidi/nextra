@@ -1,0 +1,17 @@
+﻿@model DemoModel
+
+@{ var query = Request.QueryString["value"]; }
+
+@Model.GetTypeSummary(typeof(OutputModelAttribute))
+
+<p>@Html.GlobalResource(Resources.Language.EnterValueToAffectOutput)</p>
+
+<div class="container input">
+  <input type="text" id="txtValue" value="@query" />
+  <button>@Html.GlobalResource(Resources.Language.TryItOut)</button>
+</div>
+
+<script type="text/javascript">
+    $("#txtValue").watermark("@Html.GlobalResource(Resources.Language.EnterValue)");
+    $('button').click(function () { location.href = '@Model.PostUrl?value=' + $('#txtValue').val() });
+</script>
