@@ -16,17 +16,9 @@ namespace NExtra.Mvc.Testing
     {
         /// <summary>
         /// Use this method to automatically apply model validation,
-        /// when calling actions that require it. By default, model
-        /// validation will not apply, which causes model errors to
-        /// be ignored by unit tests.
+        /// when calling actions that require it. If this method is
+        /// not ise, model validation will not apply by default.
         /// </summary>
-        /// <typeparam name="C">System.Web.Mvc.Controller</typeparam>
-        /// <typeparam name="R">System.Web.Mvc.ActionResult</typeparam>
-        /// <typeparam name="T">class</typeparam>
-        /// <param name="controller">The controller to test.</param>
-        /// <param name="action">The action to execute.</param>
-        /// <param name="model">The model that should be validated.</param>
-        /// <returns>The action result.</returns>
         public static ActionResult CallWithModelValidation<C, R, T>(this C controller, Func<C, R> action, T model)
             where C : Controller
             where R : ActionResult

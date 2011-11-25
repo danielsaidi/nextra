@@ -31,21 +31,25 @@ RegularExpressionAttribute (which works client-side).
 Finally and VERY IMPORTANT, is that no NExtra.ValidationAttributes
 inherit from OptionalRegularExpressionAttribute from now on. These
 classes now inherit directly from RegularExpressionAttribute. This
-will affect how they behave.
-
-For instance, a property that is decorated with the [EmailAddress]
-attribute alone will be valid if it is an empty string as well. To
-make it required, combine it with the Required attribute.
+makes them OPTIONAL. If you need them to be required, combine them
+with a Required attribute.
 
 The affected validation attributes are:
-NExtra.ValidationAttributes.EmailAddressAtttribute
-NExtra.ValidationAttributes.GuidAtttribute
-NExtra.ValidationAttributes.IpAddressAttribute
-NExtra.ValidationAttributes.SwedishPostalCodeAttribute
-NExtra.ValidationAttributes.SwedishSsnAttribute
+ NExtra.ValidationAttributes.EmailAddressAtttribute
+ NExtra.ValidationAttributes.GuidAtttribute
+ NExtra.ValidationAttributes.IpAddressAttribute
+ NExtra.ValidationAttributes.SwedishPostalCodeAttribute
+ NExtra.ValidationAttributes.SwedishSsnAttribute
 
 Since it is no longer used, the OptionalRegularExpressionAttribute
 class has been removed. If anyone else uses it, well...let me know.
+
+The NExtra.Mvc.ActionFilters.OutputModelAttribute has been renamed
+to JsonForQueryStringAttribute. It's quite more obvious.
+
+The NExtra.Mvc.Extensions.WebViewPageExtensions has been rewritten
+to use the HtmlHelper classes for local and global resources. Both
+can be used, although only one should really be needed.
 
 
 

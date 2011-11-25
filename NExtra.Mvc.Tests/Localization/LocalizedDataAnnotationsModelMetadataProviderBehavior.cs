@@ -59,6 +59,7 @@ namespace NExtra.Mvc.Tests.Localization
             provider = new ProviderWrapper(translator, false, "-");
         }
 
+
         [Test]
         public void Constructor_ShouldInitializeObject()
         {
@@ -71,7 +72,7 @@ namespace NExtra.Mvc.Tests.Localization
         [Test]
         public void GetDisplayNameLanguageKey_ShouldApplyDefaultDotReplacement()
         {
-            var result = provider.TestGetDisplayNameLanguageKey(typeof(MetadataTestClass), "Name");
+            var result = provider.GetDisplayNameLanguageKey(typeof(MetadataTestClass), "Name");
 
             Assert.That(result, Is.EqualTo("NExtra_Mvc_Tests_Localization_LocalizedDataAnnotationsModelMetadataProviderBehavior+MetadataTestClass_Name"));
         }
@@ -81,7 +82,7 @@ namespace NExtra.Mvc.Tests.Localization
         {
             provider = new ProviderWrapper(translator, true, "-");
 
-            var result = provider.TestGetDisplayNameLanguageKey(typeof(MetadataTestClass), "Name");
+            var result = provider.GetDisplayNameLanguageKey(typeof(MetadataTestClass), "Name");
 
             Assert.That(result, Is.EqualTo("NExtra-Mvc-Tests-Localization-LocalizedDataAnnotationsModelMetadataProviderBehavior+MetadataTestClass-Name"));
         }
@@ -89,7 +90,7 @@ namespace NExtra.Mvc.Tests.Localization
         [Test]
         public void GetErrorMessageLanguageKey_ShouldApplyDefaultDotReplacement()
         {
-            var result = provider.TestGetErrorMessageLanguageKey(typeof(MetadataTestClass), "Name", "Required");
+            var result = provider.GetErrorMessageLanguageKey(typeof(MetadataTestClass), "Name", "Required");
 
             Assert.That(result, Is.EqualTo("NExtra_Mvc_Tests_Localization_LocalizedDataAnnotationsModelMetadataProviderBehavior+MetadataTestClass_Name_RequiredError"));
         }
@@ -99,11 +100,10 @@ namespace NExtra.Mvc.Tests.Localization
         {
             provider = new ProviderWrapper(translator, true, "-");
 
-            var result = provider.TestGetErrorMessageLanguageKey(typeof(MetadataTestClass), "Name", "Required");
+            var result = provider.GetErrorMessageLanguageKey(typeof(MetadataTestClass), "Name", "Required");
 
             Assert.That(result, Is.EqualTo("NExtra-Mvc-Tests-Localization-LocalizedDataAnnotationsModelMetadataProviderBehavior+MetadataTestClass-Name-RequiredError"));
         }
-
 
         [Test]
         public void HandleDisplayName_ShouldAlwaysCallTranslationExists()
@@ -176,7 +176,6 @@ namespace NExtra.Mvc.Tests.Localization
 
             Assert.That(meta.DisplayName, Is.EqualTo("[[" + GetPropertyResourceKey().Replace("_", "-") + "]]"));
         }
-
 
         [Test]
         public void HandleErrorMessage_ShouldAlwaysCallTranslationExists()
@@ -258,17 +257,6 @@ namespace NExtra.Mvc.Tests.Localization
         {
             public ProviderWrapper(ITranslator translator, bool overrideMode, string dotReplacement) : base(translator, overrideMode, dotReplacement) 
             {
-            }
-
-
-            public string TestGetDisplayNameLanguageKey(Type containerType, string propertyName)
-            {
-                return base.GetDisplayNameLanguageKey(containerType, propertyName);
-            }
-
-            public string TestGetErrorMessageLanguageKey(Type containerType, string propertyName, string attributeName)
-            {
-                return base.GetErrorMessageLanguageKey(containerType, propertyName, attributeName);
             }
 
             public void TestHandleDisplayName(Type type, string propertyName, ModelMetadata meta)

@@ -8,7 +8,7 @@ namespace NExtra.Demo.Controllers
     [HandleError]
     public class DemoController : ControllerBase
     {
-        [OutputModel("value", "json")]
+        [JsonForQueryString("value", "json")]
         public ActionResult Index(string id = "index")
         {
             var model = new DemoModel { ActionName = this.Action(), ControllerName = this.Name() };

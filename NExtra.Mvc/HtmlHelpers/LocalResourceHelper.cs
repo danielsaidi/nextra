@@ -4,11 +4,7 @@ using System.Web.Mvc;
 namespace NExtra.Mvc.HtmlHelpers
 {
     /// <summary>
-    /// This helper can be used to work with local resource files.
-    /// 
-    /// The helper will automatically adjust resource file values
-    /// for display. For example, line feeds are replaced with br
-    /// tags.
+    /// This helper can be used to handle local resources for views.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -17,17 +13,15 @@ namespace NExtra.Mvc.HtmlHelpers
     public static class LocalResourceHelper
     {
         /// <summary>
-        /// Adjust a local resource file value for display.
+        /// Format a local resource file value for display.
+        /// Use this.LocalResource(...) in the view to add
+        /// a translated text to the view.
         /// </summary>
-        /// <param name="helper">HtmlHelper instance.</param>
-        /// <param name="page">The current page instance.</param>
-        /// <param name="key">The resource file key of interest.</param>
-        /// <returns>The HTML formatted result.</returns>
-        public static IHtmlString LocalResource(this HtmlHelper helper, WebViewPage page, string key)
+        public static IHtmlString LocalResource(this HtmlHelper helper, WebViewPage page, string resourceKeyName)
         {
-            var str = helper.ViewContext.HttpContext.GetLocalResourceObject(page.VirtualPath, key) as string;
+            var str = helper.ViewContext.HttpContext.GetLocalResourceObject(page.VirtualPath, resourceKeyName) as string;
 
-            return ResourceStringHelper.ToHtml(helper, str);
+            return ResourceFileValueHelper.ResourceFileValueToHtml(helper, str);
         }
     }
 }

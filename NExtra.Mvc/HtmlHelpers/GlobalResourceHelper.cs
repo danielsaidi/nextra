@@ -4,11 +4,7 @@ using System.Web.Mvc;
 namespace NExtra.Mvc.HtmlHelpers
 {
     /// <summary>
-    /// This helper can be used to work with global resource files.
-    /// 
-    /// The helper will automatically adjust resource file values
-    /// for display. For example, line feeds are replaced with br
-    /// tags.
+    /// This helper can be used to handle global resources for views.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -17,14 +13,13 @@ namespace NExtra.Mvc.HtmlHelpers
     public static class GlobalResourceHelper
     {
         /// <summary>
-        /// Adjust a global resource file value for display.
+        /// Format a global resource file value for display.
+        /// Use this.GlobalResource(...) in the view to add
+        /// a translated text to the view.
         /// </summary>
-        /// <param name="helper">HtmlHelper instance.</param>
-        /// <param name="str">The resource file value to adjust.</param>
-        /// <returns>The HTML formatted result.</returns>
-        public static IHtmlString GlobalResource(this HtmlHelper helper, string str)
+        public static IHtmlString GlobalResource(this HtmlHelper helper, string resource)
         {
-            return ResourceStringHelper.ToHtml(helper, str);
+            return ResourceFileValueHelper.ResourceFileValueToHtml(helper, resource);
         }
     }
 }

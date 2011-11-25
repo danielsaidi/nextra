@@ -14,8 +14,6 @@ namespace NExtra.Mvc.Extensions
         /// <summary>
         /// Get the name of the current action for a certain controller.
         /// </summary>
-        /// <param name="controller">The controller of interest.</param>
-        /// <returns>The name of the current action for the controller.</returns>
         public static string Action(this Controller controller)
         {
             return controller.ValueProvider.GetValue("action").RawValue.ToString();
@@ -24,8 +22,6 @@ namespace NExtra.Mvc.Extensions
         /// <summary>
         /// Get the name of a certain controller.
         /// </summary>
-        /// <param name="controller">The controller of interest.</param>
-        /// <returns>The name of the controller.</returns>
         public static string Name(this Controller controller)
         {
             return controller.ValueProvider.GetValue("controller").RawValue.ToString();

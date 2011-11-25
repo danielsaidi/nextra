@@ -175,6 +175,7 @@
     <Content Include="App_GlobalResources\Language.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Language.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -259,7 +260,7 @@
     <Content Include="Views\Demo\NExtra.ValidationAttributes.MinLengthAttribute.cshtml" />
     <Content Include="Views\Demo\NExtra.Web.Security.FormsAuthenticationFacade.cshtml" />
     <Content Include="Views\Demo\NExtra.Web.Testing.FakeMembershipUser.cshtml" />
-    <Content Include="Views\Demo\NExtra.Mvc.ActionFilters.OutputModelAttribute.cshtml" />
+    <Content Include="Views\Demo\NExtra.Mvc.ActionFilters.JsonForQueryStringAttribute.cshtml" />
     <Content Include="Views\Demo\NExtra.Mvc.Extensions.ControllerExtensions.cshtml" />
     <Content Include="Views\Demo\NExtra.Mvc.HtmlHelpers.GlobalResourceHelper.cshtml" />
     <Content Include="Views\Demo\NExtra.Mvc.HtmlHelpers.LocalResourceHelper.cshtml" />

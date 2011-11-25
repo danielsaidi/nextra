@@ -50,13 +50,13 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ActionFilters\OutputModelAttribute.cs" />
+    <Compile Include="ActionFilters\JsonForQueryStringAttribute.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\WebViewPageExtensions.cs" />
     <Compile Include="HtmlHelpers\FormBlockForHelper.cs" />
     <Compile Include="HtmlHelpers\ConditionalHelper.cs" />
     <Compile Include="HtmlHelpers\GlobalResourceHelper.cs" />
-    <Compile Include="HtmlHelpers\ResourceStringHelper.cs" />
+    <Compile Include="HtmlHelpers\ResourceFileValueHelper.cs" />
     <Compile Include="HtmlHelpers\LocalResourceHelper.cs" />
     <Compile Include="Localization\LocalizedDataAnnotationsModelMetadataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

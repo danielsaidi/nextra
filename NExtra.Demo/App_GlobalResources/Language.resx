@@ -258,7 +258,7 @@ To inspect the result (which is ust presented as a JSON object), just copy the s
     <value>Enter a value</value>
   </data>
   <data name="EnterValueToAffectOutput" xml:space="preserve">
-    <value>The current action uses an OutputModelAttribute that requires that the query variable "value" has the value "json". Enter "json" in the text box to try it out:</value>
+    <value>The current action uses an JsonForQueryStringAttribute that requires that the query variable "value" has the value "json". Enter "json" in the text box to try it out:</value>
   </data>
   <data name="EnterValueToExtendedCollection" xml:space="preserve">
     <value>Enter a string to add it to a StringCollection</value>

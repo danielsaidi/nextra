@@ -13,27 +13,32 @@ namespace NExtra.Mvc.Localization
     /// error messages that are displayed witin a view.
     ///</summary>
     /// <remarks>
-    /// If overrideMode is set to true, already defined values
-    /// for DisplayName and ErrorMessage will be overridden by
-    /// the provider. If overrideMode is set to false, however,
-    /// already defined metadata will be preserved.
-    /// 
-    /// The dotReplacement will be used to convert the dots in
-    /// the full name of a class or property. User.UserName is
-    /// by default converted to Domain_User_UserName.
+    /// This class will make it pointless to decorate entities
+    /// with metadata for DisplayName and ErrorMessage display.
+    /// It uses a convention that you can use directly in your
+    /// resource files or whatever you use for translation.
     /// 
     /// The default key format that is used for DisplayName is:
     ///     [Type.FullName]_[PropertyName]
     ///     e.g. MyCoolProject_Domain_User_UserName
     /// 
     /// For validation attributes, the default key format that
-    /// is used to as ErrorMessage is:
+    /// is used for ErrorMessage is:
     ///     [Type.FullName]_[PropertyName]_[AttributeName]
-    ///     e.g. MyCoolProject_Domain_User_UserName_Required
+    ///     e.g. MyCoolProject_Domain_User_UserName_RequiredError
     /// 
     /// Depending on which translator that is used, these keys
     /// can be translated in various ways. For instance, using
-    /// the HierarchicalResourceManagerFacade 
+    /// the HierarchicalResourceManagerFacade class allows you
+    /// to generalize translations, which force you to write a
+    /// LOT less translations.
+    /// 
+    /// If overrideMode is set to true, already defined values
+    /// for DisplayName and ErrorMessage will be overridden.
+    /// 
+    /// The dotReplacement will be used to convert the dots in
+    /// the full name of a class or property. User.UserName is
+    /// by default converted to Domain_User_UserName.
     /// 
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
@@ -43,7 +48,7 @@ namespace NExtra.Mvc.Localization
         ///<summary>
         /// Create an instance of the class.
         ///</summary>
-        ///<param name="translator">The ITranslator implementation to use when translating metadata.</param>
+        ///<param name="translator">The ITranslator to use when translating metadata.</param>
         ///<param name="overrideMode">Whether or not to override already defined metadata.</param>
         ///<param name="dotReplacement">The separator to use instead of dots.</param>
         public LocalizedDataAnnotationsModelMetadataProvider(ITranslator translator, bool overrideMode, string dotReplacement = "_")
@@ -69,16 +74,29 @@ namespace NExtra.Mvc.Localization
         /// </summary>
         public ITranslator Translator { get; private set; }
 
+        /// <summary>
+        /// Create metadata for the specifie property.
+        /// </summary>
+        protected override ModelMetadata CreateMetadata(IEnumerable<Attribute> attributes, Type containerType, Func<object> modelAccessor, Type modelType, string propertyName)
+        {
+            var meta = base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
+
+            if (string.IsNullOrEmpty(propertyName))
+                return meta;
+
+            HandleDisplayName(meta, containerType, propertyName);
+            HandleValidationAttributes(containerType, propertyName, attributes);
+
+            return meta;
+        }
+
 
         /// <summary>
         /// Retrieve the language key for the display name for
         /// a property. This key will be used when translating
-        /// the property displayname with the translator.
+        /// the property display name with the translator.
         /// </summary>
-        /// <param name="type">The type.</param>
-        /// <param name="propertyName">The property name.</param>
-        /// <returns>The resulting resource key.</returns>
-        protected virtual string GetDisplayNameLanguageKey(Type type, string propertyName)
+        public virtual string GetDisplayNameLanguageKey(Type type, string propertyName)
         {
             var fullPropertyName = String.Format("{0}.{1}", type.FullName, propertyName);
             return fullPropertyName.Replace(".", DotReplacement);
@@ -89,22 +107,15 @@ namespace NExtra.Mvc.Localization
         /// key will be used when translating a validation error
         /// message with the translator.
         /// </summary>
-        /// <param name="type">The type.</param>
-        /// <param name="propertyName">The property name.</param>
-        /// <param name="attributeName">The attribute name.</param>
-        /// <returns>The resulting resource key.</returns>
-        protected virtual string GetErrorMessageLanguageKey(Type type, string propertyName, string attributeName)
+        public virtual string GetErrorMessageLanguageKey(Type type, string propertyName, string validationAttributeName)
         {
-            var fullErrorName = String.Format("{0}.{1}.{2}Error", type.FullName, propertyName, attributeName);
+            var fullErrorName = String.Format("{0}.{1}.{2}Error", type.FullName, propertyName, validationAttributeName);
             return fullErrorName.Replace(".", DotReplacement);
         }
 
         /// <summary>
         /// Handle the display name of a metadata model.
         /// </summary>
-        /// <param name="meta">The metadata model to affect.</param>
-        /// <param name="type">The type to translate.</param>
-        /// <param name="propertyName">The name of the property to translate.</param>
         protected virtual void HandleDisplayName(ModelMetadata meta, Type type, string propertyName)
         {
             var languageKey = GetDisplayNameLanguageKey(type, propertyName);
@@ -119,9 +130,6 @@ namespace NExtra.Mvc.Localization
         /// <summary>
         /// Handle the error message of a validation attribute.
         /// </summary>
-        /// <param name="type">The type to translate.</param>
-        /// <param name="propertyName">The name of the property to translate.</param>
-        /// <param name="attribute">The validation attribute to affect.</param>
         protected virtual void HandleErrorMessage(Type type, string propertyName, ValidationAttribute attribute)
         {
             var languageKey = GetErrorMessageLanguageKey(type, propertyName, attribute.GetType().Name);
@@ -133,40 +141,15 @@ namespace NExtra.Mvc.Localization
                 attribute.ErrorMessage = string.Format("[[{0}]]", languageKey);
         }
 
-
-
-
-
-        //TODO: TEST----------------------------
-
+        /// <summary>
+        /// Handle the error messages of multiple validation attribute.
+        /// </summary>
         private void HandleValidationAttributes(Type type, string propertyName, IEnumerable<Attribute> attributes)
         {
             foreach (var validationAttribute in attributes.OfType<ValidationAttribute>())
             {
                 HandleErrorMessage(type, propertyName, validationAttribute);
             }
-        }
-
-        /// <summary>
-        /// Gets the metadata for the specifie property.
-        /// </summary>
-        /// <param name="attributes">The attributes.</param>
-        /// <param name="containerType">The type of container.</param>
-        /// <param name="modelAccessor">The model accessor.</param>
-        /// <param name="modelType">The model type.</param>
-        /// <param name="propertyName">The property name.</param>
-        /// <returns>The resulting model metadata.</returns>
-        protected override ModelMetadata CreateMetadata(IEnumerable<Attribute> attributes, Type containerType, Func<object> modelAccessor, Type modelType, string propertyName)
-        {
-            var meta = base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
-
-            if (string.IsNullOrEmpty(propertyName))
-                return meta;
-
-            HandleDisplayName(meta, containerType, propertyName);
-            HandleValidationAttributes(containerType, propertyName, attributes);
-
-            return meta;
         }
     }
 }
