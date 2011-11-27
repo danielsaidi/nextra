@@ -13,10 +13,7 @@ namespace NExtra.Web.Testing
         private Uri urlReferrer;
 
 
-        ///<summary>
-        /// Create a default instance of the class, using
-        /// http://foo.com as URL and being authenticated.
-        ///</summary>
+        [Obsolete("This default constructor will be removed in 2.6.0.0")]
         public FakeHttpRequest()
             : this("http://foo.com", true)
         {
@@ -25,8 +22,6 @@ namespace NExtra.Web.Testing
         ///<summary>
         /// Create a custom instance of the class.
         ///</summary>
-        ///<param name="url">The fake URL to use.</param>
-        ///<param name="isAuthenticated">Whether or not the request is authenticated.</param>
         public FakeHttpRequest(string url, bool isAuthenticated)
         {
             this.url = new Uri(url);
@@ -63,7 +58,6 @@ namespace NExtra.Web.Testing
         /// <summary>
         /// Set a new value for the UrlReferrer property.
         /// </summary>
-        /// <param name="newValue">The new value to set.</param>
         public void SetUrlReferrer(Uri newValue)
         {
             urlReferrer = newValue;

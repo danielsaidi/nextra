@@ -4,8 +4,8 @@ using NExtra.Web.Security.Abstractions;
 namespace NExtra.Web.Security
 {
     /// <summary>
-    /// This class implements IAuthenticationFacade and can be
-    /// used as a facade for the static FormsAuthentication class.
+    /// This class can be used as a facade for the
+    /// static FormsAuthentication class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -16,8 +16,6 @@ namespace NExtra.Web.Security
         /// <summary>
         /// Sign in a user.
         /// </summary>
-        /// <param name="userName">User name.</param>
-        /// <param name="createPersistentCookie">Whether or not the login should be persisted.</param>
         public void SignIn(string userName, bool createPersistentCookie)
         {
             FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);

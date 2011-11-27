@@ -29,7 +29,6 @@ namespace NExtra.Web.HttpModules
         /// <summary>
         /// Initialize the module.
         /// </summary>
-        /// <param name="application">The HTTP application to which the module should apply.</param>
         public void Init(HttpApplication application)
         {
             application.BeginRequest += application_BeginRequest;
@@ -39,8 +38,6 @@ namespace NExtra.Web.HttpModules
         /// <summary>
         /// This event is called when the application begins a request.
         /// </summary>
-        /// <param name="sender">The event sender.</param>
-        /// <param name="e">Event arguments.</param>
         private static void application_BeginRequest(object sender, EventArgs e)
         {
             var current = HttpContext.Current;

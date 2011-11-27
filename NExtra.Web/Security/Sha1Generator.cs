@@ -15,8 +15,6 @@ namespace NExtra.Web.Security
         /// <summary>
         /// Generate an SHA1 hash value.
         /// </summary>
-        /// <param name="value">The object to create a hash value for.</param>
-        /// <returns>The resulting hash value.</returns>
         public string GenerateHashValue(object value)
         {
             return FormsAuthentication.HashPasswordForStoringInConfigFile(value.ToString(), "sha1");

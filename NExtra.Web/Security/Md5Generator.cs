@@ -15,8 +15,6 @@ namespace NExtra.Web.Security
         /// <summary>
         /// Generate an MD5 hash value for an object.
         /// </summary>
-        /// <param name="value">The object to create a hash value for.</param>
-        /// <returns>The resulting hash value.</returns>
         public string GenerateHashValue(object value)
         {
             return FormsAuthentication.HashPasswordForStoringInConfigFile(value.ToString(), "md5");

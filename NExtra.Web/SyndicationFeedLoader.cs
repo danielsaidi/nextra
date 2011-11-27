@@ -16,9 +16,9 @@ namespace NExtra.Web
 	/// </remarks>
 	public class SyndicationFeedLoader : ISyndicationFeedLoader
 	{
-		///<summary>Load a syndication feed from any public URL.</summary>
-		///<param name="url">The URL of interest.</param>
-		///<returns>The resulting syndication feed instance.</returns>
+        /// <summary>
+        /// Load a syndication feed from any public URL.
+        /// </summary>
 		public SyndicationFeed Load(string url)
 		{
 		    return !(new UrlAttribute().IsValid(url)) ? new SyndicationFeed() : SyndicationFeed.Load(XmlReader.Create(url));

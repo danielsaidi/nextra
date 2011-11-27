@@ -19,8 +19,6 @@ namespace NExtra.Web
         /// <summary>
         /// Remove all HTML within a certain string.
         /// </summary>
-        /// <param name="str">The HTML string.</param>
-        /// <returns>The resulting string.</returns>
         public string RemoveHtml(string str)
         {
             return str == null ? string.Empty : Regex.Replace(str, "<.*?>", "");
@@ -29,9 +27,6 @@ namespace NExtra.Web
         /// <summary>
         /// Remove a certain HTML element from a certain string.
         /// </summary>
-        /// <param name="str">The HTML string.</param>
-        /// <param name="elementName">The name of the HTML element.</param>
-        /// <returns>The resulting string.</returns>
         public string RemoveHtmlElement(string str, string elementName)
         {
             return str == null ? string.Empty : Regex.Replace(str, "</?" + elementName + "[^>]*>", String.Empty);
@@ -40,9 +35,6 @@ namespace NExtra.Web
         /// <summary>
         /// Remove a set of HTML elements from a certain string.
         /// </summary>
-        /// <param name="str">The HTML string.</param>
-        /// <param name="elementNames">The a list of HTML element names.</param>
-        /// <returns>The resulting string.</returns>
         public string RemoveHtmlElements(string str, IEnumerable<string> elementNames)
         {
             return elementNames.Aggregate(str, RemoveHtmlElement);
@@ -51,8 +43,6 @@ namespace NExtra.Web
         /// <summary>
         /// Remove all HTML table elements from a certain string.
         /// </summary>
-        /// <param name="str">The HTML string.</param>
-        /// <returns>The resulting string.</returns>
         public string RemoveHtmlTableElements(string str)
         {
             return RemoveHtmlElements(str, new[] { "table", "tr", "td", "thead", "tbody" });

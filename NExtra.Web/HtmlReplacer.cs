@@ -16,10 +16,6 @@ namespace NExtra.Web
         /// <summary>
         /// Replace one element type with another.
         /// </summary>
-        /// <param name="str">The string to affect.</param>
-        /// <param name="originalElementName">The original element name.</param>
-        /// <param name="replacementElementName">The name of the element name.</param>
-        /// <returns></returns>
         public string ReplaceHtmlElement(string str, string originalElementName, string replacementElementName)
         {
             str = Regex.Replace(str, @"<" + originalElementName, @"<" + replacementElementName);

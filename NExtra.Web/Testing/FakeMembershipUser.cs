@@ -3,9 +3,9 @@ using System.Web.Security;
 namespace NExtra.Web.Testing
 {
     /// <summary>
-    /// This class inherits MembershipUser and can be
-    /// used to create membership user instances that
-    /// can be used in, for instance, test context.
+    /// This class can be used to create fake membership
+    /// user instances that can be used in, for instance,
+    /// test contexts.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

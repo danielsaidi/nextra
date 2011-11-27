@@ -14,7 +14,7 @@ namespace NExtra.Web.Abstractions
     public interface ICanHandleCookies
     {
         /// <summary>
-        /// Check whether a cookie exists.
+        /// Check if a cookie exists.
         /// </summary>
         bool CookieExists(string cookieName);
 
@@ -24,7 +24,7 @@ namespace NExtra.Web.Abstractions
         HttpCookie GetCookie(string cookieName);
 
         /// <summary>
-        /// Get the value of a certain cookie.
+        /// Get the string value of a certain cookie.
         /// </summary>
         string GetCookieValue(string cookieName);
 
@@ -34,12 +34,12 @@ namespace NExtra.Web.Abstractions
         T GetCookieValue<T>(string cookieName);
 
         /// <summary>
-        /// Set the value of a cookie.
+        /// Set a cookie value.
         /// </summary>
         void SetCookieValue(string cookieName, object data);
 
         /// <summary>
-        /// Set the value of a cookie.
+        /// Set a cookie value with an optional expiration date.
         /// </summary>
         void SetCookieValue(string cookieName, object data, DateTime? expires);
     }
