@@ -19,8 +19,9 @@ namespace NExtra.WebForms.WebControls
     /// </remarks>
     public class IFrame : WebControl
     {
-        /// <summary>Override OnPreRender to add a Literal to the control collection.</summary>
-        /// <param name="e">Event arguments.</param>
+        /// <summary>
+        /// Override OnPreRender to add a Literal to the control collection.
+        /// </summary>
         protected override void OnPreRender(EventArgs e)
         {
             Controls.Add(new Literal { Text = GetHtml() });
@@ -39,9 +40,9 @@ namespace NExtra.WebForms.WebControls
         }
 
         /// <summary>
-        /// Get/set the HTML content to load into the iFrame, if any.
-        /// This property is applied with JavaScript, unlike the Src
-        /// ¨property, which is applied directly within the markup.
+        /// Get or set the HTML content to load into the iFrame, if any.
+        /// This property is applied with JavaScript, unlike Src, which
+        /// is applied directly within the markup.
         /// </summary>
         public String Html
         {
@@ -107,9 +108,6 @@ namespace NExtra.WebForms.WebControls
         /// <summary>
         /// Append a double attribute, which is only appended if the value is greater than zero.
         /// </summary>
-        /// <param name="sb">StringBuilder instance.</param>
-        /// <param name="format">Attribute format.</param>
-        /// <param name="value">Attribute value.</param>
         private static void AppendAttribute(StringBuilder sb, string format, double value)
         {
             sb.Append(value > 0 ? String.Format(format, value) : null);
@@ -118,9 +116,6 @@ namespace NExtra.WebForms.WebControls
         /// <summary>
         /// Append a int? attribute, which is only appended if the value has a value.
         /// </summary>
-        /// <param name="sb">StringBuilder instance.</param>
-        /// <param name="format">Attribute format.</param>
-        /// <param name="value">Attribute value.</param>
         private static void AppendAttribute(StringBuilder sb, string format, int? value)
         {
             sb.Append(value.HasValue ? String.Format(format, value) : null);
@@ -129,9 +124,6 @@ namespace NExtra.WebForms.WebControls
         /// <summary>
         /// Append a string attribute, which is only appended if the value is not null or empty.
         /// </summary>
-        /// <param name="sb">StringBuilder instance.</param>
-        /// <param name="format">Attribute format.</param>
-        /// <param name="value">Attribute value.</param>
         private static void AppendAttribute(StringBuilder sb, string format, string value)
         {
             sb.Append(!value.IsNullOrEmpty() ? String.Format(format, value) : null);
@@ -140,8 +132,6 @@ namespace NExtra.WebForms.WebControls
         /// <summary>
         /// Append a scrolling attribute, which is either "yes" or "no".
         /// </summary>
-        /// <param name="sb">StringBuilder instance.</param>
-        /// <param name="value">Attribute value.</param>
         private static void AppendScrollingAttribute(StringBuilder sb, bool? value)
         {
             sb.Append(value.HasValue ? String.Format("scrolling=\"{0}\" ", value.Value ? "yes" : "no") : null);
@@ -150,8 +140,6 @@ namespace NExtra.WebForms.WebControls
         /// <summary>
         /// Append an allowtransparency attribute.
         /// </summary>
-        /// <param name="sb">StringBuilder instance.</param>
-        /// <param name="value">Attribute value.</param>
         private static void AppendTransparencyAttribute(StringBuilder sb, bool? value)
         {
             sb.Append(value.HasValue ? String.Format("allowtransparency=\"{0}\" ", value.Value).ToLower() : null);
@@ -218,7 +206,6 @@ namespace NExtra.WebForms.WebControls
         /// <summary>
         /// Override the Render function in order to remove the outer span tag.
         /// </summary>
-        /// <param name="writer">HtmlTextWriter instance.</param>
         protected override void Render(HtmlTextWriter writer)
         {
             RenderContents(writer);

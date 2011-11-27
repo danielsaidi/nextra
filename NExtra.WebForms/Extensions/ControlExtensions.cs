@@ -15,8 +15,6 @@ namespace NExtra.WebForms.Extensions
 		/// <summary>
 		/// Retrieve the HTML code for a certain control.
 		/// </summary>
-		/// <param name="control">The control of interest.</param>
-		/// <returns>The HTML for the control.</returns>
 		public static string Html(this Control control)
 		{
 			if (control == null)

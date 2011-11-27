@@ -1,6 +1,5 @@
 using System;
 using System.Web.UI;
-using NExtra.UI.Abstractions;
 
 namespace NExtra.WebForms.WebControls
 {
@@ -11,7 +10,7 @@ namespace NExtra.WebForms.WebControls
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://www.saidi.se/nextra
 	/// </remarks>
-	public class SubmittableUserControl : UserControl, ICanSubmit, ICanCancel
+	public class SubmittableUserControl : UserControl
 	{
 		///<summary>
 		/// This event is trigged when a control submit cancels.

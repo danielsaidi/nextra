@@ -22,10 +22,9 @@ namespace NExtra.WebForms.WebControls
 	public class UserControlPlaceHolder : PlaceHolder
 	{
 		/// <summary>
-		/// Override LoadViewState to makes sure that all dynamically loaded
-		/// controls are properly reloaded after each postback.
+		/// Override LoadViewState to make sure that all dynamically
+		/// loaded controls are properly reloaded after any postback.
 		/// </summary>
-		/// <param name="savedState">The saved state.</param>
 		protected override void LoadViewState(object savedState)
 		{
 			base.LoadViewState(savedState);
@@ -35,8 +34,8 @@ namespace NExtra.WebForms.WebControls
 
 
 		/// <summary>
-		/// A comma-separated string with the IDs of the user controls that
-		/// have been added to the place holder.
+		/// A comma-separated string with the IDs of the controls
+		/// that have been added to the place holder.
 		/// </summary>
 		protected List<String> LoadedControls
 		{
@@ -52,8 +51,6 @@ namespace NExtra.WebForms.WebControls
 		/// <summary>
 		/// Retrieve a control that has been added to the place holder.
 		/// </summary>
-		/// <param name="controlId">The ID of the control to retrieve.</param>
-		/// <returns>The control instane; null if none could be found.</returns>
 		public Control GetControl(String controlId)
 		{
 			return Controls.Cast<Control>().FirstOrDefault(control => control.ID == controlId);
@@ -62,9 +59,6 @@ namespace NExtra.WebForms.WebControls
 		/// <summary>
 		/// Retrieve a control that has been added to the place holder.
 		/// </summary>
-		/// <typeparam name="T">The control type.</typeparam>
-		/// <param name="controlId">The ID of the control to retrieve.</param>
-		/// <returns>The control instane; null if none could be found.</returns>
 		public T GetControl<T>(String controlId)
 			where T : Control
 		{
@@ -76,9 +70,6 @@ namespace NExtra.WebForms.WebControls
 		/// Dynamically load any user control to the place holder. If the
 		/// control is already added, it will not be loaded a second time.
 		/// </summary>
-		/// <param name="controlId">The unique control ID.</param>
-		/// <param name="controlUrl">The path to the user control source file.</param>
-		/// <returns>The loaded control.</returns>
 		public Control LoadControl(String controlId, String controlUrl)
 		{
 			//Add the control key to viewstate if it is not already added
@@ -101,18 +92,15 @@ namespace NExtra.WebForms.WebControls
 		/// Dynamically load any user control to the place holder. If the
 		/// control is already added, it will not be loaded a second time.
 		/// </summary>
-		/// <typeparam name="T">The control type.</typeparam>
-		/// <param name="controlId">The unique control ID.</param>
-		/// <param name="controlUrl">The URL to the user control source file.</param>
-		/// <returns>The loaded control.</returns>
 		public T LoadControl<T>(String controlId, String controlUrl)
 			where T : Control
 		{
 			return (T)LoadControl(controlId, controlUrl);
 		}
 
-		/// <summary>Unload a previously loaded user control.</summary>
-		/// <param name="controlId">The ID of the control to unload.</param>
+		/// <summary>
+		/// Unload a previously loaded user control.
+		/// </summary>
 		public void UnloadControl(String controlId)
 		{
 			//Retrieve the full control ID (inluding control url)
