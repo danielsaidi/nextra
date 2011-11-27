@@ -16,7 +16,6 @@ namespace NExtra.WinForms.Extensions
 		/// <summary>
 		/// Evaluate whether or not the first row, if any, is selected in the data grid view.
 		/// </summary>
-		/// <param name="dataGridView">The DataGridView to use.</param>
 		public static bool IsFirstRowSelected(this DataGridView dataGridView)
 		{
 			return (dataGridView.SelectedRows.Count > 0 && dataGridView.SelectedRows[0].Index == 0);
@@ -25,7 +24,6 @@ namespace NExtra.WinForms.Extensions
 		/// <summary>
 		/// Evaluate whether or not the last row, if any, is selected in the data grid view.
 		/// </summary>
-		/// <param name="dataGridView">The DataGridView to use.</param>
 		public static bool IsLastRowSelected(this DataGridView dataGridView)
 		{
 			return (dataGridView.SelectedRows.Count > 0 && dataGridView.SelectedRows[0].Index == dataGridView.Rows.Count - 1);
@@ -34,8 +32,6 @@ namespace NExtra.WinForms.Extensions
 		/// <summary>
 		/// Select and show a row in a DataGridView.
 		/// </summary>
-		/// <param name="dataGridView">The DataGridView of interest.</param>
-		/// <param name="rowIndex">The row index.</param>
 		public static void SelectAndShowRow(this DataGridView dataGridView, int rowIndex)
 		{
 			dataGridView.SelectRow(rowIndex);
@@ -45,8 +41,6 @@ namespace NExtra.WinForms.Extensions
 		/// <summary>
 		/// Select a row in a DataGridView.
 		/// </summary>
-		/// <param name="dataGridView">The DataGridView to use.</param>
-		/// <param name="selectIndex">The row index to select.</param>
 		public static void SelectRow(this DataGridView dataGridView, int selectIndex)
 		{
 			//Abort if the data grid view does not have any rows
@@ -62,12 +56,8 @@ namespace NExtra.WinForms.Extensions
 		}
 
 		/// <summary>
-		/// Shows a row and selects another one in a DataGridView.
-		/// The function will handle invalid indices and also set
-		/// the CurrentCell property of the DataGridView.
+		/// Shows a row in a DataGridView.
 		/// </summary>
-		/// <param name="dataGridView">The DataGridView to use.</param>
-		/// <param name="showIndex">The row index to show.</param>
 		public static void ShowRow(this DataGridView dataGridView, int showIndex)
 		{
 			//Abort if the data grid view does not have any rows
@@ -83,16 +73,13 @@ namespace NExtra.WinForms.Extensions
 
 
 		/// <summary>
-		/// Repaint an image cell with an image in an image list. Just execute
+		/// Repaint an image cell with an image in an image list. Run
 		/// this method in the CellPainting event of the DataGridView.
 		/// 
-		/// This method ignores invalid parameters. Providing it with empty or
-		/// non-existing key indices will simply cause the event to abort.
+		/// This method ignores invalid parameters. Providing it with
+		/// empty or non-existing indices will simply cause the event
+		/// to abort.
 		/// </summary>
-		/// <param name="dataGridView">The DataGridView of interest.</param>
-		/// <param name="e">Paint event arguments.</param>
-		/// <param name="imageList">The image list that contains the images</param>
-		/// <param name="imageKey">The image key to display.</param>
 		public static void PaintImageCell(this DataGridView dataGridView, DataGridViewCellPaintingEventArgs e, ImageList imageList, String imageKey)
 		{
 			//Abort if any parameter is null or if the image does not exist

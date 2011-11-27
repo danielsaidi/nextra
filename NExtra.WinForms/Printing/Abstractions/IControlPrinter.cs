@@ -7,7 +7,6 @@ namespace NExtra.WinForms.Printing.Abstractions
     /// This interface can be implemented by classes that
     /// should be able to print a certain type of control.
     /// </summary>
-    /// <typeparam name="T">The type of control to print.</typeparam>
     public interface IControlPrinter<T>
     {
         /// <summary>

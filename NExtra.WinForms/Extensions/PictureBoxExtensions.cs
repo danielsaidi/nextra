@@ -16,7 +16,6 @@ namespace NExtra.WinForms.Extensions
 		/// <summary>
         /// Print the control, using a default PictureBoxPrinter instance.
 		/// </summary>
-		/// <param name="pictureBox">The PictureBox instance to print.</param>
 		public static void Print(this PictureBox pictureBox)
 		{
 			pictureBox.Print(new PictureBoxPrinter(pictureBox));
@@ -25,8 +24,6 @@ namespace NExtra.WinForms.Extensions
 		/// <summary>
         /// Print the control, using a custom IControlPrinter instance.
 		/// </summary>
-		/// <param name="pictureBox">The PictureBox instance to print.</param>
-        /// <param name="controlPrinter">The IControlPrinter instance to use to print.</param>
         public static void Print(this PictureBox pictureBox, IControlPrinter<PictureBox> controlPrinter)
 		{
 			controlPrinter.TargetControl = pictureBox;

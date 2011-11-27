@@ -4,8 +4,8 @@ using NExtra.WinForms.Printing.Abstractions;
 namespace NExtra.WinForms.Printing.Facades
 {
     /// <summary>
-    /// This class can be used as facade for the PrintDialog
-    /// class, to simplify unit testing.
+    /// This class can be used as facade for the
+    /// PrintDialog class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -16,7 +16,6 @@ namespace NExtra.WinForms.Printing.Facades
         /// <summary>
         /// Create an instance of the class.
         /// </summary>
-        /// <param name="printDialog">The base instance to wrap.</param>
         public PrintDialogFacade(PrintDialog printDialog)
         {
             PrintDialog = printDialog;
@@ -24,7 +23,7 @@ namespace NExtra.WinForms.Printing.Facades
 
 
         /// <summary>
-        /// The base instance that is wrapped within the facade.
+        /// The print dialog that is wrapped by the facade.
         /// </summary>
         public PrintDialog PrintDialog { get; private set; }
 

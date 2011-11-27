@@ -17,7 +17,6 @@ namespace NExtra.WinForms.Printing.Abstractions
         /// <summary>
         /// Show the PrintDialog.
         /// </summary>
-        /// <returns>The dialog result.</returns>
         DialogResult ShowDialog();
     }
 }

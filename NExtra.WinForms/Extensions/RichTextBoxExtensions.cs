@@ -17,7 +17,6 @@ namespace NExtra.WinForms.Extensions
 		/// <summary>
 		/// Print the control, using a default ControlPrinter instance.
 		/// </summary>
-		/// <param name="richTextBox">The RichTextBox instance to print.</param>
 		public static void Print(this RichTextBox richTextBox)
 		{
 			richTextBox.Print(new RichTextBoxPrinter(richTextBox));
@@ -26,8 +25,6 @@ namespace NExtra.WinForms.Extensions
 		/// <summary>
         /// Print the control, using a custom IControlPrinter instance.
 		/// </summary>
-		/// <param name="richTextBox">The RichTextBox instance to print.</param>
-        /// <param name="controlPrinter">The IControlPrinter instance to use to print.</param>
         public static void Print(this RichTextBox richTextBox, IControlPrinter<RichTextBox> controlPrinter)
 		{
 			if (richTextBox == null)

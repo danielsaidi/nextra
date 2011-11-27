@@ -4,8 +4,8 @@ using NExtra.WinForms.Printing.Abstractions;
 namespace NExtra.WinForms.Printing.Facades
 {
     /// <summary>
-    /// This class can be used as facade for the PageSetupDialog
-    /// class, to simplify unit testing.
+    /// This class can be used as a facade for the
+    /// PageSetupDialog class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -16,7 +16,6 @@ namespace NExtra.WinForms.Printing.Facades
         /// <summary>
         /// Create an instance of the class.
         /// </summary>
-        /// <param name="pageSetupDialog">The base instance to wrap.</param>
         public PageSetupDialogFacade(PageSetupDialog pageSetupDialog)
         {
             PageSetupDialog = pageSetupDialog;
@@ -24,7 +23,7 @@ namespace NExtra.WinForms.Printing.Facades
 
 
         /// <summary>
-        /// The base instance that is wrapped within the facade.
+        /// The page setup dialog that is wrapped by the facade.
         /// </summary>
         public PageSetupDialog PageSetupDialog { get; private set; }
     }
