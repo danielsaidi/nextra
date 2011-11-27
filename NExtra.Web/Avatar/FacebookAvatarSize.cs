@@ -1,7 +1,7 @@
 namespace NExtra.Web.Avatar
 {
     ///<summary>
-    /// This enum represents the available avatar sizes.
+    /// This enum represents Facebook profile picture sizes.
     ///</summary>
     public enum FacebookAvatarSize
     {

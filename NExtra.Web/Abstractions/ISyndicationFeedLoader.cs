@@ -4,7 +4,7 @@ namespace NExtra.Web.Abstractions
 {
     /// <summary>
     /// This interface can be implemented by classes that
-    /// should be able to load syndication feeds, aka RSS.
+    /// can load syndication feeds like RSS, ATOM etc.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -15,8 +15,6 @@ namespace NExtra.Web.Abstractions
         /// <summary>
         /// Load a feed from a certain URL.
         /// </summary>
-        /// <param name="url">The URL of the feed.</param>
-        /// <returns>The resulting feed instance.</returns>
 		SyndicationFeed Load(string url);
 	}
 }

@@ -2,7 +2,7 @@ namespace NExtra.Web.Abstractions
 {
     /// <summary>
     /// This interface can be implemented by classes that
-    /// should be able to convert HTML code in various ways.
+    /// can convert HTML code in various ways.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -13,8 +13,6 @@ namespace NExtra.Web.Abstractions
         /// <summary>
         /// Convert the HTML code that exists within a certain string.
         /// </summary>
-        /// <param name="str">The string of interest.</param>
-        /// <returns>The converted string.</returns>
         string ConvertHtml(string str);
     }
 }

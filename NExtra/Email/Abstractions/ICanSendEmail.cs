@@ -4,7 +4,7 @@ namespace NExtra.Email.Abstractions
 {
     /// <summary>
     /// This interface can be implemented by classes
-    /// that should be able to send e-mail messages.
+    /// that can send e-mail messages.
     /// </summary>
     public interface ICanSendEmail
     {

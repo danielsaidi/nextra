@@ -1,8 +1,8 @@
 namespace NExtra.IO.Abstractions
 {
     /// <summary>
-    /// This interface can be implemented by classes that
-    /// should be able to textually present file sizes.
+    /// This interface can be implemented by classes
+    /// that can present file sizes textually.
     /// </summary>
     public interface ICanPresentFileSize
     {

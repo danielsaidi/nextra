@@ -4,8 +4,7 @@ using NExtra.Web.Avatar.Abstractions;
 namespace NExtra.Web.Avatar
 {
     /// <summary>
-    /// This class can be used to retrieve user avatars
-    /// from Facebook.
+    /// This class can be used to retrieve Facebook profile pictures.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -14,7 +13,7 @@ namespace NExtra.Web.Avatar
     public class FacebookAvatar : IAvatarService<FacebookAvatarSize>
     {
         /// <summary>
-        /// The pattern of Facebook avatar URLs.
+        /// The URL pattern for Facebook profile pictures.
         /// </summary>
         public const string BaseUrl = "http://graph.facebook.com/{0}/picture?type={1}";
 
@@ -22,8 +21,6 @@ namespace NExtra.Web.Avatar
         /// <summary>
         /// Get the url of a user avatar.
         /// </summary>
-        /// <param name="userName">The user name of interest.</param>
-        /// <returns>The resulting url of the user avatar.</returns>
         public string GetAvatarUrl(string userName)
         {
             return GetAvatarUrl(userName, FacebookAvatarSize.Small);
@@ -32,9 +29,6 @@ namespace NExtra.Web.Avatar
         /// <summary>
         /// Get the url of a user avatar.
         /// </summary>
-        /// <param name="userName">The user name of interest.</param>
-        /// <param name="size">The avatar size.</param>
-        /// <returns>The resulting url of the user avatar.</returns>
         public string GetAvatarUrl(string userName, FacebookAvatarSize size)
         {
             return String.Format(BaseUrl, userName, size.ToString().ToLower());

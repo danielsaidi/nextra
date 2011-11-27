@@ -5,8 +5,7 @@ using NExtra.Web.Security;
 namespace NExtra.Web.Avatar
 {
     /// <summary>
-    /// This class can be used to retrieve user avatars
-    /// from Gravatar.
+    /// This class can be used to retrieve Gravatar avatars.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -15,7 +14,7 @@ namespace NExtra.Web.Avatar
     public class Gravatar : IAvatarService<int>
     {
         /// <summary>
-        /// The pattern of gravatar avatar URLs.
+        /// The URL pattern for Gravatar avatars.
         /// </summary>
         public const string BaseUrl = "http://www.gravatar.com/avatar/{0}?s={1}";
 
@@ -23,8 +22,6 @@ namespace NExtra.Web.Avatar
         /// <summary>
         /// Get the url of a user avatar.
         /// </summary>
-        /// <param name="emailAddress">The e-mail address of interest.</param>
-        /// <returns>The resulting url of the user avatar.</returns>
         public string GetAvatarUrl(string emailAddress)
         {
             return GetAvatarUrl(emailAddress, 80);
@@ -33,9 +30,6 @@ namespace NExtra.Web.Avatar
         /// <summary>
         /// Get the url of a user avatar.
         /// </summary>
-        /// <param name="emailAddress">The e-mail address of interest.</param>
-        /// <param name="size">The avatar size.</param>
-        /// <returns>The resulting url of the user avatar.</returns>
         public string GetAvatarUrl(string emailAddress, int size)
         {
             var hashCreator = new Md5Generator();
