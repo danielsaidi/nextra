@@ -20,11 +20,9 @@ namespace NExtra.Localization
 
 
         /// <summary>
-        /// Create an instance of the class using the
-        /// ResourceManager manager of auto-generated,
-        /// strongly-typed resource classes.
+        /// Create an instance of the class, using a
+        /// custom resource manager.
         /// </summary>
-        /// <param name="resourceManager">The ResourceManager instance to use.</param>
         public ResourceManagerFacade(ResourceManager resourceManager)
         {
             this.resourceManager = resourceManager;
@@ -34,8 +32,6 @@ namespace NExtra.Localization
         /// <summary>
         /// Translate a certain language key for the current culture.
         /// </summary>
-        /// <param name="key">The language key to translate.</param>
-        /// <returns>The translated result.</returns>
         public virtual string Translate(string key)
         {
             return Translate(key, Thread.CurrentThread.CurrentUICulture);
@@ -44,25 +40,24 @@ namespace NExtra.Localization
         ///<summary>
         /// Translate a certain language key for a certain culture.
         ///</summary>
-        /// <param name="key">The language key to translate.</param>
-        ///<param name="cultureInfo">The culture to use.</param>
-        /// <returns>The translated result.</returns>
         public virtual string Translate(string key, CultureInfo cultureInfo)
         {
             return resourceManager.GetString(key, cultureInfo);
         }
-        
+
         /// <summary>
         /// Check whether or not a translation exists for
         /// a certain language key and the current culture.
         /// </summary>
-        /// <param name="key">The language key of interest.</param>
-        /// <returns>Whether or not a translation exists.</returns>
         public bool TranslationExists(string key)
         {
             return TranslationExists(key, Thread.CurrentThread.CurrentUICulture);
         }
 
+        /// <summary>
+        /// Check whether or not a translation exists for
+        /// a certain language key and culture.
+        /// </summary>
         public bool TranslationExists(string key, CultureInfo cultureInfo)
         {
             return Translate(key, cultureInfo) != null;

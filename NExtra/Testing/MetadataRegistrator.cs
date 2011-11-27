@@ -1,4 +1,4 @@
-    using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -7,10 +7,8 @@ using System.Reflection;
 namespace NExtra.Testing
 {
 	/// <summary>
-	/// This class can be used when testing functionality that
-	/// depends on MetadataTypes. Just run any of the Register
-	/// methods when needed to register meta data types within
-	/// one or several assemblies or for a certain type.
+	/// This class can be used to register metadata for a
+	/// certain type, or for all all types in an assembly.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -25,8 +23,6 @@ namespace NExtra.Testing
         /// <summary>
         /// Check whether or not a certain assembly is registered.
         /// </summary>
-        /// <param name="assembly">The assembly of interest.</param>
-        /// <returns>Whether or not the assembly is registered</returns>
         private static bool IsAssemblyRegistered(Assembly assembly)
         {
             if (registeredDictionary == null)
@@ -50,7 +46,6 @@ namespace NExtra.Testing
         /// Register all the MetadataType classes that are defined in
         /// a certain assembly.
         /// </summary>
-        /// <param name="assembly">The assembly of interest.</param>
         public static void Register(Assembly assembly)
         {
             if (IsAssemblyRegistered(assembly))
@@ -71,18 +66,10 @@ namespace NExtra.Testing
         /// <summary>
         /// Register the MetadataType class for a certain type.
         /// </summary>
-        /// <param name="type">The type of interest.</param>
         public static void Register(Type type)
         {
             foreach (MetadataTypeAttribute attrib in type.GetCustomAttributes(typeof(MetadataTypeAttribute), true))
                 TypeDescriptor.AddProviderTransparent(new AssociatedMetadataTypeTypeDescriptionProvider(type, attrib.MetadataClassType), type);
         }
 	}
-
-
-    /// <summary>
-    /// 
-    /// </summary>
-    [Obsolete("Use MetadataRegistrator instead.")]
-    public class MetadataTypeRegistrator : MetadataRegistrator {}
 }

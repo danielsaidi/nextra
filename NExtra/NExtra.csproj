@@ -61,11 +61,12 @@
     <Compile Include="EventArgs.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
     <Compile Include="Extensions\WebRequestExtensions.cs" />
+    <Compile Include="Geo\GeoConstants.cs" />
     <Compile Include="Localization\Abstractions\ITranslator.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerFacade.cs" />
     <Compile Include="Localization\ResourceManagerFacade.cs" />
+    <Compile Include="Logging\Abstractions\ILogWriter.cs" />
     <Compile Include="Logging\DoNothingLogWriter.cs" />
-    <Compile Include="Logging\ILogWriter.cs" />
     <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="Security\Abstractions\ICanGenerateHashValue.cs" />
     <Compile Include="Testing\MetadataValidator.cs" />

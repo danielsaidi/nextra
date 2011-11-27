@@ -27,22 +27,8 @@ namespace NExtra.Geo
 
 
         /// <summary>
-        /// The rough earth radius in kilometers.
-        /// </summary>
-        public static double EarthRadiusInKilometers { get { return 6367.0; } }
-
-        /// <summary>
-        /// The rough earth radius in miles.
-        /// </summary>
-        public static double EarthRadiusInMiles { get { return 3956.0; } }
-        
-
-        /// <summary>
         /// Calculate the bearing between two positions.
         /// </summary>
-        /// <param name="position1">The source position.</param>
-        /// <param name="position2">The target position.</param>
-        /// <returns>The bearing between the two positions.</returns>
         public double CalculateBearing(Position position1, Position position2)
         {
             var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
@@ -59,13 +45,9 @@ namespace NExtra.Geo
         /// <summary>
         /// Calculate the distance between two positions.
         /// </summary>
-        /// <param name="position1">The source position.</param>
-        /// <param name="position2">The target position.</param>
-        /// <param name="distanceUnit">The type of distance to return.</param>
-        /// <returns>The distance between the two positions.</returns>
         public double CalculateDistance(Position position1, Position position2, DistanceUnit distanceUnit)
         {
-            var R = (distanceUnit == DistanceUnit.Miles) ? EarthRadiusInMiles : EarthRadiusInKilometers;
+            var R = (distanceUnit == DistanceUnit.Miles) ? GeoConstants.EarthRadiusInMiles : GeoConstants.EarthRadiusInKilometers;
             var dLat = angleConverter.ConvertDegreesToRadians(position2.Latitude) - angleConverter.ConvertDegreesToRadians(position1.Latitude);
             var dLon = angleConverter.ConvertDegreesToRadians(position2.Longitude) - angleConverter.ConvertDegreesToRadians(position1.Longitude);
             var a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) + Math.Cos(angleConverter.ConvertDegreesToRadians(position1.Latitude)) * Math.Cos(angleConverter.ConvertDegreesToRadians(position2.Latitude)) * Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
@@ -78,9 +60,6 @@ namespace NExtra.Geo
         /// <summary>
         /// Calculate the rhumb bearing between two positions.
         /// </summary>
-        /// <param name="position1">The source position.</param>
-        /// <param name="position2">The target position.</param>
-        /// <returns>The rhumb bearing between the two positions.</returns>
         public double CalculateRhumbBearing(Position position1, Position position2)
         {
             var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
@@ -97,13 +76,9 @@ namespace NExtra.Geo
         /// <summary>
         /// Calculate the rhumb distance between two positions.
         /// </summary>
-        /// <param name="position1">The source position.</param>
-        /// <param name="position2">The target position.</param>
-        /// <param name="distanceUnit">The type of distance to return.</param>
-        /// <returns>The rhumb distance between the two positions.</returns>
         public double CalculateRhumbDistance(Position position1, Position position2, DistanceUnit distanceUnit)
         {
-            var R = (distanceUnit == DistanceUnit.Miles) ? EarthRadiusInMiles : EarthRadiusInKilometers;
+            var R = (distanceUnit == DistanceUnit.Miles) ? GeoConstants.EarthRadiusInMiles : GeoConstants.EarthRadiusInKilometers;
             var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
             var lat2 = angleConverter.ConvertDegreesToRadians(position2.Latitude);
             var dLat = angleConverter.ConvertDegreesToRadians(position2.Latitude - position1.Latitude);

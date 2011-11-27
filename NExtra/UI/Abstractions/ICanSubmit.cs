@@ -6,6 +6,7 @@ namespace NExtra.UI.Abstractions
     /// This interface can be implemented by any class that should
     /// be able to submit an operation, that it is responsible for.
     /// </summary>
+    [Obsolete("This class is useless and will be removed in 2.6.0.0")]
     public interface ICanSubmit
     {
         ///<summary>

@@ -12,8 +12,6 @@ namespace NExtra.Geo
         /// <summary>
         /// Create an instance of the class.
         /// </summary>
-        /// <param name="latitude">The position latitude.</param>
-        /// <param name="longitude">The position longitude.</param>
         public Position(double latitude, double longitude)
         {
             Latitude = latitude;
@@ -22,12 +20,12 @@ namespace NExtra.Geo
 
 
         /// <summary>
-        /// The position latitude.
+        /// The latitude of the position.
         /// </summary>
         public double Latitude { get; set; }
 
         /// <summary>
-        /// The position longitude.
+        /// The longitude of the position.
         /// </summary>
         public double Longitude { get; set; }
     }

@@ -1,4 +1,3 @@
-using System;
 using NExtra.Geo;
 using NUnit.Framework;
 
@@ -17,19 +16,6 @@ namespace NExtra.Tests.Geo
         public void SetUp()
         {
             handler = new PositionHandler();
-        }
-
-
-        [Test]
-        public void EarthRadiusInKilometers_ShouldReturnCorrectValue()
-        {
-            Assert.That(PositionHandler.EarthRadiusInKilometers, Is.EqualTo(6367.0));
-        }
-
-        [Test]
-        public void EarthRadiusInMiles_ShouldReturnCorrectValue()
-        {
-            Assert.That(PositionHandler.EarthRadiusInMiles, Is.EqualTo(3956.0));
         }
 
 

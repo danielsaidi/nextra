@@ -8,15 +8,13 @@ namespace NExtra.Pagination
 	/// <summary>
 	/// This class can handle the pagination for any IEnumerable
 	/// or IQueryable collection. It can calculate the number of
-	/// pages for collection, given a certain page size, and can
-	/// also determine how it can be paginated, according to the
-	/// current page number.
+	/// pages for collection, given a certain page size. It also
+	/// determines how it can be paginated.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://www.saidi.se/nextra
 	/// </remarks>
-	/// <typeparam name="T">The type that is handled by the context.</typeparam>
 	public class PaginationContext<T>
 	{
 		private int pageLinkMaxCount;
@@ -27,8 +25,8 @@ namespace NExtra.Pagination
 		/// <summary>
 		/// Create an instance of the class.
 		/// </summary>
-		/// <param name="collection">The collection to base the context on.</param>
-		/// <param name="pageNumber">The current page number.</param>
+		/// <param name="collection">The collection to base the pagination context on.</param>
+		/// <param name="pageNumber">The current page number, starting at 1.</param>
 		/// <param name="pageSize">The max number of items to display per page.</param>
 		/// <param name="pageLinkMaxCount">The max number of page links to display in a pagination UI component.</param>
 		public PaginationContext(IEnumerable<T> collection, int pageNumber = 1, int pageSize = 25, int pageLinkMaxCount = 10)
@@ -54,9 +52,8 @@ namespace NExtra.Pagination
 
 
 		/// <summary>
-		/// The loaded collection.
+		/// Get the original collection that was used to initialize the context.
 		/// </summary>
-		/// <returns>The loaded collection.</returns>
 		public IQueryable<T> Collection { get; private set; }
 
         /// <summary>
@@ -79,8 +76,7 @@ namespace NExtra.Pagination
 		}
 
 		/// <summary>
-		/// The total number of page links to display, limited
-		/// by the PageCount and PageLinkMaxCount properties.
+		/// The total number of page links to display.
 		/// </summary>
 		public int PageLinkCount
 		{
@@ -165,7 +161,7 @@ namespace NExtra.Pagination
 
 
 	    /// <summary>
-	    /// The paginated, resulting collection.
+	    /// The paginated, resulting collection, based on the context setup.
 	    /// </summary>
 	    public IQueryable<T> GetPaginationResult()
 	    {

@@ -1,9 +1,8 @@
 namespace NExtra.Logging
 {
     /// <summary>
-    /// This enum defines various log levels, that can be
-    /// used when working with log writers that implement
-    /// the ILogWriter interface.
+    /// This enum defines log levels that can be used
+    /// when working with ILogWriter implementations.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

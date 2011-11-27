@@ -3,7 +3,8 @@ using System;
 namespace NExtra.Geo
 {
     /// <summary>
-    /// This class can be used to convert angle  units.
+    /// This class can be used to convert angles in
+    /// various ways.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -14,21 +15,17 @@ namespace NExtra.Geo
         /// <summary>
         /// Convert degrees to radians.
         /// </summary>
-        /// <param name="angle">The angle, in degrees.</param>
-        /// <returns>The angle, in radians.</returns>
-        public double ConvertDegreesToRadians(double angle)
+        public double ConvertDegreesToRadians(double degrees)
         {
-            return Math.PI * angle / 180.0;
+            return Math.PI * degrees / 180.0;
         }
 
         /// <summary>
         /// Convert radians to degrees.
         /// </summary>
-        /// <param name="angle">The angle, in radians.</param>
-        /// <returns>The angle, in degrees.</returns>
-        public double ConvertRadiansToDegrees(double angle)
+        public double ConvertRadiansToDegrees(double radians)
         {
-            return 180.0 * angle / Math.PI;
+            return 180.0 * radians / Math.PI;
         }
     }
 }

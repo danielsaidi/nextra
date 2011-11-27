@@ -12,33 +12,23 @@ namespace NExtra.Localization.Abstractions
         /// <summary>
         /// Translate a certain language key for the current culture.
         /// </summary>
-        /// <param name="key">The language key to translate.</param>
-        /// <returns>The translated result.</returns>
         string Translate(string key);
 
         ///<summary>
-        /// Translate a certain language key for a certain culture info.
+        /// Translate a certain language key for a certain culture.
         ///</summary>
-        /// <param name="key">The language key to translate.</param>
-        ///<param name="cultureInfo">The culture to use.</param>
-        /// <returns>The translated result.</returns>
         string Translate(string key, CultureInfo cultureInfo);
 
         /// <summary>
         /// Check whether or not a translation exists for
         /// a certain language key and the current culture.
         /// </summary>
-        /// <param name="key">The language key of interest.</param>
-        /// <returns>Whether or not a translation exists.</returns>
         bool TranslationExists(string key);
 
         /// <summary>
         /// Check whether or not a translation exists for
-        /// a certain language key and the current culture.
+        /// a certain language key and culture.
         /// </summary>
-        /// <param name="key">The language key of interest.</param>
-        ///<param name="cultureInfo">The culture of interest.</param>
-        /// <returns>Whether or not a translation exists.</returns>
         bool TranslationExists(string key, CultureInfo cultureInfo);
     }
 }

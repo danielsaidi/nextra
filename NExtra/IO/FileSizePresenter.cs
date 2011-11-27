@@ -15,11 +15,8 @@ namespace NExtra.IO
     public class FileSizePresenter : ICanPresentFileSize
     {
         /// <summary>
-        /// Present the size of a file, e.g. 10000 => 10kB.
+        /// Present the size (in bytes) of a file, e.g. 10000 => 10kB.
         /// </summary>
-        /// <param name="fileSize">The file size in bytes.</param>
-        /// <param name="numberFormat">The number format to use; default {0:F2}.</param>
-        /// <returns>The textual representation of the file size.</returns>
         public string PresentFileSize(double fileSize, string numberFormat = "{0:F2}")
         {
             if (fileSize < 1000)

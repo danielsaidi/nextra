@@ -25,8 +25,6 @@ namespace NExtra.Testing
         /// <summary>
         /// Run an operation in a certain apartment state.
         /// </summary>
-        /// <param name="userDelegate">The operation to run.</param>
-        /// <param name="apartmentState">The apartment state in which the operation should run.</param>
         private void Run(ThreadStart userDelegate, ApartmentState apartmentState)
         {
             lastException = null;
@@ -54,7 +52,6 @@ namespace NExtra.Testing
         /// <summary>
         /// Run an operation in MTA apartment state.
         /// </summary>
-        /// <param name="userDelegate">The operation to run.</param>
         public void RunInMTA(ThreadStart userDelegate)
         {
             Run(userDelegate, ApartmentState.MTA);
@@ -63,7 +60,6 @@ namespace NExtra.Testing
         /// <summary>
         /// Run an operation in STA apartment state.
         /// </summary>
-        /// <param name="userDelegate">The operation to run.</param>
         public void RunInSTA(ThreadStart userDelegate)
         {
             Run(userDelegate, ApartmentState.STA);
@@ -72,7 +68,6 @@ namespace NExtra.Testing
         /// <summary>
         /// Operation that is called as soon as an exception is thrown.
         /// </summary>
-        /// <param name="exception">The thrown exception.</param>
         [ReflectionPermission(SecurityAction.Demand)]
         private static void ThrowExceptionPreservingStack(Exception exception)
         {

@@ -6,16 +6,16 @@ using System.Threading;
 namespace NExtra.Localization
 {
     ///<summary>
-    /// This class can be used to translate language keys
-    /// using a resource file. Unlike its base class, the
-    /// class will strip provided language keys, piece by
-    /// piece until it finds a translation, if one exists.
+    /// This class can translate language keys hierarchically,
+    /// using a resource file. Unlike its base class, it will
+    /// strip language keys, piece by piece, until it finds a
+    /// translation, if one exists.
     ///</summary>
     /// <remarks>
-    /// For instance, if Domain_User_UserName is provided,
-    /// the class will first attempt to translate it with
-    /// no stripping. If no translation is found, it will
-    /// attempt to translate User_UserName, then UserName.
+    /// If we take the key Domain_User_UserName, for instance,
+    /// the class uses it directly, without any stripping. If
+    /// no translation is found and we use _ as key separator,
+    /// it then uses User_UserName, then finally UserName.
     /// 
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
@@ -26,12 +26,9 @@ namespace NExtra.Localization
 
 
         /// <summary>
-        /// Create an instance of the class using the
-        /// ResourceManager manager of auto-generated,
-        /// strongly-typed resource classes.
+        /// Create an instance of the class, using a
+        /// custom resource manager and key separator.
         /// </summary>
-        /// <param name="resourceManager">The ResourceManager instance to use.</param>
-        /// <param name="keySeparator">The separator to use when splitting up resource keys into sub keys.</param>
         public HierarchicalResourceManagerFacade(ResourceManager resourceManager, string keySeparator = "_")
             : base(resourceManager)
         {
@@ -44,8 +41,6 @@ namespace NExtra.Localization
         /// For instance, "User_UserName" will result in an
         /// IEnumerable with "User" and "UserName".
         /// </summary>
-        /// <param name="key">The original translation key.</param>
-        /// <returns>The resulting translation keys.</returns>
         public IEnumerable<string> GetKeys(string key)
         {
             var result = new List<string>();
@@ -66,8 +61,6 @@ namespace NExtra.Localization
         /// <summary>
         /// Translate a certain language key for the current culture.
         /// </summary>
-        /// <param name="key">The language key to translate.</param>
-        /// <returns>The translated result.</returns>
         public override string Translate(string key)
         {
             return Translate(key, Thread.CurrentThread.CurrentUICulture);
@@ -76,9 +69,6 @@ namespace NExtra.Localization
         ///<summary>
         /// Translate a certain language key for a certain culture.
         ///</summary>
-        /// <param name="key">The language key to translate.</param>
-        ///<param name="cultureInfo">The culture to use.</param>
-        /// <returns>The translated result.</returns>
         public override string Translate(string key, CultureInfo cultureInfo)
         {
             var currentVerb = key;
