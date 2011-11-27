@@ -19,8 +19,8 @@ namespace NExtra.Mvc.ActionFilters
 
 
         /// <summary>
-        /// Create an action filter that only requires that a
-        /// query string variable with a certain name exists.
+        /// Create a filter that requires that a certain
+        /// query string variable exists.
         /// </summary>
         public JsonForQueryStringAttribute(string queryVariableName)
             : this(queryVariableName, null)
@@ -28,8 +28,9 @@ namespace NExtra.Mvc.ActionFilters
         }
 
         /// <summary>
-        /// Create an action filter that only requires that a
-        /// certain query string variable exists.
+        /// Create a filter that requires that a certain
+        /// query string variable exists and that it has
+        /// a certain value.
         /// </summary>
         public JsonForQueryStringAttribute(string queryVariableName, string queryVariableValue)
         {

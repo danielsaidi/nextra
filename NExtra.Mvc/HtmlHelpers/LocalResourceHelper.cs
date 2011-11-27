@@ -14,8 +14,6 @@ namespace NExtra.Mvc.HtmlHelpers
     {
         /// <summary>
         /// Format a local resource file value for display.
-        /// Use this.LocalResource(...) in the view to add
-        /// a translated text to the view.
         /// </summary>
         public static IHtmlString LocalResource(this HtmlHelper helper, WebViewPage page, string resourceKeyName)
         {

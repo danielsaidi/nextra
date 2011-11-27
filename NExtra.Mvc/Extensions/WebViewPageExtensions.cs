@@ -15,8 +15,6 @@ namespace NExtra.Mvc.Extensions
     {
         /// <summary>
         /// Format a global resource file value for display.
-        /// Use this.GlobalResource(...) in the view to add
-        /// a translated text to the view.
         /// </summary>
         public static IHtmlString GlobalResource(this WebViewPage page, string resource)
         {
@@ -25,8 +23,6 @@ namespace NExtra.Mvc.Extensions
 
         /// <summary>
         /// Format a local resource file value for display.
-        /// Use this.LocalResource(...) in the view to add
-        /// a translated text to the view.
         /// </summary>
         public static IHtmlString LocalResource(this WebViewPage page, string resourceKeyName)
         {

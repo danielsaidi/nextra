@@ -10,28 +10,28 @@ namespace NExtra.Mvc.Localization
     ///<summary>
     /// This class can be used instead of the default metadata
     /// provider. It will auto-translate properties as well as
-    /// error messages that are displayed witin a view.
+    /// error messages for a model that is displayed in a view.
     ///</summary>
     /// <remarks>
-    /// This class will make it pointless to decorate entities
-    /// with metadata for DisplayName and ErrorMessage display.
-    /// It uses a convention that you can use directly in your
-    /// resource files or whatever you use for translation.
+    /// With this class, you do not have to decorate an entity
+    /// with DisplayName or provide an ErrorMessage text for a
+    /// validation attribute. The class uses a convention that
+    /// it automatically applies to entities.
+    /// 
+    /// So, just provide translations that use this convention
+    /// and your entities will (almost) translate themselves. 
     /// 
     /// The default key format that is used for DisplayName is:
     ///     [Type.FullName]_[PropertyName]
     ///     e.g. MyCoolProject_Domain_User_UserName
     /// 
-    /// For validation attributes, the default key format that
-    /// is used for ErrorMessage is:
+    /// The default key format that's used for ErrorMessage is:
     ///     [Type.FullName]_[PropertyName]_[AttributeName]
     ///     e.g. MyCoolProject_Domain_User_UserName_RequiredError
     /// 
     /// Depending on which translator that is used, these keys
-    /// can be translated in various ways. For instance, using
-    /// the HierarchicalResourceManagerFacade class allows you
-    /// to generalize translations, which force you to write a
-    /// LOT less translations.
+    /// can be translated in various ways. It depends on which
+    /// ITranslator implementation you are using.
     /// 
     /// If overrideMode is set to true, already defined values
     /// for DisplayName and ErrorMessage will be overridden.

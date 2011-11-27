@@ -15,8 +15,8 @@ namespace NExtra.Mvc.HtmlHelpers
     public static class ResourceFileValueHelper
     {
         /// <summary>
-        /// Format a string for HTML display. For now, it will
-        /// only convert new lines to br tags.
+        /// Format a resource string for HTML display. For
+        /// now, it will only convert new lines to br tags.
         /// </summary>
         public static IHtmlString ResourceFileValueToHtml(HtmlHelper helper, string str)
         {

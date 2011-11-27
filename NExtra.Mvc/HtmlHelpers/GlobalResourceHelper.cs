@@ -14,8 +14,6 @@ namespace NExtra.Mvc.HtmlHelpers
     {
         /// <summary>
         /// Format a global resource file value for display.
-        /// Use this.GlobalResource(...) in the view to add
-        /// a translated text to the view.
         /// </summary>
         public static IHtmlString GlobalResource(this HtmlHelper helper, string resource)
         {
