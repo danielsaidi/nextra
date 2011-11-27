@@ -14,8 +14,6 @@ namespace NExtra.WPF.Controls.Extensions
         /// <summary>
         /// Get the ThreeState state of a checkbox.
         /// </summary>
-        /// <param name="checkBox">The checkbox of interest.</param>
-        /// <returns>The ThreeState state of the checkbox.</returns>
         public static ThreeState State(this CheckBox checkBox)
         {
             if (!checkBox.IsChecked.HasValue)

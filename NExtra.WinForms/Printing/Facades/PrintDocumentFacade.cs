@@ -4,8 +4,8 @@ using NExtra.WinForms.Printing.Abstractions;
 namespace NExtra.WinForms.Printing.Facades
 {
     /// <summary>
-    /// This class can be used as facade for the PrintDocument
-    /// class, to simplify unit testing.
+    /// This class can be used as facade for the
+    /// PrintDocument class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -16,7 +16,6 @@ namespace NExtra.WinForms.Printing.Facades
         /// <summary>
         /// Create an instance of the class.
         /// </summary>
-        /// <param name="printDocument">The base instance to wrap.</param>
         public PrintDocumentFacade(PrintDocument printDocument)
         {
             PrintDocument = printDocument;
@@ -24,7 +23,7 @@ namespace NExtra.WinForms.Printing.Facades
 
 
         /// <summary>
-        /// The base instance that is wrapped within the facade.
+        /// The print document that is wrapped by the facade.
         /// </summary>
         public PrintDocument PrintDocument { get; private set; }
 
@@ -32,7 +31,6 @@ namespace NExtra.WinForms.Printing.Facades
         /// <summary>
         /// Bind the BeginPrint event of the wrapped base instance.
         /// </summary>
-        /// <param name="controlPrinter">The IControlPrinter that handles printing.</param>
         public void BindBeginPrintEvent<T>(IControlPrinter<T> controlPrinter)
         {
             PrintDocument.BeginPrint += controlPrinter.PrintDocument_BeginPrint;
@@ -41,7 +39,6 @@ namespace NExtra.WinForms.Printing.Facades
         /// <summary>
         /// Bind the PrintPage event of the wrapped base instance.
         /// </summary>
-        /// <param name="controlPrinter">The IControlPrinter that handles printing.</param>
         public void BindPrintPageEvent<T>(IControlPrinter<T> controlPrinter)
         {
             PrintDocument.PrintPage += controlPrinter.PrintDocument_PrintPage;
@@ -50,7 +47,6 @@ namespace NExtra.WinForms.Printing.Facades
         /// <summary>
         /// Bind the EndPrint event of the wrapped base instance.
         /// </summary>
-        /// <param name="controlPrinter">The IControlPrinter that handles printing.</param>
         public void BindEndPrintEvent<T>(IControlPrinter<T> controlPrinter)
         {
             PrintDocument.EndPrint += controlPrinter.PrintDocument_EndPrint;

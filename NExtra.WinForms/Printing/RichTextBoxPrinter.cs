@@ -27,33 +27,22 @@ namespace NExtra.WinForms.Printing
 
         
         /// <summary>
-        /// Create an instance of the class, using default print dialogs.
+        /// Create an instance of the class, using default dialogs.
         /// </summary>
-        /// <param name="RichTextBox">The RichTextBox instance to print.</param>
         public RichTextBoxPrinter(RichTextBox RichTextBox)
             : this(RichTextBox, new PageSetupDialogFacade(new PageSetupDialog()), new PrintPreviewDialogFacade(new PrintPreviewDialog()), new PrintDialogFacade(new PrintDialog()), new PrintDocumentFacade(new PrintDocument())) 
         { }
 
         /// <summary>
-        /// Create an instance of the class, using custom print dialogs.
+        /// Create an instance of the class, using custom dialogs.
         /// </summary>
-        /// <param name="RichTextBox">The RichTextBox instance to print.</param>
-        /// <param name="pageSetupDialog">The PrintPreviewDialog instance to use.</param>
-        /// <param name="printPreviewDialog">The PageSetupDialog instance to use.</param>
-        /// <param name="printDialog">The PrintDialog instance to use.</param>
-        /// <param name="printDocument">The PrintDocument instance to use.</param>
         public RichTextBoxPrinter(RichTextBox RichTextBox, PageSetupDialog pageSetupDialog, PrintPreviewDialog printPreviewDialog, PrintDialog printDialog, PrintDocument printDocument)
             : this(RichTextBox, new PageSetupDialogFacade(pageSetupDialog), new PrintPreviewDialogFacade(printPreviewDialog), new PrintDialogFacade(printDialog), new PrintDocumentFacade(printDocument))
         { }
 
         /// <summary>
-        /// Create an instance of the class that is prepared for testing.
+        /// Create an instance of the class, using abstract dialogs.
         /// </summary>
-        /// <param name="RichTextBox">The RichTextBox instance to print.</param>
-        /// <param name="pageSetupDialogFacade">The PrintPreviewDialogFacade instance to use.</param>
-        /// <param name="printPreviewDialogFacade">The PageSetupDialogFacade instance to use.</param>
-        /// <param name="printDialogFacade">The PrintDialogFacade instance to use.</param>
-        /// <param name="printDocumentFacade">The PrintDocumentFacade instance to use.</param>
         public RichTextBoxPrinter(RichTextBox RichTextBox, IPageSetupDialogFacade pageSetupDialogFacade, IPrintPreviewDialogFacade printPreviewDialogFacade, IPrintDialogFacade printDialogFacade, IPrintDocumentFacade printDocumentFacade)
         {
             TargetControl = RichTextBox;
@@ -67,9 +56,6 @@ namespace NExtra.WinForms.Printing
             this.printDocumentFacade.BindEndPrintEvent(this);
             this.printDocumentFacade.BindPrintPageEvent(this);
         }
-
-
-
 
 
         /// <summary>
@@ -120,9 +106,6 @@ namespace NExtra.WinForms.Printing
         /// <summary>
         /// Continue printing the control.
         /// </summary>
-        /// <param name="charFrom">Starting char.</param>
-        /// <param name="charTo">End char.</param>
-        /// <param name="e">Print event args.</param>
         /// <returns>The last character printed + 1 (printing start from this point for next page)</returns>
         public int Print(int charFrom, int charTo, PrintPageEventArgs e)
         {

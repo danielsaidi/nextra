@@ -14,8 +14,6 @@ namespace NExtra.WPF.Controls.Extensions
         /// <summary>
         /// Get the ThreeState state of a radio button.
         /// </summary>
-        /// <param name="radioButton">The radio button of interest.</param>
-        /// <returns>The ThreeState state of the radio button.</returns>
         public static ThreeState State(this RadioButton radioButton)
         {
             if (!radioButton.IsChecked.HasValue)

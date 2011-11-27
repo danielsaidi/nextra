@@ -17,7 +17,6 @@ namespace NExtra.WPF.Extensions
         /// <summary>
         /// Hide the close button of any window.
         /// </summary>
-        /// <param name="window">The window to affect.</param>
         public static void HideCloseButton(this Window window)
         {
             var hwnd = new WindowInteropHelper(window).Handle;

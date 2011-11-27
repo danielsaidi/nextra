@@ -7,7 +7,7 @@ using NExtra.WinForms.Printing.Facades;
 namespace NExtra.WinForms.Printing
 {
     /// <summary>
-    /// This class can be used to print the content of a PictureBox instance.
+    /// This class can be used to print the content of a PictureBox.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -21,33 +21,22 @@ namespace NExtra.WinForms.Printing
         private readonly IPrintPreviewDialogFacade printPreviewDialogFacade;
 
         /// <summary>
-        /// Create an instance of the class, using default print dialogs.
+        /// Create an instance of the class, using default dialogs.
         /// </summary>
-        /// <param name="pictureBox">The PictureBox instance to print.</param>
         public PictureBoxPrinter(PictureBox pictureBox)
             : this(pictureBox, new PageSetupDialogFacade(new PageSetupDialog()), new PrintPreviewDialogFacade(new PrintPreviewDialog()), new PrintDialogFacade(new PrintDialog()), new PrintDocumentFacade(new PrintDocument())) 
         { }
 
         /// <summary>
-        /// Create an instance of the class, using custom print dialogs.
+        /// Create an instance of the class, using custom dialogs.
         /// </summary>
-        /// <param name="pictureBox">The PictureBox instance to print.</param>
-        /// <param name="pageSetupDialog">The PrintPreviewDialog instance to use.</param>
-        /// <param name="printPreviewDialog">The PageSetupDialog instance to use.</param>
-        /// <param name="printDialog">The PrintDialog instance to use.</param>
-        /// <param name="printDocument">The PrintDocument instance to use.</param>
         public PictureBoxPrinter(PictureBox pictureBox, PageSetupDialog pageSetupDialog, PrintPreviewDialog printPreviewDialog, PrintDialog printDialog, PrintDocument printDocument)
             : this(pictureBox, new PageSetupDialogFacade(pageSetupDialog), new PrintPreviewDialogFacade(printPreviewDialog), new PrintDialogFacade(printDialog), new PrintDocumentFacade(printDocument))
         { }
 
         /// <summary>
-        /// Create an instance of the class that is prepared for testing.
+        /// Create an instance of the class, using abstract dialogs.
         /// </summary>
-        /// <param name="pictureBox">The PictureBox instance to print.</param>
-        /// <param name="pageSetupDialogFacade">The PrintPreviewDialogFacade instance to use.</param>
-        /// <param name="printPreviewDialogFacade">The PageSetupDialogFacade instance to use.</param>
-        /// <param name="printDialogFacade">The PrintDialogFacade instance to use.</param>
-        /// <param name="printDocumentFacade">The PrintDocumentFacade instance to use.</param>
         public PictureBoxPrinter(PictureBox pictureBox, IPageSetupDialogFacade pageSetupDialogFacade, IPrintPreviewDialogFacade printPreviewDialogFacade, IPrintDialogFacade printDialogFacade, IPrintDocumentFacade printDocumentFacade)
         {
             TargetControl = pictureBox;

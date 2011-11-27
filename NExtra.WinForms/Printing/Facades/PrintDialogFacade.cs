@@ -31,7 +31,6 @@ namespace NExtra.WinForms.Printing.Facades
         /// <summary>
         /// Call the ShowDialog function of the wrapped base instance.
         /// </summary>
-        /// <returns>Base instance ShowDialog result.</returns>
         public DialogResult ShowDialog()
         {
             return PrintDialog.ShowDialog();
