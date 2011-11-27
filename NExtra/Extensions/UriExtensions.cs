@@ -13,8 +13,7 @@ namespace NExtra.Extensions
     {
         /// <summary>
         /// Get the root url for a web-based Uri, e.g. http://www.foobar.com:8080
-        /// for http://www.foobar.com:8080/foo/bar. Note that the Uri must define
-        /// a Scheme (http, https, ftp etc.).
+        /// for http://www.foobar.com:8080/foo/bar.
         /// </summary>
         /// <param name="uri">The Uri of interest.</param>
         /// <returns>The root url for the Uri.</returns>
@@ -22,20 +21,6 @@ namespace NExtra.Extensions
         {
             var port = (uri.IsDefaultPort) ? "" : ":" + uri.Port;
             return new Uri(string.Format("{0}://{1}{2}", uri.Scheme, uri.Host, port));
-        }
-
-        /// <summary>
-        /// Get the root url for a web-based Uri, e.g. http://www.foobar.com:8080
-        /// for http://www.foobar.com:8080/foo/bar. Note that the Uri must define
-        /// a Scheme (http, https, ftp etc.).
-        /// </summary>
-        /// <param name="uri">The Uri of interest.</param>
-        /// <returns>The root url for the Uri.</returns>
-        [Obsolete("Use GetRootUri instead")]
-        public static string Root(this Uri uri)
-        {
-            var port = (uri.IsDefaultPort) ?  "" : ":" + uri.Port;
-            return string.Format("{0}://{1}{2}", uri.Scheme, uri.Host, port);
         }
     }
 }

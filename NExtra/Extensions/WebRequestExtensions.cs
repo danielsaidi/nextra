@@ -6,9 +6,6 @@ namespace NExtra.Extensions
     /// <summary>
     /// Extension methods for System.Net.WebRequest.
     /// </summary>
-    /// <todo>
-    /// AdjustContent should also handle non-absolute, local paths.
-    /// </todo>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
@@ -18,9 +15,9 @@ namespace NExtra.Extensions
         /// <summary>
         /// Adjust content that has been received from a web request.
         /// </summary>
-        /// <param name="webRequest">The web request.</param>
-        /// <param name="content">The content to adjust.</param>
-        /// <returns>The adjusted content.</returns>
+        /// <todo>
+        /// The method should also handle non-absolute, local paths.
+        /// </todo>
         public static string AdjustContent(this WebRequest webRequest, string content)
         {
             content = content.Replace("\r", "");
@@ -35,8 +32,6 @@ namespace NExtra.Extensions
         /// <summary>
         /// Get the response string (the content) of a web request.
         /// </summary>
-        /// <param name="webRequest">The web request.</param>
-        /// <returns>The content of the web request.</returns>
         public static string GetResponseString(this WebRequest webRequest)
         {
             var response = webRequest.GetResponse();

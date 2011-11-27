@@ -12,8 +12,6 @@ namespace NExtra.Extensions
         /// <summary>
         /// Check whether or not a value is even.
         /// </summary>
-        /// <param name="value">The value of interest.</param>
-		/// <returns>Whether or not the value is even.</returns>
         public static bool IsEven(this int value)
 		{
 			return value % 2 == 0;
@@ -22,8 +20,6 @@ namespace NExtra.Extensions
 		/// <summary>
 		/// Check whether or not a value is odd.
 		/// </summary>
-		/// <param name="value">The value of interest.</param>
-		/// <returns>Whether or not the value is odd.</returns>
         public static bool IsOdd(this int value)
         {
             return !IsEven(value);

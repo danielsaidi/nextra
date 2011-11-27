@@ -17,19 +17,14 @@ namespace NExtra.Extensions
 	    /// <summary>
         /// Count how many times a certain pattern appears within a string.
         /// </summary>
-        /// <param name="str">The string of interest.</param>
-        /// <param name="pattern">The pattern to search for.</param>
-        /// <returns>The number of times the pattern appears within the string.</returns>
         public static int CountSubstring(this string str, string pattern)
 		{
 			return Regex.Matches(str, pattern).Count;
         }
 
         /// <summary>
-        /// Check whether or not a string is empty, without using String.IsNullOrEmpty.
+        /// Check whether or not a string is empty, using String.IsNullOrEmpty.
         /// </summary>
-        /// <param name="str">The string of interest.</param>
-        /// <returns>Whether or not the string is empty.</returns>
         public static bool IsNullOrEmpty(this string str)
         {
             return String.IsNullOrEmpty(str);
@@ -53,12 +48,8 @@ namespace NExtra.Extensions
         }
 
 		/// <summary>
-		/// Split a string by a string rather than by a char. Furthermore,
-		/// this function returns a string list instead of a string array.
+		/// Split a string by a string rather than by a char.
 		/// </summary>
-		/// <param name="str">The string to split.</param>
-		/// <param name="splitValue">The split value.</param>
-		/// <returns>The resulting list.</returns>
 		public static IEnumerable<string> Split(this string str, string splitValue)
 		{
 			var offset = 0;
@@ -103,15 +94,8 @@ namespace NExtra.Extensions
 		/// each list element to a certain type.
 		/// 
 		/// The function can be set to throw an exception if any invalid
-		/// strings are encountered while parsing the string elements to
-		/// the provided type. By default, it adds all the valid strings
-		/// to the resulting list and ignores invalid ones.
+		/// strings are encountered. By default, it ignores invalid ones.
 		/// </summary>
-		/// <typeparam name="T">The type to convert the list items to.</typeparam>
-		/// <param name="str">The string to split.</param>
-		/// <param name="splitValue">The split value.</param>
-		/// <param name="throwExceptionOnError">Whether or not to proceed if an invalid value is encountered.</param>
-		/// <returns>The resulting list.</returns>
 		public static IEnumerable<T> Split<T>(this string str, string splitValue, bool throwExceptionOnError = false)
 		{
 			var result = new List<T>();
@@ -119,15 +103,8 @@ namespace NExtra.Extensions
 			var elements = str.Split(splitValue);
 			foreach (var element in elements)
 			{
-				if (throwExceptionOnError)
-				{
-					result.Add((T)Convert.ChangeType(element, typeof(T)));
-				}
-				else
-				{
-					try { result.Add((T)Convert.ChangeType(element, typeof(T))); }
-					catch { }
-				}
+                try { result.Add((T)Convert.ChangeType(element, typeof(T))); }
+                catch (Exception) { if (throwExceptionOnError) throw; }
 			}
 
 			return result.AsEnumerable();
@@ -136,9 +113,6 @@ namespace NExtra.Extensions
 		/// <summary>
 		/// Try to convert a string to any struct type.
 		/// </summary>
-		/// <typeparam name="T">The struct type that the string should be converted to.</typeparam>
-		/// <param name="str">The string to convert.</param>
-		/// <returns>The converted value.</returns>
 		public static T? To<T>(this string str) where T : struct
 		{
 			if (str.IsNullOrEmpty())
@@ -151,10 +125,6 @@ namespace NExtra.Extensions
 		/// <summary>
 		/// Try to covnert a string to any enum type.
 		/// </summary>
-		/// <typeparam name="T">The enum type that the string should be converted to.</typeparam>
-		/// <param name="str">The string to convert.</param>
-		/// <param name="fallback">Fall back value to return if the parse fails.</param>
-		/// <returns>The converted enum.</returns>
 		public static T ToEnum<T>(this string str, T fallback)
 		{
 			try { return (T)Enum.Parse(typeof(T), str, true); }

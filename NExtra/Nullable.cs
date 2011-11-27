@@ -12,16 +12,15 @@ namespace NExtra
 	public class Nullable<T> where T : class
 	{
         /// <summary>
-        /// Create an empty instance of the class.
+        /// Create an instance of the class with no initial value.
         /// </summary>
         public Nullable()
         {
         }
 
         /// <summary>
-        /// Create an instance of the class.
+        /// Create an instance of the class with an initial value.
         /// </summary>
-        /// <param name="value"></param>
         public Nullable(T value)
         {
             Value = value;

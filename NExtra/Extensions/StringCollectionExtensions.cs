@@ -16,8 +16,6 @@ namespace NExtra.Extensions
         /// <summary>
         /// Convert a string collection to an IEnumerable.
         /// </summary>
-        /// <param name="collection">The collection of interest.</param>
-        /// <returns>The resulting IEnumerable.</returns>
         public static IEnumerable<string> AsEnumerable(this StringCollection collection)
         {
             return collection == null ? null : collection.Cast<string>().ToList();
@@ -26,8 +24,6 @@ namespace NExtra.Extensions
         /// <summary>
         /// Check whether or not a string collection is null or empty.
         /// </summary>
-		/// <param name="collection">The collection of interest.</param>
-		/// <returns>Whether or not the collection is empty.</returns>
         public static bool IsNullOrEmpty(this StringCollection collection)
         {
             return collection == null || collection.Count == 0;

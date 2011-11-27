@@ -12,12 +12,8 @@ namespace NExtra.Extensions
     public static class IComparableExtensions
     {
         /// <summary>
-        /// Limit value to a certain min/max interval.
+        /// Limit a value to a certain min/max interval.
         /// </summary>
-        /// <param name="value">The original value.</param>
-        /// <param name="minValue">The minimum allowed value.</param>
-        /// <param name="maxValue">The maximum allowed value.</param>
-        /// <returns>The resulting value.</returns>
         public static T Limit<T>(this T value, T minValue, T maxValue)
 		where T : IComparable
         {

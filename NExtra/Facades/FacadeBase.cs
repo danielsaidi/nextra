@@ -15,7 +15,6 @@ namespace NExtra.Facades
         /// <summary>
         /// Create an instance of the class.
         /// </summary>
-        /// <param name="baseInstance">The base instance that the class should be a facade for.</param>
         public FacadeBase(T baseInstance)
         {
             BaseInstance = baseInstance;

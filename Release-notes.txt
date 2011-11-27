@@ -51,6 +51,11 @@ The affected validation attributes are:
 Since it is no longer used, the OptionalRegularExpressionAttribute
 class has been removed. If anyone else uses it, well...let me know.
 
+A new documentation guideline I will try to stick to to reduce the
+amount of comments is to have a comment per method for all methods
+that are not part of a facade class like Console and ProcessFacade.
+I have supressed 1591 to make related warnings disappear.
+
 
 
 .NExtra 2.5.0.0		2011-10-19

@@ -12,9 +12,6 @@ namespace NExtra.Extensions
         ///<summary>
         ///Check whether or not a struct has its default value.
         ///</summary>
-        ///<param name="value">The value of interest.</param>
-        ///<typeparam name="T">The struct type.</typeparam>
-        ///<returns>Whether or not the struct has its default value.</returns>
         public static bool IsDefault<T>(this T value) where T : struct
         {
             return value.Equals(default(T));

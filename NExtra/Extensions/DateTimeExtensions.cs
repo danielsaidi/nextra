@@ -15,8 +15,6 @@ namespace NExtra.Extensions
         /// <summary>
         /// Get the first date of the month for a certain date.
         /// </summary>
-		/// <param name="date">DateTime instance.</param>
-        /// <returns>The first date of the month for the date.</returns>
         public static DateTime GetFirstDateOfMonth(this DateTime date)
         {
             return date == DateTime.MinValue ? date : new DateTime(date.Year, date.Month, 1);
@@ -44,8 +42,6 @@ namespace NExtra.Extensions
 		/// <summary>
 		/// Get the last date of the month for a certain date.
 		/// </summary>
-		/// <param name="date">DateTime instance.</param>
-		/// <returns>The last date of the month for the date.</returns>
 		public static DateTime GetLastDateOfMonth(this DateTime date)
 		{
 			return date == DateTime.MaxValue ? date : new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1);
@@ -56,11 +52,6 @@ namespace NExtra.Extensions
 		/// 
 		/// Note that for ISO 8601 dates, iso8601 must be set to true.
 		/// </summary>
-		/// <param name="date">DateTime instance.</param>
-		/// <param name="iso8601">Whether or not the date is an ISO 8601 date; by default false.</param>
-		/// <param name="weekRule">The week rule to use; by default CalendarWeekRule.FirstFourDayWeek.</param>
-		/// <param name="firstDayOfWeek">Which day that is the first day of the week; by defaul DayOfWeek.Monday.</param>
-		/// <returns>The last date of the week for the date.</returns>
 		public static DateTime GetLastDateOfWeek(this DateTime date, bool iso8601 = false, CalendarWeekRule weekRule = CalendarWeekRule.FirstFourDayWeek, DayOfWeek firstDayOfWeek = DayOfWeek.Monday)
 		{
 			if (date == DateTime.MaxValue)
@@ -77,11 +68,6 @@ namespace NExtra.Extensions
 		/// 
 		/// Note that for ISO 8601 dates, iso8601 must be set to true.
 		/// </summary>
-		/// <param name="date">DateTime instance.</param>
-		/// <param name="iso8601">Whether or not the date is an ISO 8601 date; by default false.</param>
-		/// <param name="weekRule">The week rule to use; by default CalendarWeekRule.FirstFourDayWeek.</param>
-		/// <param name="firstDayOfWeek">Which day that is the first day of the week; by defaul DayOfWeek.Monday.</param>
-		/// <returns>The week number of the date.</returns>
 		public static int GetWeekNumber(this DateTime date, bool iso8601 = false, CalendarWeekRule weekRule = CalendarWeekRule.FirstFourDayWeek, DayOfWeek firstDayOfWeek = DayOfWeek.Monday)
 		{
 			return iso8601 ? GetWeekNumber_Iso8601(date) : CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date, weekRule, DayOfWeek.Monday);
@@ -90,8 +76,6 @@ namespace NExtra.Extensions
     	/// <summary>
 		/// Get the week number of a certain ISO 8601 date.
 		/// </summary>
-		/// <param name="date">DateTime instance.</param>
-		/// <returns>The week number of the date.</returns>
 		private static int GetWeekNumber_Iso8601(this DateTime date)
 		{
 			//Constants
@@ -144,9 +128,6 @@ namespace NExtra.Extensions
         /// <summary>
         /// Check if two DateTime instances represent the same date, regardless of the time.
         /// </summary>
-		/// <param name="date">First DateTime instance.</param>
-        /// <param name="compareDate">Second DateTime instance.</param>
-		/// <returns>Whether or not the two instances represent the same date.</returns>
         public static bool IsSameDate(this DateTime date, DateTime compareDate)
         {
             return date.Date == compareDate.Date;

@@ -25,6 +25,9 @@ namespace NExtra
     /// </remarks>
     public class CommandLineArgumentParser : ICommandLineArgumentParser
     {
+        /// <summary>
+        /// Parse a collection of command line arguments.
+        /// </summary>
         public IDictionary<string, string> ParseCommandLineArguments(IEnumerable<string> args)
         {
             var parameters = new Dictionary<string, string>();

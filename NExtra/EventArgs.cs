@@ -10,13 +10,11 @@ namespace NExtra
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    /// <typeparam name="T">The type to embed.</typeparam>
     public class EventArgs<T> : EventArgs
     {
         /// <summary>
         /// Create an instance of the class.
         /// </summary>
-        /// <param name="obj">The object to embed.</param>
         public EventArgs(T obj)
         {
             Object = obj;

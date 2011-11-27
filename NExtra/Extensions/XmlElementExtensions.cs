@@ -13,11 +13,9 @@ namespace NExtra.Extensions
     public static class XmlElementExtensions
     {
         /// <summary>
-        /// Get the inner text of any tag; empty string if tag not found.
+        /// Get the inner text of any tag, or an empty string if the tag is not found.
         /// </summary>
-        /// <param name="xmlElement">The XmlElement instance of interest.</param>
-        /// <param name="elementName">The name of the element of interest.</param>
-        /// <returns>The value of the tag, if any.</returns>
+        [Obsolete("This is useless (oh, come on...sure it is!) and will be removed in .NExtra 2.6.0.0")]
         public static string GetElementInnerText(this XmlElement xmlElement, string elementName)
         {
             return xmlElement.GetElementsByTagName(elementName).Count == 0 ? String.Empty : xmlElement[elementName].InnerText.Trim();

@@ -12,6 +12,9 @@ namespace NExtra.Abstractions
     /// </remarks>
     public interface ICommandLineArgumentParser
     {
+        /// <summary>
+        /// Parse a collection of command line arguments.
+        /// </summary>
         IDictionary<string, string> ParseCommandLineArguments(IEnumerable<string> args);
     }
 }

@@ -15,9 +15,6 @@ namespace NExtra.Extensions
         /// <summary>
         /// Clone an object to a copy of the same type.
         /// </summary>
-        /// <typeparam name="T">The object type.</typeparam>
-        /// <param name="original">The original object to clone.</param>
-        /// <returns>The clone result.</returns>
         public static T Clone<T>(this object original)
         {
             if (original == null)
