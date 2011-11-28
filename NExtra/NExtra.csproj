@@ -55,6 +55,8 @@
     </Compile>
     <Compile Include="Abstractions\ICommandLineArgumentParser.cs" />
     <Compile Include="Abstractions\IConsole.cs" />
+    <Compile Include="Cache\Abstractions\ICacheManager.cs" />
+    <Compile Include="Cache\DictionaryCache.cs" />
     <Compile Include="CommandLineArgumentParser.cs" />
     <Compile Include="ConsoleFacade.cs" />
     <Compile Include="Diagnostics\Abstractions\IProcess.cs" />

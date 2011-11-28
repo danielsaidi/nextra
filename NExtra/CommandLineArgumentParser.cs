@@ -16,6 +16,9 @@ namespace NExtra
     /// -name 'Stefan'
     /// </summary>
     /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.saidi.se/nextra
+    /// 
     /// The original implementation, made by Richard Lopes,
     /// has been refactored to implement an interface that
     /// replaced with other implementations.
