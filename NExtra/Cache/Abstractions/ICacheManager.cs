@@ -36,7 +36,7 @@ namespace NExtra.Cache.Abstractions
         /// <summary>
         /// Check whether or not a cache key is valid.
         /// </summary>
-        void IsValid(string key);
+        bool IsValid(string key);
 
         /// <summary>
         /// Remove a certain cached value.

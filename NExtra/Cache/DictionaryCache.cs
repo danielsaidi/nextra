@@ -21,6 +21,7 @@ namespace NExtra.Cache
 
         public bool Contains(string key)
         {
+            RemoveIfInvalid(key);
             return cache.ContainsKey(key);
         }
 
@@ -31,6 +32,7 @@ namespace NExtra.Cache
 
         public T Get<T>(string key)
         {
+            RemoveIfInvalid(key);
             return (T)cache[key].Obj;
         }
 
@@ -39,14 +41,23 @@ namespace NExtra.Cache
             return !Contains(key) ? fallback : Get<T>(key);
         }
 
-        public void IsValid(string key)
+        public bool IsValid(string key)
         {
-            throw new NotImplementedException();
+            return cache[key].Expires > DateTime.Now;
         }
 
         public void Remove(string key)
         {
-            throw new NotImplementedException();
+            cache.Remove(key);
+        }
+
+        private void RemoveIfInvalid(string key)
+        {
+            if (!cache.ContainsKey(key))
+                return;
+
+            if (!IsValid(key))
+                Remove(key);
         }
 
         /// <summary>

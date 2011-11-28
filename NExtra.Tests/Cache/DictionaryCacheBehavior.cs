@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using NExtra.Cache;
 using NExtra.Cache.Abstractions;
 using NUnit.Framework;
@@ -17,6 +19,36 @@ namespace NExtra.Tests.Cache
             cacheManager = new DictionaryCache();
         }
 
+        public void SetValue(string key, object value)
+        {
+            cacheManager.Set(key, value);
+        }
+
+        public void SetValidValue(string key, object value)
+        {
+            cacheManager.Set(key, value, new TimeSpan(0, 1, 0, 0));
+        }
+
+        public void SetInvalidValue(string key, object value)
+        {
+            cacheManager.Set(key, value, new TimeSpan(0, -1, 0, 0));
+        }
+
+        public void ValueShouldBe<T>(string key, T value)
+        {
+            Assert.That(cacheManager.Get<T>(key), Is.EqualTo(value));
+        }
+
+        public void ValueShouldExist(string key)
+        {
+            Assert.That(cacheManager.Contains(key), Is.True);
+        }
+
+        public void ValueShouldNotExist(string key)
+        {
+            Assert.That(cacheManager.Contains(key), Is.False);
+        }
+
 
         [Test]
         public void Clear_ShouldHandleEmptyCache()
@@ -27,21 +59,29 @@ namespace NExtra.Tests.Cache
         [Test]
         public void Clear_ShouldClearTheEntireCache()
         {
-            cacheManager.Set("foo", "bar");
-            cacheManager.Set("bar", "foo");
+            SetValue("foo", "bar");
+            SetValue("bar", "foo");
 
-            Assert.That(cacheManager.Contains("foo"), Is.True);
-            Assert.That(cacheManager.Contains("bar"), Is.True);
+            ValueShouldExist("foo");
+            ValueShouldExist("bar");
 
             cacheManager.Clear();
 
-            Assert.That(cacheManager.Contains("foo"), Is.False);
-            Assert.That(cacheManager.Contains("bar"), Is.False);
+            ValueShouldNotExist("foo");
+            ValueShouldNotExist("bar");
         }
 
         [Test]
         public void Contains_ShouldReturnFalseForNonExistingKey()
         {
+            ValueShouldNotExist("foo");
+        }
+
+        [Test]
+        public void Contains_ShouldReturnFalseForInvalidKey()
+        {
+            cacheManager.Set("foo", "bar", new TimeSpan(0, -1, 0, 0));
+
             Assert.That(cacheManager.Contains("foo"), Is.False);
         }
 
@@ -56,7 +96,15 @@ namespace NExtra.Tests.Cache
         [Test, ExpectedException(typeof(KeyNotFoundException))]
         public void GetWithoutFallback_ShouldFailForMissingKeyValue()
         {
-            Assert.That(cacheManager.Get<string>("foo"), Is.Null);
+            cacheManager.Get<string>("foo");
+        }
+
+        [Test, ExpectedException(typeof(KeyNotFoundException))]
+        public void GetWithoutFallback_ShouldFailForInvalidKeyValue()
+        {
+            cacheManager.Set("foo", "bar", new TimeSpan(0, -1, 0, 0));
+
+            cacheManager.Get<string>("foo");
         }
 
         [Test]
@@ -83,6 +131,25 @@ namespace NExtra.Tests.Cache
             Assert.That(cacheManager.Get("foo", 1), Is.EqualTo(1));
             Assert.That(cacheManager.Get("foo", "bar"), Is.EqualTo("bar"));
         }
+        [Test]
+        public void GetWithFallback_ShouldReturnFallbackForInvalidKeyValue()
+        {
+            cacheManager.Set("foo", false, new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.Get("foo", true), Is.True);
+
+            cacheManager.Set("foo", 1.91, new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.Get("foo", 1.8), Is.EqualTo(1.8));
+
+            cacheManager.Set("foo", 4, new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.Get("foo", 1), Is.EqualTo(1));
+
+            cacheManager.Set("foo", "foobar", new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.Get("foo", "bar"), Is.EqualTo("bar"));
+        }
 
         [Test]
         public void GetWithFallback_ShouldReturnExistingKeyValue()
@@ -98,6 +165,92 @@ namespace NExtra.Tests.Cache
 
             cacheManager.Set("foo", "bar");
             Assert.That(cacheManager.Get("foo", "foobar"), Is.EqualTo("bar"));
+        }
+
+        [Test, ExpectedException(typeof(KeyNotFoundException))]
+        public void IsValid_ShouldFailForNonExistingValue()
+        {
+            Assert.That(cacheManager.IsValid("foo"), Is.False);
+        }
+
+        [Test]
+        public void IsValid_ShouldReturnFalseForTimedOutValue()
+        {
+            cacheManager.Set("foo", true, new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.IsValid("foo"), Is.False);
+        }
+
+        [Test]
+        public void IsValid_ShouldReturnTrueForNonTimedOutValue()
+        {
+            cacheManager.Set("foo", true, new TimeSpan(0, 1, 0, 0));
+
+            Assert.That(cacheManager.IsValid("foo"), Is.True);
+        }
+
+        [Test]
+        public void Remove_ShouldHandleNonExistingValue()
+        {
+            cacheManager.Remove("foo");
+        }
+
+        [Test]
+        public void Remove_ShouldRemoveExistingValue()
+        {
+            cacheManager.Set("foo", true, new TimeSpan(0, 1, 0, 0));
+
+            Assert.That(cacheManager.Contains("foo"), Is.True);
+
+            cacheManager.Remove("foo");
+
+            Assert.That(cacheManager.Contains("foo"), Is.False);
+        }
+
+        [Test]
+        [TestCase("foo", true)]
+        [TestCase("foo", 3)]
+        [TestCase("foo", 7.8)]
+        [TestCase("foo", "bar")]
+        public void Set_ShouldInsertSimpleValueWithDefaultTimeout(string key, object value)
+        {
+            cacheManager.Set(key, value);
+
+            Assert.That(cacheManager.Get<object>(key), Is.EqualTo(value));
+        }
+
+        [Test]
+        public void Set_ShouldInsertComplexValueWithDefaultTimeout()
+        {
+            var obj = new StringBuilder { Capacity = 1010 };
+            cacheManager.Set("foo", obj);
+            var cachedObject = cacheManager.Get<StringBuilder>("foo");
+
+            Assert.That(cachedObject, Is.EqualTo(obj));
+            Assert.That(cachedObject.Capacity, Is.EqualTo(1010));
+        }
+
+        [Test]
+        [TestCase("foo", true)]
+        [TestCase("foo", 3)]
+        [TestCase("foo", 7.8)]
+        [TestCase("foo", "bar")]
+        public void Set_ShouldInsertSimpleValueWithCustomTimeout(string key, object value)
+        {
+            cacheManager.Set(key, value, new TimeSpan(0, 1, 0, 0));
+
+            Assert.That(cacheManager.Get<object>(key), Is.EqualTo(value));
+        }
+
+        [Test]
+        public void Set_ShouldInsertComplexValueWithCustomTimeout()
+        {
+            var obj = new StringBuilder { Capacity = 1010 };
+            cacheManager.Set("foo", obj, new TimeSpan(0, 1, 0, 0));
+            var cachedObject = cacheManager.Get<StringBuilder>("foo");
+
+            Assert.That(cachedObject, Is.EqualTo(obj));
+            Assert.That(cachedObject.Capacity, Is.EqualTo(1010));
         }
     }
 }
