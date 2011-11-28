@@ -2,10 +2,20 @@ Release notes
 =============
 
 Author:		Daniel Saidi [daniel.saidi@gmail.com]
-Web site:	http://danielsaidi.github.com/NExtra
-Project:	http://github.com/danielsaidi/NExtra
+Web site:	http://dotnextra.com
 Doc:		http://dotnextra.com/Documentation
+Project:	http://github.com/danielsaidi/NExtra
 Blog:		http://danielsaidi.wordpress.com
+
+
+
+.NExtra 2.5.2.0		2011-xx-xx
+==============================
+
+I have added a new ValidationAttributes.PhoneNumberAttribute class.
+It is really basic and allows an intial, optional +, followed by a
+set of digits and spaces, followed by an optional -, then followed
+by a last set of digits and spaces.
 
 
 
