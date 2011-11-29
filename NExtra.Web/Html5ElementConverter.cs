@@ -14,21 +14,24 @@ namespace NExtra.Web
     /// </remarks>
     public class Html5ElementConverter : ICanConvertHtml
     {
-        private const string HTML5_INLINE_ELEMENTS = @"<(\/)?(address|time)(( )class=""(.*)"")?";
-        private const string HTML5_INLINE_ELEMENTS_REPLACEMENT = @"<$1span class=""$2$4$5""";
-        private const string HTML5_BLOCK_ELEMENTS = @"<(\/)?(nav|section|header|aside|footer|article|hgroup|figure|figcaption|dialog|meter|progress|video|audio|details|datagrid|menu|command)(( )class=""(.*)"")?";
-        private const string HTML5_BLOCK_ELEMENTS_REPLACEMENT = @"<$1div class=""$2$4$5""";
+        protected const string HTML5_INLINE_ELEMENTS = @"<(\/)?(address|time)(( )class=""(.*)"")?";
+        protected const string HTML5_INLINE_ELEMENTS_REPLACEMENT = @"<$1span class=""$2$4$5""";
+        protected const string HTML5_BLOCK_ELEMENTS = @"<(\/)?(nav|section|header|aside|footer|article|hgroup|figure|figcaption|dialog|meter|progress|video|audio|details|datagrid|menu|command)((\s)class=""(.*)"")?";
+        protected const string HTML5_BLOCK_ELEMENTS_REPLACEMENT = @"<$1div class=""$2$4$5""";
+        protected const string HTML5_ELEMENTS_ENDTAG = @"(<\/[a-zA-Z]+)(\sclass="".+"")(>)";
+        protected const string HTML5_ELEMENTS_ENDTAG_REPLACEMENT = @"$1$3";
 
 
         /// <summary>
         /// Convert all HTML5 elements in a string to div and span elements.
         /// </summary>
-        public string ConvertHtml(string str)
+        public string ConvertHtml(string htmlString)
         {
-            str = Regex.Replace(str, HTML5_BLOCK_ELEMENTS, HTML5_BLOCK_ELEMENTS_REPLACEMENT);
-            str = Regex.Replace(str, HTML5_INLINE_ELEMENTS, HTML5_INLINE_ELEMENTS_REPLACEMENT);
+            htmlString = Regex.Replace(htmlString, HTML5_BLOCK_ELEMENTS, HTML5_BLOCK_ELEMENTS_REPLACEMENT);
+            htmlString = Regex.Replace(htmlString, HTML5_INLINE_ELEMENTS, HTML5_INLINE_ELEMENTS_REPLACEMENT);
+            htmlString = Regex.Replace(htmlString, HTML5_ELEMENTS_ENDTAG, HTML5_ELEMENTS_ENDTAG_REPLACEMENT);
 
-            return str;
+            return htmlString;
         }
     }
 }
