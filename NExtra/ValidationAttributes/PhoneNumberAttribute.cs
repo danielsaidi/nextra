@@ -4,7 +4,10 @@ namespace NExtra.ValidationAttributes
 {
     /// <summary>
     /// This attribute can be used to validate whether or
-    /// not a string represents a valid phone number.
+    /// not a string represents a valid phone number. The
+    /// expression allows one initial, optional plus sign
+    /// and two ranges of digits and spaces, separated by
+    /// one optional dash.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
