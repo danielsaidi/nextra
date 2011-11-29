@@ -26,17 +26,12 @@ namespace NExtra.Cache.Abstractions
         /// <summary>
         /// Retrieve a certain cached value.
         /// </summary>
+        object Get(string key);
+
+        /// <summary>
+        /// Retrieve a certain, typed cached value.
+        /// </summary>
         T Get<T>(string key);
-
-        /// <summary>
-        /// Retrieve a certain cached value.
-        /// </summary>
-        T Get<T>(string key, T fallback);
-
-        /// <summary>
-        /// Check whether or not a cache key is valid.
-        /// </summary>
-        bool IsValid(string key);
 
         /// <summary>
         /// Remove a certain cached value.
@@ -52,5 +47,10 @@ namespace NExtra.Cache.Abstractions
         /// Insert a value into the cache, using a custom timeout.
         /// </summary>
         void Set(string key, object value, TimeSpan timeout);
+
+        /// <summary>
+        /// Try to retrieve a certain, typed cached value.
+        /// </summary>
+        T TryGet<T>(string key, T fallback);
     }
 }

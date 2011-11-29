@@ -94,13 +94,13 @@ namespace NExtra.Tests.Cache
         }
 
         [Test, ExpectedException(typeof(KeyNotFoundException))]
-        public void GetWithoutFallback_ShouldFailForMissingKeyValue()
+        public void Get_ShouldFailForMissingKeyValue()
         {
             cacheManager.Get<string>("foo");
         }
 
         [Test, ExpectedException(typeof(KeyNotFoundException))]
-        public void GetWithoutFallback_ShouldFailForInvalidKeyValue()
+        public void Get_ShouldFailForInvalidKeyValue()
         {
             cacheManager.Set("foo", "bar", new TimeSpan(0, -1, 0, 0));
 
@@ -108,7 +108,7 @@ namespace NExtra.Tests.Cache
         }
 
         [Test]
-        public void GetWithoutFallback_ShouldReturnExistingKeyValue()
+        public void Get_ShouldReturnExistingKeyValue()
         {
             cacheManager.Set("foo", true);
             Assert.That(cacheManager.Get<bool>("foo"), Is.True);
@@ -121,72 +121,6 @@ namespace NExtra.Tests.Cache
 
             cacheManager.Set("foo", "bar");
             Assert.That(cacheManager.Get<string>("foo"), Is.EqualTo("bar"));
-        }
-
-        [Test]
-        public void GetWithFallback_ShouldReturnFallbackForMissingKeyValue()
-        {
-            Assert.That(cacheManager.Get("foo", true), Is.True);
-            Assert.That(cacheManager.Get("foo", 1.8), Is.EqualTo(1.8));
-            Assert.That(cacheManager.Get("foo", 1), Is.EqualTo(1));
-            Assert.That(cacheManager.Get("foo", "bar"), Is.EqualTo("bar"));
-        }
-        [Test]
-        public void GetWithFallback_ShouldReturnFallbackForInvalidKeyValue()
-        {
-            cacheManager.Set("foo", false, new TimeSpan(0, -1, 0, 0));
-
-            Assert.That(cacheManager.Get("foo", true), Is.True);
-
-            cacheManager.Set("foo", 1.91, new TimeSpan(0, -1, 0, 0));
-
-            Assert.That(cacheManager.Get("foo", 1.8), Is.EqualTo(1.8));
-
-            cacheManager.Set("foo", 4, new TimeSpan(0, -1, 0, 0));
-
-            Assert.That(cacheManager.Get("foo", 1), Is.EqualTo(1));
-
-            cacheManager.Set("foo", "foobar", new TimeSpan(0, -1, 0, 0));
-
-            Assert.That(cacheManager.Get("foo", "bar"), Is.EqualTo("bar"));
-        }
-
-        [Test]
-        public void GetWithFallback_ShouldReturnExistingKeyValue()
-        {
-            cacheManager.Set("foo", true);
-            Assert.That(cacheManager.Get("foo", false), Is.True);
-
-            cacheManager.Set("foo", 1.8);
-            Assert.That(cacheManager.Get("foo", 3.6), Is.EqualTo(1.8));
-
-            cacheManager.Set("foo", 2);
-            Assert.That(cacheManager.Get("foo", 9), Is.EqualTo(2));
-
-            cacheManager.Set("foo", "bar");
-            Assert.That(cacheManager.Get("foo", "foobar"), Is.EqualTo("bar"));
-        }
-
-        [Test, ExpectedException(typeof(KeyNotFoundException))]
-        public void IsValid_ShouldFailForNonExistingValue()
-        {
-            Assert.That(cacheManager.IsValid("foo"), Is.False);
-        }
-
-        [Test]
-        public void IsValid_ShouldReturnFalseForTimedOutValue()
-        {
-            cacheManager.Set("foo", true, new TimeSpan(0, -1, 0, 0));
-
-            Assert.That(cacheManager.IsValid("foo"), Is.False);
-        }
-
-        [Test]
-        public void IsValid_ShouldReturnTrueForNonTimedOutValue()
-        {
-            cacheManager.Set("foo", true, new TimeSpan(0, 1, 0, 0));
-
-            Assert.That(cacheManager.IsValid("foo"), Is.True);
         }
 
         [Test]
@@ -251,6 +185,50 @@ namespace NExtra.Tests.Cache
 
             Assert.That(cachedObject, Is.EqualTo(obj));
             Assert.That(cachedObject.Capacity, Is.EqualTo(1010));
+        }
+
+        [Test]
+        public void TryGet_ShouldReturnFallbackForMissingKeyValue()
+        {
+            Assert.That(cacheManager.TryGet("foo", true), Is.True);
+            Assert.That(cacheManager.TryGet("foo", 1.8), Is.EqualTo(1.8));
+            Assert.That(cacheManager.TryGet("foo", 1), Is.EqualTo(1));
+            Assert.That(cacheManager.TryGet("foo", "bar"), Is.EqualTo("bar"));
+        }
+        [Test]
+        public void TryGet_ShouldReturnFallbackForInvalidKeyValue()
+        {
+            cacheManager.Set("foo", false, new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.TryGet("foo", true), Is.True);
+
+            cacheManager.Set("foo", 1.91, new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.TryGet("foo", 1.8), Is.EqualTo(1.8));
+
+            cacheManager.Set("foo", 4, new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.TryGet("foo", 1), Is.EqualTo(1));
+
+            cacheManager.Set("foo", "foobar", new TimeSpan(0, -1, 0, 0));
+
+            Assert.That(cacheManager.TryGet("foo", "bar"), Is.EqualTo("bar"));
+        }
+
+        [Test]
+        public void TryGet_ShouldReturnExistingKeyValue()
+        {
+            cacheManager.Set("foo", true);
+            Assert.That(cacheManager.TryGet("foo", false), Is.True);
+
+            cacheManager.Set("foo", 1.8);
+            Assert.That(cacheManager.TryGet("foo", 3.6), Is.EqualTo(1.8));
+
+            cacheManager.Set("foo", 2);
+            Assert.That(cacheManager.TryGet("foo", 9), Is.EqualTo(2));
+
+            cacheManager.Set("foo", "bar");
+            Assert.That(cacheManager.TryGet("foo", "foobar"), Is.EqualTo("bar"));
         }
     }
 }

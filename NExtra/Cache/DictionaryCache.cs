@@ -13,44 +13,66 @@ namespace NExtra.Cache
     {
         private readonly Dictionary<string, DictionaryCacheItem> cache;
 
+
         public DictionaryCache()
         {
             cache = new Dictionary<string, DictionaryCacheItem>();
         }
 
 
+        /// <summary>
+        /// Clear the entire cache.
+        /// </summary>
+        public void Clear()
+        {
+            cache.Clear();
+        }
+
+        /// <summary>
+        /// Check whether or not a certain cache key exists.
+        /// </summary>
         public bool Contains(string key)
         {
             RemoveIfInvalid(key);
             return cache.ContainsKey(key);
         }
 
-        public void Clear()
-        {
-            cache.Clear();
-        }
-
-        public T Get<T>(string key)
+        /// <summary>
+        /// Retrieve a certain cached value.
+        /// </summary>
+        public object Get(string key)
         {
             RemoveIfInvalid(key);
-            return (T)cache[key].Obj;
+            return cache[key].Obj;
         }
 
-        public T Get<T>(string key, T fallback)
+        /// <summary>
+        /// Retrieve a certain, typed cached value.
+        /// </summary>
+        public T Get<T>(string key)
         {
-            return !Contains(key) ? fallback : Get<T>(key);
+            return (T)Get(key);
         }
 
-        public bool IsValid(string key)
+        /// <summary>
+        /// Check whether or not a cache key is valid.
+        /// </summary>
+        private bool IsValid(string key)
         {
             return cache[key].Expires > DateTime.Now;
         }
 
+        /// <summary>
+        /// Remove a certain cached value.
+        /// </summary>
         public void Remove(string key)
         {
             cache.Remove(key);
         }
 
+        /// <summary>
+        /// Remove a cached value, if it is invalid.
+        /// </summary>
         private void RemoveIfInvalid(string key)
         {
             if (!cache.ContainsKey(key))
@@ -75,9 +97,20 @@ namespace NExtra.Cache
         {
             cache[key] = new DictionaryCacheItem(value, DateTime.Now.Add(timeout));
         }
+
+        /// <summary>
+        /// Try to retrieve a certain, typed cached value.
+        /// </summary>
+        public T TryGet<T>(string key, T fallback)
+        {
+            return !Contains(key) ? fallback : Get<T>(key);
+        }
     }
 
     
+    /// <summary>
+    /// This internal class is what is stored by this cache.
+    /// </summary>
     internal class DictionaryCacheItem
     {
         public DictionaryCacheItem(object obj, DateTime expires)

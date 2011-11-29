@@ -63,6 +63,7 @@
     <Compile Include="Avatar\FacebookAvatar.cs" />
     <Compile Include="Avatar\FacebookAvatarSize.cs" />
     <Compile Include="Avatar\Gravatar.cs" />
+    <Compile Include="Cache\Abstractions\IRuntimeCacheManager.cs" />
     <Compile Include="Extensions\StateBagExtensions.cs" />
     <Compile Include="Html5ElementConverter.cs" />
     <Compile Include="Html5ElementSupport.cs" />

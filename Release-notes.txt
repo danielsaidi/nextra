@@ -17,6 +17,22 @@ It is really basic and allows an intial, optional +, followed by a
 set of digits and spaces, followed by an optional -, then followed
 by a last set of digits and spaces.
 
+A brand new Cache section has been added to the NExtra project. It
+has a basic ICacheManager interface and a really simple dictionary
+cache implementation that stores object in a dictionary.
+
+The NExtra.Extensions.ObjectExtensions class has a new non-generic
+clone method that returns object instead of a certain type. It has
+an (untested) MemoryCacheFacade implementation as well, that has a
+bit fewer methods than MemoryCache, since ICacheManager is generic.
+
+I have adjusted the Nextra.Web.Html5ElementConverter class so that
+it adds no extra content to the end tag. Thanks Petter 
+
+
+
+
+
 
 
 .NExtra 2.5.1.0		2011-11-27

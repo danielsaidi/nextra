@@ -40,6 +40,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
@@ -56,6 +57,7 @@
     <Compile Include="Abstractions\ICommandLineArgumentParser.cs" />
     <Compile Include="Abstractions\IConsole.cs" />
     <Compile Include="Cache\Abstractions\ICacheManager.cs" />
+    <Compile Include="Cache\MemoryCacheFacade.cs" />
     <Compile Include="Cache\DictionaryCache.cs" />
     <Compile Include="CommandLineArgumentParser.cs" />
     <Compile Include="ConsoleFacade.cs" />

@@ -13,22 +13,31 @@ namespace NExtra.Extensions
     public static class ObjectExtensions
     {
         /// <summary>
-        /// Clone an object to a copy of the same type.
+        /// Clone a serializable object.
         /// </summary>
-        public static T Clone<T>(this object original)
+        public static object Clone(this object original)
         {
-            if (original == null)
-                return default(T);
-
             var formatter = new BinaryFormatter();
             var stream = new MemoryStream();
 
             formatter.Serialize(stream, original);
             stream.Seek(0, SeekOrigin.Begin);
 
-            var result = (T) formatter.Deserialize(stream);
+            var result = formatter.Deserialize(stream);
             stream.Close();
+
             return result;
+        }
+
+        /// <summary>
+        /// Clone a serializable object to a copy of the same type.
+        /// </summary>
+        public static T Clone<T>(this object original)
+        {
+            if (original == null)
+                return default(T);
+
+            return (T) original.Clone();
         }
     }
 }
