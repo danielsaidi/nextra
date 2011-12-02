@@ -18,7 +18,7 @@ body { font-size:0.625em; }
 .footer .aside { text-align:right; }
 
 
-.content { margin:0 200px; width:1000px; }
+.content { margin:0 auto; padding:0 30px; width:1000px; }
 
 
 .two-col { display:table; }
