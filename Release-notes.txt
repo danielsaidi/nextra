@@ -18,8 +18,10 @@ set of digits and spaces, followed by an optional -, then followed
 by a last set of digits and spaces.
 
 A brand new Cache section has been added to the NExtra project. It
-has a basic ICacheManager interface and a really simple dictionary
-cache implementation that stores object in a dictionary.
+has a basic ICache interface as well as a really simple dictionary
+cache implementation and a MemoryCache facade implementation. This
+namespace was added to the web project as well. It has a interface
+that extends ICache and a HttpRuntime.Cache facade implementation.
 
 The NExtra.Extensions.ObjectExtensions class has a new non-generic
 clone method that returns object instead of a certain type. It has

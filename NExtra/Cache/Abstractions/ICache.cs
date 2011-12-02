@@ -11,7 +11,7 @@ namespace NExtra.Cache.Abstractions
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICacheManager
+    public interface ICache
     {
         /// <summary>
         /// Clear the entire cache.

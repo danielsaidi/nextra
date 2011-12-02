@@ -9,7 +9,7 @@ namespace NExtra.Cache
     /// in a dictionary. It should only be used for an
     /// extremely trivial caching scenario.
     /// </summary>
-    public class DictionaryCache : ICacheManager
+    public class DictionaryCache : ICache
     {
         private readonly Dictionary<string, DictionaryCacheItem> cache;
 
