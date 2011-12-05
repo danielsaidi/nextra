@@ -34,10 +34,8 @@ namespace NExtra.ValidationAttributes
 
 		public override bool IsValid(object value)
 		{
-            if (value == null)
-                return false;
-
-            if (!base.IsValid(value))
+            //Abort instewad of failing for missing data
+            if (value == null || !base.IsValid(value))
                 return false;
 
             //Remove possible dash
