@@ -87,17 +87,17 @@ namespace NExtra.Extensions
 	    }
 
 	    /// <summary>
-        /// Calculate the final split result, using previously calculated offset data.
+        /// Calculate the final split result, using
+        /// previously calculated offset data.
         /// </summary>
 	    private static IEnumerable<string> Split_CalculateResult(string str, string separator, int offset, IList<int> offsets)
 	    {
-	        var result = new string[offset + 1];
+            //Init default result for zero offset
+            var result = new string[offset + 1];
+            result[0] = str;
 
-	        if (offset == 0)
-	        {
-	            result[0] = str;
-	        }
-	        else
+            //Calculate result for non-zero offset
+	        if (offset != 0)
 	        {
 	            offset--;
 	            result[0] = str.Substring(0, offsets[0]);
@@ -105,15 +105,13 @@ namespace NExtra.Extensions
 	                result[i + 1] = str.Substring(offsets[i] + separator.Length, offsets[i + 1] - offsets[i] - separator.Length);
 	            result[offset + 1] = str.Substring(offsets[offset] + separator.Length);
 	        }
+
 	        return result;
 	    }
 
 	    /// <summary>
 		/// Split a string by a string rather than by a char,
 		/// then convert each list element to a certain type.
-		/// 
-		/// The function can be set to throw an exception if any invalid
-		/// strings are encountered. By default, it ignores invalid ones.
 		/// </summary>
 		public static IEnumerable<T> Split<T>(this string str, string separator, bool throwExceptionOnError = false)
 		{
