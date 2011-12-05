@@ -50,58 +50,76 @@ namespace NExtra.Extensions
 		/// <summary>
 		/// Split a string by a string rather than by a char.
 		/// </summary>
-		public static IEnumerable<string> Split(this string str, string splitValue)
-		{
-			var offset = 0;
-			var index = 0;
-			var offsets = new int[str.Length + 1];
+		public static IEnumerable<string> Split(this string str, string separator)
+        {
+		    int offset;
+		    var offsets = Split_CalculateOffsets(str, separator, out offset);
+		    var result = Split_CalculateResult(str, separator, offset, offsets);
 
-			while (index < str.Length)
-			{
-				var indexOf = str.IndexOf(splitValue, index);
-				if (indexOf != -1)
-				{
-					offsets[offset++] = indexOf;
-					index = (indexOf + splitValue.Length);
-				}
-				else
-				{
-					index = str.Length;
-				}
-			}
-
-			var final = new string[offset + 1];
-			if (offset == 0)
-			{
-				final[0] = str;
-			}
-			else
-			{
-				offset--;
-				final[0] = str.Substring(0, offsets[0]);
-				for (var i = 0; i < offset; i++)
-					final[i + 1] = str.Substring(offsets[i] + splitValue.Length, offsets[i + 1] - offsets[i] - splitValue.Length);
-				final[offset + 1] = str.Substring(offsets[offset] + splitValue.Length);
-			}
-
-			var result = new List<String>();
-			result.AddRange(final);
-			return result.AsEnumerable();
+		    return new List<String>(result.AsEnumerable());
 		}
 
-		/// <summary>
-		/// Split a string by a string rather than by a char and convert
-		/// each list element to a certain type.
+	    /// <summary>
+	    /// Calculate split offset data.
+	    /// </summary>
+	    private static int[] Split_CalculateOffsets(string str, string separator, out int offset)
+	    {
+	        offset = 0;
+
+	        var index = 0;
+	        var offsets = new int[str.Length + 1];
+
+	        while (index < str.Length)
+	        {
+	            var indexOf = str.IndexOf(separator, index);
+	            if (indexOf != -1)
+	            {
+	                offsets[offset++] = indexOf;
+	                index = (indexOf + separator.Length);
+	            }
+	            else
+	            {
+	                index = str.Length;
+	            }
+	        }
+
+	        return offsets;
+	    }
+
+	    /// <summary>
+        /// Calculate the final split result, using previously calculated offset data.
+        /// </summary>
+	    private static IEnumerable<string> Split_CalculateResult(string str, string separator, int offset, IList<int> offsets)
+	    {
+	        var result = new string[offset + 1];
+
+	        if (offset == 0)
+	        {
+	            result[0] = str;
+	        }
+	        else
+	        {
+	            offset--;
+	            result[0] = str.Substring(0, offsets[0]);
+	            for (var i = 0; i < offset; i++)
+	                result[i + 1] = str.Substring(offsets[i] + separator.Length, offsets[i + 1] - offsets[i] - separator.Length);
+	            result[offset + 1] = str.Substring(offsets[offset] + separator.Length);
+	        }
+	        return result;
+	    }
+
+	    /// <summary>
+		/// Split a string by a string rather than by a char,
+		/// then convert each list element to a certain type.
 		/// 
 		/// The function can be set to throw an exception if any invalid
 		/// strings are encountered. By default, it ignores invalid ones.
 		/// </summary>
-		public static IEnumerable<T> Split<T>(this string str, string splitValue, bool throwExceptionOnError = false)
+		public static IEnumerable<T> Split<T>(this string str, string separator, bool throwExceptionOnError = false)
 		{
 			var result = new List<T>();
 			
-			var elements = str.Split(splitValue);
-			foreach (var element in elements)
+			foreach (var element in str.Split(separator))
 			{
                 try { result.Add((T)Convert.ChangeType(element, typeof(T))); }
                 catch (Exception) { if (throwExceptionOnError) throw; }
