@@ -18,10 +18,9 @@ set of digits and spaces, followed by an optional -, then followed
 by a last set of digits and spaces.
 
 A brand new Cache section has been added to the NExtra project. It
-has a basic ICache interface as well as a really simple dictionary
-cache implementation and a MemoryCache facade implementation. This
-namespace was added to the web project as well. It has a interface
-that extends ICache and a HttpRuntime.Cache facade implementation.
+has a basic ICache interface, a really simple dictionary cache and
+a MemoryCache facade. NExtra.Web has a Cache section as well, with
+an IHttpRuntimeCache interface and a HttpRuntime.Cache facade. The
 
 The NExtra.Extensions.ObjectExtensions class has a new non-generic
 clone method that returns object instead of a certain type. It has
@@ -29,7 +28,12 @@ an (untested) MemoryCacheFacade implementation as well, that has a
 bit fewer methods than MemoryCache, since ICacheManager is generic.
 
 I have adjusted the Nextra.Web.Html5ElementConverter class so that
-it adds no extra content to the end tag. Thanks Petter 
+it adds no extra content to the end tag. Thanks, Petter :)
+
+Finally, I have decided to let the demo section rot. The unit test
+suite and the source code should be enough for developers who want
+to learn .NExtra. Still, if anyone wants to keep the demos in good
+shape, feel free to do so and push the changes to the public repo.
 
 
 
