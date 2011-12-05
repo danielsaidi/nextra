@@ -43,7 +43,8 @@ namespace NExtra.ValidationAttributes
             //Remove possible dash
 			var noDash = value.ToString().Replace("-", "");
 
-            if (noDash.Length < 10)
+            //A Swedish SSN without a dash should be 10 digits
+            if (noDash.Length != 10)
                 return false;
 
 			//Verify the Luhn algorithm
