@@ -28,18 +28,25 @@ namespace NExtra
     /// </remarks>
     public class CommandLineArgumentParser : ICommandLineArgumentParser
     {
+        private readonly Regex splitter;
+        private readonly Regex remover;
+
+
+        public CommandLineArgumentParser()
+        {
+            splitter = new Regex(@"^-{1,2}|^/|=|:", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            remover = new Regex(@"^['""]?(.*?)['""]?$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+        }
+
         /// <summary>
         /// Parse a collection of command line arguments.
         /// </summary>
         public IDictionary<string, string> ParseCommandLineArguments(IEnumerable<string> args)
         {
-            var parameters = new Dictionary<string, string>();
-
-            var splitter = new Regex(@"^-{1,2}|^/|=|:", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-            var remover = new Regex(@"^['""]?(.*?)['""]?$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-
-            string parameter = null;
             string[] parts;
+            string parameter = null;
+            var parameters = new Dictionary<string, string>();
 
             // Valid parameters forms:
             // {-,/,--}param{ ,=,:}((",')value(",'))
@@ -54,44 +61,17 @@ namespace NExtra
                 {
                     // Found a value (for the last parameter found (space separator))
                     case 1:
-                        if (parameter != null && !parameters.ContainsKey(parameter))
-                        {
-                            parts[0] = remover.Replace(parts[0], "$1");
-                            parameters.Add(parameter, parts[0]);
-                        }
-                        parameter = null;
-
-                        // else Error: no parameter waiting for a value (skipped)
+                        parameter = ParseValue(parts, parameter, parameters);
                         break;
 
                     // Found just a parameter
                     case 2:
-
-                        // The last parameter is still waiting. With no value, set it to true.
-                        if (parameter != null && !parameters.ContainsKey(parameter)) parameters.Add(parameter, "true");
-                        parameter = parts[1];
+                        parameter = ParseParameter(parts, parameter, parameters);
                         break;
 
                     // Parameter with enclosed value
                     case 3:
-
-                        // The last parameter is still waiting. With no value, set it to true.
-                        if (parameter != null)
-                        {
-                            if (!parameters.ContainsKey(parameter))
-                                parameters.Add(parameter, "true");
-                        }
-
-                        parameter = parts[1];
-
-                        // Remove possible enclosing characters (",')
-                        if (!parameters.ContainsKey(parameter))
-                        {
-                            parts[2] = remover.Replace(parts[2], "$1");
-                            parameters.Add(parameter, parts[2]);
-                        }
-
-                        parameter = null;
+                        parameter = ParseParameterWithEnclosedValue(parts, parameter, parameters);
                         break;
                 }
             }
@@ -100,6 +80,54 @@ namespace NExtra
                 parameters.Add(parameter, "true");
 
             return parameters;
+        }
+
+
+        private static string ParseParameter(IList<string> parts, string parameter, IDictionary<string, string> parameters)
+        {
+            // The last parameter is still waiting. With no value, set it to true.
+
+            if (parameter != null && !parameters.ContainsKey(parameter))
+                parameters.Add(parameter, "true");
+
+            parameter = parts[1];
+            return parameter;
+        }
+
+        private string ParseParameterWithEnclosedValue(IList<string> parts, string parameter, IDictionary<string, string> parameters)
+        {
+            // The last parameter is still waiting. With no value, set it to true.
+            if (parameter != null)
+            {
+                if (!parameters.ContainsKey(parameter))
+                    parameters.Add(parameter, "true");
+            }
+
+            parameter = parts[1];
+
+            // Remove possible enclosing characters (",')
+            if (!parameters.ContainsKey(parameter))
+            {
+                parts[2] = remover.Replace(parts[2], "$1");
+                parameters.Add(parameter, parts[2]);
+            }
+
+            parameter = null;
+            return parameter;
+        }
+
+        private string ParseValue(IList<string> parts, string parameter, IDictionary<string, string> parameters)
+        {
+            if (parameter != null && !parameters.ContainsKey(parameter))
+            {
+                parts[0] = remover.Replace(parts[0], "$1");
+                parameters.Add(parameter, parts[0]);
+            }
+
+            parameter = null;
+            return parameter;
+
+            // else Error: no parameter waiting for a value (skipped)
         }
     }
 }
