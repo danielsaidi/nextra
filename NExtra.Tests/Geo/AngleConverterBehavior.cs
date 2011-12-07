@@ -1,5 +1,6 @@
 using System;
 using NExtra.Geo;
+using NExtra.Geo.Abstractions;
 using NUnit.Framework;
 
 namespace NExtra.Tests.Geo
@@ -7,7 +8,7 @@ namespace NExtra.Tests.Geo
     [TestFixture]
     public class AngleConverterBehavior
     {
-        private AngleConverter converter;
+        private IAngleConverter converter;
 
 
         [SetUp]

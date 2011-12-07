@@ -9,6 +9,21 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
+.NExtra 2.5.3.0		2011-12-xx
+==============================
+
+This update contains some breaking changes where unused components
+have been removed. The removed classes and interfaces are:
+
+	* NExtra.Web.Abstractions.IVirtualPathProviderFacade
+	
+The NExtra.Testing.MetadataRegistrator class has been made static.
+
+A new NExtra.Geo.IDistanceConverter interface has been added. The
+interface is implemented by IDistanceConverter. The same goes for
+the new NExtra.Geo.IAngleConverter interface.
+
+
 .NExtra 2.5.2.0		2011-12-06
 ==============================
 

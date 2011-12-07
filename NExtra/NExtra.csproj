@@ -66,6 +66,8 @@
     <Compile Include="EventArgs.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
     <Compile Include="Extensions\WebRequestExtensions.cs" />
+    <Compile Include="Geo\Abstractions\IAngleConverter.cs" />
+    <Compile Include="Geo\Abstractions\IDistanceConverter.cs" />
     <Compile Include="Geo\GeoConstants.cs" />
     <Compile Include="Localization\Abstractions\ITranslator.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerFacade.cs" />

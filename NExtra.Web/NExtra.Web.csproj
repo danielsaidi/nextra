@@ -58,7 +58,6 @@
     <Compile Include="Abstractions\ICanRemoveHtml.cs" />
     <Compile Include="Abstractions\ICanReplaceHtml.cs" />
     <Compile Include="Abstractions\ISyndicationFeedLoader.cs" />
-    <Compile Include="Abstractions\IVirtualPathProviderFacade.cs" />
     <Compile Include="Avatar\Abstractions\IAvatarService.cs" />
     <Compile Include="Avatar\FacebookAvatar.cs" />
     <Compile Include="Avatar\FacebookAvatarSize.cs" />

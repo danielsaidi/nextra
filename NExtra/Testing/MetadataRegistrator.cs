@@ -14,7 +14,7 @@ namespace NExtra.Testing
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://www.saidi.se/nextra
 	/// </remarks>
-	public class MetadataRegistrator
+	public static class MetadataRegistrator
 	{
 		private static readonly object registerLock = new object();
 	    private static Dictionary<string, bool> registeredDictionary;

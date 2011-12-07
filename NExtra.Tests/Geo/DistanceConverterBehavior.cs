@@ -1,4 +1,5 @@
 using NExtra.Geo;
+using NExtra.Geo.Abstractions;
 using NUnit.Framework;
 
 namespace NExtra.Tests.Geo
@@ -6,7 +7,7 @@ namespace NExtra.Tests.Geo
     [TestFixture]
     public class DistanceConverterBehavior
     {
-        private DistanceConverter converter;
+        private IDistanceConverter converter;
 
 
         [SetUp]

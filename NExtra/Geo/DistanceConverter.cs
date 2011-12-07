@@ -1,3 +1,5 @@
+using NExtra.Geo.Abstractions;
+
 namespace NExtra.Geo
 {
     /// <summary>
@@ -7,7 +9,7 @@ namespace NExtra.Geo
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class DistanceConverter
+    public class DistanceConverter : IDistanceConverter
     {   
         /// <summary>
         /// Convert kilometers to miles.

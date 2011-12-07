@@ -1,4 +1,5 @@
 using System;
+using NExtra.Geo.Abstractions;
 
 namespace NExtra.Geo
 {
@@ -10,7 +11,7 @@ namespace NExtra.Geo
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class AngleConverter
+    public class AngleConverter : IAngleConverter
     {
         /// <summary>
         /// Convert degrees to radians.
