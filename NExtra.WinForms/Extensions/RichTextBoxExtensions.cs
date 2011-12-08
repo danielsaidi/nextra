@@ -1,4 +1,3 @@
-using System;
 using System.Windows.Forms;
 using NExtra.WinForms.Printing;
 using NExtra.WinForms.Printing.Abstractions;
@@ -27,10 +26,7 @@ namespace NExtra.WinForms.Extensions
 		/// </summary>
         public static void Print(this RichTextBox richTextBox, IControlPrinter<RichTextBox> controlPrinter)
 		{
-			if (richTextBox == null)
-				throw new NullReferenceException();
-
-            controlPrinter.TargetControl = richTextBox;
+			controlPrinter.TargetControl = richTextBox;
             controlPrinter.Print();
 		}
 	}

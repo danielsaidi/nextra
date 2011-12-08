@@ -12,6 +12,13 @@ namespace NExtra.Extensions
 	/// </remarks>
     public static class DateTimeExtensions
     {
+        const int JAN = 1;
+        const int DEC = 12;
+        const int LASTDAYOFDEC = 31;
+        const int FIRSTDAYOFJAN = 1;
+        const int THURSDAY = 4;
+
+
         /// <summary>
         /// Get the first date of the month for a certain date.
         /// </summary>
@@ -70,7 +77,7 @@ namespace NExtra.Extensions
 		/// </summary>
 		public static int GetWeekNumber(this DateTime date, bool iso8601 = false, CalendarWeekRule weekRule = CalendarWeekRule.FirstFourDayWeek, DayOfWeek firstDayOfWeek = DayOfWeek.Monday)
 		{
-			return iso8601 ? GetWeekNumber_Iso8601(date) : CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date, weekRule, DayOfWeek.Monday);
+			return iso8601 ? GetWeekNumber_Iso8601(date) : CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date, weekRule, firstDayOfWeek);
 		}
 
     	/// <summary>
@@ -78,14 +85,6 @@ namespace NExtra.Extensions
 		/// </summary>
 		private static int GetWeekNumber_Iso8601(this DateTime date)
 		{
-			//Constants
-			const int JAN = 1;
-			const int DEC = 12;
-			const int LASTDAYOFDEC = 31;
-			const int FIRSTDAYOFJAN = 1;
-			const int THURSDAY = 4;
-			var thursdayFlag = false;
-
 			//Get the day number since the beginning of the year
 			var dayOfYear = date.DayOfYear;
 
@@ -103,12 +102,10 @@ namespace NExtra.Extensions
 			var daysInFirstWeek = 8 - (startWeekDayOfYear);
 
 			//Year starting and ending on a thursday will have 53 weeks
-			if (startWeekDayOfYear == THURSDAY || endWeekDayOfYear == THURSDAY)
-				thursdayFlag = true;
+    	    var thursdayFlag = (startWeekDayOfYear == THURSDAY || endWeekDayOfYear == THURSDAY);
 
 			//We begin by calculating the rounded up number of FULL weeks between the year start and our date.
-			var fullWeeks = (int)Math.Ceiling((dayOfYear - (daysInFirstWeek)) / 7.0);
-			var resultWeekNumber = fullWeeks;
+            var resultWeekNumber = (int)Math.Ceiling((dayOfYear - (daysInFirstWeek)) / 7.0);
 
 			//If the first week of the year has at least four days, the week number can be incremented by one.
 			if (daysInFirstWeek >= THURSDAY)

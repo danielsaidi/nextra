@@ -13,7 +13,7 @@ namespace NExtra.Mvc.HtmlHelpers
     public static class GlobalResourceHelper
     {
         /// <summary>
-        /// Format a global resource file value for display.
+        /// Format a global resource value for display.
         /// </summary>
         public static IHtmlString GlobalResource(this HtmlHelper helper, string resource)
         {

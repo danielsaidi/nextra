@@ -12,16 +12,34 @@ Blog:		http://danielsaidi.wordpress.com
 .NExtra 2.5.3.0		2011-12-xx
 ==============================
 
-This update contains some breaking changes where unused components
-have been removed. The removed classes and interfaces are:
+This update contains optimizations that are based on using NDepend
+analysis. It also adds some new stuff, although not that much.
 
-	* NExtra.Web.Abstractions.IVirtualPathProviderFacade
+The 2.5 release have turned out to be a real API breaker, but I do
+not have the patience to wait for the next major version. Since no
+one have complained so far, and .NExtra have few users that I know
+about, I will just continue not caring about the ones I don't know
+about. From 2.6, things will be more stable. I promise. Maybe.
+
+In .NExtra 2.6.0.0, I think I'll remove the abstraction namespaces.
+They do not anything but more complexity so I will just get rid of
+them. If you want to say NO - say so now...or until 2.6.0.0.
+
+I removed NExtra.Web.Abstractions.IVirtualPathProviderFacade since
+it was not used anywhere in the library.
 	
-The NExtra.Testing.MetadataRegistrator class has been made static.
+The previously non-static NExtra.Testing.MetadataRegistrator class
+has been made static. No need for it not to be.
 
-A new NExtra.Geo.IDistanceConverter interface has been added. The
-interface is implemented by IDistanceConverter. The same goes for
-the new NExtra.Geo.IAngleConverter interface.
+The new NExtra.Geo.IDistanceConverter interface has been extracted
+from DistanceConverter. The same goes for IAngleConverter.
+
+Some unnecessary throws have been removed. The code will fail even
+without them, so why have them?
+
+I have added two new hash generators to NExtra.Security. They will
+probably make the old ones in NExtra.Web.Security useless.
+
 
 
 .NExtra 2.5.2.0		2011-12-06

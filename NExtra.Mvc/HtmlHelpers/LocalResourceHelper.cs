@@ -17,9 +17,9 @@ namespace NExtra.Mvc.HtmlHelpers
         /// </summary>
         public static IHtmlString LocalResource(this HtmlHelper helper, WebViewPage page, string resourceKeyName)
         {
-            var str = helper.ViewContext.HttpContext.GetLocalResourceObject(page.VirtualPath, resourceKeyName) as string;
+            var localResource = helper.ViewContext.HttpContext.GetLocalResourceObject(page.VirtualPath, resourceKeyName) as string;
 
-            return ResourceFileValueHelper.ResourceFileValueToHtml(helper, str);
+            return ResourceFileValueHelper.ResourceFileValueToHtml(helper, localResource);
         }
     }
 }

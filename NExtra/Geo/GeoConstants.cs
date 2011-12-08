@@ -12,11 +12,11 @@
         /// <summary>
         /// The rough earth radius in kilometers.
         /// </summary>
-        public static double EarthRadiusInKilometers { get { return 6367.0; } }
+        public const double EarthRadiusInKilometers = 6367.0;
 
         /// <summary>
         /// The rough earth radius in miles.
         /// </summary>
-        public static double EarthRadiusInMiles { get { return 3956.0; } }
+        public const double EarthRadiusInMiles = 3956.0;
     }
 }

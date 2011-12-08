@@ -13,10 +13,15 @@ namespace NExtra.Web.Avatar
     /// </remarks>
     public class Gravatar : IAvatarService<int>
     {
+        [Obsolete("This constant is obsolete. Use UrlPattern instead.")]
+        public const string BaseUrl = UrlPattern;
+
+
+
         /// <summary>
         /// The URL pattern for Gravatar avatars.
         /// </summary>
-        public const string BaseUrl = "http://www.gravatar.com/avatar/{0}?s={1}";
+        public const string UrlPattern = "http://www.gravatar.com/avatar/{0}?s={1}";
 
 
         /// <summary>
@@ -34,7 +39,7 @@ namespace NExtra.Web.Avatar
         {
             var hashCreator = new Md5Generator();
 
-            return String.Format(BaseUrl, hashCreator.GenerateHashValue(emailAddress).ToLower(), size);
+            return String.Format(UrlPattern, hashCreator.GenerateHashValue(emailAddress).ToLower(), size);
         }
     }
 }

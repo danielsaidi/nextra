@@ -20,7 +20,9 @@ namespace NExtra.Mvc.HtmlHelpers
         /// </summary>
         public static IHtmlString ResourceFileValueToHtml(HtmlHelper helper, string str)
         {
-            return helper.Raw(str.Replace(Environment.NewLine, "<br/>"));
+            var formattedString = str.Replace(Environment.NewLine, "<br/>");
+
+            return helper.Raw(formattedString);
         }
     }
 }

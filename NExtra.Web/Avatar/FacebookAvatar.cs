@@ -12,10 +12,14 @@ namespace NExtra.Web.Avatar
     /// </remarks>
     public class FacebookAvatar : IAvatarService<FacebookAvatarSize>
     {
+        [Obsolete("This constant is obsolete. Use UrlPattern instead.")]
+        public const string BaseUrl = UrlPattern;
+
+
         /// <summary>
         /// The URL pattern for Facebook profile pictures.
         /// </summary>
-        public const string BaseUrl = "http://graph.facebook.com/{0}/picture?type={1}";
+        public const string UrlPattern = "http://graph.facebook.com/{0}/picture?type={1}";
 
 
         /// <summary>
@@ -31,7 +35,7 @@ namespace NExtra.Web.Avatar
         /// </summary>
         public string GetAvatarUrl(string userName, FacebookAvatarSize size)
         {
-            return String.Format(BaseUrl, userName, size.ToString().ToLower());
+            return String.Format(UrlPattern, userName, size.ToString().ToLower());
         }
     }
 }

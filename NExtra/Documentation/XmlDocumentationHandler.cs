@@ -22,11 +22,11 @@ namespace NExtra.Documentation
     /// </remarks>
     public class XmlDocumentationHandler : ICanExtractAssemblyXmlDocumentation, ICanExtractMemberInfoXmlDocumentation, ICanExtractMethodInfoXmlDocumentation, ICanExtractTypeXmlDocumentation, ICanExtractXmlDocumentationElement
     {
-        private readonly ICanExtractAssemblyXmlDocumentation assemblyXmlDocumentationExtractor;
-        private readonly ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor;
-        private readonly ICanExtractMemberInfoXmlDocumentation memberInfoXmlDocumentationExtractor;
-        private readonly ICanExtractMethodInfoXmlDocumentation methodInfoXmlDocumentationExtractor;
-        private readonly ICanExtractTypeXmlDocumentation typeXmlDocumentationExtractor;
+        private readonly ICanExtractAssemblyXmlDocumentation assemblyExtractor;
+        private readonly ICanExtractXmlDocumentationElement elementExtractor;
+        private readonly ICanExtractMemberInfoXmlDocumentation memberExtractor;
+        private readonly ICanExtractMethodInfoXmlDocumentation methodExtractor;
+        private readonly ICanExtractTypeXmlDocumentation typeExtractor;
 
 
         /// <summary>
@@ -40,42 +40,42 @@ namespace NExtra.Documentation
         /// <summary>
         /// Create a custom instance of the class.
         /// </summary>
-        /// <param name="assemblyXmlDocumentationExtractor">Custom ICanExtractAssemblyXmlDocumentation implementation.</param>
-        public XmlDocumentationHandler(ICanExtractAssemblyXmlDocumentation assemblyXmlDocumentationExtractor)
-            : this(assemblyXmlDocumentationExtractor, new XmlDocumentationElementExtractor(assemblyXmlDocumentationExtractor))
+        /// <param name="assemblyExtractor">Custom ICanExtractAssemblyXmlDocumentation implementation.</param>
+        public XmlDocumentationHandler(ICanExtractAssemblyXmlDocumentation assemblyExtractor)
+            : this(assemblyExtractor, new XmlDocumentationElementExtractor(assemblyExtractor))
         {
         }
 
         /// <summary>
         /// Create a custom instance of the class.
         /// </summary>
-        /// <param name="assemblyXmlDocumentationExtractor">Custom ICanExtractAssemblyXmlDocumentation implementation.</param>
-        /// <param name="xmlDocumentationElementExtractor">Custom ICanExtractXmlDocumentationElement implementation.</param>
-        public XmlDocumentationHandler(ICanExtractAssemblyXmlDocumentation assemblyXmlDocumentationExtractor, ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor)
-            : this(assemblyXmlDocumentationExtractor, xmlDocumentationElementExtractor, new MemberInfoXmlDocumentationExtractor(xmlDocumentationElementExtractor), new MethodInfoXmlDocumentationExtractor(xmlDocumentationElementExtractor), new TypeXmlDocumentationExtractor(xmlDocumentationElementExtractor))
+        /// <param name="assemblyExtractor">Custom ICanExtractAssemblyXmlDocumentation implementation.</param>
+        /// <param name="elementExtractor">Custom ICanExtractXmlDocumentationElement implementation.</param>
+        public XmlDocumentationHandler(ICanExtractAssemblyXmlDocumentation assemblyExtractor, ICanExtractXmlDocumentationElement elementExtractor)
+            : this(assemblyExtractor, elementExtractor, new MemberInfoXmlDocumentationExtractor(elementExtractor), new MethodInfoXmlDocumentationExtractor(elementExtractor), new TypeXmlDocumentationExtractor(elementExtractor))
         {   
         }
 
         /// <summary>
         /// Create a custom instance of the class.
         /// </summary>
-        /// <param name="assemblyXmlDocumentationExtractor">Custom ICanExtractAssemblyXmlDocumentation implementation.</param>
-        /// <param name="xmlDocumentationElementExtractor">Custom ICanExtractXmlDocumentationElement implementation.</param>
-        /// <param name="memberInfoXmlDocumentationExtractor">Custom ICanExtractMemberInfoXmlDocumentation implementation.</param>
-        /// <param name="methodInfoXmlDocumentationExtractor">Custom ICanExtractMethodInfoXmlDocumentation implementation.</param>
-        /// <param name="typeXmlDocumentationExtractor">Custom ICanExtractTypeXmlDocumentation implementation.</param>
+        /// <param name="assemblyExtractor">Custom ICanExtractAssemblyXmlDocumentation implementation.</param>
+        /// <param name="elementExtractor">Custom ICanExtractXmlDocumentationElement implementation.</param>
+        /// <param name="memberExtractor">Custom ICanExtractMemberInfoXmlDocumentation implementation.</param>
+        /// <param name="methodExtractor">Custom ICanExtractMethodInfoXmlDocumentation implementation.</param>
+        /// <param name="typeExtractor">Custom ICanExtractTypeXmlDocumentation implementation.</param>
         public XmlDocumentationHandler(
-            ICanExtractAssemblyXmlDocumentation assemblyXmlDocumentationExtractor,
-            ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor,
-            ICanExtractMemberInfoXmlDocumentation memberInfoXmlDocumentationExtractor,
-            ICanExtractMethodInfoXmlDocumentation methodInfoXmlDocumentationExtractor,
-            ICanExtractTypeXmlDocumentation typeXmlDocumentationExtractor)
+            ICanExtractAssemblyXmlDocumentation assemblyExtractor,
+            ICanExtractXmlDocumentationElement elementExtractor,
+            ICanExtractMemberInfoXmlDocumentation memberExtractor,
+            ICanExtractMethodInfoXmlDocumentation methodExtractor,
+            ICanExtractTypeXmlDocumentation typeExtractor)
         {
-            this.assemblyXmlDocumentationExtractor = assemblyXmlDocumentationExtractor;
-            this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
-            this.memberInfoXmlDocumentationExtractor = memberInfoXmlDocumentationExtractor;
-            this.methodInfoXmlDocumentationExtractor = methodInfoXmlDocumentationExtractor;
-            this.typeXmlDocumentationExtractor = typeXmlDocumentationExtractor;
+            this.assemblyExtractor = assemblyExtractor;
+            this.elementExtractor = elementExtractor;
+            this.memberExtractor = memberExtractor;
+            this.methodExtractor = methodExtractor;
+            this.typeExtractor = typeExtractor;
         }
 
 
@@ -86,7 +86,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation document.</returns>
         public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly)
         {
-            return assemblyXmlDocumentationExtractor.ExtractAssemblyXmlDocumentation(assembly);
+            return assemblyExtractor.ExtractAssemblyXmlDocumentation(assembly);
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation document.</returns>
         public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlFilePath)
         {
-            return assemblyXmlDocumentationExtractor.ExtractAssemblyXmlDocumentation(assembly, xmlFilePath);
+            return assemblyExtractor.ExtractAssemblyXmlDocumentation(assembly, xmlFilePath);
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation element.</returns>
         public XmlElement ExtractMemberInfoXmlDocumentation(MemberInfo memberInfo)
         {
-            return memberInfoXmlDocumentationExtractor.ExtractMemberInfoXmlDocumentation(memberInfo);
+            return memberExtractor.ExtractMemberInfoXmlDocumentation(memberInfo);
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation element.</returns>
         public XmlElement ExtractMethodInfoXmlDocumentation(MethodInfo methodInfo)
         {
-            return methodInfoXmlDocumentationExtractor.ExtractMethodInfoXmlDocumentation(methodInfo);
+            return methodExtractor.ExtractMethodInfoXmlDocumentation(methodInfo);
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation element.</returns>
         public XmlElement ExtractTypeXmlDocumentation(Type type)
         {
-            return typeXmlDocumentationExtractor.ExtractTypeXmlDocumentation(type);
+            return typeExtractor.ExtractTypeXmlDocumentation(type);
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation element.</returns>
         public XmlElement ExtractXmlDocumentationElement(Type type, char prefix, string subElementName)
         {
-            return xmlDocumentationElementExtractor.ExtractXmlDocumentationElement(type, prefix, subElementName);
+            return elementExtractor.ExtractXmlDocumentationElement(type, prefix, subElementName);
         }
     }
 }
