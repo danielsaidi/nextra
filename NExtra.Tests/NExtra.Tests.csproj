@@ -69,8 +69,9 @@
     <Compile Include="ValidationAttributes\IpAddressAttributeBehavior.cs" />
     <Compile Include="ValidationAttributes\EmailAddressAttributeBehavior.cs" />
     <Compile Include="ValidationAttributes\GuidAttributeBehavior.cs" />
+    <Compile Include="ValidationAttributes\Ssn\FinnishSsnAttributeBehavior.cs" />
+    <Compile Include="ValidationAttributes\Ssn\SwedishSsnAttributeBehavior.cs" />
     <Compile Include="ValidationAttributes\SwedishPostalCodeAttributeBehavior.cs" />
-    <Compile Include="ValidationAttributes\SwedishSsnAttributeBehavior.cs" />
     <Compile Include="ValidationAttributes\UrlAttributeBehavior.cs" />
     <Compile Include="Extensions\AssemblyExtensionsBehavior.cs" />
     <Compile Include="Extensions\StructExtensionsBehavior.cs" />

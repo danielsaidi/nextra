@@ -85,8 +85,10 @@
     <Compile Include="ValidationAttributes\EmailAddressAttribute.cs" />
     <Compile Include="ValidationAttributes\GuidAttribute.cs" />
     <Compile Include="ValidationAttributes\MinLengthAttribute.cs" />
+    <Compile Include="ValidationAttributes\Ssn\FinnishSsnAttribute.cs" />
+    <Compile Include="ValidationAttributes\Ssn\SsnSeparatorMode.cs" />
+    <Compile Include="ValidationAttributes\Ssn\SwedishSsnAttribute.cs" />
     <Compile Include="ValidationAttributes\SwedishPostalCodeAttribute.cs" />
-    <Compile Include="ValidationAttributes\SwedishSsnAttribute.cs" />
     <Compile Include="ValidationAttributes\UrlAttribute.cs" />
     <Compile Include="Documentation\Abstractions\ICanExtractMethodInfoXmlDocumentation.cs" />
     <Compile Include="Documentation\Abstractions\ICanExtractMemberInfoXmlDocumentation.cs" />
@@ -135,9 +137,7 @@
     <Compile Include="UI\Abstractions\ICanSubmit.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ValidationAttributes\Ssn\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

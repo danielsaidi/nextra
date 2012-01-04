@@ -13,7 +13,7 @@ namespace NExtra.Tests.ValidationAttributes
         }
 
         [Test]
-        public void IsValid_ShouldReturnFalseForEmptyString()
+        public void IsValid_ShouldReturnTrueForEmptyString()
         {
             Assert.That(new PhoneNumberAttribute().IsValid(""), Is.True);
         }
