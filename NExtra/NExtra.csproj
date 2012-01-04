@@ -79,6 +79,7 @@
     <Compile Include="Security\Md5Generator.cs" />
     <Compile Include="Security\Sha1Generator.cs" />
     <Compile Include="Testing\MetadataValidator.cs" />
+    <Compile Include="ValidationAttributes\LuhnAttribute.cs" />
     <Compile Include="ValidationAttributes\PhoneNumberAttribute.cs" />
     <Compile Include="ValidationAttributes\IpAddressAttribute.cs" />
     <Compile Include="ValidationAttributes\EmailAddressAttribute.cs" />
@@ -134,7 +135,9 @@
     <Compile Include="UI\Abstractions\ICanSubmit.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ValidationAttributes\Ssn\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

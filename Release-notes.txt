@@ -9,21 +9,12 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
-.NExtra 2.5.3.0		2011-12-xx
+.NExtra 2.5.4.0		2011-12-xx
 ==============================
 
 This update contains optimizations that are based on using NDepend
-analysis. It also adds some new stuff, although not that much.
-
-The 2.5 release have turned out to be a real API breaker, but I do
-not have the patience to wait for the next major version. Since no
-one have complained so far, and .NExtra have few users that I know
-about, I will just continue not caring about the ones I don't know
-about. From 2.6, things will be more stable. I promise. Maybe.
-
-In .NExtra 2.6.0.0, I think I'll remove the abstraction namespaces.
-They do not anything but more complexity so I will just get rid of
-them. If you want to say NO - say so now...or until 2.6.0.0.
+analysis. It also adds some new stuff, and breaks the API a little.
+From 2.6, things will be more stable. I promise. Maybe. Or not.
 
 I removed NExtra.Web.Abstractions.IVirtualPathProviderFacade since
 it was not used anywhere in the library.
@@ -32,13 +23,22 @@ The previously non-static NExtra.Testing.MetadataRegistrator class
 has been made static. No need for it not to be.
 
 The new NExtra.Geo.IDistanceConverter interface has been extracted
-from DistanceConverter. The same goes for IAngleConverter.
+from DistanceConverter. The same goes for IAngleConverter. So, now
+you can do all kinds of crazy implementations. Go wild.
 
 Some unnecessary throws have been removed. The code will fail even
 without them, so why have them?
 
 I have added two new hash generators to NExtra.Security. They will
 probably make the old ones in NExtra.Web.Security useless.
+
+The ValidationAttributes namespace have two new validation classes;
+the LuhnAttribute and the FinnishSsnAttribute. The two SSN related
+classes have been moved into their own namespace (see below).
+
+BREAKING CHANGES - The NExtra.ValidationAttributes xSsn validators
+have been moved into their own namespace. The ctor signatures have
+been changed as well.
 
 
 
