@@ -18,7 +18,7 @@ namespace NExtra.Validation.Ssn
     /// To validate more complex scenarios, like correct sex or region,
     /// create a separate class and override the IsValid method.
 	/// </remarks>
-	public class NorwegianSsnAttribute : RegularExpressionAttribute
+	public class NorwegianSsnAttribute : RegularExpressionAttribute, IValidator
     {
         public const string Expression = "^\\b(0[1-9]|[12]\\d|3[01])([04][1-9]|[15][0-2])\\d{7}\\b$";
 

@@ -1,4 +1,6 @@
-﻿using NExtra.Validation.Ssn;
+﻿using NExtra.Validation;
+using NExtra.Validation.Ssn;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace NExtra.Tests.Validation.Ssn
@@ -6,9 +8,14 @@ namespace NExtra.Tests.Validation.Ssn
     [TestFixture]
     public class FinnishSsnValidatorBehavior
     {
-        private static FinnishSsnAttribute GetValidator(RequiredMode separatorMode)
+        private static IValidator GetValidator(RequiredMode separatorMode)
         {
             return new FinnishSsnAttribute(separatorMode);
+        }
+
+        private static IValidator GetValidator(RequiredMode separatorMode, IValidator checksumValidator)
+        {
+            return new FinnishSsnAttribute(separatorMode, checksumValidator);
         }
 
 
@@ -65,10 +72,12 @@ namespace NExtra.Tests.Validation.Ssn
         [TestCase(RequiredMode.Required, false)]
         public void IsValid_ShouldReturnFalseForInvalidMonth(RequiredMode separatorMode, bool expected)
         {
-            Assert.That(GetValidator(separatorMode).IsValid("301974498S"), Is.EqualTo(expected));
-            Assert.That(GetValidator(separatorMode).IsValid("301974-498S"), Is.EqualTo(expected));
+            var checksumValidator = Substitute.For<IValidator>();
 
-            //TODO: Checksum not calculated
+            Assert.That(GetValidator(separatorMode, checksumValidator).IsValid("301974498S"), Is.EqualTo(expected));
+            Assert.That(GetValidator(separatorMode, checksumValidator).IsValid("301974-498S"), Is.EqualTo(expected));
+
+            checksumValidator.DidNotReceive().IsValid(Arg.Any<object>());
         }
 
         [Test]
@@ -77,10 +86,12 @@ namespace NExtra.Tests.Validation.Ssn
         [TestCase(RequiredMode.Required, false)]
         public void IsValid_ShouldReturnFalseForInvalidDay(RequiredMode separatorMode, bool expected)
         {
-            Assert.That(GetValidator(separatorMode).IsValid("320974498S"), Is.EqualTo(expected));
-            Assert.That(GetValidator(separatorMode).IsValid("320974-498S"), Is.EqualTo(expected));
+            var checksumValidator = Substitute.For<IValidator>();
 
-            //TODO: Checksum not calculated
+            Assert.That(GetValidator(separatorMode, checksumValidator).IsValid("320974498S"), Is.EqualTo(expected));
+            Assert.That(GetValidator(separatorMode, checksumValidator).IsValid("320974-498S"), Is.EqualTo(expected));
+
+            checksumValidator.DidNotReceive().IsValid(Arg.Any<object>());
         }
 
         [Test]
@@ -89,10 +100,32 @@ namespace NExtra.Tests.Validation.Ssn
         [TestCase(RequiredMode.Required, false)]
         public void IsValid_ShouldReturnFalseForInvalidChecksum(RequiredMode separatorMode, bool expected)
         {
-            Assert.That(GetValidator(separatorMode).IsValid("300964498S"), Is.EqualTo(expected));
-            Assert.That(GetValidator(separatorMode).IsValid("300964-498S"), Is.EqualTo(expected));
+            Assert.That(GetValidator(separatorMode).IsValid("320974498S"), Is.EqualTo(expected));
+            Assert.That(GetValidator(separatorMode).IsValid("320974-498S"), Is.EqualTo(expected));
+        }
 
-            //TODO: Checksum calculated
+        [Test]
+        [TestCase(RequiredMode.Optional)]
+        [TestCase(RequiredMode.Required)]
+        public void IsValid_ShouldValidateChecksumForValidDateSsnWithDash(RequiredMode separatorMode)
+        {
+            var checksumValidator = Substitute.For<IValidator>();
+
+            GetValidator(separatorMode, checksumValidator).IsValid("300974-498S");
+
+            checksumValidator.Received().IsValid("300974-498S");
+        }
+
+        [Test]
+        [TestCase(RequiredMode.None)]
+        [TestCase(RequiredMode.Optional)]
+        public void IsValid_ShouldValidateChecksumForValidDateSsnWithoutDash(RequiredMode separatorMode)
+        {
+            var checksumValidator = Substitute.For<IValidator>();
+
+            GetValidator(separatorMode, checksumValidator).IsValid("300974498S");
+
+            checksumValidator.Received().IsValid("300974498S");
         }
 
         [Test]

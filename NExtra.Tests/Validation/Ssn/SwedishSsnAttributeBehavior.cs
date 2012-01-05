@@ -1,4 +1,6 @@
-﻿using NExtra.Validation.Ssn;
+﻿using NExtra.Validation;
+using NExtra.Validation.Ssn;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace NExtra.Tests.Validation.Ssn
@@ -6,15 +8,14 @@ namespace NExtra.Tests.Validation.Ssn
     [TestFixture]
     public class SwedishSsnValidatorBehavior
     {
-        [SetUp]
-        public void SetUp()
-        {
-            
-        }
-
-        private static SwedishSsnAttribute GetValidator(RequiredMode separatorMode)
+        private static IValidator GetValidator(RequiredMode separatorMode)
         {
             return new SwedishSsnAttribute(separatorMode);
+        }
+
+        private static IValidator GetValidator(RequiredMode separatorMode, IValidator checksumValidator)
+        {
+            return new SwedishSsnAttribute(separatorMode, checksumValidator);
         }
 
 
@@ -62,10 +63,12 @@ namespace NExtra.Tests.Validation.Ssn
         [TestCase(RequiredMode.Required, false)]
         public void IsValid_ShouldReturnFalseForInvalidMonth(RequiredMode separatorMode, bool expected)
         {
-            Assert.That(GetValidator(separatorMode).IsValid("313108-8320"), Is.EqualTo(expected));
-            Assert.That(GetValidator(separatorMode).IsValid("3131088320"), Is.EqualTo(expected));
+            var checksumValidator = Substitute.For<IValidator>();
 
-            //TODO: Luhn NOT called
+            Assert.That(GetValidator(separatorMode, checksumValidator).IsValid("313108-8320"), Is.EqualTo(expected));
+            Assert.That(GetValidator(separatorMode, checksumValidator).IsValid("3131088320"), Is.EqualTo(expected));
+
+            checksumValidator.DidNotReceive().IsValid(Arg.Any<object>());
         }
 
         [Test]
@@ -74,10 +77,12 @@ namespace NExtra.Tests.Validation.Ssn
         [TestCase(RequiredMode.Required, false)]
         public void IsValid_ShouldReturnFalseForInvalidDay(RequiredMode separatorMode, bool expected)
         {
-            Assert.That(GetValidator(separatorMode).IsValid("310138-8320"), Is.EqualTo(expected));
-            Assert.That(GetValidator(separatorMode).IsValid("3101388320"), Is.EqualTo(expected));
+            var checksumValidator = Substitute.For<IValidator>();
 
-            //TODO: Luhn NOT called
+            Assert.That(GetValidator(separatorMode, checksumValidator).IsValid("310138-8320"), Is.EqualTo(expected));
+            Assert.That(GetValidator(separatorMode, checksumValidator).IsValid("3101388320"), Is.EqualTo(expected));
+
+            checksumValidator.DidNotReceive().IsValid(Arg.Any<object>());
         }
 
         [Test]
@@ -88,8 +93,30 @@ namespace NExtra.Tests.Validation.Ssn
         {
             Assert.That(GetValidator(separatorMode).IsValid("7803257518"), Is.EqualTo(expected));
             Assert.That(GetValidator(separatorMode).IsValid("780325-7518"), Is.EqualTo(expected));
+        }
 
-            //TODO: Luhn called if expected
+        [Test]
+        [TestCase(RequiredMode.Optional)]
+        [TestCase(RequiredMode.Required)]
+        public void IsValid_ShouldValidateChecksumForValidDateSsnWithDash(RequiredMode separatorMode)
+        {
+            var checksumValidator = Substitute.For<IValidator>();
+
+            GetValidator(separatorMode, checksumValidator).IsValid("780325-7518");
+
+            checksumValidator.Received().IsValid("7803257518");
+        }
+
+        [Test]
+        [TestCase(RequiredMode.None)]
+        [TestCase(RequiredMode.Optional)]
+        public void IsValid_ShouldValidateChecksumForValidDateSsnWithoutDash(RequiredMode separatorMode)
+        {
+            var checksumValidator = Substitute.For<IValidator>();
+
+            GetValidator(separatorMode, checksumValidator).IsValid("7803257518");
+
+            checksumValidator.Received().IsValid("7803257518");
         }
 
         [Test]
