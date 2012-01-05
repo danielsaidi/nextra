@@ -10,7 +10,7 @@ namespace NExtra.Validation
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://www.saidi.se/nextra
 	/// </remarks>
-	public class GuidAttribute : RegularExpressionAttribute
+    public class GuidAttribute : RegularExpressionAttribute, IValidator
     {
 		public GuidAttribute()
             : base(Expression) { }
