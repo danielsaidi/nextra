@@ -13,7 +13,7 @@ namespace NExtra.Validation
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://www.saidi.se/nextra
 	/// </remarks>
-	public class PhoneNumberAttribute : RegularExpressionAttribute
+	public class PhoneNumberAttribute : RegularExpressionAttribute, IValidator
     {
 		public PhoneNumberAttribute()
 			: base(Expression) { }
