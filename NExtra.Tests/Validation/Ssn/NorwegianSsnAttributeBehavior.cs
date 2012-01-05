@@ -1,4 +1,5 @@
-﻿using NExtra.Validation.Ssn;
+﻿using NExtra.Validation;
+using NExtra.Validation.Ssn;
 using NUnit.Framework;
 
 namespace NExtra.Tests.Validation.Ssn
@@ -6,15 +7,14 @@ namespace NExtra.Tests.Validation.Ssn
     [TestFixture]
     public class NorwegianSsnValidatorBehavior
     {
-        [SetUp]
-        public void SetUp()
-        {
-            
-        }
-
-        private static NorwegianSsnAttribute GetValidator()
+        private static IValidator GetValidator()
         {
             return new NorwegianSsnAttribute();
+        }
+
+        private static IValidator GetValidator(IValidator checksumValidator)
+        {
+            return new NorwegianSsnAttribute(checksumValidator);
         }
 
 

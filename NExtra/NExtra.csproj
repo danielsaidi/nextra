@@ -87,6 +87,8 @@
     <Compile Include="Validation\EmailAddressAttribute.cs" />
     <Compile Include="Validation\GuidAttribute.cs" />
     <Compile Include="Validation\MinLengthAttribute.cs" />
+    <Compile Include="Validation\Ssn\NorwegianSsnChecksumValidator.cs" />
+    <Compile Include="Validation\Ssn\SwedishSsnChecksumValidator.cs" />
     <Compile Include="Validation\Ssn\FinnishSsnChecksumValidator.cs" />
     <Compile Include="Validation\Ssn\NorwegianSsnAttribute.cs" />
     <Compile Include="Validation\Ssn\FinnishSsnAttribute.cs" />

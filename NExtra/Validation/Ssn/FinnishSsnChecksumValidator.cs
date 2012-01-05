@@ -2,13 +2,14 @@ namespace NExtra.Validation.Ssn
 {
 	/// <summary>
 	/// This attribute can be used to validate whether or
-	/// not a string conforms to the LUHN algorithm.
+	/// not a string has a format that results in a valid
+	/// Finnish checksum.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://www.saidi.se/nextra
 	/// </remarks>
-    public class FinnishSsnChecksumValidator : IValidator
+    internal class FinnishSsnChecksumValidator : IValidator
     {
         public bool IsValid(object value)
         {

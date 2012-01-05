@@ -25,7 +25,7 @@ namespace NExtra.Validation.Ssn
 
 
         public SwedishSsnAttribute(RequiredMode separatorMode)
-            : this(separatorMode, new LuhnAttribute()) { }
+            : this(separatorMode, new SwedishSsnChecksumValidator()) { }
 
         public SwedishSsnAttribute(RequiredMode separatorMode, IValidator checksumValidator)
             : base(Expression(separatorMode))
@@ -53,7 +53,7 @@ namespace NExtra.Validation.Ssn
             if (value == null || value.ToString() == string.Empty)
                 return true;
 
-            return base.IsValid(value) && checksumValidator.IsValid(value.ToString().Replace("-", ""));
+            return base.IsValid(value) && checksumValidator.IsValid(value);
 		}
 	}
 }

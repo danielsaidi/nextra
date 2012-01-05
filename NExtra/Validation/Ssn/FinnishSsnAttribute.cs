@@ -51,7 +51,7 @@ namespace NExtra.Validation.Ssn
             if (value == null || value.ToString() == string.Empty)
                 return true;
 
-            return base.IsValid(value) && checksumValidator.IsValid(value.ToString());
+            return base.IsValid(value) && checksumValidator.IsValid(value);
         }
 	}
 }

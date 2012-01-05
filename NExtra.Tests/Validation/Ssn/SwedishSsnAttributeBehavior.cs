@@ -104,7 +104,7 @@ namespace NExtra.Tests.Validation.Ssn
 
             GetValidator(separatorMode, checksumValidator).IsValid("780325-7518");
 
-            checksumValidator.Received().IsValid("7803257518");
+            checksumValidator.Received().IsValid("780325-7518");
         }
 
         [Test]
