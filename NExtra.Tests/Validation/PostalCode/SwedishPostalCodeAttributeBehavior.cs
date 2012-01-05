@@ -1,29 +1,36 @@
-using NExtra.Validation;
+﻿using NExtra.Validation;
+using NExtra.Validation.PostalCode;
 using NUnit.Framework;
 
-namespace NExtra.Tests.Validation
+namespace NExtra.Tests.Validation.PostalCode
 {
 	[TestFixture]
 	public class SwedishPostalCodeAttributeBehavior
-	{
+    {
+        public IValidator GetValidator(bool optionalSpace = false)
+        {
+            return new SwedishPostalCodeAttribute(optionalSpace);
+        }
+
+
         [Test]
         public void IsValid_ShouldReturnTrueForNull()
         {
-            Assert.That(new SwedishPostalCodeAttribute().IsValid(null), Is.True);
-            Assert.That(new SwedishPostalCodeAttribute(true).IsValid(null), Is.True);
+            Assert.That(GetValidator().IsValid(null), Is.True);
+            Assert.That(GetValidator(true).IsValid(null), Is.True);
         }
 
         [Test]
         public void IsValid_ShouldReturnTrueForEmptyString()
         {
-            Assert.That(new SwedishPostalCodeAttribute().IsValid(string.Empty), Is.True);
-            Assert.That(new SwedishPostalCodeAttribute(true).IsValid(string.Empty), Is.True);
+            Assert.That(GetValidator().IsValid(string.Empty), Is.True);
+            Assert.That(GetValidator(true).IsValid(string.Empty), Is.True);
         }
 
         [Test]
         public void IsValid_ShouldReturnFalseForSpaceWhenNotAllowed()
         {
-            Assert.That(new SwedishPostalCodeAttribute().IsValid("111 11"), Is.False);
+            Assert.That(GetValidator().IsValid("111 11"), Is.False);
         }
 
         [Test]
@@ -32,7 +39,7 @@ namespace NExtra.Tests.Validation
         [TestCase("1111 1")]
         public void IsValid_ShouldReturnFalseForInvalidSpaceWhenAllowed(string postalCode)
         {
-            Assert.That(new SwedishPostalCodeAttribute(true).IsValid(postalCode), Is.False);
+            Assert.That(GetValidator(true).IsValid(postalCode), Is.False);
         }
 
         [Test]
@@ -43,7 +50,7 @@ namespace NExtra.Tests.Validation
         [TestCase("111111")]
         public void IsValid_ShouldReturnFalseForInvalidStringLengthWhenSpaceIsNotAllowed(string postalCode)
         {
-            Assert.That(new SwedishPostalCodeAttribute().IsValid(postalCode), Is.False);
+            Assert.That(GetValidator().IsValid(postalCode), Is.False);
         }
 
         [Test]
@@ -55,28 +62,28 @@ namespace NExtra.Tests.Validation
         [TestCase("111 111")]
         public void IsValid_ShouldReturnFalseForInvalidStringLengthWhenSpaceIsAllowed(string postalCode)
         {
-            Assert.That(new SwedishPostalCodeAttribute(true).IsValid(postalCode), Is.False);
+            Assert.That(GetValidator(true).IsValid(postalCode), Is.False);
         }
 
 
         [Test]
         public void IsValid_ShouldReturnFalseForInvalidChars()
         {
-            Assert.That(new SwedishPostalCodeAttribute().IsValid("@2345"), Is.False);
-            Assert.That(new SwedishPostalCodeAttribute(true).IsValid("@2345"), Is.False);
+            Assert.That(GetValidator().IsValid("@2345"), Is.False);
+            Assert.That(GetValidator(true).IsValid("@2345"), Is.False);
         }
 
         [Test]
         public void IsValid_ShouldReturnTrueForValidPostalCodeWithoutSpace()
         {
-            Assert.That(new SwedishPostalCodeAttribute().IsValid("11111"), Is.True);
-            Assert.That(new SwedishPostalCodeAttribute(true).IsValid("11111"), Is.True);
+            Assert.That(GetValidator().IsValid("11111"), Is.True);
+            Assert.That(GetValidator(true).IsValid("11111"), Is.True);
         }
 
         [Test]
         public void IsValid_ShouldReturnTrueForValidPostalCodeWithSpace()
         {
-            Assert.That(new SwedishPostalCodeAttribute(true).IsValid("111 11"), Is.True);
+            Assert.That(GetValidator(true).IsValid("111 11"), Is.True);
         }
 	}
 }

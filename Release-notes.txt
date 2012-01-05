@@ -38,9 +38,9 @@ new interface as weill - IValidator - that all classes implement.
 
 BREAKING CHANGES:
 The NExtra.ValidationAttributes namespace has been re-renamed, and
-is now (once again) called Validation. The SSN validators has been
-moved to a separate namespace. If this renaming cause you pain, do
-drop me a mail and I promise to stop.
+is now (once again) called Validation. SSN validators are moved to
+a separate namespace, like the (one for now) zip validators. If my
+renaming cause you pain, drop me a mail.
 
 
 

@@ -72,7 +72,6 @@
     <Compile Include="Validation\Ssn\NorwegianSsnAttributeBehavior.cs" />
     <Compile Include="Validation\Ssn\FinnishSsnAttributeBehavior.cs" />
     <Compile Include="Validation\Ssn\SwedishSsnAttributeBehavior.cs" />
-    <Compile Include="Validation\SwedishPostalCodeAttributeBehavior.cs" />
     <Compile Include="Validation\UrlAttributeBehavior.cs" />
     <Compile Include="Extensions\AssemblyExtensionsBehavior.cs" />
     <Compile Include="Extensions\StructExtensionsBehavior.cs" />
@@ -94,6 +93,7 @@
     <Compile Include="Pagination\PaginationContextBehavior.cs" />
     <Compile Include="Extensions\StringExtensionsBehavior.cs" />
     <Compile Include="Extensions\UriExtensionsBehavior.cs" />
+    <Compile Include="Validation\PostalCode\SwedishPostalCodeAttributeBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NExtra\NExtra.csproj">
