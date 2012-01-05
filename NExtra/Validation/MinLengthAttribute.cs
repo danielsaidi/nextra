@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations;
 namespace NExtra.Validation
 {
     /// <summary>
-    /// This attribute can be used to validate whether or
-    /// not a string is long enough, given a minimum length. 
+    /// This attribute can be used to validate if a string
+    /// is long enough, given a minimum length. 
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class MinLengthAttribute : ValidationAttribute
+    public class MinLengthAttribute : ValidationAttribute, IValidator
     {
         private readonly int minLength;
 
