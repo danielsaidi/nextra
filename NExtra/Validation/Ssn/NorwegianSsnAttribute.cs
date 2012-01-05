@@ -35,7 +35,7 @@ namespace NExtra.Validation.Ssn
             // Use the default RegularExpressionAttribute behavior
             if (value == null || value.ToString() == string.Empty)
                 return true;
-
+            
             return base.IsValid(value) && checksumValidator.IsValid(value);
 		}
 	}
