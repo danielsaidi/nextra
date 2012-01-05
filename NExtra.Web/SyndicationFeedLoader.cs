@@ -1,6 +1,6 @@
 using System.ServiceModel.Syndication;
 using System.Xml;
-using NExtra.ValidationAttributes;
+using NExtra.Validation;
 using NExtra.Web.Abstractions;
 
 namespace NExtra.Web

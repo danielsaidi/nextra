@@ -1,4 +1,4 @@
-﻿using NExtra.ValidationAttributes.Ssn;
+﻿using NExtra.Validation.Ssn;
 using NUnit.Framework;
 
 namespace NExtra.Tests.ValidationAttributes.Ssn

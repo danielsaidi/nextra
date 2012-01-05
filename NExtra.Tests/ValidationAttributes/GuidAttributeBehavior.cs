@@ -1,5 +1,5 @@
 using System;
-using NExtra.ValidationAttributes;
+using NExtra.Validation;
 using NUnit.Framework;
 
 namespace NExtra.Tests.ValidationAttributes

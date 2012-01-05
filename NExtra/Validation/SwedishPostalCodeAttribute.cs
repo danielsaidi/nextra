@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace NExtra.ValidationAttributes
+namespace NExtra.Validation
 {
 	/// <summary>
 	/// This attribute can be used to validate whether or not

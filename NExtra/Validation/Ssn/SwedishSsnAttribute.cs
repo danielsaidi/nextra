@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NExtra.ValidationAttributes.Ssn
+namespace NExtra.Validation.Ssn
 {
 	/// <summary>
 	/// This attribute can be used to validate whether or not a string

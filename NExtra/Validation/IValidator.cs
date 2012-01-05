@@ -1,4 +1,4 @@
-﻿namespace NExtra.ValidationAttributes
+﻿namespace NExtra.Validation
 {
     /// <summary>
     /// This interface can be implemented by classes, that can be used

@@ -1,4 +1,4 @@
-﻿namespace NExtra.ValidationAttributes.Ssn
+﻿namespace NExtra.Validation.Ssn
 {
     public enum SsnSeparatorMode
     {
