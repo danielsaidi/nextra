@@ -9,7 +9,7 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
-.NExtra 2.5.4.0		2011-12-xx
+.NExtra 2.5.3.0		2011-12-xx
 ==============================
 
 This update contains optimizations that are based on using NDepend
@@ -32,13 +32,15 @@ without them, so why have them?
 I have added two new hash generators to NExtra.Security. They will
 probably make the old ones in NExtra.Web.Security useless.
 
-The ValidationAttributes namespace have two new validation classes;
-the LuhnAttribute and the FinnishSsnAttribute. The two SSN related
-classes have been moved into their own namespace (see below).
+The Validation (see below) namespace have new validators. It has a
+new interface as weill - IValidator - that all classes implement.
 
-BREAKING CHANGES - The NExtra.ValidationAttributes xSsn validators
-have been moved into their own namespace. The ctor signatures have
-been changed as well.
+
+BREAKING CHANGES:
+The NExtra.ValidationAttributes namespace has been re-renamed, and
+is now (once again) called Validation. The SSN validators has been
+moved to a separate namespace. If this renaming cause you pain, do
+drop me a mail and I promise to stop.
 
 
 
