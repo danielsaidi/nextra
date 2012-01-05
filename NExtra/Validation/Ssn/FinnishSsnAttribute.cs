@@ -20,17 +20,17 @@ namespace NExtra.Validation.Ssn
         public const string RequiredSeparatorExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]\\d{3}\\w\\b$";
 
 
-        public FinnishSsnAttribute(SsnSeparatorMode separatorMode)
+        public FinnishSsnAttribute(RequiredMode separatorMode)
             : base(Expression(separatorMode)) { }
 
 
-        public static string Expression(SsnSeparatorMode separatorMode)
+        public static string Expression(RequiredMode separatorMode)
         {
             switch (separatorMode)
             {
-                case SsnSeparatorMode.None:
+                case RequiredMode.None:
                     return NoSeparatorExpression;
-                case SsnSeparatorMode.Required:
+                case RequiredMode.Required:
                     return RequiredSeparatorExpression;
                 default:
                     return OptionalSeparatorExpression;

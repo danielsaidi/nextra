@@ -75,6 +75,7 @@
     <Compile Include="Logging\Abstractions\ILogWriter.cs" />
     <Compile Include="Logging\DoNothingLogWriter.cs" />
     <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="RequiredMode.cs" />
     <Compile Include="Security\Abstractions\ICanGenerateHashValue.cs" />
     <Compile Include="Security\Md5Generator.cs" />
     <Compile Include="Security\Sha1Generator.cs" />
@@ -88,7 +89,6 @@
     <Compile Include="Validation\MinLengthAttribute.cs" />
     <Compile Include="Validation\Ssn\NorwegianSsnAttribute.cs" />
     <Compile Include="Validation\Ssn\FinnishSsnAttribute.cs" />
-    <Compile Include="Validation\Ssn\SsnSeparatorMode.cs" />
     <Compile Include="Validation\Ssn\SwedishSsnAttribute.cs" />
     <Compile Include="Validation\UrlAttribute.cs" />
     <Compile Include="Documentation\Abstractions\ICanExtractMethodInfoXmlDocumentation.cs" />

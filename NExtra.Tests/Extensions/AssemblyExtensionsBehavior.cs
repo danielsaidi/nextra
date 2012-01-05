@@ -33,7 +33,7 @@ namespace NExtra.Tests.Extensions
             var result = Assembly.GetExecutingAssembly().GetNamespaces();
 
             Assert.That(result.Contains("NExtra.Tests"), Is.True);
-            Assert.That(result.Contains("NExtra.Tests.ValidationAttributes"), Is.True);
+            Assert.That(result.Contains("NExtra.Tests.Validation"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Extensions"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Facades"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Geo"), Is.True);

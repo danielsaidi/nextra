@@ -22,20 +22,20 @@ namespace NExtra.Validation.Ssn
         public const string RequiredDashExpression = "^\\b\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[-+]\\d{4}\\b$";
 
 
-        public SwedishSsnAttribute(SsnSeparatorMode separatorMode)
+        public SwedishSsnAttribute(RequiredMode separatorMode)
             : this(separatorMode, new LuhnAttribute()) { }
 
-        public SwedishSsnAttribute(SsnSeparatorMode separatorMode, ValidationAttribute luhnValidator)
+        public SwedishSsnAttribute(RequiredMode separatorMode, ValidationAttribute luhnValidator)
             : base(Expression(separatorMode)) { }
 
 
-        public static string Expression(SsnSeparatorMode separatorMode)
+        public static string Expression(RequiredMode separatorMode)
         {
             switch (separatorMode)
             {
-                case SsnSeparatorMode.None:
+                case RequiredMode.None:
                     return NoDashExpression;
-                case SsnSeparatorMode.Required:
+                case RequiredMode.Required:
                     return RequiredDashExpression;
                 default:
                     return OptionalDashExpression;

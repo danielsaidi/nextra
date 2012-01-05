@@ -1,6 +1,6 @@
-﻿namespace NExtra.Validation.Ssn
+﻿namespace NExtra
 {
-    public enum SsnSeparatorMode
+    public enum RequiredMode
     {
         Optional,
         None,
