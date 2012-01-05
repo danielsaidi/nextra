@@ -10,7 +10,7 @@ namespace NExtra.Tests.Validation
         private IValidator validator;
 
 
-        [SetUp]
+        [TestFixtureSetUp]
         public void SetUp()
         {
             validator = new GuidAttribute();
