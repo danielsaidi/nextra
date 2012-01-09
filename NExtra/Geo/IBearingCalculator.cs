@@ -4,7 +4,7 @@
     /// This interface can be implemented by classes that
     /// can calculate the bearing between two positions.
     /// </summary>
-    public interface ICanCalculateBearing
+    public interface IBearingCalculator
     {
         /// <summary>
         /// Calculate the bearing between two positions.

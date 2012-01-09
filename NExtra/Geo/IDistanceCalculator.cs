@@ -4,7 +4,7 @@
     /// This interface can be implemented by classes that
     /// can calculate the distance between two positions.
     /// </summary>
-    public interface ICanCalculateDistance
+    public interface IDistanceCalculator
     {
         /// <summary>
         /// Calculate the distance between two positions.

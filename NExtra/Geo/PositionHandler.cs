@@ -11,7 +11,7 @@ namespace NExtra.Geo
     /// Link:       http://www.saidi.se/nextra
     /// Link:       http://myxaab.wordpress.com/2010/09/02/calculate-distance-bearing-between-geolocation/
     /// </remarks>
-    public class PositionHandler : ICanCalculateBearing, ICanCalculateDistance, ICanCalculateRhumbBearing, ICanCalculateRhumbDistance
+    public class PositionHandler : IBearingCalculator, IDistanceCalculator, IRhumbBearingCalculator, IRhumbDistanceCalculator
     {
         private readonly AngleConverter angleConverter;
 

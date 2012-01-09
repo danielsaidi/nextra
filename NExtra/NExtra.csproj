@@ -77,10 +77,10 @@
     <Compile Include="Extensions\WebRequestExtensions.cs" />
     <Compile Include="Geo\GeoConstants.cs" />
     <Compile Include="Geo\IAngleConverter.cs" />
-    <Compile Include="Geo\ICanCalculateBearing.cs" />
-    <Compile Include="Geo\ICanCalculateDistance.cs" />
-    <Compile Include="Geo\ICanCalculateRhumbBearing.cs" />
-    <Compile Include="Geo\ICanCalculateRhumbDistance.cs" />
+    <Compile Include="Geo\IBearingCalculator.cs" />
+    <Compile Include="Geo\IDistanceCalculator.cs" />
+    <Compile Include="Geo\IRhumbBearingCalculator.cs" />
+    <Compile Include="Geo\IRhumbDistanceCalculator.cs" />
     <Compile Include="Geo\IDistanceConverter.cs" />
     <Compile Include="ICommandLineArgumentParser.cs" />
     <Compile Include="IConsole.cs" />

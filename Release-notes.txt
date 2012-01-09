@@ -64,7 +64,12 @@ namespace will live to see 2.6. Let me know if you use it.
 And while...yeah, you probably get it by now. I have decided to do
 a rewind on all the ICan interfaces. This will probably cause pain
 to anyone using .NExtra (approx. 5 for the last version, so I hope
-that this is a good time to perform all these changes). Forgive me!
+that this is a good time to perform all these changes).
+
+NExtra.UI and all its classes (two useless ones) have been removed.
+If you use them and need them still, you need serious help. 
+
+Forgive me! Dear god, forgive me.
 
 
 
