@@ -1,6 +1,6 @@
-using System.Web.Security;
+﻿using System.Web.Security;
 
-namespace NExtra.Web.Security.Abstractions
+namespace NExtra.Web.Security
 {
     /// <summary>
     /// This interface can be implemented by classes that

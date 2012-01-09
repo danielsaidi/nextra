@@ -1,4 +1,4 @@
-namespace NExtra.Web.Avatar.Abstractions
+﻿namespace NExtra.Web.Avatar
 {
     /// <summary>
     /// This interface can be implemented by classes that

@@ -1,5 +1,4 @@
 using System;
-using NExtra.Web.Avatar.Abstractions;
 using NExtra.Web.Security;
 
 namespace NExtra.Web.Avatar
@@ -13,11 +12,6 @@ namespace NExtra.Web.Avatar
     /// </remarks>
     public class Gravatar : IAvatarService<int>
     {
-        [Obsolete("This constant is obsolete. Use UrlPattern instead.")]
-        public const string BaseUrl = UrlPattern;
-
-
-
         /// <summary>
         /// The URL pattern for Gravatar avatars.
         /// </summary>

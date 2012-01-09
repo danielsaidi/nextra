@@ -1,5 +1,4 @@
 using System.Web.Security;
-using NExtra.Web.Security.Abstractions;
 
 namespace NExtra.Web.Security
 {

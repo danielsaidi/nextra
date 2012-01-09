@@ -1,5 +1,4 @@
 using System;
-using NExtra.Web.Avatar.Abstractions;
 
 namespace NExtra.Web.Avatar
 {
@@ -12,10 +11,6 @@ namespace NExtra.Web.Avatar
     /// </remarks>
     public class FacebookAvatar : IAvatarService<FacebookAvatarSize>
     {
-        [Obsolete("This constant is obsolete. Use UrlPattern instead.")]
-        public const string BaseUrl = UrlPattern;
-
-
         /// <summary>
         /// The URL pattern for Facebook profile pictures.
         /// </summary>

@@ -52,6 +52,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Avatar\IAvatarService.cs" />
     <Compile Include="Cache\IHttpRuntimeCache.cs" />
     <Compile Include="Cookies\HttpContextCookieHandler.cs" />
     <Compile Include="Cookies\IHttpCookieHandler.cs" />
@@ -65,19 +66,16 @@
     <Compile Include="Html\IHtml5ElementSupportEvaluator.cs" />
     <Compile Include="Html\IHtmlRemover.cs" />
     <Compile Include="Html\IHtmlReplacer.cs" />
-    <Compile Include="Avatar\Abstractions\IAvatarService.cs" />
     <Compile Include="Avatar\FacebookAvatar.cs" />
     <Compile Include="Avatar\FacebookAvatarSize.cs" />
     <Compile Include="Avatar\Gravatar.cs" />
     <Compile Include="Cache\HttpRuntimeCacheFacade.cs" />
     <Compile Include="Extensions\StateBagExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\Abstractions\IAuthenticationService.cs" />
-    <Compile Include="Security\Abstractions\IMembershipService.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Security\Abstractions\IRoleService.cs" />
     <Compile Include="Security\FormsAuthenticationService.cs" />
+    <Compile Include="Security\IAuthenticationService.cs" />
+    <Compile Include="Security\IMembershipService.cs" />
+    <Compile Include="Security\IRoleService.cs" />
     <Compile Include="Security\Md5Generator.cs" />
     <Compile Include="Security\MembershipFacade.cs">
       <SubType>Code</SubType>
@@ -94,9 +92,7 @@
       <Name>NExtra</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Cache\Abstractions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
