@@ -61,11 +61,16 @@
     <Compile Include="ConsoleFacade.cs" />
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\ProcessFacade.cs" />
+    <Compile Include="Documentation\AssemblyXmlDocumentationExtractor.cs" />
     <Compile Include="Documentation\ICanExtractAssemblyXmlDocumentation.cs" />
     <Compile Include="Documentation\ICanExtractMemberInfoXmlDocumentation.cs" />
     <Compile Include="Documentation\ICanExtractMethodInfoXmlDocumentation.cs" />
     <Compile Include="Documentation\ICanExtractTypeXmlDocumentation.cs" />
     <Compile Include="Documentation\ICanExtractXmlDocumentationElement.cs" />
+    <Compile Include="Documentation\MemberInfoXmlDocumentationExtractor.cs" />
+    <Compile Include="Documentation\MethodInfoXmlDocumentationExtractor.cs" />
+    <Compile Include="Documentation\TypeXmlDocumentationExtractor.cs" />
+    <Compile Include="Documentation\XmlDocumentationElementExtractor.cs" />
     <Compile Include="Email\ICanSendEmail.cs" />
     <Compile Include="EventArgs.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
@@ -107,11 +112,6 @@
     <Compile Include="Validation\Ssn\FinnishSsnAttribute.cs" />
     <Compile Include="Validation\Ssn\SwedishSsnAttribute.cs" />
     <Compile Include="Validation\UrlAttribute.cs" />
-    <Compile Include="Documentation\Extractors\AssemblyXmlDocumentationExtractor.cs" />
-    <Compile Include="Documentation\Extractors\MemberInfoXmlDocumentationExtractor.cs" />
-    <Compile Include="Documentation\Extractors\MethodInfoXmlDocumentationExtractor.cs" />
-    <Compile Include="Documentation\Extractors\TypeXmlDocumentationExtractor.cs" />
-    <Compile Include="Documentation\Extractors\XmlDocumentationElementExtractor.cs" />
     <Compile Include="Documentation\XmlDocumentationHandler.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringCollectionExtensions.cs" />
@@ -147,6 +147,7 @@
     <Folder Include="Cache\Abstractions\" />
     <Folder Include="Diagnostics\Abstractions\" />
     <Folder Include="Documentation\Abstractions\" />
+    <Folder Include="Documentation\Extractors\" />
     <Folder Include="Email\Abstractions\" />
     <Folder Include="Geo\Abstractions\" />
     <Folder Include="IO\Abstractions\" />

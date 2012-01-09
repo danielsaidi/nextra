@@ -1,7 +1,7 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Xml;
 
-namespace NExtra.Documentation.Extractors
+namespace NExtra.Documentation
 {
     ///<summary>
     /// This class can be used to extract XML documentation

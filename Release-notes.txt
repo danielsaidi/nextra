@@ -54,6 +54,10 @@ has been made static. If you use it, just remove any instance.
 Some unnecessary throws have been removed. The code will fail even
 without them, so why have them?
 
+And while I am already breaking the API everywhere, I have changes
+several things in NExtra.Documentation. I am not even sure if this
+namespace will live to see 2.6. Let me know if you use it.
+
 
 
 .NExtra 2.5.2.0		2011-12-06

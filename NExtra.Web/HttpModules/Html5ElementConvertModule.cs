@@ -31,14 +31,14 @@ namespace NExtra.Web.HttpModules
         /// </summary>
         public void Init(HttpApplication application)
         {
-            application.BeginRequest += application_BeginRequest;
+            application.BeginRequest += Application_BeginRequest;
         }
 
 
         /// <summary>
         /// This event is called when the application begins a request.
         /// </summary>
-        private static void application_BeginRequest(object sender, EventArgs e)
+        private static void Application_BeginRequest(object sender, EventArgs e)
         {
             var current = HttpContext.Current;
             current.Response.Filter = new Html5ElementConvertFilter(current.Response.Filter);

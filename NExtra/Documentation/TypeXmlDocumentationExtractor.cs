@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Xml;
 
-namespace NExtra.Documentation.Extractors
+namespace NExtra.Documentation
 {
     ///<summary>
     /// This class can be used to extract XML documentation for types.
@@ -15,7 +15,6 @@ namespace NExtra.Documentation.Extractors
         private readonly ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor;
         
 
-        /// <param name="xmlDocumentationElementExtractor">The element documentation extractor to use.</param>
         public TypeXmlDocumentationExtractor(ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor)
         {
             this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;

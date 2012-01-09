@@ -1,7 +1,6 @@
 using System;
 using System.Reflection;
 using System.Xml;
-using NExtra.Documentation.Extractors;
 
 namespace NExtra.Documentation
 {

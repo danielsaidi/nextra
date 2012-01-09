@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Xml;
 
-namespace NExtra.Documentation.Extractors
+namespace NExtra.Documentation
 {
     ///<summary>
     /// This class can be used to extract documentation elements for
