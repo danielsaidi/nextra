@@ -63,6 +63,7 @@
     <Compile Include="Localization\HierarchicalResourceManagerFacadeBehavior.cs" />
     <Compile Include="Security\Md5GeneratorBehavior.cs" />
     <Compile Include="Security\Sha1GeneratorBehavior.cs" />
+    <Compile Include="Syndication\SyndicationFeedLoaderBehavior.cs" />
     <Compile Include="Validation\LuhnAttributeBehavior.cs" />
     <Compile Include="Validation\PhoneNumberAttributeBehavior.cs" />
     <Compile Include="Validation\MinLengthAttributeBehavior.cs" />

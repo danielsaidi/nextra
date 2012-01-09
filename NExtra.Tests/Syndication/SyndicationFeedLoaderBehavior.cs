@@ -1,7 +1,8 @@
-using System.Linq;
+﻿using System.Linq;
+using NExtra.Syndication;
 using NUnit.Framework;
 
-namespace NExtra.Web.Tests
+namespace NExtra.Tests.Syndication
 {
 	[TestFixture]
 	public class SyndicationFeedLoaderBehavior

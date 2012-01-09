@@ -1,9 +1,8 @@
-using System.ServiceModel.Syndication;
+﻿using System.ServiceModel.Syndication;
 using System.Xml;
 using NExtra.Validation;
-using NExtra.Web.Html;
 
-namespace NExtra.Web
+namespace NExtra.Syndication
 {
 	/// <summary>
 	/// This class can be used to load Syndication feeds (RSS
@@ -20,8 +19,10 @@ namespace NExtra.Web
         /// Load a syndication feed from any public URL.
         /// </summary>
 		public SyndicationFeed Load(string url)
-		{
-		    return !(new UrlAttribute().IsValid(url)) ? new SyndicationFeed() : SyndicationFeed.Load(XmlReader.Create(url));
-		}
+        {
+            return !new UrlAttribute().IsValid(url)
+                ? new SyndicationFeed()
+                : SyndicationFeed.Load(XmlReader.Create(url));
+        }
 	}
 }

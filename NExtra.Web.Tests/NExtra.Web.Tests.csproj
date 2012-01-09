@@ -60,7 +60,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Md5GeneratorBehavior.cs" />
     <Compile Include="Security\Sha1GeneratorBehavior.cs" />
-    <Compile Include="SyndicationFeedLoaderBehavior.cs" />
     <Compile Include="Testing\FakeMembershipUserBehavior.cs" />
   </ItemGroup>
   <ItemGroup>

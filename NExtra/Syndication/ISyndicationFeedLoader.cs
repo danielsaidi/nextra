@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel.Syndication;
 
-namespace NExtra.Web
+namespace NExtra.Syndication
 {
     /// <summary>
     /// This interface can be implemented by classes that

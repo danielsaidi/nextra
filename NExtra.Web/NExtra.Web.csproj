@@ -71,7 +71,6 @@
     <Compile Include="Avatar\Gravatar.cs" />
     <Compile Include="Cache\HttpRuntimeCacheFacade.cs" />
     <Compile Include="Extensions\StateBagExtensions.cs" />
-    <Compile Include="ISyndicationFeedLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Abstractions\IAuthenticationService.cs" />
     <Compile Include="Security\Abstractions\IMembershipService.cs">
@@ -85,7 +84,6 @@
     </Compile>
     <Compile Include="Security\RolesFacade.cs" />
     <Compile Include="Security\Sha1Generator.cs" />
-    <Compile Include="SyndicationFeedLoader.cs" />
     <Compile Include="Testing\FakeMembershipUser.cs" />
     <Compile Include="Testing\FakeHttpContext.cs" />
     <Compile Include="Testing\FakeHttpRequest.cs" />

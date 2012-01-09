@@ -95,6 +95,8 @@
     <Compile Include="Security\IHashValueGenerator.cs" />
     <Compile Include="Security\Md5Generator.cs" />
     <Compile Include="Security\Sha1Generator.cs" />
+    <Compile Include="Syndication\ISyndicationFeedLoader.cs" />
+    <Compile Include="Syndication\SyndicationFeedLoader.cs" />
     <Compile Include="Testing\MetadataValidator.cs" />
     <Compile Include="Validation\IValidator.cs" />
     <Compile Include="Validation\LuhnAttribute.cs" />
