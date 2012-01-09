@@ -1,4 +1,4 @@
-namespace NExtra.Security.Abstractions
+﻿namespace NExtra.Security
 {
     /// <summary>
     /// This interface can be implemented by classes that

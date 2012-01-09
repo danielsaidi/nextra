@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NExtra.Cache.Abstractions
+namespace NExtra.Cache
 {
     /// <summary>
     /// This interface can be implemented by classes that

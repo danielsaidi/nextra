@@ -1,22 +1,22 @@
-using System.Reflection;
+﻿using System;
 using System.Xml;
 
-namespace NExtra.Documentation.Abstractions
+namespace NExtra.Documentation
 {
     /// <summary>
     /// This interface can be implemented by classes that should
     /// be able to locate and extract XML documentation data for
-    /// MethodInfo instances.
+    /// Type instances.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICanExtractMethodInfoXmlDocumentation
+    public interface ICanExtractTypeXmlDocumentation
     {
         /// <summary>
-        /// Extract XML documentation for a certain MethodInfo instance.
+        /// Extract XML documentation for a certain type.
         /// </summary>
-        XmlElement ExtractMethodInfoXmlDocumentation(MethodInfo methodInfo);
+        XmlElement ExtractTypeXmlDocumentation(Type type);
     }
 }

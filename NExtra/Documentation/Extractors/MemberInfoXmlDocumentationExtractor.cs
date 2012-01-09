@@ -1,6 +1,5 @@
 using System.Reflection;
 using System.Xml;
-using NExtra.Documentation.Abstractions;
 
 namespace NExtra.Documentation.Extractors
 {

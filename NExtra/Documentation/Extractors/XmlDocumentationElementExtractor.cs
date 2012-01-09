@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Xml;
-using NExtra.Documentation.Abstractions;
 
 namespace NExtra.Documentation.Extractors
 {

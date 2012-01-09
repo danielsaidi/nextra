@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Security;
 
-namespace NExtra.Diagnostics.Abstractions
+namespace NExtra.Diagnostics
 {
     ///<summary>
     /// This interface can be implemented by classes that

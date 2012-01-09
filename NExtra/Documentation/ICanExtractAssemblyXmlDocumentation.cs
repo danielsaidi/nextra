@@ -1,7 +1,7 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Xml;
 
-namespace NExtra.Documentation.Abstractions
+namespace NExtra.Documentation
 {
     /// <summary>
     /// This interface can be implemented by classes that can

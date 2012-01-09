@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using NExtra.Localization.Abstractions;
+using NExtra.Localization;
 using NExtra.Mvc.Localization;
 using NSubstitute;
 using NUnit.Framework;

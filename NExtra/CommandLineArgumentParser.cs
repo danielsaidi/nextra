@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using NExtra.Abstractions;
 
 namespace NExtra
 {

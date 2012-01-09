@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Runtime.Caching;
-using NExtra.Cache.Abstractions;
 
 namespace NExtra.Cache
 {

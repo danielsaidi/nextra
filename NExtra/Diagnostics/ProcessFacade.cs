@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Security;
-using NExtra.Diagnostics.Abstractions;
 
 namespace NExtra.Diagnostics
 {

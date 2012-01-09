@@ -1,6 +1,5 @@
 using System;
 using NExtra.Geo;
-using NExtra.Geo.Abstractions;
 using NUnit.Framework;
 
 namespace NExtra.Tests.Geo

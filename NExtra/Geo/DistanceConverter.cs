@@ -1,5 +1,3 @@
-using NExtra.Geo.Abstractions;
-
 namespace NExtra.Geo
 {
     /// <summary>

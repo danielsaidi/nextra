@@ -1,7 +1,6 @@
 using System.Globalization;
 using System.Resources;
 using System.Threading;
-using NExtra.Localization.Abstractions;
 
 namespace NExtra.Localization
 {

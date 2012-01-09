@@ -1,6 +1,6 @@
-using System.Globalization;
+﻿using System.Globalization;
 
-namespace NExtra.Localization.Abstractions
+namespace NExtra.Localization
 {
     /// <summary>
     /// This interface can be implemented by classes that

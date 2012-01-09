@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NExtra.Cache.Abstractions;
 
 namespace NExtra.Cache
 {

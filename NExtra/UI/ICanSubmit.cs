@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace NExtra.UI.Abstractions
+namespace NExtra.UI
 {
     /// <summary>
     /// This interface can be implemented by any class that should

@@ -54,32 +54,45 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Abstractions\ICommandLineArgumentParser.cs" />
-    <Compile Include="Abstractions\IConsole.cs" />
-    <Compile Include="Cache\Abstractions\ICache.cs" />
+    <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\MemoryCacheFacade.cs" />
     <Compile Include="Cache\DictionaryCache.cs" />
     <Compile Include="CommandLineArgumentParser.cs" />
     <Compile Include="ConsoleFacade.cs" />
-    <Compile Include="Diagnostics\Abstractions\IProcess.cs" />
+    <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\ProcessFacade.cs" />
+    <Compile Include="Documentation\ICanExtractAssemblyXmlDocumentation.cs" />
+    <Compile Include="Documentation\ICanExtractMemberInfoXmlDocumentation.cs" />
+    <Compile Include="Documentation\ICanExtractMethodInfoXmlDocumentation.cs" />
+    <Compile Include="Documentation\ICanExtractTypeXmlDocumentation.cs" />
+    <Compile Include="Documentation\ICanExtractXmlDocumentationElement.cs" />
+    <Compile Include="Email\ICanSendEmail.cs" />
     <Compile Include="EventArgs.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
     <Compile Include="Extensions\WebRequestExtensions.cs" />
-    <Compile Include="Geo\Abstractions\IAngleConverter.cs" />
-    <Compile Include="Geo\Abstractions\IDistanceConverter.cs" />
     <Compile Include="Geo\GeoConstants.cs" />
-    <Compile Include="Localization\Abstractions\ITranslator.cs" />
+    <Compile Include="Geo\IAngleConverter.cs" />
+    <Compile Include="Geo\ICanCalculateBearing.cs" />
+    <Compile Include="Geo\ICanCalculateDistance.cs" />
+    <Compile Include="Geo\ICanCalculateRhumbBearing.cs" />
+    <Compile Include="Geo\ICanCalculateRhumbDistance.cs" />
+    <Compile Include="Geo\IDistanceConverter.cs" />
+    <Compile Include="ICommandLineArgumentParser.cs" />
+    <Compile Include="IConsole.cs" />
+    <Compile Include="IO\ICanPresentFileSize.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerFacade.cs" />
+    <Compile Include="Localization\ITranslator.cs" />
     <Compile Include="Localization\ResourceManagerFacade.cs" />
-    <Compile Include="Logging\Abstractions\ILogWriter.cs" />
     <Compile Include="Logging\DoNothingLogWriter.cs" />
+    <Compile Include="Logging\ILogWriter.cs" />
     <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="RequiredMode.cs" />
-    <Compile Include="Security\Abstractions\ICanGenerateHashValue.cs" />
+    <Compile Include="Security\ICanGenerateHashValue.cs" />
     <Compile Include="Security\Md5Generator.cs" />
     <Compile Include="Security\Sha1Generator.cs" />
     <Compile Include="Testing\MetadataValidator.cs" />
+    <Compile Include="UI\ICanCancel.cs" />
+    <Compile Include="UI\ICanSubmit.cs" />
     <Compile Include="Validation\IValidator.cs" />
     <Compile Include="Validation\LuhnAttribute.cs" />
     <Compile Include="Validation\PhoneNumberAttribute.cs" />
@@ -94,11 +107,6 @@
     <Compile Include="Validation\Ssn\FinnishSsnAttribute.cs" />
     <Compile Include="Validation\Ssn\SwedishSsnAttribute.cs" />
     <Compile Include="Validation\UrlAttribute.cs" />
-    <Compile Include="Documentation\Abstractions\ICanExtractMethodInfoXmlDocumentation.cs" />
-    <Compile Include="Documentation\Abstractions\ICanExtractMemberInfoXmlDocumentation.cs" />
-    <Compile Include="Documentation\Abstractions\ICanExtractXmlDocumentationElement.cs" />
-    <Compile Include="Documentation\Abstractions\ICanExtractTypeXmlDocumentation.cs" />
-    <Compile Include="Documentation\Abstractions\ICanExtractAssemblyXmlDocumentation.cs" />
     <Compile Include="Documentation\Extractors\AssemblyXmlDocumentationExtractor.cs" />
     <Compile Include="Documentation\Extractors\MemberInfoXmlDocumentationExtractor.cs" />
     <Compile Include="Documentation\Extractors\MethodInfoXmlDocumentationExtractor.cs" />
@@ -109,17 +117,12 @@
     <Compile Include="Extensions\StringCollectionExtensions.cs" />
     <Compile Include="Extensions\StructExtensions.cs" />
     <Compile Include="Extensions\XmlElementExtensions.cs" />
-    <Compile Include="Geo\Abstractions\ICanCalculateBearing.cs" />
-    <Compile Include="Geo\Abstractions\ICanCalculateDistance.cs" />
-    <Compile Include="Geo\Abstractions\ICanCalculateRhumbBearing.cs" />
-    <Compile Include="Geo\Abstractions\ICanCalculateRhumbDistance.cs" />
     <Compile Include="Geo\AngleConverter.cs" />
     <Compile Include="Geo\DistanceConverter.cs" />
     <Compile Include="Geo\DistanceUnit.cs" />
     <Compile Include="Geo\Position.cs" />
     <Compile Include="Geo\PositionHandler.cs" />
     <Compile Include="Testing\CrossThreadTestRunner.cs" />
-    <Compile Include="Email\Abstractions\ICanSendEmail.cs" />
     <Compile Include="Email\EmailNonSender.cs" />
     <Compile Include="Email\EmailSender.cs" />
     <Compile Include="Extensions\AssemblyExtensions.cs" />
@@ -136,13 +139,22 @@
     <Compile Include="Pagination\PaginationContext.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Abstractions\ICanCancel.cs" />
-    <Compile Include="IO\Abstractions\ICanPresentFileSize.cs" />
-    <Compile Include="UI\Abstractions\ICanSubmit.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
     <Compile Include="Validation\PostalCode\SwedishPostalCodeAttribute.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Cache\Abstractions\" />
+    <Folder Include="Diagnostics\Abstractions\" />
+    <Folder Include="Documentation\Abstractions\" />
+    <Folder Include="Email\Abstractions\" />
+    <Folder Include="Geo\Abstractions\" />
+    <Folder Include="IO\Abstractions\" />
+    <Folder Include="Localization\Abstractions\" />
+    <Folder Include="Logging\Abstractions\" />
+    <Folder Include="Security\Abstractions\" />
+    <Folder Include="UI\Abstractions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

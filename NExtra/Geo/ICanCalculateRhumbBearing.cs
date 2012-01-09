@@ -1,4 +1,4 @@
-namespace NExtra.Geo.Abstractions
+﻿namespace NExtra.Geo
 {
     /// <summary>
     /// This interface can be implemented by classes that

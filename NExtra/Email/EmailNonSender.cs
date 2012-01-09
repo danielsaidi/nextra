@@ -1,5 +1,4 @@
 using System.Net.Mail;
-using NExtra.Email.Abstractions;
 
 namespace NExtra.Email
 {

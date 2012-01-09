@@ -1,5 +1,3 @@
-using NExtra.Logging.Abstractions;
-
 namespace NExtra.Logging
 {
     /// <summary>

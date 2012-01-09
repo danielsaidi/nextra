@@ -1,6 +1,6 @@
-using System.Net.Mail;
+﻿using System.Net.Mail;
 
-namespace NExtra.Email.Abstractions
+namespace NExtra.Email
 {
     /// <summary>
     /// This interface can be implemented by classes

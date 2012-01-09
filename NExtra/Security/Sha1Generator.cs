@@ -1,7 +1,6 @@
 using System;
 using System.Security.Cryptography;
 using System.Text;
-using NExtra.Security.Abstractions;
 
 namespace NExtra.Security
 {

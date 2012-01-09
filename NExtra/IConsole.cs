@@ -1,4 +1,4 @@
-﻿namespace NExtra.Abstractions
+﻿namespace NExtra
 {
     ///<summary>
     /// This interface can be implemented by classes that

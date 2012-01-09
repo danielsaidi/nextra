@@ -1,5 +1,4 @@
 using System;
-using NExtra.IO.Abstractions;
 
 namespace NExtra.IO
 {

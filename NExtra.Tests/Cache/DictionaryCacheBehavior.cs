@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using NExtra.Cache;
-using NExtra.Cache.Abstractions;
 using NUnit.Framework;
 
 namespace NExtra.Tests.Cache

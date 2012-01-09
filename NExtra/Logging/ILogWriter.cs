@@ -1,4 +1,4 @@
-﻿namespace NExtra.Logging.Abstractions
+﻿namespace NExtra.Logging
 {
     /// <summary>
     /// This interface can be implemented by any class that

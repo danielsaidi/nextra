@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Caching;
-using NExtra.Cache.Abstractions;
+using NExtra.Cache;
 
 namespace NExtra.Web.Cache.Abstractions
 {

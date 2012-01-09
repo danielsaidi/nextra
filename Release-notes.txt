@@ -9,12 +9,17 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
-.NExtra 2.5.3.0		2011-12-xx
+.NExtra 2.5.3.0		2012-01-xx
 ==============================
 
 This update contains optimizations that are based on using NDepend
 analysis. It also adds new stuff and new validators and breaks the
 API a little. If you have used previous versions, do read on.
+
+An important API breaker to note, is that I have decided to remove
+all "abstraction" namespaces. I do this now, since not many people
+downloaded the last few release, and this API breaker therefore is
+probably not affecting that many. Sorry for any inconvenience.
 
 
 New stuff
