@@ -1,20 +1,18 @@
-using System.ServiceModel.Syndication;
-
-namespace NExtra.Web.Abstractions
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This interface can be implemented by classes that
-    /// can load syndication feeds like RSS, ATOM etc.
+    /// can convert HTML code in various ways.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-	public interface ISyndicationFeedLoader
-	{
+    public interface IHtmlConverter
+    {
         /// <summary>
-        /// Load a feed from a certain URL.
+        /// Convert the HTML code that exists within a certain string.
         /// </summary>
-		SyndicationFeed Load(string url);
-	}
+        string ConvertHtml(string str);
+    }
 }

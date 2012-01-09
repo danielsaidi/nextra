@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Web;
 
-namespace NExtra.Web.Abstractions
+namespace NExtra.Web.Cookies
 {
     /// <summary>
     /// This interface can be implemented by classes that
@@ -11,7 +11,7 @@ namespace NExtra.Web.Abstractions
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICanHandleCookies
+    public interface IHttpCookieHandler
     {
         /// <summary>
         /// Check if a cookie exists.

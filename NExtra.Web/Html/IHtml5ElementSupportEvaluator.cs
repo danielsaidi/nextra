@@ -1,7 +1,7 @@
 using System;
 using System.Web;
 
-namespace NExtra.Web.Abstractions
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This interface can be implemented by classes that
@@ -11,7 +11,7 @@ namespace NExtra.Web.Abstractions
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICanDetermineHtml5ElementSupport
+    public interface IHtml5ElementSupportEvaluator
     {
         /// <summary>
         /// Check whether or not HTML5 is supported.

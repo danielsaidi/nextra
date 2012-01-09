@@ -1,7 +1,6 @@
-using System.Text.RegularExpressions;
-using NExtra.Web.Abstractions;
+﻿using System.Text.RegularExpressions;
 
-namespace NExtra.Web
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This class can convert HTML5 elements to div and span
@@ -12,7 +11,7 @@ namespace NExtra.Web
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class Html5ElementConverter : ICanConvertHtml
+    public class Html5ElementConverter : IHtmlConverter
     {
         protected const string HTML5_INLINE_ELEMENTS = @"<(\/)?(address|time)(( )class=""(.*)"")?";
         protected const string HTML5_INLINE_ELEMENTS_REPLACEMENT = @"<$1span class=""$2$4$5""";

@@ -1,9 +1,8 @@
-using System;
+﻿using System;
 using System.Web;
 using System.Web.Script.Serialization;
-using NExtra.Web.Abstractions;
 
-namespace NExtra.Web
+namespace NExtra.Web.Cookies
 {
     /// <summary>
     /// This class is a shortcut to working with cookies for the
@@ -14,7 +13,7 @@ namespace NExtra.Web
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class HttpContextCookieHandler : ICanHandleCookies
+    public class HttpContextCookieHandler : IHttpCookieHandler
     {
         /// <summary>
         /// Check if a certain cookie exists.

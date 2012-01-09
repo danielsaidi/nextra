@@ -2,7 +2,7 @@
 using System.Web.Caching;
 using NExtra.Cache;
 
-namespace NExtra.Web.Cache.Abstractions
+namespace NExtra.Web.Cache
 {
     ///<summary>
     /// This interface can be implemented by classes that

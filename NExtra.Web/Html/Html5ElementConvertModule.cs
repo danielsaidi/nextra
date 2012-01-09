@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Web;
-using NExtra.Web.ResponseFilters;
 
-namespace NExtra.Web.HttpModules
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This module can be used to automatically convert all HTML5

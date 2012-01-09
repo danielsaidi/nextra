@@ -1,7 +1,6 @@
-using System.Text.RegularExpressions;
-using NExtra.Web.Abstractions;
+﻿using System.Text.RegularExpressions;
 
-namespace NExtra.Web
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This class can replace HTML elements with another
@@ -11,7 +10,7 @@ namespace NExtra.Web
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class HtmlReplacer : ICanReplaceHtml
+    public class HtmlReplacer : IHtmlReplacer
     {
         /// <summary>
         /// Replace one element type with another.

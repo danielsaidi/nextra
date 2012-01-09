@@ -3,7 +3,6 @@ using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.Caching;
-using NExtra.Web.Cache.Abstractions;
 
 namespace NExtra.Web.Cache
 {

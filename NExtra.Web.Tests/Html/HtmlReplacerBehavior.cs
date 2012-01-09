@@ -1,6 +1,7 @@
+﻿using NExtra.Web.Html;
 using NUnit.Framework;
 
-namespace NExtra.Web.Tests
+namespace NExtra.Web.Tests.Html
 {
     [TestFixture]
     public class HtmlReplacerBehavior

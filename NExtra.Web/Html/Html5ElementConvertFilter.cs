@@ -1,10 +1,9 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Web;
-using NExtra.Web.Abstractions;
 
-namespace NExtra.Web.ResponseFilters
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This filter can be used to automatically convert all HTML5
@@ -25,8 +24,8 @@ namespace NExtra.Web.ResponseFilters
     {
         private readonly Stream baseStream;
         private readonly StringBuilder html;
-        private readonly ICanDetermineHtml5ElementSupport html5ElementSupport;
-        private readonly ICanConvertHtml htmlConverter;
+        private readonly IHtml5ElementSupportEvaluator html5ElementSupportEvaluator;
+        private readonly IHtmlConverter htmlConverter;
         private bool isFlushed;
 
 
@@ -34,7 +33,7 @@ namespace NExtra.Web.ResponseFilters
         /// Create an instance of the class.
         /// </summary>
         public Html5ElementConvertFilter(Stream baseStream)
-            : this(baseStream, new Html5ElementSupport(), new Html5ElementConverter())
+            : this(baseStream, new Html5ElementSupportEvaluator(), new Html5ElementConverter())
         { }
 
         /// <summary>
@@ -42,11 +41,11 @@ namespace NExtra.Web.ResponseFilters
         /// implementations of ICanDetermineHtml5Support and
         /// ICanConvertHtml5Elements.
         /// </summary>
-        public Html5ElementConvertFilter(Stream baseStream, ICanDetermineHtml5ElementSupport html5ElementSupport, ICanConvertHtml htmlConverter)
+        public Html5ElementConvertFilter(Stream baseStream, IHtml5ElementSupportEvaluator html5ElementSupportEvaluator, IHtmlConverter htmlConverter)
         {
             this.baseStream = baseStream;
             html = new StringBuilder();
-            this.html5ElementSupport = html5ElementSupport;
+            this.html5ElementSupportEvaluator = html5ElementSupportEvaluator;
             this.htmlConverter = htmlConverter;
         }
 
@@ -61,7 +60,7 @@ namespace NExtra.Web.ResponseFilters
                 //var isPage = (HttpContext.Current.Handler as Page) != null;
                 //var isMvc = (HttpContext.Current.Handler as MvcHandler) != null;
                 var isHtml = HttpContext.Current.Response.ContentType == "text/html";
-                var hasHtml5Support = html5ElementSupport.HasHtml5ElementSupport(HttpContext.Current);
+                var hasHtml5Support = html5ElementSupportEvaluator.HasHtml5ElementSupport(HttpContext.Current);
 
                 return /*(isPage || isMvc) && */isHtml && !hasHtml5Support;
             }

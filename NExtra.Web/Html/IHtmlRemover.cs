@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace NExtra.Web.Abstractions
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This interface can be implemented by classes that
@@ -10,7 +10,7 @@ namespace NExtra.Web.Abstractions
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICanRemoveHtml
+    public interface IHtmlRemover
     {
         /// <summary>
         /// Remove all HTML code within a string.

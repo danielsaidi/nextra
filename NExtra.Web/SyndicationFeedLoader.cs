@@ -1,7 +1,7 @@
 using System.ServiceModel.Syndication;
 using System.Xml;
 using NExtra.Validation;
-using NExtra.Web.Abstractions;
+using NExtra.Web.Html;
 
 namespace NExtra.Web
 {

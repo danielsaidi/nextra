@@ -1,18 +1,18 @@
-namespace NExtra.Web.Abstractions
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This interface can be implemented by classes that
-    /// can convert HTML code in various ways.
+    /// can replace an HTML element with another.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICanConvertHtml
+    public interface IHtmlReplacer
     {
         /// <summary>
-        /// Convert the HTML code that exists within a certain string.
+        /// Replace one HTML element with another one.
         /// </summary>
-        string ConvertHtml(string str);
+        string ReplaceHtmlElement(string str, string originalElementName, string replacementElementName);
     }
 }

@@ -2,7 +2,7 @@ using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NExtra.Web;
-using NExtra.Web.Abstractions;
+using NExtra.Web.Html;
 
 namespace NExtra.WebForms.WebControls
 {
@@ -41,6 +41,6 @@ namespace NExtra.WebForms.WebControls
         /// remove the HTML code. If no instance is set, the
         /// control will automatically use a new HtmlRemover.
         /// </summary>
-        public ICanRemoveHtml HtmlRemover { get; set; }
+        public IHtmlRemover HtmlRemover { get; set; }
     }
 }

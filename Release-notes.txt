@@ -44,12 +44,11 @@ requires using two (or more) namespaces.
 
 The NExtra.ValidationAttributes namespace has been re-renamed, and
 is now (once again) called Validation. SSN validators are moved to
-a separate namespace. The (only one for now) zip validator has been
-moved to a separate namespace as well.
+a separate namespace, as has the Zip related validators.
 
-The NExtra.Web.Abstractions.IVirtualPathProviderFacade was removed,
-since it was not used anywhere in the library. If you need it, you
-will need to grab it from an earlier release.
+The NExtra.Web.Abstractions.IVirtualPathProviderFacade was removed
+as well, since it was not used anywhere in the library. If you can
+not live without it, grab it from an earlier release.
 	
 The previously non-static NExtra.Testing.MetadataRegistrator class
 has been made static. If you use it, just remove any instance.
@@ -68,6 +67,12 @@ that this is a good time to perform all these changes).
 
 NExtra.UI and all its classes (two useless ones) have been removed.
 If you use them and need them still, you need serious help. 
+
+Moving on to the NExtra.Web project, all HTML related classes have
+been moved into a new Html namespace. Cookie handlers are moved to
+NExtra.Web.Cookies. Html related http modules and response filters
+are moved to NExtra.Html. Finally, SyndicationFeedLoader was moved
+to the new NExtra.Syndication namespace, in the core project.
 
 Forgive me! Dear god, forgive me.
 

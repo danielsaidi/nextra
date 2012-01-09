@@ -1,10 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using NExtra.Web.Abstractions;
 
-namespace NExtra.Web
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This class can remove HTML elements in various ways,
@@ -14,7 +13,7 @@ namespace NExtra.Web
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class HtmlRemover : ICanRemoveHtml
+    public class HtmlRemover : IHtmlRemover
     {
         /// <summary>
         /// Remove all HTML within a certain string.

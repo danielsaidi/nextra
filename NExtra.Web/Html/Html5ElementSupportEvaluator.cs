@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Web;
-using NExtra.Web.Abstractions;
 
-namespace NExtra.Web
+namespace NExtra.Web.Html
 {
     /// <summary>
     /// This class can determine whether or not the current
@@ -14,7 +13,7 @@ namespace NExtra.Web
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class Html5ElementSupport : ICanDetermineHtml5ElementSupport
+    public class Html5ElementSupportEvaluator : IHtml5ElementSupportEvaluator
     {
         /// <summary>
         /// Check whether or not the current HTTP context supports HTML5.
