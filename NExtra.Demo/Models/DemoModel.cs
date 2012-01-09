@@ -66,7 +66,7 @@ namespace NExtra.Demo.Models
         /// <returns>The documentation summary, if any.</returns>
         public IHtmlString GetTypeSummary(Type type)
         {
-            var summary = String.Format("<p class=\"ingress\">{0}</p>", xmlDocumentationHandler.ExtractTypeXmlDocumentation(type).GetElementInnerText("summary"));
+            var summary = String.Format("<p class=\"ingress\">{0}</p>", xmlDocumentationHandler.ExtractDocumentation(type).GetElementInnerText("summary"));
             summary = new Regex(@"[ ]{2,}").Replace(summary, @" ");
             summary = summary.Replace(Environment.NewLine + " ", Environment.NewLine);
             summary = summary.Replace(Environment.NewLine + Environment.NewLine, "</p><p>");

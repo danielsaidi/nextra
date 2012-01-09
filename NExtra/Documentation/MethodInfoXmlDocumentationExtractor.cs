@@ -11,19 +11,19 @@ namespace NExtra.Documentation
     /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:           http://www.saidi.se/nextra
     /// </remarks>
-    public class MethodInfoXmlDocumentationExtractor : ICanExtractMethodInfoXmlDocumentation
+    public class MethodInfoXmlDocumentationExtractor : IMethodInfoDocumentationExtractor
     {
-        private readonly ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor;
+        private readonly IDocumentationElementExtractor xmlDocumentationElementExtractor;
 
 
         /// <param name="xmlDocumentationElementExtractor">The element documentation extractor to use.</param>
-        public MethodInfoXmlDocumentationExtractor(ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor)
+        public MethodInfoXmlDocumentationExtractor(IDocumentationElementExtractor xmlDocumentationElementExtractor)
         {
             this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
         }
 
 
-        public XmlElement ExtractMethodInfoXmlDocumentation(MethodInfo methodInfo)
+        public XmlElement ExtractDocumentation(MethodInfo methodInfo)
         {
             var parametersString = "";
             foreach (var parameterInfo in methodInfo.GetParameters())
@@ -34,8 +34,8 @@ namespace NExtra.Documentation
             }
 
             return parametersString.Length > 0 ?
-                xmlDocumentationElementExtractor.ExtractXmlDocumentationElement(methodInfo.DeclaringType, 'M', methodInfo.Name + "(" + parametersString + ")") :
-                xmlDocumentationElementExtractor.ExtractXmlDocumentationElement(methodInfo.DeclaringType, 'M', methodInfo.Name);
+                xmlDocumentationElementExtractor.ExtractDocumentationElement(methodInfo.DeclaringType, 'M', methodInfo.Name + "(" + parametersString + ")") :
+                xmlDocumentationElementExtractor.ExtractDocumentationElement(methodInfo.DeclaringType, 'M', methodInfo.Name);
         }
     }
 }

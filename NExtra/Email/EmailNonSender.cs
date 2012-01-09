@@ -13,7 +13,7 @@ namespace NExtra.Email
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class EmailNonSender : ICanSendEmail
+    public class EmailNonSender : IEmailSender
     {
         /// <summary>
         /// Mimic an e-mail message send operation.

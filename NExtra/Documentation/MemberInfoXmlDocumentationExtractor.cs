@@ -11,21 +11,21 @@ namespace NExtra.Documentation
     /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:           http://www.saidi.se/nextra
     /// </remarks>
-    public class MemberInfoXmlDocumentationExtractor : ICanExtractMemberInfoXmlDocumentation
+    public class MemberInfoXmlDocumentationExtractor : IMemberInfoDocumentationExtractor
     {
-        private readonly ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor;
+        private readonly IDocumentationElementExtractor xmlDocumentationElementExtractor;
 
 
         /// <param name="xmlDocumentationElementExtractor">The element documentation extractor to use.</param>
-        public MemberInfoXmlDocumentationExtractor(ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor)
+        public MemberInfoXmlDocumentationExtractor(IDocumentationElementExtractor xmlDocumentationElementExtractor)
         {
             this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
         }
 
 
-        public XmlElement ExtractMemberInfoXmlDocumentation(MemberInfo memberInfo)
+        public XmlElement ExtractDocumentation(MemberInfo memberInfo)
         {
-            return xmlDocumentationElementExtractor.ExtractXmlDocumentationElement(memberInfo.DeclaringType, memberInfo.MemberType.ToString()[0], memberInfo.Name);
+            return xmlDocumentationElementExtractor.ExtractDocumentationElement(memberInfo.DeclaringType, memberInfo.MemberType.ToString()[0], memberInfo.Name);
         }
     }
 }

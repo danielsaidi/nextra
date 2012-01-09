@@ -6,7 +6,7 @@ namespace NExtra.Email
     /// This interface can be implemented by classes
     /// that can send e-mail messages.
     /// </summary>
-    public interface ICanSendEmail
+    public interface IEmailSender
     {
         /// <summary>
         /// Send an e-mail message.

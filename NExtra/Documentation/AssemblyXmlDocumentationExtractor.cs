@@ -14,7 +14,7 @@ namespace NExtra.Documentation
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class AssemblyXmlDocumentationExtractor : ICanExtractAssemblyXmlDocumentation
+    public class AssemblyXmlDocumentationExtractor : IAssemblyDocumentationExtractor
     {
         private static Dictionary<Assembly, XmlDocument> cache;
 
@@ -33,7 +33,7 @@ namespace NExtra.Documentation
         /// the default documentation file location (next to
         /// the assembly, but with an .xml file type).
         /// </summary>
-        public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly)
+        public XmlDocument ExtractDocumentation(Assembly assembly)
         {
             if (cache.ContainsKey(assembly))
                 return cache[assembly];
@@ -41,7 +41,7 @@ namespace NExtra.Documentation
             const string filePrefix = "file:///";
             var xmlDocumentationFile = Path.ChangeExtension(assembly.CodeBase.Substring(filePrefix.Length), ".xml");
 
-            return ExtractAssemblyXmlDocumentation(assembly, xmlDocumentationFile);
+            return ExtractDocumentation(assembly, xmlDocumentationFile);
         }
 
 
@@ -49,7 +49,7 @@ namespace NExtra.Documentation
         /// Extract XML documentation for an assembly using
         /// a custom documentation file location.
         /// </summary>
-        public XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlFilePath)
+        public XmlDocument ExtractDocumentation(Assembly assembly, string xmlFilePath)
         {
             if (!File.Exists(xmlFilePath))
                 throw new FileNotFoundException(String.Format("The XML documentation file {0} does not exist. Make sure that the file is generated when building the assembly.", xmlFilePath));

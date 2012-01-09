@@ -13,13 +13,12 @@ namespace NExtra.Documentation
     /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:           http://www.saidi.se/nextra
     /// </remarks>
-    public class XmlDocumentationElementExtractor : ICanExtractXmlDocumentationElement
+    public class XmlDocumentationElementExtractor : IDocumentationElementExtractor
     {
-        private readonly ICanExtractAssemblyXmlDocumentation assemblyXmlDocumentationExtractor;
+        private readonly IAssemblyDocumentationExtractor assemblyXmlDocumentationExtractor;
 
 
-        /// <param name="assemblyXmlDocumentationExtractor">The assembly documentation extractor to use.</param>
-        public XmlDocumentationElementExtractor(ICanExtractAssemblyXmlDocumentation assemblyXmlDocumentationExtractor)
+        public XmlDocumentationElementExtractor(IAssemblyDocumentationExtractor assemblyXmlDocumentationExtractor)
         {
             this.assemblyXmlDocumentationExtractor = assemblyXmlDocumentationExtractor;
         }
@@ -32,7 +31,7 @@ namespace NExtra.Documentation
         /// <param name="prefix">The type's documentation prefix.</param>
         /// <param name="subElementName">The sub element name, if any.</param>
         /// <returns>XML documentation element.</returns>
-        public XmlElement ExtractXmlDocumentationElement(Type type, char prefix, string subElementName)
+        public XmlElement ExtractDocumentationElement(Type type, char prefix, string subElementName)
         {
             var fullName = String.IsNullOrEmpty(subElementName) ?
                 prefix + ":" + type.FullName :
@@ -40,7 +39,7 @@ namespace NExtra.Documentation
 
             fullName.Replace("..", ".");
 
-            var xmlDocument = assemblyXmlDocumentationExtractor.ExtractAssemblyXmlDocumentation(type.Assembly);
+            var xmlDocument = assemblyXmlDocumentationExtractor.ExtractDocumentation(type.Assembly);
             
             var xmlElement = xmlDocument["doc"];
             if (xmlElement == null)

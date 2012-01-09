@@ -10,20 +10,20 @@ namespace NExtra.Documentation
     /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:           http://www.saidi.se/nextra
     /// </remarks>
-    public class TypeXmlDocumentationExtractor : ICanExtractTypeXmlDocumentation
+    public class TypeXmlDocumentationExtractor : ITypeDocumentationExtractor
     {
-        private readonly ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor;
+        private readonly IDocumentationElementExtractor xmlDocumentationElementExtractor;
         
 
-        public TypeXmlDocumentationExtractor(ICanExtractXmlDocumentationElement xmlDocumentationElementExtractor)
+        public TypeXmlDocumentationExtractor(IDocumentationElementExtractor xmlDocumentationElementExtractor)
         {
             this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
         }
 
 
-        public XmlElement ExtractTypeXmlDocumentation(Type type)
+        public XmlElement ExtractDocumentation(Type type)
         {
-            return xmlDocumentationElementExtractor.ExtractXmlDocumentationElement(type, 'T', "");
+            return xmlDocumentationElementExtractor.ExtractDocumentationElement(type, 'T', "");
         }
     }
 }

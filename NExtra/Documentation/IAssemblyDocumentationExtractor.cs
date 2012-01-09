@@ -11,18 +11,18 @@ namespace NExtra.Documentation
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICanExtractAssemblyXmlDocumentation
+    public interface IAssemblyDocumentationExtractor
     {
         /// <summary>
         /// Extract XML documentation for an assembly, using
         /// a default documentation file location.
         /// </summary>
-        XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly);
+        XmlDocument ExtractDocumentation(Assembly assembly);
 
         /// <summary>
         /// Extract XML documentation for an assembly, using
         /// a custom documentation file location.
         /// </summary>
-        XmlDocument ExtractAssemblyXmlDocumentation(Assembly assembly, string xmlFilePath);
+        XmlDocument ExtractDocumentation(Assembly assembly, string xmlFilePath);
     }
 }

@@ -9,17 +9,11 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
-.NExtra 2.5.3.0		2012-01-xx
+.NExtra 2.6.0.0		2012-01-xx
 ==============================
 
-This update contains optimizations that are based on using NDepend
-analysis. It also adds new stuff and new validators and breaks the
-API a little. If you have used previous versions, do read on.
-
-An important API breaker to note, is that I have decided to remove
-all "abstraction" namespaces. I do this now, since not many people
-downloaded the last few release, and this API breaker therefore is
-probably not affecting that many. Sorry for any inconvenience.
+This version is a real API breakier. If you are using any previous
+versions of .NExtra, read this information carefully!
 
 
 New stuff
@@ -28,9 +22,9 @@ I have added two new hash generators to NExtra.Security. They will
 probably make the ones in NExtra.Web.Security useless, but the old
 implementations are still there.
 
-I have added two new SSN validators to NExtra.Validation.SSN. Note
-the new namespace name. The new IValidator interface is applied to
-all validators in the namespace.
+I have added two new SSN validators to the Validation namespace. A
+new IValidator interface has been applied to all validators in the
+namespace as well.
 
 The new NExtra.Geo.IDistanceConverter interface has been extracted
 from DistanceConverter. The same goes for IAngleConverter. So, now
@@ -38,6 +32,15 @@ you can do all kinds of crazy implementations. Go wild.
 
 
 Breaking changes
+
+Sooo, yeah. I have decided to add a lot of API breaking changes to
+.NExtra. I will include all of them in this version so that future
+releases will be stable...ish.
+
+The most important API breaker to notice is that I have decided to
+remove all "abstraction" namespaces. This makes it a lot easier to
+use the various interfaces and implementations, since it no longer
+requires using two (or more) namespaces.
 
 The NExtra.ValidationAttributes namespace has been re-renamed, and
 is now (once again) called Validation. SSN validators are moved to
@@ -57,6 +60,11 @@ without them, so why have them?
 And while I am already breaking the API everywhere, I have changes
 several things in NExtra.Documentation. I am not even sure if this
 namespace will live to see 2.6. Let me know if you use it.
+
+And while...yeah, you probably get it by now. I have decided to do
+a rewind on all the ICan interfaces. This will probably cause pain
+to anyone using .NExtra (approx. 5 for the last version, so I hope
+that this is a good time to perform all these changes). Forgive me!
 
 
 

@@ -62,16 +62,16 @@
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\ProcessFacade.cs" />
     <Compile Include="Documentation\AssemblyXmlDocumentationExtractor.cs" />
-    <Compile Include="Documentation\ICanExtractAssemblyXmlDocumentation.cs" />
-    <Compile Include="Documentation\ICanExtractMemberInfoXmlDocumentation.cs" />
-    <Compile Include="Documentation\ICanExtractMethodInfoXmlDocumentation.cs" />
-    <Compile Include="Documentation\ICanExtractTypeXmlDocumentation.cs" />
-    <Compile Include="Documentation\ICanExtractXmlDocumentationElement.cs" />
+    <Compile Include="Documentation\IAssemblyDocumentationExtractor.cs" />
+    <Compile Include="Documentation\IMemberInfoDocumentationExtractor.cs" />
+    <Compile Include="Documentation\IMethodInfoDocumentationExtractor.cs" />
+    <Compile Include="Documentation\ITypeDocumentationExtractor.cs" />
+    <Compile Include="Documentation\IDocumentationElementExtractor.cs" />
     <Compile Include="Documentation\MemberInfoXmlDocumentationExtractor.cs" />
     <Compile Include="Documentation\MethodInfoXmlDocumentationExtractor.cs" />
     <Compile Include="Documentation\TypeXmlDocumentationExtractor.cs" />
     <Compile Include="Documentation\XmlDocumentationElementExtractor.cs" />
-    <Compile Include="Email\ICanSendEmail.cs" />
+    <Compile Include="Email\IEmailSender.cs" />
     <Compile Include="EventArgs.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
     <Compile Include="Extensions\WebRequestExtensions.cs" />
@@ -143,13 +143,6 @@
     <Compile Include="Validation\PostalCode\SwedishPostalCodeAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="Cache\Abstractions\" />
-    <Folder Include="Diagnostics\Abstractions\" />
-    <Folder Include="Documentation\Abstractions\" />
-    <Folder Include="Documentation\Extractors\" />
-    <Folder Include="Email\Abstractions\" />
-    <Folder Include="Geo\Abstractions\" />
     <Folder Include="IO\Abstractions\" />
     <Folder Include="Localization\Abstractions\" />
     <Folder Include="Logging\Abstractions\" />

@@ -11,11 +11,11 @@ namespace NExtra.Documentation
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICanExtractXmlDocumentationElement
+    public interface IDocumentationElementExtractor
     {
         /// <summary>
         /// Extract documentation for an XML element.
         /// </summary>
-        XmlElement ExtractXmlDocumentationElement(Type type, char prefix, string subElementName);
+        XmlElement ExtractDocumentationElement(Type type, char prefix, string subElementName);
     }
 }

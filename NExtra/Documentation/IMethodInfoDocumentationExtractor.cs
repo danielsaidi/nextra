@@ -12,11 +12,11 @@ namespace NExtra.Documentation
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public interface ICanExtractMethodInfoXmlDocumentation
+    public interface IMethodInfoDocumentationExtractor
     {
         /// <summary>
         /// Extract XML documentation for a certain MethodInfo instance.
         /// </summary>
-        XmlElement ExtractMethodInfoXmlDocumentation(MethodInfo methodInfo);
+        XmlElement ExtractDocumentation(MethodInfo methodInfo);
     }
 }
