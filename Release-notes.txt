@@ -74,6 +74,9 @@ NExtra.Web.Cookies. Html related http modules and response filters
 are moved to NExtra.Html. Finally, SyndicationFeedLoader was moved
 to the new NExtra.Syndication namespace, in the core project.
 
+In NExtra.WinForms, I have moved the classes and interfaces around
+into (I hope) a better structure.
+
 Forgive me! Dear god, forgive me.
 
 
