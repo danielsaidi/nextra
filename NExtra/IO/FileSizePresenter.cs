@@ -11,7 +11,7 @@ namespace NExtra.IO
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class FileSizePresenter : ICanPresentFileSize
+    public class FileSizePresenter : IFileSizePresenter
     {
         /// <summary>
         /// Present the size (in bytes) of a file, e.g. 10000 => 10kB.

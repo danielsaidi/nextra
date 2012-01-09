@@ -11,7 +11,7 @@ namespace NExtra.Security
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class Sha1Generator : ICanGenerateHashValue
+    public class Sha1Generator : IHashValueGenerator
     {
         /// <summary>
         /// Generate an SHA1 hash value.

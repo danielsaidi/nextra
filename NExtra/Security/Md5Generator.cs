@@ -11,7 +11,7 @@ namespace NExtra.Security
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.saidi.se/nextra
     /// </remarks>
-    public class Md5Generator : ICanGenerateHashValue
+    public class Md5Generator : IHashValueGenerator
     {
         /// <summary>
         /// Generate an MD5 hash value for an object.

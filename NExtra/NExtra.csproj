@@ -84,7 +84,7 @@
     <Compile Include="Geo\IDistanceConverter.cs" />
     <Compile Include="ICommandLineArgumentParser.cs" />
     <Compile Include="IConsole.cs" />
-    <Compile Include="IO\ICanPresentFileSize.cs" />
+    <Compile Include="IO\IFileSizePresenter.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerFacade.cs" />
     <Compile Include="Localization\ITranslator.cs" />
     <Compile Include="Localization\ResourceManagerFacade.cs" />
@@ -92,12 +92,10 @@
     <Compile Include="Logging\ILogWriter.cs" />
     <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="RequiredMode.cs" />
-    <Compile Include="Security\ICanGenerateHashValue.cs" />
+    <Compile Include="Security\IHashValueGenerator.cs" />
     <Compile Include="Security\Md5Generator.cs" />
     <Compile Include="Security\Sha1Generator.cs" />
     <Compile Include="Testing\MetadataValidator.cs" />
-    <Compile Include="UI\ICanCancel.cs" />
-    <Compile Include="UI\ICanSubmit.cs" />
     <Compile Include="Validation\IValidator.cs" />
     <Compile Include="Validation\LuhnAttribute.cs" />
     <Compile Include="Validation\PhoneNumberAttribute.cs" />
@@ -142,13 +140,7 @@
     <Compile Include="Extensions\UriExtensions.cs" />
     <Compile Include="Validation\PostalCode\SwedishPostalCodeAttribute.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IO\Abstractions\" />
-    <Folder Include="Localization\Abstractions\" />
-    <Folder Include="Logging\Abstractions\" />
-    <Folder Include="Security\Abstractions\" />
-    <Folder Include="UI\Abstractions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

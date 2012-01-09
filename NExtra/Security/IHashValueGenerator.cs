@@ -4,7 +4,7 @@
     /// This interface can be implemented by classes that
     /// can generate a hash value for any kind of objects.
     /// </summary>
-    public interface ICanGenerateHashValue
+    public interface IHashValueGenerator
     {
         /// <summary>
         /// Generate a hash value for an object.
