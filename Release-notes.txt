@@ -13,34 +13,41 @@ Blog:		http://danielsaidi.wordpress.com
 ==============================
 
 This update contains optimizations that are based on using NDepend
-analysis. It also adds some new stuff, and breaks the API a little.
-From 2.6, things will be more stable. I promise. Maybe. Or not.
+analysis. It also adds new stuff and new validators and breaks the
+API a little. If you have used previous versions, do read on.
 
-I removed NExtra.Web.Abstractions.IVirtualPathProviderFacade since
-it was not used anywhere in the library.
-	
-The previously non-static NExtra.Testing.MetadataRegistrator class
-has been made static. No need for it not to be.
+
+New stuff
+
+I have added two new hash generators to NExtra.Security. They will
+probably make the ones in NExtra.Web.Security useless, but the old
+implementations are still there.
+
+I have added two new SSN validators to NExtra.Validation.SSN. Note
+the new namespace name. The new IValidator interface is applied to
+all validators in the namespace.
 
 The new NExtra.Geo.IDistanceConverter interface has been extracted
 from DistanceConverter. The same goes for IAngleConverter. So, now
 you can do all kinds of crazy implementations. Go wild.
 
-Some unnecessary throws have been removed. The code will fail even
-without them, so why have them?
 
-I have added two new hash generators to NExtra.Security. They will
-probably make the old ones in NExtra.Web.Security useless.
+Breaking changes
 
-The Validation (see below) namespace have new validators. It has a
-new interface as weill - IValidator - that all classes implement.
-
-
-BREAKING CHANGES:
 The NExtra.ValidationAttributes namespace has been re-renamed, and
 is now (once again) called Validation. SSN validators are moved to
-a separate namespace, like the (one for now) zip validators. If my
-renaming cause you pain, drop me a mail.
+a separate namespace. The (only one for now) zip validator has been
+moved to a separate namespace as well.
+
+The NExtra.Web.Abstractions.IVirtualPathProviderFacade was removed,
+since it was not used anywhere in the library. If you need it, you
+will need to grab it from an earlier release.
+	
+The previously non-static NExtra.Testing.MetadataRegistrator class
+has been made static. If you use it, just remove any instance.
+
+Some unnecessary throws have been removed. The code will fail even
+without them, so why have them?
 
 
 
