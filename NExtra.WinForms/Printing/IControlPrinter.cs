@@ -1,7 +1,7 @@
-using System.Drawing.Printing;
+﻿using System.Drawing.Printing;
 using System.Windows.Forms;
 
-namespace NExtra.WinForms.Printing.Abstractions
+namespace NExtra.WinForms.Printing
 {
     /// <summary>
     /// This interface can be implemented by classes that

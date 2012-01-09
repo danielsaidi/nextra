@@ -1,7 +1,6 @@
-using System.Windows.Forms;
-using NExtra.WinForms.Printing.Abstractions;
+﻿using System.Windows.Forms;
 
-namespace NExtra.WinForms.Printing.Facades
+namespace NExtra.WinForms.Dialogs
 {
     /// <summary>
     /// This class can be used as facade for the

@@ -1,7 +1,7 @@
 using System.Drawing.Printing;
 using System.Windows.Forms;
+using NExtra.WinForms.Dialogs;
 using NExtra.WinForms.Printing;
-using NExtra.WinForms.Printing.Abstractions;
 using NSubstitute;
 using NUnit.Framework;
 

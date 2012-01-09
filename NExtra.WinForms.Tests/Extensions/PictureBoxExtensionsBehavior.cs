@@ -1,6 +1,6 @@
 using System.Windows.Forms;
 using NExtra.WinForms.Extensions;
-using NExtra.WinForms.Printing.Abstractions;
+using NExtra.WinForms.Printing;
 using NSubstitute;
 using NUnit.Framework;
 

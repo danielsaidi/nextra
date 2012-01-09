@@ -1,6 +1,5 @@
 using System.Windows.Forms;
 using NExtra.WinForms.Printing;
-using NExtra.WinForms.Printing.Abstractions;
 
 namespace NExtra.WinForms.Extensions
 {

@@ -1,8 +1,7 @@
 using System;
 using System.Drawing.Printing;
 using System.Windows.Forms;
-using NExtra.WinForms.Printing.Abstractions;
-using NExtra.WinForms.Printing.Facades;
+using NExtra.WinForms.Dialogs;
 
 namespace NExtra.WinForms.Printing
 {
