@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Linq;
 using System.Web.Mvc;
 using NExtra.Testing;
@@ -9,8 +9,8 @@ namespace NExtra.Mvc.Testing
     /// Test related extension methods for System.Web.Mvc.Controller.
     /// </summary>
     /// <remarks>
-    /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:           http://www.saidi.se/nextra
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public static class ControllerExtensions
     {
