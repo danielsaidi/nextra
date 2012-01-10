@@ -9,6 +9,10 @@ Blog:		http://danielsaidi.wordpress.com
 
 
 
+XmlElementExtensions - removed
+
+
+
 .NExtra 2.6.0.0		2012-01-xx
 ==============================
 

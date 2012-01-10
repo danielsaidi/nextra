@@ -4,6 +4,10 @@ namespace NExtra.Logging
     /// This class can be used to handle log messages. It
     /// will swallow all messages, without doing anything.
     /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public class DoNothingLogWriter : ILogWriter
     {
         /// <summary>

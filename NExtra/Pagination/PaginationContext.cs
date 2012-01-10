@@ -10,11 +10,11 @@ namespace NExtra.Pagination
 	/// or IQueryable collection. It can calculate the number of
 	/// pages for collection, given a certain page size. It also
 	/// determines how it can be paginated.
-	/// </summary>
-	/// <remarks>
-	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-	/// Link:       http://www.saidi.se/nextra
-	/// </remarks>
+    /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
 	public class PaginationContext<T>
 	{
 		private int pageLinkMaxCount;

@@ -6,10 +6,10 @@ namespace NExtra.Extensions
     /// <summary>
     /// Extension methods for System.DateTime.
     /// </summary>
-	/// <remarks>
-	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-	/// Link:       http://www.saidi.se/nextra
-	/// </remarks>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public static class DateTimeExtensions
     {
         const int JAN = 1;

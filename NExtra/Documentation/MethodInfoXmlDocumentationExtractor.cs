@@ -8,8 +8,8 @@ namespace NExtra.Documentation
     /// data for MethodInfo instances.
     ///</summary>
     /// <remarks>
-    /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:           http://www.saidi.se/nextra
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public class MethodInfoXmlDocumentationExtractor : IMethodInfoDocumentationExtractor
     {

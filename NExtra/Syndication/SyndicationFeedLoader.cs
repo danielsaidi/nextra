@@ -8,11 +8,11 @@ namespace NExtra.Syndication
 	/// This class can be used to load Syndication feeds (RSS
 	/// feeds) from any URL, using the non-abstract, built-in
 	/// System.ServiceModel.Syndication.SyndicationFeed class.
-	/// </summary>
-	/// <remarks>
-	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-	/// Link:       http://www.saidi.se/nextra
-	/// </remarks>
+    /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
 	public class SyndicationFeedLoader : ISyndicationFeedLoader
 	{
         /// <summary>

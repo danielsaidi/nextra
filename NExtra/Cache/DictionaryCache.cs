@@ -4,10 +4,14 @@ using System.Collections.Generic;
 namespace NExtra.Cache
 {
     /// <summary>
-    /// This is a really simple cache that stores data
-    /// in a dictionary. It should only be used for an
-    /// extremely trivial caching scenario.
+    /// This is a really simple cache that stores data in
+    /// a dictionary. It should only be used in a trivial
+    /// caching scenario.
     /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public class DictionaryCache : ICache
     {
         private readonly Dictionary<string, DictionaryCacheItem> cache;

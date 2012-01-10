@@ -9,9 +9,9 @@ namespace NExtra.Extensions
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.saidi.se/nextra
+    /// Link:       http://www.dotnextra.com
     /// 
-    /// The various OrderBy methods were made by Mark Gravell:
+    /// The various OrderBy methods were built by Mark Gravell:
     /// http://stackoverflow.com/users/23354/marc-gravell
     /// </remarks>
     public static class IQueryableExtensions

@@ -10,8 +10,8 @@ namespace NExtra.Documentation
     /// be used indirectly by the extractors in this namespace.
     /// </summary>
     /// <remarks>
-    /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:           http://www.saidi.se/nextra
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public class XmlDocumentationElementExtractor : IDocumentationElementExtractor
     {

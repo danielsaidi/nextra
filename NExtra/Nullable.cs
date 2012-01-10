@@ -3,11 +3,11 @@ namespace NExtra
 	/// <summary>
 	/// This class can be used to make non-nullable reference types
 	/// behave like nullable reference types, such as int? and bool?
-	/// </summary>
-	/// <remarks>
-	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-	/// Link:       http://www.saidi.se/nextra
-	/// </remarks>
+    /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
 	/// <typeparam name="T">The type that is handled by the class.</typeparam>
 	public class Nullable<T> where T : class
 	{

@@ -13,9 +13,9 @@ namespace NExtra.Testing
     /// it and call the RunInSTA or RunInMTA methods.
     /// </summary>
     /// <remarks>
-    /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:           http://www.saidi.se/nextra
-    /// Original code:  http://www.hedgate.net/articles/2007/01/08/instantiating-a-wpf-control-from-an-nunit-test/
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// Original:   http://www.hedgate.net/articles/2007/01/08/instantiating-a-wpf-control-from-an-nunit-test/
     /// </remarks>
     public class CrossThreadTestRunner
     {

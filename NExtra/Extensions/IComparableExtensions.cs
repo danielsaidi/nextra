@@ -7,7 +7,7 @@ namespace NExtra.Extensions
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.saidi.se/nextra
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public static class IComparableExtensions
     {
@@ -15,7 +15,7 @@ namespace NExtra.Extensions
         /// Limit a value to a certain min/max interval.
         /// </summary>
         public static T Limit<T>(this T value, T minValue, T maxValue)
-		where T : IComparable
+		    where T : IComparable
         {
         	if (value.CompareTo(minValue) == -1)
 				return minValue;

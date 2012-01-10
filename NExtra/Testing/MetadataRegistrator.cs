@@ -9,11 +9,11 @@ namespace NExtra.Testing
 	/// <summary>
 	/// This class can be used to register metadata for a
 	/// certain type, or for all all types in an assembly.
-	/// </summary>
-	/// <remarks>
-	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-	/// Link:       http://www.saidi.se/nextra
-	/// </remarks>
+    /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
 	public static class MetadataRegistrator
 	{
 		private static readonly object registerLock = new object();

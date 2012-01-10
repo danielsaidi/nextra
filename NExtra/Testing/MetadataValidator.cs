@@ -7,6 +7,10 @@ namespace NExtra.Testing
     /// This class can be used to validate metadata
     /// conditions that has been placed on any type.
     ///</summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public class MetadataValidator
     {
         /// <summary>

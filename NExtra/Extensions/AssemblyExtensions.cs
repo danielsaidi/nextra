@@ -8,11 +8,11 @@ namespace NExtra.Extensions
 {
 	/// <summary>
 	/// Extension methods for System.Reflection.Assembly.
-	/// </summary>
-	/// <remarks>
-	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-	/// Link:       http://www.saidi.se/nextra
-	/// </remarks>
+    /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
 	public static class AssemblyExtensions
 	{
 	    /// <summary>

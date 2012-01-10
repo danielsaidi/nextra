@@ -75,6 +75,7 @@
     <Compile Include="EventArgs.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
     <Compile Include="Extensions\WebRequestExtensions.cs" />
+    <Compile Include="Extensions\XmlElementExtensions.cs" />
     <Compile Include="Geo\GeoConstants.cs" />
     <Compile Include="Geo\IAngleConverter.cs" />
     <Compile Include="Geo\IBearingCalculator.cs" />
@@ -116,7 +117,6 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringCollectionExtensions.cs" />
     <Compile Include="Extensions\StructExtensions.cs" />
-    <Compile Include="Extensions\XmlElementExtensions.cs" />
     <Compile Include="Geo\AngleConverter.cs" />
     <Compile Include="Geo\DistanceConverter.cs" />
     <Compile Include="Geo\DistanceUnit.cs" />

@@ -8,6 +8,10 @@ namespace NExtra.Cache
     /// This class can be used as a facade for the default
     /// System.Runtime.Caching.MemoryCache instance.
     /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public class MemoryCacheFacade : ICache
     {
         private readonly MemoryCache cache;

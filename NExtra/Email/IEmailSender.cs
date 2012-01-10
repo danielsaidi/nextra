@@ -6,6 +6,10 @@ namespace NExtra.Email
     /// This interface can be implemented by classes
     /// that can send e-mail messages.
     /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public interface IEmailSender
     {
         /// <summary>

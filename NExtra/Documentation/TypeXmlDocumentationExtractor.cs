@@ -7,8 +7,8 @@ namespace NExtra.Documentation
     /// This class can be used to extract XML documentation for types.
     ///</summary>
     /// <remarks>
-    /// Author:         Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:           http://www.saidi.se/nextra
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public class TypeXmlDocumentationExtractor : ITypeDocumentationExtractor
     {

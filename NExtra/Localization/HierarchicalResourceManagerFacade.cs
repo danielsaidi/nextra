@@ -12,13 +12,13 @@ namespace NExtra.Localization
     /// translation, if one exists.
     ///</summary>
     /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// 
     /// If we take the key Domain_User_UserName, for instance,
     /// the class uses it directly, without any stripping. If
     /// no translation is found and we use _ as key separator,
     /// it then uses User_UserName, then finally UserName.
-    /// 
-    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.saidi.se/nextra
     /// </remarks>
     public class HierarchicalResourceManagerFacade : ResourceManagerFacade
     {
