@@ -6,6 +6,10 @@ namespace NExtra.Web.Testing
     ///<summary>
     /// This class can be used as a fake HTTP context.
     ///</summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public class FakeHttpContext : HttpContextBase
     {
         private readonly HttpRequestBase request = new FakeHttpRequest();

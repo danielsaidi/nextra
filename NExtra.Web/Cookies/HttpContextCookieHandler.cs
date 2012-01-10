@@ -11,7 +11,7 @@ namespace NExtra.Web.Cookies
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.saidi.se/nextra
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public class HttpContextCookieHandler : IHttpCookieHandler
     {

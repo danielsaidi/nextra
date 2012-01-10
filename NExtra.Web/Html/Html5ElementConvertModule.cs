@@ -15,7 +15,7 @@ namespace NExtra.Web.Html
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.saidi.se/nextra
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public class Html5ElementConvertModule : IHttpModule
     {

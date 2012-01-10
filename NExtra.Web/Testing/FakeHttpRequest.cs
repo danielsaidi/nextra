@@ -6,6 +6,10 @@ namespace NExtra.Web.Testing
     ///<summary>
     /// This class can be used as a fake HTTP request.
     ///</summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public class FakeHttpRequest : HttpRequestBase
     {
         private readonly bool isAuthenticated;

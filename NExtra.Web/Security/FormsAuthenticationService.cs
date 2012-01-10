@@ -3,12 +3,12 @@ using System.Web.Security;
 namespace NExtra.Web.Security
 {
     /// <summary>
-    /// This class can be used as a facade for the
-    /// static FormsAuthentication class.
+    /// This class can be used as a facade for the static
+    /// FormsAuthentication class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.saidi.se/nextra
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public class FormsAuthenticationService : IAuthenticationService
     {

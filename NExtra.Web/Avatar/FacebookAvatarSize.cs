@@ -3,6 +3,10 @@ namespace NExtra.Web.Avatar
     ///<summary>
     /// This enum represents Facebook profile picture sizes.
     ///</summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public enum FacebookAvatarSize
     {
         /// <summary>
