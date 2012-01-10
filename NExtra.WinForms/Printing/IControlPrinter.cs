@@ -7,6 +7,10 @@ namespace NExtra.WinForms.Printing
     /// This interface can be implemented by classes that
     /// should be able to print a certain type of control.
     /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public interface IControlPrinter<T>
     {
         /// <summary>

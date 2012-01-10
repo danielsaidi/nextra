@@ -12,7 +12,7 @@ namespace NExtra.WebForms
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.saidi.se/nextra
+    /// Link:       http://www.dotnextra.com
     /// 
     /// The class randomizes the script IDs, which means that scripts
     /// can be added several times without overwriting eachother.

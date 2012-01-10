@@ -1,7 +1,6 @@
 using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using NExtra.Web;
 using NExtra.Web.Html;
 
 namespace NExtra.WebForms.WebControls
@@ -12,7 +11,7 @@ namespace NExtra.WebForms.WebControls
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.saidi.se/nextra
+    /// Link:       http://www.dotnextra.com
     /// </remarks>
     public class NoTableCreateUserWizard : CreateUserWizard
     {

@@ -7,6 +7,10 @@ namespace NExtra.WinForms.Printing
     /// should be able to be used as facade classes for a
     /// PrintDocument instance.
     /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public interface IPrintDocumentFacade
     {
         /// <summary>

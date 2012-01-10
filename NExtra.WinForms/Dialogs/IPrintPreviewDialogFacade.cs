@@ -7,6 +7,10 @@ namespace NExtra.WinForms.Dialogs
     /// should be able to be used as facade classes for a
     /// PrintPreviewDialog instance.
     /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public interface IPrintPreviewDialogFacade
     {
         /// <summary>

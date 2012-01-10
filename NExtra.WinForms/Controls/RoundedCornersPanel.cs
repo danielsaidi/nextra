@@ -5,9 +5,13 @@ using System.Windows.Forms;
 namespace NExtra.WinForms.Controls
 {
     /// <summary>
-    /// This control inherits System.Windows.Forms.Panel, but
-    /// also adds the posibility to add rounded corners to it.
+    /// This control inherits System.Windows.Forms.Panel
+    /// and adds the posibility to apply rounded corners.
     /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public class RoundedCornersPanel : Panel
     {
         /// <summary>
