@@ -2,19 +2,17 @@ Release notes
 =============
 
 Author:		Daniel Saidi [daniel.saidi@gmail.com]
-Web site:	http://dotnextra.com
-Doc:		http://dotnextra.com/Documentation
+
+Web site:	http://www.dotnextra.com
 Project:	http://github.com/danielsaidi/NExtra
-Blog:		http://danielsaidi.wordpress.com
+Downloads:	http://github.com/danielsaidi/NExtra/downloads
+Issues:		http://github.com/danielsaidi/NExtra/issues
+Blog:		http://danielsaidi.wordpress.com/category/nextra/
 
 
 
-XmlElementExtensions - removed
-
-
-
-.NExtra 2.6.0.0		2012-01-xx
-==============================
+.NExtra 2.6.0.0		2012-01-10
+------------------------------
 
 This version is a real API breakier. If you are using any previous
 versions of .NExtra, read this information carefully!
@@ -86,7 +84,7 @@ Forgive me! Dear god, forgive me.
 
 
 .NExtra 2.5.2.0		2011-12-06
-==============================
+------------------------------
 
 I have added a new ValidationAttributes.PhoneNumberAttribute class.
 It is really basic and allows an intial, optional +, followed by a
@@ -112,7 +110,7 @@ shape, feel free to do so and push the changes to the public repo.
 
 
 .NExtra 2.5.1.0		2011-11-27
-==============================
+------------------------------
 
 I have fixed a bug in NExtra.Mvc.Testing.ControllerExtensions. The
 CallWithModelValidation method used to assume that the MemberNames
@@ -162,7 +160,7 @@ I have supressed 1591 to make related warnings disappear.
 
 
 .NExtra 2.5.0.0		2011-10-19
-==============================
+------------------------------
 
 Many new stuff and a new project name. I think this calls for some
 minor version leaping.
@@ -225,7 +223,7 @@ in your views.
 
 
 .NET Extensions 2.3.0.1		2011-08-17
-======================================
+--------------------------------------
 
 I quickly applied a hot fix for the metadata provider and replaced
 the 2.3.0 release with this one.
@@ -233,7 +231,7 @@ the 2.3.0 release with this one.
 
 
 .NET Extensions 2.3.0.0		2011-08-17
-======================================
+--------------------------------------
 
 In this version of .NET Extensions, I have made added some classes
 that can be used to simplify working with metadata, unit tests and
@@ -304,11 +302,8 @@ implementation.
 
 
 
-
-
-
 .NET Extensions 2.2.2	2011-08-14
-==================================
+-----------------------------------
 
 This released features some new functionality and has been cleaned
 of old, deprecated components. Undocumented interfaces and classes
@@ -333,7 +328,7 @@ removed, since it was (probably) the most worthless interface ever.
 
 
 .NET Extensions 2.2.1	2011-08-09
-==================================
+----------------------------------
 
 This small release features some new functionality, without any of
 the structural change-mess of the most recent releases.
@@ -362,7 +357,7 @@ NExtra.Extensions.StringCollectionExtensions.AsEnumerable
 
 
 .NET Extensions 2.2.0	2011-06-13
-==================================
+----------------------------------
 
 This release features a new NExtra.Web project. It contains
 all System.Web dependent functionality that was previously defined
@@ -431,7 +426,7 @@ NExtra.Extensions.DateTimeExtensions.RemoveTime
 
 
 .NET Extensions 2.1.2	2011-06-07
-==================================
+----------------------------------
 
 This release is a hotfix, where the demo project has no references
 to NExtra.MVC. I will upgrade the demo project to use MVC 3,
@@ -443,7 +438,7 @@ I have placed the README and Release-notes text files.
 
 
 .NET Extensions 2.1.1	2011-06-03
-==================================
+----------------------------------
 
 This release features a few new classes and functions as well as a
 structural change that has to be handled when upgrading from 2.1.0.
@@ -471,7 +466,7 @@ NExtra.Extensions.IEnumerableExtensions.IsSingle()
 
 
 .NET Extensions 2.1.0	2011-05-27
-==================================
+----------------------------------
 
 General changes
 ---------------

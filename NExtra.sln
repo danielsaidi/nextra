@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.Mvc.Tests", "NExtra.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library resources", "Library resources", "{3C870CAC-E41B-4941-B552-DA17DD225A2B}"
 	ProjectSection(SolutionItems) = preProject
-		README.txt = README.txt
+		README.md = README.md
 		Release-notes.txt = Release-notes.txt
 		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
 	EndProjectSection
