@@ -1,4 +1,4 @@
-if (location.href == "http://danielsaidi.github.com/NExtra")
+if (location.href == "http://danielsaidi.github.com/NExtra/")
 	location.href = "http://www.dotnextra.com";
 else alert(location.href);
 
