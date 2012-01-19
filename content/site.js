@@ -1,5 +1,6 @@
 if (location.href == "http://danielsaidi.github.com/NExtra")
 	location.href = "http://www.dotnextra.com";
+else alert(location.href);
 
 $(document).ready(function() {
   var repo = new gh.repo("danielsaidi", "NExtra");
