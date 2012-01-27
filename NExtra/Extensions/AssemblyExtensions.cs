@@ -45,7 +45,7 @@ namespace NExtra.Extensions
         /// <summary>
         /// Get all namespaces that are defined within a certain assembly.
         /// </summary>
-        public static IList<string> GetNamespaces(this Assembly assembly)
+        public static IEnumerable<string> GetNamespaces(this Assembly assembly)
         {
             var types = assembly.GetTypes();
             var result = new List<string>();
@@ -59,7 +59,7 @@ namespace NExtra.Extensions
 	    /// <summary>
         /// Get all types that belong to a certain namespace.
         /// </summary>
-        public static IList<Type> GetNamespaceTypes(this Assembly assembly, string @namespace)
+        public static IEnumerable<Type> GetNamespaceTypes(this Assembly assembly, string @namespace)
         {
             return (from type in assembly.GetTypes() where type.Namespace == @namespace select type).ToList();
         }

@@ -25,7 +25,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library resources", "Library resources", "{3C870CAC-E41B-4941-B552-DA17DD225A2B}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		Release-notes.txt = Release-notes.txt
+		Release-notes.md = Release-notes.md
 		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
 	EndProjectSection
 EndProject

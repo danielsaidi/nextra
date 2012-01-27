@@ -45,9 +45,9 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetNamespaceTypes_ShouldReturnAllTypesInNamespace()
         {
-            var result = Assembly.GetExecutingAssembly().GetNamespaceTypes("NExtra.Tests");
+            var result = Assembly.GetExecutingAssembly().GetNamespaceTypes("NExtra.Tests").ToList();
 
-            Assert.That(result.Count, Is.GreaterThan(0));
+            Assert.That(result, Is.GreaterThan(0));
         }
 
         [Test]

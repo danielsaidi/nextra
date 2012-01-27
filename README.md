@@ -1,7 +1,8 @@
 NExtra
 ======
 
-NExtra is an open-source library with functionality for .NET.
+NExtra is an open-source library with extended functionality
+for the .NET framework.
 
 I continously add new things that I create in my other hobby
 projects, if they are general enough and may help others out.
@@ -16,8 +17,8 @@ Getting started
 To get started with NExtra, grab the source code from GitHub
 or download the pre-compiled DLLs from the download page.
 
-The demo project is out of date. It may display some classes,
-but most will fail.
+The demo project is out of date. It may work for some of the
+classes, but most will fail.
 
 
 Contact and resources
