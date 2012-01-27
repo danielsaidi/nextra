@@ -11,6 +11,15 @@ Blog:		http://danielsaidi.wordpress.com/category/nextra/
 
 
 
+.NExtra 2.6.0.1		2012-01-27
+------------------------------
+
+In this version, I have updated the readme file instructions. Also,
+the return type of two assembly extension methods are changed from
+IList to IEnumerable.
+
+
+
 .NExtra 2.6.0.0		2012-01-10
 ------------------------------
 
