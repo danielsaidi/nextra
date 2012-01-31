@@ -11,6 +11,17 @@ Blog:		http://danielsaidi.wordpress.com/category/nextra/
 
 
 
+.NExtra 2.6.1.1		2012-01-31
+------------------------------
+
+This release features build scripts that makes building releases a
+great deal simpler for me.
+
+But why should you care? Well, I really do not know, except that I
+have also optimized some classes according to the last NDepend run.
+
+
+
 .NExtra 2.6.1.0		2012-01-31
 ------------------------------
 
