@@ -15,7 +15,7 @@ namespace NExtra.IO
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.dotnextra.com
     /// </remarks>
-    public class FileFacade
+    public class FileFacade : IFile
     {
         public void AppendAllLines(string path, IEnumerable<string> lines)
         {
