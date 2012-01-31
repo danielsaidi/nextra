@@ -11,6 +11,16 @@ Blog:		http://danielsaidi.wordpress.com/category/nextra/
 
 
 
+.NExtra 2.6.1.0		2012-01-xx
+------------------------------
+
+I have added two new interface-based classes to Nextra.IO. One can
+be used to work with directories and one with files. They are nice
+to have if you need an abstract layer between your classes and the
+file system.
+
+
+
 .NExtra 2.6.0.1		2012-01-27
 ------------------------------
 
