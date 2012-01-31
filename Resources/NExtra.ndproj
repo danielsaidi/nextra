@@ -3,28 +3,28 @@
   <OutputDir KeepHistoric="True" KeepXmlFiles="True">C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra_NDepend</OutputDir>
   <Assemblies>
     <Name>NExtra</Name>
-    <Name>NExtra.WinForms</Name>
-    <Name>NExtra.WebForms</Name>
-    <Name>NExtra.WPF</Name>
     <Name>NExtra.Mvc</Name>
     <Name>NExtra.Web</Name>
+    <Name>NExtra.WebForms</Name>
+    <Name>NExtra.WinForms</Name>
+    <Name>NExtra.WPF</Name>
   </Assemblies>
   <FrameworkAssemblies>
     <Name>mscorlib</Name>
     <Name>System.ComponentModel.DataAnnotations</Name>
     <Name>System.Xml</Name>
     <Name>System</Name>
-    <Name>System.Core</Name>
     <Name>System.Runtime.Caching</Name>
-    <Name>System.Windows.Forms</Name>
-    <Name>System.Drawing</Name>
-    <Name>System.Web</Name>
-    <Name>System.Web.Extensions</Name>
-    <Name>PresentationFramework</Name>
+    <Name>System.ServiceModel</Name>
+    <Name>System.Core</Name>
     <Name>System.Web.Mvc</Name>
+    <Name>System.Web</Name>
     <Name>System.Web.WebPages</Name>
     <Name>System.Web.ApplicationServices</Name>
-    <Name>System.ServiceModel</Name>
+    <Name>System.Web.Extensions</Name>
+    <Name>System.Windows.Forms</Name>
+    <Name>System.Drawing</Name>
+    <Name>PresentationFramework</Name>
   </FrameworkAssemblies>
   <Dirs>
     <Dir>C:\Windows\Microsoft.NET\Framework\v4.0.30319</Dir>
@@ -43,6 +43,12 @@
     <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra.Demo\bin</Dir>
     <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra.Web\bin\Debug</Dir>
     <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra.Web.Tests\bin\Debug</Dir>
+    <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra\bin\Release</Dir>
+    <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra.Mvc\bin\Release</Dir>
+    <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra.Web\bin\Release</Dir>
+    <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra.WebForms\bin\Release</Dir>
+    <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra.WinForms\bin\Release</Dir>
+    <Dir>C:\Users\daniel.saidi\Documents\Visual Studio 2010\Projects\NExtra\NExtra.WPF\bin\Release</Dir>
   </Dirs>
   <Report Kind="0" SectionsEnabled="12287" XslPath="" Flags="64768">
     <Section Enabled="True">Application Metrics</Section>
@@ -224,7 +230,7 @@
       <CQLQuery Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="False">// &lt;Name&gt;Potentially unused fields&lt;/Name&gt;\r\nWARN IF Count &gt; 0 IN SELECT FIELDS WHERE \r\n FieldCa == 0 AND  // Ca=0 -&gt; No Afferent Coupling -&gt; \r\n                   // The field is not used in the \r\n                   // context of this application.\r\n\r\n      // Field Afferent Coupling metric definition\r\n      // http://www.ndepend.com/Metrics.aspx#FieldCa\r\n\r\n !IsPublic AND     // Although not recommended, \r\n !IsProtected AND  // Public and Protected fields  \r\n                   // might be used by client \r\n                   // applications of your assemblies.\r\n\r\n !IsLiteral AND    // The IL code never explicitely \r\n                   // uses literal fields.\r\n\r\n !IsEnumValue AND  // The IL code never explicitely \r\n                   // uses enumeration value.\r\n\r\n !NameIs "value__" // Field named 'value__' are relative \r\n                   // to enumerations and the IL code \r\n                   // never explicitely uses them.\r\n\r\n// Caution: Fields used only by reflection might be matched.</CQLQuery>
     </CQLGroup>
     <CQLGroup Name="Code Quality from Now!" Active="True" ShownInReport="False">
-      <CQLQuery Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="False">// &lt;Name&gt;From now, all methods added or refactored should respect basic quality principles&lt;/Name&gt;\r\nWARN IF Count &gt; 0 IN SELECT METHODS WHERE\r\n\r\n// *** Only new or modified methods since Baseline for Comparison ***\r\n (WasAdded OR CodeWasChanged) AND\r\n\r\n// Low Quality methods// Metrics' definitions\r\n(  NbLinesOfCode &gt; 30 OR    // http://www.ndepend.com/Metrics.aspx#NbLinesOfCode\r\n   NbILInstructions &gt; 200 OR// http://www.ndepend.com/Metrics.aspx#NbILInstructions\r\n   CyclomaticComplexity &gt; 20 OR   // http://www.ndepend.com/Metrics.aspx#CC\r\n   ILCyclomaticComplexity &gt; 50 OR // http://www.ndepend.com/Metrics.aspx#ILCC\r\n   ILNestingDepth &gt; 4 OR    // http://www.ndepend.com/Metrics.aspx#ILNestingDepth\r\n   NbParameters &gt; 5 OR// http://www.ndepend.com/Metrics.aspx#NbParameters\r\n   NbVariables &gt; 8 OR // http://www.ndepend.com/Metrics.aspx#NbVariables\r\n   NbOverloads &gt; 6 )  // http://www.ndepend.com/Metrics.aspx#NbOverloads\r\n\r\n\r\n// This rule warns if a method with\r\n// low-quality has been added or refactored.\r\n// With NDepend and such rule, you can\r\n// Ensure Quality From Now! as explained here:\r\n// http://codebetter.com/blogs/patricksmacchia/archive/2008/01/01/ensure-the-quality-of-the-code-that-will-be-developed-this-year.aspx\r\n\r\n// To run this rule properly 2 analysis\r\n// must be compared. This can be done throught the menu:\r\n//     NDepend -&gt; Compare -&gt; Define the project's Baseline for Comparison\r\n// This can be done at analysis time throught the menu:\r\n//   Project Properties -&gt; Analysis -&gt; Analysis Comparison\r\n    </CQLQuery>
+      <CQLQuery Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="False">// &lt;Name&gt;From now, all methods added or refactored should respect basic quality principles&lt;/Name&gt;\r\nWARN IF Count &gt; 0 IN SELECT METHODS WHERE\r\n\r\n// *** Only new or modified methods since Baseline for Comparison ***\r\n (WasAdded OR CodeWasChanged) AND\r\n\r\n// Low Quality methods// Metrics' definitions\r\n(  NbLinesOfCode &gt; 30 OR    // http://www.ndepend.com/Metrics.aspx#NbLinesOfCode\r\n   NbILInstructions &gt; 200 OR// http://www.ndepend.com/Metrics.aspx#NbILInstructions\r\n   CyclomaticComplexity &gt; 20 OR   // http://www.ndepend.com/Metrics.aspx#CC\r\n   ILCyclomaticComplexity &gt; 50 OR // http://www.ndepend.com/Metrics.aspx#ILCC\r\n   ILNestingDepth &gt; 4 OR    // http://www.ndepend.com/Metrics.aspx#ILNestingDepth\r\n   NbParameters &gt; 5 OR// http://www.ndepend.com/Metrics.aspx#NbParameters\r\n   NbVariables &gt; 8 OR // http://www.ndepend.com/Metrics.aspx#NbVariables\r\n   NbOverloads &gt; 6 )  // http://www.ndepend.com/Metrics.aspx#NbOverloads\r\n\r\n\r\n//Membership provider classes and interfaces depend on .NET Framework\r\nAND !NameLike "CreateUser"\r\n\r\n\r\n// This rule warns if a method with\r\n// low-quality has been added or refactored.\r\n// With NDepend and such rule, you can\r\n// Ensure Quality From Now! as explained here:\r\n// http://codebetter.com/blogs/patricksmacchia/archive/2008/01/01/ensure-the-quality-of-the-code-that-will-be-developed-this-year.aspx\r\n\r\n// To run this rule properly 2 analysis\r\n// must be compared. This can be done throught the menu:\r\n//     NDepend -&gt; Compare -&gt; Define the project's Baseline for Comparison\r\n// This can be done at analysis time throught the menu:\r\n//   Project Properties -&gt; Analysis -&gt; Analysis Comparison\r\n    </CQLQuery>
       <CQLQuery Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="False">// &lt;Name&gt;From now, all types added or refactored should respect basic quality principles&lt;/Name&gt;\r\nWARN IF Count &gt; 0 IN SELECT TYPES WHERE\r\n\r\n// *** Only match new or modified types since Baseline for Comparison ***\r\n(WasAdded OR CodeWasChanged) AND\r\n\r\n// Low Quality types     Metrics' definitions are available here:\r\n//     http://www.ndepend.com/Metrics.aspx#MetricsOnTypes\r\n(  // Types with too many methods\r\n   NbMethods &gt; 20 OR\r\n\r\n   // Types with too many fields\r\n   ( NbFields &gt; 20 AND\r\n    !IsEnumeration) OR\r\n\r\n   // Types with poor cohesion\r\n   ( LCOMHS &gt; 0.95 AND\r\n     NbFields &gt; 10 AND\r\n     NbMethods &gt; 10) OR\r\n\r\n   // Complex Types that use more than 50 other types\r\n   TypeCe &gt; 50  )\r\n\r\n\r\n// This rule warns if a type with\r\n// low-quality has been added or refactored.\r\n// With NDepend and such rule, you can\r\n// Ensure Quality From Now! as explained here:\r\n// http://codebetter.com/blogs/patricksmacchia/archive/2008/01/01/ensure-the-quality-of-the-code-that-will-be-developed-this-year.aspx\r\n\r\n// To run this rule properly 2 analysis\r\n// must be compared. This can be done throught the menu:\r\n//     NDepend -&gt; Compare -&gt; Define the project's Baseline for Comparison\r\n// This can be done at analysis time throught the menu:\r\n//   Project Properties -&gt; Analysis -&gt; Analysis Comparison</CQLQuery>
       <CQLQuery Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="False">// &lt;Name&gt;From now, all methods added or refactored should be 100% covered by tests&lt;/Name&gt;\r\nWARN IF Count &gt; 0 IN SELECT METHODS WHERE\r\n\r\n// Match methods new or modified since Baseline for Comparison...\r\n  (WasAdded OR CodeWasChanged) AND\r\n\r\n// ...that are not 100% covered by tests\r\n  PercentageCoverage &lt; 100\r\n\r\n\r\n// This rule warns if a method has been\r\n// added or refactored and hasn't been 100% covered\r\n// by tests. With NDepend and such rule,\r\n// you can Ensure Quality From Now! as explained here:\r\n// http://codebetter.com/blogs/patricksmacchia/archive/2008/01/01/ensure-the-quality-of-the-code-that-will-be-developed-this-year.aspx\r\n\r\n// To run this rule properly 2 analysis\r\n// must be compared. This can be done throught the menu:\r\n//     NDepend -&gt; Compare -&gt; Define the project's Baseline for Comparison\r\n// This can be done at analysis time throught the menu:\r\n//   Project Properties -&gt; Analysis -&gt; Analysis Comparison\r\n\r\n// To run this rule properly coverage data\r\n// must be gathered from NCover™ or Visual Studio™ Coverage.\r\n// This can be done throught the menu:\r\n//   NDepend -&gt; Coverage -&gt; Import Coverage Files\r\n// This can be done at analysis time throught the menu:\r\n// Project Properties -&gt; Analysis -&gt; Code Coverage\r\n// More information on how to import coverage data here:\r\n// http://www.ndepend.com/Coverage.aspx</CQLQuery>
     </CQLGroup>

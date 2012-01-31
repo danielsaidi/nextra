@@ -115,31 +115,11 @@ namespace NExtra.WinForms.Printing
                 return 0;
             }
 
-            //Calculate the area to render and print
-            RECT rectToPrint;
-            rectToPrint.Top = (int)(e.MarginBounds.Top * anInch);
-            rectToPrint.Bottom = (int)(e.MarginBounds.Bottom * anInch);
-            rectToPrint.Left = (int)(e.MarginBounds.Left * anInch);
-            rectToPrint.Right = (int)(e.MarginBounds.Right * anInch);
-
-            //Calculate the size of the page
-            RECT rectPage;
-            rectPage.Top = (int)(e.PageBounds.Top * anInch);
-            rectPage.Bottom = (int)(e.PageBounds.Bottom * anInch);
-            rectPage.Left = (int)(e.PageBounds.Left * anInch);
-            rectPage.Right = (int)(e.PageBounds.Right * anInch);
-
             //Get handle
             var hdc = e.Graphics.GetHdc();
 
             //Setup the printing format
-            FORMATRANGE fmtRange;
-            fmtRange.chrg.cpMax = charTo;
-            fmtRange.chrg.cpMin = charFrom;
-            fmtRange.hdc = hdc;
-            fmtRange.hdcTarget = hdc;
-            fmtRange.rc = rectToPrint;
-            fmtRange.rcPage = rectPage;
+            var fmtRange = Print_GetFmtRange(charFrom, charTo, e, hdc);
 
             //Setup window params
             var wparam = new IntPtr(1);
@@ -149,8 +129,7 @@ namespace NExtra.WinForms.Printing
             Marshal.StructureToPtr(fmtRange, lparam, false);
 
             //Send the rendered data for printing 
-            var res = SendMessage(TargetControl.Handle, EM_FORMATRANGE, wparam, lparam);
-            var result = res.ToInt32();
+            var result = SendMessage(TargetControl.Handle, EM_FORMATRANGE, wparam, lparam).ToInt32();
 
             //Free the block of memory allocated
             Marshal.FreeCoTaskMem(lparam);
@@ -161,6 +140,47 @@ namespace NExtra.WinForms.Printing
 
             //Return last + 1 character printer
             return result;
+        }
+
+        /// <summary>
+        /// Setup the printing format
+        /// </summary>
+        private static FORMATRANGE Print_GetFmtRange(int charFrom, int charTo, PrintPageEventArgs e, IntPtr hdc)
+        {
+            FORMATRANGE fmtRange;
+            fmtRange.chrg.cpMax = charTo;
+            fmtRange.chrg.cpMin = charFrom;
+            fmtRange.hdc = hdc;
+            fmtRange.hdcTarget = hdc;
+            fmtRange.rc = Print_GetRectToPrint(e);
+            fmtRange.rcPage = Print_GetRectPage(e);
+            return fmtRange;
+        }
+
+        /// <summary>
+        /// Calculate the size of the page.
+        /// </summary>
+        private static RECT Print_GetRectPage(PrintPageEventArgs e)
+        {
+            RECT rectPage;
+            rectPage.Top = (int)(e.PageBounds.Top * anInch);
+            rectPage.Bottom = (int)(e.PageBounds.Bottom * anInch);
+            rectPage.Left = (int)(e.PageBounds.Left * anInch);
+            rectPage.Right = (int)(e.PageBounds.Right * anInch);
+            return rectPage;
+        }
+
+        /// <summary>
+        /// Calculate the area to render and print
+        /// </summary>
+        private static RECT Print_GetRectToPrint(PrintPageEventArgs e)
+        {
+            RECT rectToPrint;
+            rectToPrint.Top = (int)(e.MarginBounds.Top * anInch);
+            rectToPrint.Bottom = (int)(e.MarginBounds.Bottom * anInch);
+            rectToPrint.Left = (int)(e.MarginBounds.Left * anInch);
+            rectToPrint.Right = (int)(e.MarginBounds.Right * anInch);
+            return rectToPrint;
         }
 
         /// <summary>

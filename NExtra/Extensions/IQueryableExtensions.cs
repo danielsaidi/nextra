@@ -17,38 +17,6 @@ namespace NExtra.Extensions
     public static class IQueryableExtensions
     {
 	    /// <summary>
-        /// Apply any given sorting on an IQueryable.
-	    /// </summary>
-	    private static IQueryable<T> ApplyOrder<T>(this IQueryable<T> source, string propertyName, string methodName)
-	    {
-	        var type = typeof(T);
-	        var propertyNames = propertyName.Split('.');
-	        var arg = Expression.Parameter(type, "x");
-	        Expression expr = arg;
-
-	        //Use reflection (not ComponentModel) to mirror LINQ
-	        foreach (var prop in propertyNames)
-	        {
-	            var pi = type.GetProperty(prop);
-	            expr = Expression.Property(expr, pi);
-	            type = pi.PropertyType;
-	        }
-
-	        var delegateType = typeof(Func<,>).MakeGenericType(typeof(T), type);
-	        var lambda = Expression.Lambda(delegateType, expr, arg);
-
-	        var result = typeof(Queryable).GetMethods().Single(
-	            method => method.Name == methodName
-	                      && method.IsGenericMethodDefinition
-	                      && method.GetGenericArguments().Length == 2
-	                      && method.GetParameters().Length == 2)
-	            .MakeGenericMethod(typeof(T), type)
-	            .Invoke(null, new object[] { source, lambda });
-
-	        return (IQueryable<T>)result;
-	    }
-
-	    /// <summary>
         /// Sort an IQueryable, ascending by any property.
         /// </summary>
         public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string propertyName)
@@ -91,5 +59,42 @@ namespace NExtra.Extensions
         {
             return source.ApplyOrder(propertyName, "ThenByDescending");
         }
+
+	    /// <summary>
+	    /// Apply any given sorting on an IQueryable.
+	    /// </summary>
+	    private static IQueryable<T> ApplyOrder<T>(this IQueryable<T> source, string propertyName, string methodName)
+	    {
+	        var type = typeof(T);
+	        var arg = Expression.Parameter(type, "x");
+	        Expression expr = arg;
+
+	        //Use reflection (not ComponentModel) to mirror LINQ
+	        foreach (var pi in propertyName.Split('.').Select(typeof(T).GetProperty))
+	        {
+	            expr = Expression.Property(expr, pi);
+	            type = pi.PropertyType;
+	        }
+
+	        var result = typeof(Queryable).GetMethods().Single(
+	            method => method.Name == methodName
+	                      && method.IsGenericMethodDefinition
+	                      && method.GetGenericArguments().Length == 2
+	                      && method.GetParameters().Length == 2)
+	            .MakeGenericMethod(typeof(T), type)
+	            .Invoke(null, new object[] { source, ApplyOrder_GetLambda<T>(type, arg, expr) });
+
+	        return (IQueryable<T>)result;
+	    }
+
+	    private static Type ApplyOrder_GetDelegateType<T>(Type type)
+	    {
+	        return typeof(Func<,>).MakeGenericType(typeof(T), type);
+	    }
+
+	    private static LambdaExpression ApplyOrder_GetLambda<T>(Type type, ParameterExpression arg, Expression expr)
+	    {
+	        return Expression.Lambda(ApplyOrder_GetDelegateType<T>(type), expr, arg);
+	    }
     }
 }

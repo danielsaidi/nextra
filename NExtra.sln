@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.WebForms", "NExtra.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.WebForms.Tests", "NExtra.WebForms.Tests\NExtra.WebForms.Tests.csproj", "{0C40C759-0386-42D7-8D2A-0AB255726BED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.Build", "NExtra.Build\NExtra.Build.csproj", "{B0CFA098-C33F-4599-9AC4-0C36996530FC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.WPF.Tests", "NExtra.WPF.Tests\NExtra.WPF.Tests.csproj", "{EC13C808-9258-4B47-889E-9E96B5CD42F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.WPF", "NExtra.WPF\NExtra.WPF.csproj", "{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}"
@@ -105,16 +103,6 @@ Global
 		{0C40C759-0386-42D7-8D2A-0AB255726BED}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0C40C759-0386-42D7-8D2A-0AB255726BED}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0C40C759-0386-42D7-8D2A-0AB255726BED}.Release|x86.ActiveCfg = Release|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{B0CFA098-C33F-4599-9AC4-0C36996530FC}.Release|x86.ActiveCfg = Release|Any CPU
 		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

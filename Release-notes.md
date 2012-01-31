@@ -11,7 +11,7 @@ Blog:		http://danielsaidi.wordpress.com/category/nextra/
 
 
 
-.NExtra 2.6.1.0		2012-01-xx
+.NExtra 2.6.1.0		2012-01-31
 ------------------------------
 
 I have added two new interface-based classes to Nextra.IO. One can
