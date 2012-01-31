@@ -103,6 +103,7 @@
     <Compile Include="IO\FileFacade.cs" />
     <Compile Include="IO\DirectoryFacade.cs" />
     <Compile Include="IO\IDirectory.cs" />
+    <Compile Include="IO\IFile.cs" />
     <Compile Include="IO\IFileSizePresenter.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerFacade.cs" />
     <Compile Include="Localization\ITranslator.cs" />
