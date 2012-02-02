@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <iconUrl>http://dotnextra.com/content/img/icon_uniform.png</iconUrl>
+    <projectUrl>http://dotnextra.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <summary>.NExtra is an open-source library with extended functionality for the .NET Framework.</summary>
+    <description>This package contains the .NExtra Web library, which can be used in projects that support System.Web.</description>
+    <releaseNotes>See http://github.com/danielsaidi/NExtra/blob/master/Release-notes.txt</releaseNotes>
+    <copyright>Copyright 2009-2012, Daniel Saidi</copyright>
+    <tags>.net net c# asp.net web</tags>
+    
+	<dependencies>
+      <dependency id="NExtra" version="$version$" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="..\README.md" target="" />
+	<file src="..\Release-notes.md" target="" />
+	<file src="bin\Release\NExtra.Web.dll" target="lib\net40" />
+  </files>
+</package>
