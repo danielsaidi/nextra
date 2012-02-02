@@ -10,5 +10,6 @@ _ReSharper*
 **/.git
 **/bin
 **/obj
+**/*.nupkg
 
 TestResult.xml
