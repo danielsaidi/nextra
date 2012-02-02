@@ -11,6 +11,15 @@ Blog:		http://danielsaidi.wordpress.com/category/nextra/
 
 
 
+.NExtra 2.6.2.0		2012-02-02
+------------------------------
+
+I have added yet another class to the NExtra.IO namespace. The new
+PathPatternMatcher class can be used to see if a file or directory
+name matches a certain pattern, e.g. foo*.txt, *.txt, *foo*.
+
+
+
 .NExtra 2.6.1.1		2012-01-31
 ------------------------------
 
