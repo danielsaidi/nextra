@@ -84,7 +84,7 @@ target publish_nuget:
 
 target publish_github:
    exec("git add .")
-   exec("git commit . -m 'Publishing'")
+   exec("git commit . -m \"Publishing new version\"")
    exec("git tag ${build_version}")
    exec("git push origin master")
    exec("git push origin ${build_version}")
