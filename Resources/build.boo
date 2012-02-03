@@ -18,7 +18,26 @@ target default, (compile, test):
    pass
    
 target nuget, (default):
-   pass
+   exec(nuget pack ..\nextra\nextra.csproj -prop configuration=release)
+   exec(nuget pack ..\nextra.web\nextra.web.csproj -prop configuration=release)
+   exec(nuget pack ..\nextra.mvc\nextra.mvc.csproj -prop configuration=release)
+   exec(nuget pack ..\nextra.wpf\nextra.wpf.csproj -prop configuration=release)
+   exec(nuget pack ..\nextra.webforms\nextra.webforms.csproj -prop configuration=release)
+   exec(nuget pack ..\nextra.winforms\nextra.winforms.csproj -prop configuration=release)
+   
+   exec(nuget push nextra.${build_version}.nupkg)
+   exec(nuget push nextra.web."${build_version}".nupkg)
+   exec(nuget push nextra.mvc.${build_version}.nupkg)
+   exec(nuget push nextra.wpf.${build_version}.nupkg)
+   exec(nuget push nextra.webforms.${build_version}.nupkg)
+   exec(nuget push nextra.winforms.${build_version}.nupkg)
+   
+   exec(del nextra.${build_version}.nupkg)
+   exec(del nextra.web."${build_version}".nupkg)
+   exec(del nextra.mvc.${build_version}.nupkg)
+   exec(del nextra.wpf.${build_version}.nupkg)
+   exec(del nextra.webforms.${build_version}.nupkg)
+   exec(del nextra.winforms.${build_version}.nupkg)
    
 target zip, (compile, test, copy):
    zip("${build_folder}", "NExtra.${build_version}.zip")
