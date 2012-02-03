@@ -17,8 +17,8 @@
     <tags>net .net c#</tags>
   </metadata>
   <files>
-	<file src="..\README.md" target="" />
-	<file src="..\Release-notes.md" target="" />
+	<file src="..\Resources\README.txt" target="" />
+	<file src="..\Resources\Release-notes.txt" target="" />
 	<file src="bin\Release\NExtra.dll" target="lib\net40" />
   </files>
 </package>

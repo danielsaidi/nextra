@@ -18,6 +18,10 @@ I have moved build scripts and Phantom packages into the Resources
 folder, to get them out of the way for you who are only interested
 in the source code.
 
+From now on, with more frequent releases, I will add release notes
+only when I make functional changes to the library. Changes to any
+files and folders out of the solution will not receive a node.
+
 
 
 .NExtra 2.6.2.0		2012-02-02
