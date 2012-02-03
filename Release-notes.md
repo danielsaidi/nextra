@@ -11,6 +11,15 @@ Blog:		http://danielsaidi.wordpress.com/category/nextra/
 
 
 
+.NExtra 2.6.2.2		2012-02-03
+------------------------------
+
+I have moved build scripts and Phantom packages into the Resources
+folder, to get them out of the way for you who are only interested
+in the source code.
+
+
+
 .NExtra 2.6.2.0		2012-02-02
 ------------------------------
 
