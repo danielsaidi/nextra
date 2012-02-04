@@ -14,6 +14,7 @@ If I add functionality that I find at blogs, in forums etc.,
 I will also add a link to the original implementation.
 
 
+
 Web resources
 -------------
 
@@ -25,6 +26,9 @@ web resources:
 	Downloads:	http://github.com/danielsaidi/NExtra/downloads
 	Issues:		http://github.com/danielsaidi/NExtra/issues
 	Blog:		http://danielsaidi.wordpress.com/category/nextra/
+
+If you have any questions, do not hesitate to contact me. To
+report an issue, either use the issues page or e-mail me.
 
 Contributions to the library are more than welcome. Just let
 me know if you want to help out or if you need help.
