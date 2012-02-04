@@ -2,15 +2,15 @@
 
 :: Change to the directory that this batch file is in
 :: NB: it must be invoked with a full path!
-for /f %%i in ("%0") do set curpath=%%~dpi
-cd /d %curpath%
+:: for /f %%i in ("%0") do set curpath=%%~dpi
+:: cd /d %curpath%
 
 :: Fetch input parameters
 set target=%1
 set build.version=%2
 set build.config=release
 
-:: Fallback to default settings for missing parameters
+:: Fallback to default target if none is provided
 if "%target%"=="" set target=default
 
 :: Execute the boo script with params - accessible with e.g. env("build.config")
