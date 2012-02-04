@@ -1,18 +1,5 @@
-Release notes
-=============
-
-Author:		Daniel Saidi [daniel.saidi@gmail.com]
-
-Web site:	http://www.dotnextra.com
-Project:	http://github.com/danielsaidi/NExtra
-Downloads:	http://github.com/danielsaidi/NExtra/downloads
-Issues:		http://github.com/danielsaidi/NExtra/issues
-Blog:		http://danielsaidi.wordpress.com/category/nextra/
-
-
-
 .NExtra 2.6.2.2		2012-02-03
-------------------------------
+==============================
 
 I have moved build scripts and Phantom packages into the Resources
 folder, to get them out of the way for you who are only interested
