@@ -24,13 +24,13 @@ classes, but most will fail.
 Contact and resources
 ---------------------
 
-Author:		Daniel Saidi [daniel.saidi@gmail.com]
+	Author:		Daniel Saidi [daniel.saidi@gmail.com]
 
-Web site:	http://www.dotnextra.com
-Project:	http://github.com/danielsaidi/NExtra
-Downloads:	http://github.com/danielsaidi/NExtra/downloads
-Issues:		http://github.com/danielsaidi/NExtra/issues
-Blog:		http://danielsaidi.wordpress.com/category/nextra/
+	Web site:	http://www.dotnextra.com
+	Project:	http://github.com/danielsaidi/NExtra
+	Downloads:	http://github.com/danielsaidi/NExtra/downloads
+	Issues:		http://github.com/danielsaidi/NExtra/issues
+	Blog:		http://danielsaidi.wordpress.com/category/nextra/
 
 Contributions to the library are more than welcome. Just let
 me know if you want to help out in any way.
