@@ -42,7 +42,7 @@ License
 NExtra is released under the MIT License, which you can read
 more about here:
 
-    >> http://www.opensource.org/licenses/mit-license.php
+    http://www.opensource.org/licenses/mit-license.php
 
 It basically means that you can do whatever you want with it,
 but that you are more than welcome spread the word.
@@ -53,7 +53,7 @@ Documentation
 
 The NExtra documentation can be found at the NExtra web site:
 
-    >> http://www.dotnextra.com/documentation
+	http://www.dotnextra.com/documentation
 	
 The documentation is not automatically published, when a new
 release is published. It is a manual procedure. If I haven't
@@ -63,14 +63,11 @@ updated it for the last release, let me know.
 Code analysis
 -------------
 
-The NExtra code analysis is done with NDepend. The report is
-published at:
+NExtra is released under the MIT License which basically
+means that you can do much anything you want with it. It
+also means that you are also free to spread the word, if
+you happen to like it :)
 
-    >> http://www.dotnextra.com/ndepend
-	
-Analyses are not automatically published, when a bew release
-is published. It is a manual procedure. If I haven't updated
-it for the last release, let me know.
-
-
+Check out the License file for more information, or read
+it at http://www.opensource.org/licenses/mit-license.php
 
