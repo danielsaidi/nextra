@@ -39,7 +39,7 @@ Getting started
 
 To get started with NExtra, either grab the source code from
 GitHub or download a pre-compiled DLL from the download page
-or from NuGet.
+or simply get it from NuGet.
 
 Once you have the compiled DLLs, just add a reference to the
 projects you need. NExtra consists of the following projects:
