@@ -1,10 +1,10 @@
 import System.IO
-import System.Reflection
 
 solution_file = "NExtra.sln"
+assembly_file = "SharedAssemblyInfo.cs"
 build_folder  = "_tmpbuild_/"
-build_version  = env('build.version')
-build_config  = env('build.config')
+build_version = ""
+build_config  = env('config')
 
 test_assemblies = (
    "NExtra.Tests/bin/${build_config}/NExtra.Tests.dll", 
@@ -18,7 +18,7 @@ test_assemblies = (
 
 target default:
    pass
-   
+
 target zip, (compile, test, copy):
    zip("${build_folder}", "NExtra.${build_version}.zip")
    rmdir(build_folder)
@@ -32,11 +32,21 @@ target deploy, (compile, test, copy):
 
 target publish, (zip, publish_nuget, publish_github):
    pass
-   
 
 
 target compile:
    msbuild(file: solution_file, configuration: build_config, version: "4")
+   
+   //Probably a really crappy way to retrieve assembly
+   //version, but I cannot use System.Reflection since
+   //Phantom is old and if I recompile Phantom it does
+   //not work. Also, since Phantom is old, it does not
+   //find my plugin that can get new assembly versions.
+   content = File.ReadAllText("${assembly_file}")
+   start_index = content.IndexOf("AssemblyVersion(") + 17
+   content = content.Substring(start_index)
+   end_index = content.IndexOf("\"")
+   build_version = content.Substring(0, end_index)
 
 target test:
    nunit(assemblies: test_assemblies, enableTeamCity: true, toolPath: "resources/phantom/lib/nunit/nunit-console.exe", teamCityArgs: "v4.0 x86 NUnit-2.5.5")
