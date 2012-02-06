@@ -5,7 +5,7 @@ using System.Reflection;
 // associated with an assembly.
 [assembly: AssemblyCompany("Daniel Saidi")]
 [assembly: AssemblyProduct("NExtra")]
-[assembly: AssemblyCopyright("Copyright © Daniel Saidi 2011")]
+[assembly: AssemblyCopyright("Copyright © Daniel Saidi 2009-2012")]
 [assembly: AssemblyTrademark("")]
 
 // Make it easy to distinguish Debug and Release (i.e. Retail) builds;
