@@ -11,6 +11,21 @@ namespace NExtra
     /// </remarks>
     public class ConsoleFacade : IConsole
     {
+        public int Read()
+        {
+            return Console.Read();
+        }
+
+        public ConsoleKeyInfo ReadKey()
+        {
+            return Console.ReadKey();
+        }
+
+        public string ReadLine()
+        {
+            return Console.ReadLine();
+        }
+
         public void Write(string value)
         {
             Console.Write(value);

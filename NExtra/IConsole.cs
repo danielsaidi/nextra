@@ -1,4 +1,6 @@
-﻿namespace NExtra
+﻿using System;
+
+namespace NExtra
 {
     ///<summary>
     /// This interface can be implemented by classes that
@@ -10,6 +12,9 @@
     /// </remarks>
     public interface IConsole
     {
+        int Read();
+        ConsoleKeyInfo ReadKey();
+        string ReadLine();
         void Write(string value);
         void WriteLine(string value);
     }

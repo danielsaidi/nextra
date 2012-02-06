@@ -1,3 +1,14 @@
+.NExtra 2.6.3.0		2012-02-06
+==============================
+
+I have finally finished tweaking the build and publish scripts, so
+that the release process will be quick and automated.
+
+In this version, I have added three read methods to IConsole. They
+can be used to mock out reading from the command line.
+
+
+
 .NExtra 2.6.2.2		2012-02-03
 ==============================
 

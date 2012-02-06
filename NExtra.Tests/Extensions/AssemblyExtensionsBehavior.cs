@@ -18,7 +18,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetCopyrightHolder_ShouldReturnCorrectValue()
         {
-            Assert.That(Assembly.GetExecutingAssembly().GetCopyrightHolder(), Is.EqualTo("Copyright © Daniel Saidi 2011"));
+            Assert.That(Assembly.GetExecutingAssembly().GetCopyrightHolder(), Is.EqualTo("Copyright © Daniel Saidi 2009-2012"));
         }
 
         [Test]
