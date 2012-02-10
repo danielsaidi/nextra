@@ -18,6 +18,7 @@ test_assemblies = (
 )
 
 
+
 target default, (compile, test):
    pass
 
@@ -35,6 +36,8 @@ target deploy, (compile, test, copy):
 target publish, (zip, publish_nuget, publish_github):
    pass
 
+   
+  
 
 target compile:
    msbuild(file: solution_file, configuration: build_config, version: "4")
@@ -100,3 +103,8 @@ target publish_github:
    exec("git tag ${build_version}")
    exec("git push origin master")
    exec("git push origin ${build_version}")
+   
+   
+   
+   
+   
