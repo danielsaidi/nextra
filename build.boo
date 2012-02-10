@@ -1,7 +1,9 @@
 import System.IO
 
+project_name = "NExtra"
 solution_file = "NExtra.sln"
 assembly_file = "SharedAssemblyInfo.cs"
+
 build_folder  = "_tmpbuild_/"
 build_version = ""
 build_config  = env('config')
@@ -16,18 +18,18 @@ test_assemblies = (
 )
 
 
-target default:
+target default, (compile, test):
    pass
 
 target zip, (compile, test, copy):
-   zip("${build_folder}", "NExtra.${build_version}.zip")
+   zip("${build_folder}", "${project_name}.${build_version}.zip")
    rmdir(build_folder)
    
 target deploy, (compile, test, copy):
    with FileList(build_folder):
     .Include("**/**")
     .ForEach def(file):
-      file.CopyToDirectory("NExtra.${build_version}")
+      file.CopyToDirectory("{project_name}.${build_version}")
    rmdir(build_folder)
 
 target publish, (zip, publish_nuget, publish_github):
