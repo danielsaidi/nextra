@@ -80,7 +80,6 @@ namespace NExtra.Web.Tests.Cookies
             cookieHandler.Received().InvalidateCookie("foo");
         }
 
-
         [Test]
         public void IsValidContext_ShouldReturnFalseForNullContext()
         {
@@ -88,26 +87,48 @@ namespace NExtra.Web.Tests.Cookies
         }
 
         [Test]
-        public void IsValidContext_ShouldReturnFalseForNullRequest()
-        {
-            httpContext = new FakeHttpContext(null, httpResponse);
-
-            Assert.That(DomainHttpCookieInvalidator.IsValidContext(httpContext, "foo.bar"), Is.False);
-        }
-
-        [Test]
         public void IsValidContext_ShouldReturnFalseForNonMatchingHost()
         {
-            httpRequest = new FakeHttpRequest("http://bar.foo", true);
-            httpContext = new FakeHttpContext(httpRequest, httpResponse);
+            var context = new HttpContext(new HttpRequest("", "http://bar.foo", ""), new HttpResponse(null));
 
-            Assert.That(DomainHttpCookieInvalidator.IsValidContext(httpContext, "foo.bar"), Is.False);
+            Assert.That(DomainHttpCookieInvalidator.IsValidContext(context, "foo.bar"), Is.False);
         }
 
         [Test]
         public void IsValidContext_ShouldReturnTrueForMatchingHost()
         {
-            Assert.That(DomainHttpCookieInvalidator.IsValidContext(httpContext, "foo.bar"), Is.False);
+            var context = new HttpContext(new HttpRequest("", "http://foo.bar", ""), new HttpResponse(null));
+
+            Assert.That(DomainHttpCookieInvalidator.IsValidContext(context, "foo.bar"), Is.True);
+        }
+
+        [Test]
+        public void IsValidContextBase_ShouldReturnFalseForNullContext()
+        {
+            Assert.That(DomainHttpCookieInvalidator.IsValidContextBase(null, "foo.bar"), Is.False);
+        }
+
+        [Test]
+        public void IsValidContextBase_ShouldReturnFalseForNullRequest()
+        {
+            httpContext = new FakeHttpContext(null, httpResponse);
+
+            Assert.That(DomainHttpCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.False);
+        }
+
+        [Test]
+        public void IsValidContextBase_ShouldReturnFalseForNonMatchingHost()
+        {
+            httpRequest = new FakeHttpRequest("http://bar.foo", true);
+            httpContext = new FakeHttpContext(httpRequest, httpResponse);
+
+            Assert.That(DomainHttpCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.False);
+        }
+
+        [Test]
+        public void IsValidContextBase_ShouldReturnTrueForMatchingHost()
+        {
+            Assert.That(DomainHttpCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.True);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace NExtra.Web.Cookies
 
         public void InvalidateAllCookies()
         {
-            if (!IsValidContext(httpContext, domainHost))
+            if (!IsValidContextBase(httpContext, domainHost))
                 return;
 
             foreach (string cookieName in cookieHandler.GetRequestCookies())
@@ -54,7 +54,7 @@ namespace NExtra.Web.Cookies
 
         public void InvalidateCookie(string cookieName)
         {
-            if (!IsValidContext(httpContext, domainHost))
+            if (!IsValidContextBase(httpContext, domainHost))
                 return;
             
             cookieHandler.InvalidateCookie(cookieName);
@@ -64,7 +64,18 @@ namespace NExtra.Web.Cookies
         /// <summary>
         /// Check if a certain HTTP context is valid for a required domain host condition.
         /// </summary>
-        public static bool IsValidContext(HttpContextBase httpContext, string domainHost)
+        public static bool IsValidContext(HttpContext httpContext, string domainHost)
+        {
+            if (httpContext == null)
+                return false;
+
+            return domainHost == httpContext.Request.Url.Host;
+        }
+
+        /// <summary>
+        /// Check if a certain HTTP context is valid for a required domain host condition.
+        /// </summary>
+        public static bool IsValidContextBase(HttpContextBase httpContext, string domainHost)
         {
             if (httpContext == null || httpContext.Request == null || httpContext.Request.Url == null)
                 return false;
