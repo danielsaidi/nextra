@@ -1,7 +1,6 @@
 import System.IO
 
-project_name = "NExtra"
-solution_file = "NExtra.sln"
+project_name  = "NExtra"
 assembly_file = "SharedAssemblyInfo.cs"
 
 build_folder  = "_tmpbuild_/"
@@ -9,12 +8,12 @@ build_version = ""
 build_config  = env('config')
 
 test_assemblies = (
-   "NExtra.Tests/bin/${build_config}/NExtra.Tests.dll", 
-   "NExtra.Web.Tests/bin/${build_config}/NExtra.Web.Tests.dll", 
-   "NExtra.Mvc.Tests/bin/${build_config}/NExtra.Mvc.Tests.dll", 
-   "NExtra.WPF.Tests/bin/${build_config}/NExtra.WPF.Tests.dll", 
-   "NExtra.WebForms.Tests/bin/${build_config}/NExtra.WebForms.Tests.dll", 
-   "NExtra.WinForms.Tests/bin/${build_config}/NExtra.WinForms.Tests.dll", 
+   "${project_name}.Tests/bin/${build_config}/${project_name}.Tests.dll", 
+   "${project_name}.Web.Tests/bin/${build_config}/${project_name}.Web.Tests.dll", 
+   "${project_name}.Mvc.Tests/bin/${build_config}/${project_name}.Mvc.Tests.dll", 
+   "${project_name}.WPF.Tests/bin/${build_config}/${project_name}.WPF.Tests.dll", 
+   "${project_name}.WebForms.Tests/bin/${build_config}/${project_name}.WebForms.Tests.dll", 
+   "${project_name}.WinForms.Tests/bin/${build_config}/${project_name}.WinForms.Tests.dll", 
 )
 
 
@@ -36,12 +35,11 @@ target deploy, (compile, test, copy):
 target publish, (zip, publish_nuget, publish_github):
    pass
 
-   
-  
+
 
 target compile:
-   msbuild(file: solution_file, configuration: build_config, version: "4")
-   
+   msbuild(file: "${project_name}.sln", configuration: build_config, version: "4")
+      
    //Probably a really crappy way to retrieve assembly
    //version, but I cannot use System.Reflection since
    //Phantom is old and if I recompile Phantom it does
@@ -79,19 +77,19 @@ target publish_nuget:
    File.Copy("README.md", "Resources\\README.txt", true)
    File.Copy("Release-notes.md", "Resources\\Release-notes.txt", true)
    
-   exec("nuget" , "pack nextra\\nextra.csproj -prop configuration=release")
-   exec("nuget" , "pack nextra.web\\nextra.web.csproj -prop configuration=release")
-   exec("nuget" , "pack nextra.mvc\\nextra.mvc.csproj -prop configuration=release")
-   exec("nuget" , "pack nextra.wpf\\nextra.wpf.csproj -prop configuration=release")
-   exec("nuget" , "pack nextra.webforms\\nextra.webforms.csproj -prop configuration=release")
-   exec("nuget" , "pack nextra.winforms\\nextra.winforms.csproj -prop configuration=release")
+   exec("nuget" , "pack ${project_name}\\${project_name}.csproj -prop configuration=release")
+   exec("nuget" , "pack ${project_name}.web\\${project_name}.web.csproj -prop configuration=release")
+   exec("nuget" , "pack ${project_name}.mvc\\${project_name}.mvc.csproj -prop configuration=release")
+   exec("nuget" , "pack ${project_name}.wpf\\${project_name}.wpf.csproj -prop configuration=release")
+   exec("nuget" , "pack ${project_name}.webforms\\${project_name}.webforms.csproj -prop configuration=release")
+   exec("nuget" , "pack ${project_name}.winforms\\${project_name}.winforms.csproj -prop configuration=release")
    
-   exec("nuget push nextra.${build_version}.nupkg")
-   exec("nuget push nextra.web.${build_version}.nupkg")
-   exec("nuget push nextra.mvc.${build_version}.nupkg")
-   exec("nuget push nextra.wpf.${build_version}.nupkg")
-   exec("nuget push nextra.webforms.${build_version}.nupkg")
-   exec("nuget push nextra.winforms.${build_version}.nupkg")
+   exec("nuget push ${project_name}.${build_version}.nupkg")
+   exec("nuget push ${project_name}.web.${build_version}.nupkg")
+   exec("nuget push ${project_name}.mvc.${build_version}.nupkg")
+   exec("nuget push ${project_name}.wpf.${build_version}.nupkg")
+   exec("nuget push ${project_name}.webforms.${build_version}.nupkg")
+   exec("nuget push ${project_name}.winforms.${build_version}.nupkg")
    
    exec("del *.nupkg")
    exec("del Resources\\README.txt")
@@ -99,7 +97,7 @@ target publish_nuget:
 
 target publish_github:
    exec("git add .")
-   exec('git commit . -m "Publishing .NExtra ' + "${build_version}" + '"')
+   exec('git commit . -m "Publishing ${project_name} ' + "${build_version}" + '"')
    exec("git tag ${build_version}")
    exec("git push origin master")
    exec("git push origin ${build_version}")

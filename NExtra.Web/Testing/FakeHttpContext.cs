@@ -12,13 +12,24 @@ namespace NExtra.Web.Testing
     /// </remarks>
     public class FakeHttpContext : HttpContextBase
     {
-        private readonly HttpRequestBase request = new FakeHttpRequest();
-        private readonly IPrincipal user = new GenericPrincipal(new GenericIdentity("someUser"), null /* roles */);
+        private readonly HttpRequestBase request;
+        private readonly HttpResponseBase response;
+        private readonly IPrincipal user;
 
 
-        /// <summary>
-        /// The HTTP request being used.
-        /// </summary>
+        public FakeHttpContext(HttpRequestBase request, HttpResponseBase response)
+            : this(request, response, new GenericPrincipal(new GenericIdentity("someUser"), null /* roles */))
+        {
+        }
+
+        public FakeHttpContext(HttpRequestBase request, HttpResponseBase response, IPrincipal user)
+        {
+            this.request = request;
+            this.response = response;
+            this.user = user;
+        }
+
+
         public override HttpRequestBase Request
         {
             get
@@ -27,9 +38,14 @@ namespace NExtra.Web.Testing
             }
         }
 
-        /// <summary>
-        /// The principal being used.
-        /// </summary>
+        public override HttpResponseBase Response
+        {
+            get
+            {
+                return response;
+            }
+        }
+
         public override IPrincipal User
         {
             get

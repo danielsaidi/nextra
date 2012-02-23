@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Web;
 
 namespace NExtra.Web.Cookies
@@ -13,6 +14,11 @@ namespace NExtra.Web.Cookies
     /// </remarks>
     public interface IHttpCookieHandler
     {
+        /// <summary>
+        /// Set a cookie.
+        /// </summary>
+        void AddCookie(HttpCookie cookie);
+
         /// <summary>
         /// Check if a cookie exists.
         /// </summary>
@@ -32,6 +38,21 @@ namespace NExtra.Web.Cookies
         /// Get the typed value of a certain cookie.
         /// </summary>
         T GetCookieValue<T>(string cookieName);
+
+        /// <summary>
+        /// Get all cookies that are sent from the client.
+        /// </summary>
+        HttpCookieCollection GetRequestCookies();
+
+        /// <summary>
+        /// Get all cookies that will be sent to the client.
+        /// </summary>
+        HttpCookieCollection GetResponseCookies();
+
+        /// <summary>
+        /// Invalidate a certain cookie.
+        /// </summary>
+        void InvalidateCookie(string cookieName);
 
         /// <summary>
         /// Set a cookie value.

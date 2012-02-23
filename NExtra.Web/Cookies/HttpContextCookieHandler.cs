@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Web;
 using System.Web.Script.Serialization;
 
@@ -15,6 +16,38 @@ namespace NExtra.Web.Cookies
     /// </remarks>
     public class HttpContextCookieHandler : IHttpCookieHandler
     {
+        private readonly HttpContextBase httpContext;
+
+
+        /// <summary>
+        /// Create a default instance that uses HttpContext.Current for cookie handling.
+        /// </summary>
+        public HttpContextCookieHandler()
+            : this(new HttpContextWrapper(HttpContext.Current))
+        {
+        }
+
+        /// <summary>
+        /// Create a custominstance that uses a custom HttpContextBase for cookie handling.
+        /// </summary>
+        public HttpContextCookieHandler(HttpContextBase httpContext)
+        {
+            this.httpContext = httpContext;
+        }
+
+
+        /// <summary>
+        /// Add a custom cookie to the current request and response.
+        /// </summary>
+        public void AddCookie(HttpCookie cookie)
+        {
+            httpContext.Request.Cookies.Remove(cookie.Name);
+            httpContext.Response.Cookies.Remove(cookie.Name);
+
+            httpContext.Request.Cookies.Add(cookie);
+            httpContext.Response.Cookies.Add(cookie);
+        }
+
         /// <summary>
         /// Check if a certain cookie exists.
         /// </summary>
@@ -28,7 +61,7 @@ namespace NExtra.Web.Cookies
         /// </summary>
         public HttpCookie GetCookie(string cookieName)
         {
-            return HttpContext.Current.Request.Cookies[cookieName];
+            return httpContext.Request.Cookies[cookieName];
         }
 
         /// <summary>
@@ -54,7 +87,35 @@ namespace NExtra.Web.Cookies
         }
 
         /// <summary>
-        /// Set a cookie value that expires together with the current session.
+        /// Get all cookies that are sent from the client.
+        /// </summary>
+        public HttpCookieCollection GetRequestCookies()
+        {
+            return httpContext.Request.Cookies;
+        }
+
+        /// <summary>
+        /// Get all cookies that will be sent to the client.
+        /// </summary>
+        public HttpCookieCollection GetResponseCookies()
+        {
+            return httpContext.Response.Cookies;
+        }
+
+        /// <summary>
+        /// Invalidate a certain cookie by setting the value
+        /// to null and expires to an already passed day.
+        /// </summary>
+        /// <param name="cookieName"></param>
+        public void InvalidateCookie(string cookieName)
+        {
+            SetCookieValue(cookieName, "", DateTime.MinValue);
+        }
+
+        /// <summary>
+        /// Set a cookie value with a session-based expire time.
+        /// To make the get methods work, tha method will set a
+        /// cookie in both the response and request collections.
         /// </summary>
         public void SetCookieValue(string cookieName, object data)
         {
@@ -63,6 +124,8 @@ namespace NExtra.Web.Cookies
 
         /// <summary>
         /// Set a cookie value with an optional expiration date.
+        /// To make the get methods work, tha method will set a
+        /// cookie in both the response and request collections.
         /// </summary>
         public void SetCookieValue(string cookieName, object data, DateTime? expires)
         {
@@ -72,7 +135,7 @@ namespace NExtra.Web.Cookies
             if (expires.HasValue)
                 cookie.Expires = expires.Value;
 
-            HttpContext.Current.Response.Cookies.Add(cookie);
+            AddCookie(cookie);
         }
     }
 }
