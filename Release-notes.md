@@ -1,17 +1,18 @@
 .NExtra 2.6.4.0		2012-02-23
 ==============================
 
+This release features improved cookie handling and testing classes.
+If you implement your own IHttpCookieHandler, you will have to add
+a couple of methods, since the interface has grown.
+
 The NExtra.Web.HttpContextCookieHandler class is rewritten to make
 it possible to inject any HttpContextBase. It has been drastically
-improved and is also now covered with unit tests.
+improved and supports more operations. I have also covered it with
+unit tests.
 
 All classes in NExtra.Web.Testing have been rewritten so that they
 have no default constructors. I have also added a FakeHttpResponse
-class.
-
-Note that the NExtra.Web.Testing classes are primarily meant to be
-used in the .NExtra test process. If you benefit from them, that's
-great, but be prepared that they may change if .NExtra requires it.
+class, which is used by the FakeHttpContext class.
 
 
 
