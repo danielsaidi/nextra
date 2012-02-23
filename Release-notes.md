@@ -1,3 +1,16 @@
+.NExtra 2.6.4.1		2012-02-23
+==============================
+
+This small release features a new IHttpCookieInvalidator interface
+and a DomainHttpCookieInvalidator implementation, that can be used
+to invalidate one or several cookies for a certain domain.
+
+The DomainHttpCookieInvalidator class is implemented in a way that
+it invalidates cookies only if its domain host matches the host of
+the provided request. If not, it will not invalidate any cookies.
+
+
+
 .NExtra 2.6.4.0		2012-02-23
 ==============================
 

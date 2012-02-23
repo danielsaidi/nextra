@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NSubstitute">
+      <HintPath>..\Lib\NSubstitute.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\nunit.framework.dll</HintPath>
@@ -67,6 +70,7 @@
     </Compile>
     <Compile Include="Avatar\FacebookAvatarBehavior.cs" />
     <Compile Include="Avatar\GravatarBehavior.cs" />
+    <Compile Include="Cookies\DomainHttpCookieInvalidatorBehavior.cs" />
     <Compile Include="Cookies\HttpContextCookieHandlerBehavior.cs" />
     <Compile Include="Extensions\StateBagExtensionsBehavior.cs" />
     <Compile Include="Html\Html5ElementConverterBehavior.cs" />

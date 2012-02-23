@@ -20,7 +20,7 @@ namespace NExtra.Web.Cookies
 
 
         /// <summary>
-        /// Create a default instance that uses HttpContext.Current for cookie handling.
+        /// Create a default instance that uses the current HttpContext.
         /// </summary>
         public HttpContextCookieHandler()
             : this(new HttpContextWrapper(HttpContext.Current))
@@ -28,7 +28,7 @@ namespace NExtra.Web.Cookies
         }
 
         /// <summary>
-        /// Create a custominstance that uses a custom HttpContextBase for cookie handling.
+        /// Create a custom instance that uses a custom HttpContextBase.
         /// </summary>
         public HttpContextCookieHandler(HttpContextBase httpContext)
         {

@@ -69,6 +69,8 @@
     </Compile>
     <Compile Include="Avatar\IAvatarService.cs" />
     <Compile Include="Cache\IHttpRuntimeCache.cs" />
+    <Compile Include="Cookies\DomainHttpCookieInvalidator.cs" />
+    <Compile Include="Cookies\IHttpCookieInvalidator.cs" />
     <Compile Include="Cookies\HttpContextCookieHandler.cs" />
     <Compile Include="Cookies\IHttpCookieHandler.cs" />
     <Compile Include="Html\Html5ElementConverter.cs" />
