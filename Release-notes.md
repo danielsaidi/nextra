@@ -1,53 +1,38 @@
-.NExtra 2.6.4.6		2012-02-24
+.NExtra 2.6.5.0		2012-02-24
 ==============================
 
-In this release, I have added a contribution. The new ITypeLocator
-interface and TypeLocator implementation in NExtra.Reflection is a
-great way to locate and instantiate all classes within one or many
-assemblies that implement a certain interface or base class.
+Since I now release new versions with small changes quite often, I
+will bundle the release notes on build version level (x.x.X.x).
 
-In http://danielsaidi.github.com/Cloney I use this approach to get
-a convenient way of working with plugins. Niklas has rewritten the
-implementation to be generic.
+For instance, say I add a feature in 2.6.4.1 and then modify it in
+2.6.4.2. Instead of adding a section in this file, I'll modify the
+previous section. The 2.6.5.0 release notes will then finally be a
+combination of all 2.6.4.x release notes.
 
-When you use this class, just make sure to remember that a located
-class must have a default constructor, or that you use an IoC like
-StructureMap to automatically manage constructor parameters.
-
-I have also removed some constructors from the cookie classes. The
-automatic usage of HttpContext.Current is not good, so I removed a
-copule of constructors that were designed this way. In fact, I did
-convert them to use a custom HttpContext, that automatically wraps
-the context in a HttpContextWrapper. That is a lot better.
-
-
-
-.NExtra 2.6.4.3		2012-02-23
-==============================
-
-The last three revision releases featured a new ICookieInvalidator
-interface and a DomainCookieInvalidator implementation that can be
-used to invalidate one or several cookies for a certain domain.
-
-DomainCookieInvalidator will only invalidate cookies if its domain
-host matches the host of the provided request. If not, it will not
-invalidate any cookies. I have also added two static methods, that 
-one could use if cookie invalidation is occuring for every request,
-so a  new instance does not have to be created for each request.
-
-However, to avoid coupling, the two static methods may not be good
-at all. Let me know what you think. Should i make them private and
-not invite to coupling?
+The new NExtra.Web.Cookies.ICookieInvalidator and the domain-based
+DomainCookieInvalidator implementation can invalidate one or every
+cookie for a certain domain. The DomainCookieInvalidator will only
+invalidate cookies if the request host matches its host condition.
 
 One example when cookie invalidation may be a good idea is when an
 IIS instance is set to handle static content. For more about these
 situations, have a look at this video (thank you, @JoakimWestin) :  
 http://www.youtube.com/watch?v=wHdvL4irsiQ&feature=player_embedded
 
+In NExtra.Reflection, I have added a new ITypeLocator interface as
+well as a default TypeLocator implementation. They are a great way
+to find all the classes that implement a certain interface or that
+inherit a certain base class.
+
+I have also removed some constructors from the cookie classes. The
+default HttpContext.Current usage was not good, so I removed those
+constructors. In fact, I converted them to use custom HttpContexts
+that automatically wraps into an HttpContextWrapper.
+
 
 
 .NExtra 2.6.4.0		2012-02-23
-==============================
+------------------------------
 
 This release features improved cookie handling and testing classes.
 If you implement your own IHttpCookieHandler, you will have to add
@@ -65,31 +50,28 @@ class, which is used by the FakeHttpContext class.
 
 
 .NExtra 2.6.3.0		2012-02-06
-==============================
+------------------------------
 
 I have finally finished tweaking the build and publish scripts, so
-that the release process will be quick and automated.
-
-In this version, I have added three read methods to IConsole. They
-can be used to mock out reading from the command line.
-
-
-
-.NExtra 2.6.2.2		2012-02-03
-==============================
-
-I have moved build scripts and Phantom packages into the Resources
-folder, to get them out of the way for you who are only interested
-in the source code.
+that the release process will be quick and automated. The versions
+that led to this release have contained some experimental moves to
+and from various folders, but the current setup will probably do.
 
 From now on, with more frequent releases, I will add release notes
 only when I make functional changes to the library. Changes to any
 files and folders out of the solution will not receive a node.
 
+In this version, I have added three read methods to IConsole. They
+can be used to mock out reading from the command line. I have also
+optimized some classes using NDepend as analysis tool.
+
 
 
 .NExtra 2.6.2.0		2012-02-02
 ------------------------------
+
+This release features build scripts that makes building releases a
+great deal simpler for me.
 
 I have added yet another class to the NExtra.IO namespace. The new
 PathPatternMatcher class can be used to see if a file or directory
@@ -97,19 +79,12 @@ name matches a certain pattern, e.g. foo*.txt, *.txt, *foo*.
 
 
 
-.NExtra 2.6.1.1		2012-01-31
-------------------------------
-
-This release features build scripts that makes building releases a
-great deal simpler for me.
-
-But why should you care? Well, I really do not know, except that I
-have also optimized some classes according to the last NDepend run.
-
-
-
 .NExtra 2.6.1.0		2012-01-31
 ------------------------------
+
+In this version, I have updated the readme file instructions. Also,
+the return type of two assembly extension methods are changed from
+IList to IEnumerable.
 
 I have added two new interface-based classes to Nextra.IO. One can
 be used to work with directories and one with files. They are nice
@@ -118,55 +93,36 @@ file system.
 
 
 
-.NExtra 2.6.0.1		2012-01-27
-------------------------------
-
-In this version, I have updated the readme file instructions. Also,
-the return type of two assembly extension methods are changed from
-IList to IEnumerable.
-
-
-
 .NExtra 2.6.0.0		2012-01-10
 ------------------------------
 
 This version is a real API breakier. If you are using any previous
-versions of .NExtra, read this information carefully!
-
-
-New stuff
+versions of .NExtra, read this information carefully.
 
 I have added two new hash generators to NExtra.Security. They will
 probably make the ones in NExtra.Web.Security useless, but the old
 implementations are still there.
 
 I have added two new SSN validators to the Validation namespace. A
-new IValidator interface has been applied to all validators in the
-namespace as well.
+new IValidator interface is applied to all validators as well.
 
 The new NExtra.Geo.IDistanceConverter interface has been extracted
-from DistanceConverter. The same goes for IAngleConverter. So, now
-you can do all kinds of crazy implementations. Go wild.
+from DistanceConverter. The same goes for IAngleConverter.
 
 
-Breaking changes
-
-Sooo, yeah. I have decided to add a lot of API breaking changes to
-.NExtra. I will include all of them in this version so that future
-releases will be stable...ish.
+Regarding API breaking changes, I have decided to include them all
+in this version so that future releases will be stable...ish.
 
 The most important API breaker to notice is that I have decided to
-remove all "abstraction" namespaces. This makes it a lot easier to
-use the various interfaces and implementations, since it no longer
-requires using two (or more) namespaces.
+remove all "abstraction" namespaces, to remove circular references
+and removing the need to use two (or more) namespaces.
 
 The NExtra.ValidationAttributes namespace has been re-renamed, and
 is now (once again) called Validation. SSN validators are moved to
 a separate namespace, as has the Zip related validators.
 
 The NExtra.Web.Abstractions.IVirtualPathProviderFacade was removed
-as well, since it was not used anywhere in the library. If you can
-not live without it, grab it from an earlier release.
+as well, since it was not used anywhere in the library.
 	
 The previously non-static NExtra.Testing.MetadataRegistrator class
 has been made static. If you use it, just remove any instance.
@@ -174,17 +130,14 @@ has been made static. If you use it, just remove any instance.
 Some unnecessary throws have been removed. The code will fail even
 without them, so why have them?
 
-And while I am already breaking the API everywhere, I have changes
-several things in NExtra.Documentation. I am not even sure if this
-namespace will live to see 2.6. Let me know if you use it.
+And while I am already breaking the API everywhere, I have changed
+several things in NExtra.Documentation. I may even remove it later.
 
 And while...yeah, you probably get it by now. I have decided to do
-a rewind on all the ICan interfaces. This will probably cause pain
-to anyone using .NExtra (approx. 5 for the last version, so I hope
-that this is a good time to perform all these changes).
+a rewind for all the ICanX interfaces and rename them.
 
 NExtra.UI and all its classes (two useless ones) have been removed.
-If you use them and need them still, you need serious help. 
+If you use them and need them still, you need serious help.
 
 Moving on to the NExtra.Web project, all HTML related classes have
 been moved into a new Html namespace. Cookie handlers are moved to

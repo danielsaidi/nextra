@@ -49,11 +49,8 @@ namespace NExtra.Web.Cookies
         /// </summary>
         public void InvalidateAllCookies()
         {
-            if (!IsValidContextBase(httpContext, domainHost))
-                return;
-
             foreach (string cookieName in cookieHandler.GetRequestCookies())
-                cookieHandler.InvalidateCookie(cookieName);
+                InvalidateCookie(cookieName);
         }
 
         /// <summary>
@@ -61,38 +58,13 @@ namespace NExtra.Web.Cookies
         /// </summary>
         public void InvalidateCookie(string cookieName)
         {
-            if (!IsValidContextBase(httpContext, domainHost))
+            if (httpContext == null || httpContext.Request == null || httpContext.Request.Url == null)
+                return;
+
+            if (domainHost != httpContext.Request.Url.Host)
                 return;
             
             cookieHandler.InvalidateCookie(cookieName);
-        }
-
-        /// <summary>
-        /// Check if a certain HTTP context is valid for a
-        /// required domain host condition. This method is
-        /// convenient to use if the class is used in each
-        /// request, to avoid creating unneeded instances.
-        /// </summary>
-        public static bool IsValidContext(HttpContext httpContext, string domainHost)
-        {
-            if (httpContext == null)
-                return false;
-
-            return domainHost == httpContext.Request.Url.Host;
-        }
-
-        /// <summary>
-        /// Check if a certain HTTP context is valid for a
-        /// required domain host condition. This method is
-        /// convenient to use if the class is used in each
-        /// request, to avoid creating unneeded instances.
-        /// </summary>
-        public static bool IsValidContextBase(HttpContextBase httpContext, string domainHost)
-        {
-            if (httpContext == null || httpContext.Request == null || httpContext.Request.Url == null)
-                return false;
-
-            return domainHost == httpContext.Request.Url.Host;
         }
     }
 }

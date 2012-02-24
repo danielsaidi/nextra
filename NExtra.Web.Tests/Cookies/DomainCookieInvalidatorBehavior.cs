@@ -79,56 +79,5 @@ namespace NExtra.Web.Tests.Cookies
 
             cookieHandler.Received().InvalidateCookie("foo");
         }
-
-        [Test]
-        public void IsValidContext_ShouldReturnFalseForNullContext()
-        {
-            Assert.That(DomainCookieInvalidator.IsValidContext(null, "foo.bar"), Is.False);
-        }
-
-        [Test]
-        public void IsValidContext_ShouldReturnFalseForNonMatchingHost()
-        {
-            var context = new HttpContext(new HttpRequest("", "http://bar.foo", ""), new HttpResponse(null));
-
-            Assert.That(DomainCookieInvalidator.IsValidContext(context, "foo.bar"), Is.False);
-        }
-
-        [Test]
-        public void IsValidContext_ShouldReturnTrueForMatchingHost()
-        {
-            var context = new HttpContext(new HttpRequest("", "http://foo.bar", ""), new HttpResponse(null));
-
-            Assert.That(DomainCookieInvalidator.IsValidContext(context, "foo.bar"), Is.True);
-        }
-
-        [Test]
-        public void IsValidContextBase_ShouldReturnFalseForNullContext()
-        {
-            Assert.That(DomainCookieInvalidator.IsValidContextBase(null, "foo.bar"), Is.False);
-        }
-
-        [Test]
-        public void IsValidContextBase_ShouldReturnFalseForNullRequest()
-        {
-            httpContext = new FakeHttpContext(null, httpResponse);
-
-            Assert.That(DomainCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.False);
-        }
-
-        [Test]
-        public void IsValidContextBase_ShouldReturnFalseForNonMatchingHost()
-        {
-            httpRequest = new FakeHttpRequest("http://bar.foo", true);
-            httpContext = new FakeHttpContext(httpRequest, httpResponse);
-
-            Assert.That(DomainCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.False);
-        }
-
-        [Test]
-        public void IsValidContextBase_ShouldReturnTrueForMatchingHost()
-        {
-            Assert.That(DomainCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.True);
-        }
     }
 }
