@@ -12,7 +12,7 @@ namespace NExtra.Web.Cookies
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.dotnextra.com
     /// </remarks>
-    public class DomainHttpCookieInvalidator : IHttpCookieInvalidator
+    public class DomainCookieInvalidator : ICookieInvalidator
     {
         private readonly string domainHost;
         private readonly HttpContextBase httpContext;
@@ -20,22 +20,22 @@ namespace NExtra.Web.Cookies
 
 
         /// <summary>
-        /// Create a default instance that uses the current HttpContext.
+        /// Create an instance that uses the current HttpContext.
         /// </summary>
-        /// <param name="domainHost">The required request host.</param>
-        /// <param name="cookieHandler">The cookie handler to use for invalidating the cookies.</param>
-        public DomainHttpCookieInvalidator(string domainHost, IHttpCookieHandler cookieHandler)
+        /// <param name="domainHost">The domain host of interest, e.g. foo.bar.com.</param>
+        /// <param name="cookieHandler">The cookie handler to use for cookie invalidation.</param>
+        public DomainCookieInvalidator(string domainHost, IHttpCookieHandler cookieHandler)
             : this(domainHost, new HttpContextWrapper(HttpContext.Current), cookieHandler)
         {
         }
 
         /// <summary>
-        /// Create a custom instance that uses a custom HttpContextBase.
+        /// Create an instance that uses a custom HttpContextBase.
         /// </summary>
-        /// <param name="domainHost">The required request host.</param>
+        /// <param name="domainHost">The domain host of interest, e.g. foo.bar.com.</param>
         /// <param name="httpContext">The HTTP context to use.</param>
-        /// <param name="cookieHandler">The cookie handler to use for invalidating the cookies.</param>
-        public DomainHttpCookieInvalidator(string domainHost, HttpContextBase httpContext, IHttpCookieHandler cookieHandler)
+        /// <param name="cookieHandler">The cookie handler to use for cookie invalidation.</param>
+        public DomainCookieInvalidator(string domainHost, HttpContextBase httpContext, IHttpCookieHandler cookieHandler)
         {
             this.domainHost = domainHost;
             this.httpContext = httpContext;
@@ -43,6 +43,9 @@ namespace NExtra.Web.Cookies
         }
 
 
+        /// <summary>
+        /// Invalidate all existing cookies.
+        /// </summary>
         public void InvalidateAllCookies()
         {
             if (!IsValidContextBase(httpContext, domainHost))
@@ -52,6 +55,9 @@ namespace NExtra.Web.Cookies
                 cookieHandler.InvalidateCookie(cookieName);
         }
 
+        /// <summary>
+        /// Invalidate a certain cookie.
+        /// </summary>
         public void InvalidateCookie(string cookieName)
         {
             if (!IsValidContextBase(httpContext, domainHost))
@@ -60,9 +66,11 @@ namespace NExtra.Web.Cookies
             cookieHandler.InvalidateCookie(cookieName);
         }
 
-
         /// <summary>
-        /// Check if a certain HTTP context is valid for a required domain host condition.
+        /// Check if a certain HTTP context is valid for a
+        /// required domain host condition. This method is
+        /// convenient to use if the class is used in each
+        /// request, to avoid creating unneeded instances.
         /// </summary>
         public static bool IsValidContext(HttpContext httpContext, string domainHost)
         {
@@ -73,7 +81,10 @@ namespace NExtra.Web.Cookies
         }
 
         /// <summary>
-        /// Check if a certain HTTP context is valid for a required domain host condition.
+        /// Check if a certain HTTP context is valid for a
+        /// required domain host condition. This method is
+        /// convenient to use if the class is used in each
+        /// request, to avoid creating unneeded instances.
         /// </summary>
         public static bool IsValidContextBase(HttpContextBase httpContext, string domainHost)
         {

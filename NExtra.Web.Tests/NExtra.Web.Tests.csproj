@@ -70,7 +70,7 @@
     </Compile>
     <Compile Include="Avatar\FacebookAvatarBehavior.cs" />
     <Compile Include="Avatar\GravatarBehavior.cs" />
-    <Compile Include="Cookies\DomainHttpCookieInvalidatorBehavior.cs" />
+    <Compile Include="Cookies\DomainCookieInvalidatorBehavior.cs" />
     <Compile Include="Cookies\HttpContextCookieHandlerBehavior.cs" />
     <Compile Include="Extensions\StateBagExtensionsBehavior.cs" />
     <Compile Include="Html\Html5ElementConverterBehavior.cs" />

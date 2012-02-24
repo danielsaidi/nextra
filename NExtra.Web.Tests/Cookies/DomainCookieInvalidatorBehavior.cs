@@ -7,9 +7,9 @@ using NUnit.Framework;
 namespace NExtra.Web.Tests.Cookies
 {
     [TestFixture]
-    public class DomainHttpCookieInvalidatorBehavior
+    public class DomainCookieInvalidatorBehavior
     {
-        private IHttpCookieInvalidator cookieInvalidator;
+        private ICookieInvalidator cookieInvalidator;
         private IHttpCookieHandler cookieHandler;
         private HttpContextBase httpContext;
         private HttpRequestBase httpRequest;
@@ -31,15 +31,15 @@ namespace NExtra.Web.Tests.Cookies
             cookieHandler = Substitute.For<IHttpCookieHandler>();
             cookieHandler.GetRequestCookies().Returns(requestCookies);
 
-            cookieInvalidator = new DomainHttpCookieInvalidator("foo.bar", httpContext, cookieHandler);
+            cookieInvalidator = new DomainCookieInvalidator("foo.bar", httpContext, cookieHandler);
         }
 
-        public DomainHttpCookieInvalidator GetInvalidatorWithNonMatchingHost()
+        public DomainCookieInvalidator GetInvalidatorWithNonMatchingHost()
         {
             httpRequest = new FakeHttpRequest("http://bar.foo", true);
             httpContext = new FakeHttpContext(httpRequest, httpResponse);
             
-            return new DomainHttpCookieInvalidator("foo.bar", httpContext, cookieHandler);
+            return new DomainCookieInvalidator("foo.bar", httpContext, cookieHandler);
         }
 
 
@@ -83,7 +83,7 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void IsValidContext_ShouldReturnFalseForNullContext()
         {
-            Assert.That(DomainHttpCookieInvalidator.IsValidContext(null, "foo.bar"), Is.False);
+            Assert.That(DomainCookieInvalidator.IsValidContext(null, "foo.bar"), Is.False);
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace NExtra.Web.Tests.Cookies
         {
             var context = new HttpContext(new HttpRequest("", "http://bar.foo", ""), new HttpResponse(null));
 
-            Assert.That(DomainHttpCookieInvalidator.IsValidContext(context, "foo.bar"), Is.False);
+            Assert.That(DomainCookieInvalidator.IsValidContext(context, "foo.bar"), Is.False);
         }
 
         [Test]
@@ -99,13 +99,13 @@ namespace NExtra.Web.Tests.Cookies
         {
             var context = new HttpContext(new HttpRequest("", "http://foo.bar", ""), new HttpResponse(null));
 
-            Assert.That(DomainHttpCookieInvalidator.IsValidContext(context, "foo.bar"), Is.True);
+            Assert.That(DomainCookieInvalidator.IsValidContext(context, "foo.bar"), Is.True);
         }
 
         [Test]
         public void IsValidContextBase_ShouldReturnFalseForNullContext()
         {
-            Assert.That(DomainHttpCookieInvalidator.IsValidContextBase(null, "foo.bar"), Is.False);
+            Assert.That(DomainCookieInvalidator.IsValidContextBase(null, "foo.bar"), Is.False);
         }
 
         [Test]
@@ -113,7 +113,7 @@ namespace NExtra.Web.Tests.Cookies
         {
             httpContext = new FakeHttpContext(null, httpResponse);
 
-            Assert.That(DomainHttpCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.False);
+            Assert.That(DomainCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.False);
         }
 
         [Test]
@@ -122,13 +122,13 @@ namespace NExtra.Web.Tests.Cookies
             httpRequest = new FakeHttpRequest("http://bar.foo", true);
             httpContext = new FakeHttpContext(httpRequest, httpResponse);
 
-            Assert.That(DomainHttpCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.False);
+            Assert.That(DomainCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.False);
         }
 
         [Test]
         public void IsValidContextBase_ShouldReturnTrueForMatchingHost()
         {
-            Assert.That(DomainHttpCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.True);
+            Assert.That(DomainCookieInvalidator.IsValidContextBase(httpContext, "foo.bar"), Is.True);
         }
     }
 }

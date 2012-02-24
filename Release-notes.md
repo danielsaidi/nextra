@@ -1,13 +1,24 @@
-.NExtra 2.6.4.1		2012-02-23
+.NExtra 2.6.4.3		2012-02-23
 ==============================
 
-This small release features a new IHttpCookieInvalidator interface
-and a DomainHttpCookieInvalidator implementation, that can be used
-to invalidate one or several cookies for a certain domain.
+The last three revision releases featured a new ICookieInvalidator
+interface and a DomainCookieInvalidator implementation that can be
+used to invalidate one or several cookies for a certain domain.
 
-The DomainHttpCookieInvalidator class is implemented in a way that
-it invalidates cookies only if its domain host matches the host of
-the provided request. If not, it will not invalidate any cookies.
+DomainCookieInvalidator will only invalidate cookies if its domain
+host matches the host of the provided request. If not, it will not
+invalidate any cookies. I have also added two static methods, that 
+one could use if cookie invalidation is occuring for every request,
+so a  new instance does not have to be created for each request.
+
+However, to avoid coupling, the two static methods may not be good
+at all. Let me know what you think. Should i make them private and
+not invite to coupling?
+
+One example when cookie invalidation may be a good idea is when an
+IIS instance is set to handle static content. For more about these
+situations, have a look at this video (thank you, @JoakimWestin) :  
+http://www.youtube.com/watch?v=wHdvL4irsiQ&feature=player_embedded
 
 
 
