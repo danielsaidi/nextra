@@ -1,4 +1,4 @@
-.NExtra 2.6.4.4		2012-02-24
+.NExtra 2.6.4.6		2012-02-24
 ==============================
 
 In this release, I have added a contribution. The new ITypeLocator
