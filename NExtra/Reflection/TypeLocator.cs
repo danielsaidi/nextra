@@ -11,9 +11,14 @@ namespace NExtra.Reflection
     /// a specific interface from the provided array of assemblies.
     /// </summary>
     /// <typeparam name="TType">The interface type to find.</typeparam>
+    /// <remarks>
+    /// Author:     Niklas Melinder [niklas@melinder.se]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public class TypeLocator<TType> : ITypeLocator<TType>
     {
         private readonly Assembly[] _assemblies;
+
 
         /// <summary>
         /// Creates an instance of TypeLocator from an array of assemblies.
@@ -23,6 +28,7 @@ namespace NExtra.Reflection
         {
             _assemblies = assemblies;
         }
+
 
         /// <summary>
         /// Finds all types implementing TType in provided array of assemblies.

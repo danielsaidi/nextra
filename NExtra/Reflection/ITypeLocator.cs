@@ -8,6 +8,10 @@ namespace NExtra.Reflection
     /// a specific interface. 
     /// </summary>
     /// <typeparam name="TType">The interface type to find.</typeparam>
+    /// <remarks>
+    /// Author:     Niklas Melinder [niklas@melinder.se]
+    /// Link:       http://www.dotnextra.com
+    /// </remarks>
     public interface ITypeLocator<out TType>
     {
         IEnumerable<TType> FindAll();

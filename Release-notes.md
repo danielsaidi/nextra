@@ -1,3 +1,21 @@
+.NExtra 2.6.4.4		2012-02-24
+==============================
+
+In this release, I have added a contribution. The new ITypeLocator
+interface and TypeLocator implementation in NExtra.Reflection is a
+great way to locate and instantiate all classes within one or many
+assemblies that implement a certain interface or base class.
+
+In http://danielsaidi.github.com/Cloney I use this approach to get
+a convenient way of working with plugins. Niklas has rewritten the
+implementation to be generic.
+
+When you use this class, just make sure to remember that a located
+class must have a default constructor, or that you use an IoC like
+StructureMap to automatically manage constructor parameters.
+
+
+
 .NExtra 2.6.4.3		2012-02-23
 ==============================
 

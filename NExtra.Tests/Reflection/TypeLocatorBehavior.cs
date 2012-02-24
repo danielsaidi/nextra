@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using NExtra.Reflection;
@@ -9,37 +10,80 @@ namespace NExtra.Tests.Reflection
     [TestFixture]
     public class TypeLocatorBehavior
     {
-        private IEnumerable<ISomeInterface> _implementations;
+        private IEnumerable<ISomeInterface> implementations;
+        private IEnumerable<SomeBaseClass> descendants;
+
 
         [SetUp]
         public void Setup()
         {
-            var typeLocator = new TypeLocator<ISomeInterface>(Assembly.GetExecutingAssembly());
-
-            _implementations = typeLocator.FindAll();
+            var implementationLocator = new TypeLocator<ISomeInterface>(Assembly.GetExecutingAssembly());
+            var descendantLocator = new TypeLocator<SomeBaseClass>(Assembly.GetExecutingAssembly());
+            
+            implementations = implementationLocator.FindAll();
+            descendants = descendantLocator.FindAll();
         }
+
 
         [Test]
         public void FindAll_ShouldReturnAllImplementationsFromSingleAssembly()
         {
-            Assert.That(_implementations.Count(), Is.EqualTo(2));
+            Assert.That(implementations.Count(), Is.EqualTo(2));
+        }
+
+        [Test]
+        public void FindAll_ShouldReturnAllImplementationsWithCorrectTypeFromSingleAssembly()
+        {
+            Assert.That(implementations.Any(x => x.GetType() == typeof(SomeClass)), Is.True);
+            Assert.That(implementations.Any(x => x.GetType() == typeof(SomeOtherClass)), Is.True);
+        }
+
+        [Test]
+        public void FindAll_ShouldReturnAllDescendantsFromSingleAssembly()
+        {
+            Assert.That(descendants.Count(), Is.EqualTo(2));
+        }
+
+        [Test]
+        public void FindAll_ShouldReturnAllDescendantsWithCorrectTypeFromSingleAssembly()
+        {
+            Assert.That(descendants.Any(x => x.GetType() == typeof(SomeClass)), Is.True);
+            Assert.That(descendants.Any(x => x.GetType() == typeof(SomeOtherClass)), Is.True);
         }
     }
 
-    public interface ISomeInterface
+
+    internal interface ISomeInterface
     {
         void DoStuff();
     }
 
-    public class SomeClass : ISomeInterface
+    internal abstract class SomeBaseClass
     {
-        public void DoStuff()
-        {}
+        protected abstract void DoOtherStuff();
     }
 
-    public class SomeOtherClass : ISomeInterface
+
+    internal class SomeClass : SomeBaseClass, ISomeInterface
     {
         public void DoStuff()
         {}
+
+        protected override void DoOtherStuff()
+        {
+            throw new NotImplementedException();
+        }
     }
+
+    internal class SomeOtherClass : SomeBaseClass, ISomeInterface
+    {
+        public void DoStuff()
+        {}
+
+        protected override void DoOtherStuff()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }
