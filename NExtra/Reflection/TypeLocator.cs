@@ -7,10 +7,10 @@ using NExtra.Extensions;
 namespace NExtra.Reflection
 {
     /// <summary>
-    /// This class can be used to find all types that implement 
-    /// a specific interface from the provided array of assemblies.
+    /// This class can be used to find all types within a
+    /// single assembly or several ones that implement an
+    /// interface or inherits a base class.
     /// </summary>
-    /// <typeparam name="TType">The interface type to find.</typeparam>
     /// <remarks>
     /// Author:     Niklas Melinder [niklas@melinder.se]
     /// Link:       http://www.dotnextra.com

@@ -14,6 +14,12 @@ When you use this class, just make sure to remember that a located
 class must have a default constructor, or that you use an IoC like
 StructureMap to automatically manage constructor parameters.
 
+I have also removed some constructors from the cookie classes. The
+automatic usage of HttpContext.Current is not good, so I removed a
+copule of constructors that were designed this way. In fact, I did
+convert them to use a custom HttpContext, that automatically wraps
+the context in a HttpContextWrapper. That is a lot better.
+
 
 
 .NExtra 2.6.4.3		2012-02-23

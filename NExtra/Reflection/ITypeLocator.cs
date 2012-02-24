@@ -3,11 +3,10 @@
 namespace NExtra.Reflection
 {
     /// <summary>
-    /// Interface that can be implemented by classes
-    /// that are used to find all types that implement
-    /// a specific interface. 
+    /// This interface can be implemented by classes that
+    /// can find all types that implement an interface or
+    /// inherits a base class.
     /// </summary>
-    /// <typeparam name="TType">The interface type to find.</typeparam>
     /// <remarks>
     /// Author:     Niklas Melinder [niklas@melinder.se]
     /// Link:       http://www.dotnextra.com
