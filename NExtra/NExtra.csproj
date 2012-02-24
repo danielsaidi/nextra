@@ -113,6 +113,8 @@
     <Compile Include="Logging\DoNothingLogWriter.cs" />
     <Compile Include="Logging\ILogWriter.cs" />
     <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Reflection\ITypeLocator.cs" />
+    <Compile Include="Reflection\TypeLocator.cs" />
     <Compile Include="RequiredMode.cs" />
     <Compile Include="Security\IHashValueGenerator.cs" />
     <Compile Include="Security\Md5Generator.cs" />
