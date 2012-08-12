@@ -11,10 +11,10 @@ hr { height:0px; border-top:solid 1px #203d6f; border-bottom:solid 1px #6284c0; 
 .topbar li a:hover { background:#4a699d !important; }
 
 .hero-unit { padding-left:0px !important; padding-right:0px !important;}
-.main.container { margin-top:-20px; padding-top:40px; background:url(img/content_glow.png) top center no-repeat; }
+.main.container { margin-top:-20px; padding-top:40px; background:url(../img/content_glow.png) top center no-repeat; }
 .main.container .row > div {   }
 
-.content { border:solid 1px #2a497d; background:url(img/bg-blue.png) #4a699d; color:white; text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 1px; }
+.content { border:solid 1px #2a497d; background:url(../img/bg-blue.png) #4a699d; color:white; text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 1px; }
 .content { border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px; }
 .content { -moz-box-shadow: inset 0 10px 30px rgba(0,0,0,.1); -webkit-box-shadow: inset 0 10px 30px rgba(0,0,0,.1); box-shadow: inset 0 10px 30px rgba(0,0,0,.1); }
 .content a { color:white; text-decoration:underline; }
@@ -75,9 +75,6 @@ a.button
 
 .content .lines > [class*="span"] { border-right:solid 1px #203d6f; }
 .content .lines > [class*="span"]+[class*="span"] { border-left:solid 1px #6284c0; }
-
-
-
 
 .lines.download > [class*="span"] { width:530px; }
 .lines.download > [class*="span"]:last-child { width:368px; }
