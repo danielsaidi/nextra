@@ -14,7 +14,7 @@
 
     // To save keystrokes when we make JSONP calls to the HTTP API, we will keep
     // track of the root from which all V2 urls extend.
-    apiRoot = "https://github.com/api/v2/json/",
+    apiRoot = "https://api.github.com/v3/json/",
 
     // Send a JSONP request to the Github API that calls `callback` with
     // the `context` argument as `this`.
@@ -749,11 +749,12 @@
     //Custom method
     gh.repo.prototype.getLatestRelease = function(callback) {
     	this.tags(function(result) {
-				var latest = "";
-			  for (var prop in result.tags)
-			  	if (prop > latest)
-			  		latest = prop;
-			  callback(latest);
+    		var latest = "";
+    		for (var prop in result.tags)
+    			{ alert(prop); }
+    			//if (prop > latest)
+    				//latest = prop;
+    		callback(latest);
     	});
     }
 
