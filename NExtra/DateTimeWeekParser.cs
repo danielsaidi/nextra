@@ -12,6 +12,15 @@ namespace NExtra
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
+    /// 
+    /// Make sure to configure the class properly according to
+    /// which calendar week rule and first day of week rule it
+    /// should use. In Sweden, for instance, the first week of
+    /// the year is the one with four days in it (as such, use
+    /// CalendarWeekRule.FirstFourDayWeek) and the week starts
+    /// on a Monday (DayOfWeek.Monday). Since I am proud to be
+    /// a Swede (and needed a default constructor), I took the
+    /// bold decision to make that the default behavior.
     /// </remarks>
     public class DateTimeWeekParser : IDateTimeWeekParser
     {
