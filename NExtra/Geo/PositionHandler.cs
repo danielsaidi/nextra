@@ -8,7 +8,7 @@ namespace NExtra.Geo
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// Link:       http://myxaab.wordpress.com/2010/09/02/calculate-distance-bearing-between-geolocation/
     /// </remarks>
     public class PositionHandler : IBearingCalculator, IDistanceCalculator, IRhumbBearingCalculator, IRhumbDistanceCalculator

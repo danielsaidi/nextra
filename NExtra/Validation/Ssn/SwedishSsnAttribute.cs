@@ -9,7 +9,7 @@ namespace NExtra.Validation.Ssn
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-	/// Link:       http://www.dotnextra.com
+	/// Link:       http://danielsaidi.github.com/nextra
     /// 
     /// The SSN must conform to the Luhn algorithm. To validate a more
     /// complex scenario like correct sex or region, create a separate

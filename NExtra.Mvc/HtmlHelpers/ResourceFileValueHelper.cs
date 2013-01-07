@@ -10,7 +10,7 @@ namespace NExtra.Mvc.HtmlHelpers
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
     public static class ResourceFileValueHelper
     {

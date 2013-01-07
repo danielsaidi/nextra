@@ -13,7 +13,7 @@ namespace NExtra.Localization
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// 
     /// If we take the key Domain_User_UserName, for instance,
     /// the class uses it directly, without any stripping. If

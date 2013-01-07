@@ -11,7 +11,7 @@ namespace NExtra.Documentation
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// 
     /// This class wraps the various XML extractor classes that are defined
     /// in the Extractors sub namespace. It makes it easier to work with an

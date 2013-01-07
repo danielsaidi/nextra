@@ -4,9 +4,8 @@ using System.Collections.Generic;
 namespace NExtra.Cache
 {
     /// <summary>
-    /// This is a really simple cache that stores data in
-    /// a dictionary. It should only be used in a trivial
-    /// caching scenario.
+    /// This is a really simple implementation that caches data in a
+    /// dictionary. It should only be used in trivial scenarios.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

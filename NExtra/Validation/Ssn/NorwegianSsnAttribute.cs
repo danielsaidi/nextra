@@ -8,7 +8,7 @@ namespace NExtra.Validation.Ssn
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-	/// Link:       http://www.dotnextra.com
+	/// Link:       http://danielsaidi.github.com/nextra
     /// 
     /// To validate more complex scenarios, like correct sex or region,
     /// create a separate class and override the IsValid method.

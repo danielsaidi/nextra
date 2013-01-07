@@ -12,7 +12,7 @@ namespace NExtra.Web.Html
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// 
     /// To use the filter, apply it to the current response filter
     /// in global.asax, or use the Html5ElementConvertHttpModule.

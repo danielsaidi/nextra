@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NExtra
+namespace NExtra.Console
 {
     ///<summary>
     /// This interface can be implemented by classes that
@@ -8,7 +8,7 @@ namespace NExtra
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
     public interface IConsole
     {

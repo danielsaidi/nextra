@@ -7,7 +7,7 @@ namespace NExtra.Facades
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
     /// <typeparam name="T">The type that is to be wrapped.</typeparam>
     public class FacadeBase<T>

@@ -9,7 +9,7 @@ namespace NExtra.Reflection
     /// </summary>
     /// <remarks>
     /// Author:     Niklas Melinder [niklas@melinder.se]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
     public interface ITypeLocator<out TType>
     {

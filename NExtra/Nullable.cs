@@ -6,7 +6,7 @@ namespace NExtra
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
 	/// <typeparam name="T">The type that is handled by the class.</typeparam>
 	public class Nullable<T> where T : class

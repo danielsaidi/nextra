@@ -10,7 +10,7 @@ namespace NExtra.WinForms.Controls
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
     public class RoundedCornersPanel : Panel
     {
