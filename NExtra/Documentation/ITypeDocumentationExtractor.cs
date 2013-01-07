@@ -4,9 +4,8 @@ using System.Xml;
 namespace NExtra.Documentation
 {
     /// <summary>
-    /// This interface can be implemented by classes that should
-    /// be able to locate and extract XML documentation data for
-    /// Type instances.
+    /// This interface can be implemented by classes that can
+    /// extract XML documentation data for Type instances.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

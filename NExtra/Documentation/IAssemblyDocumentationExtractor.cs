@@ -5,7 +5,7 @@ namespace NExtra.Documentation
 {
     /// <summary>
     /// This interface can be implemented by classes that can
-    /// be used to extract XML documentation from assemblies.
+    /// extract XML documentation for assemblies.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -15,7 +15,7 @@ namespace NExtra.Documentation
     {
         /// <summary>
         /// Extract XML documentation for an assembly, using
-        /// a default documentation file location.
+        /// the default documentation file location.
         /// </summary>
         XmlDocument ExtractDocumentation(Assembly assembly);
 

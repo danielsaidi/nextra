@@ -31,7 +31,8 @@ namespace NExtra.Documentation
         /// <summary>
         /// Extract XML documentation for an assembly, using
         /// the default documentation file location (next to
-        /// the assembly, but with an .xml file type).
+        /// the assembly and with the same name, but with an
+        /// .xml file type instead of .dll).
         /// </summary>
         public XmlDocument ExtractDocumentation(Assembly assembly)
         {
@@ -44,11 +45,6 @@ namespace NExtra.Documentation
             return ExtractDocumentation(assembly, xmlDocumentationFile);
         }
 
-
-        /// <summary>
-        /// Extract XML documentation for an assembly using
-        /// a custom documentation file location.
-        /// </summary>
         public XmlDocument ExtractDocumentation(Assembly assembly, string xmlFilePath)
         {
             if (!File.Exists(xmlFilePath))

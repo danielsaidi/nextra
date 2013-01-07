@@ -16,7 +16,6 @@ namespace NExtra.Documentation
         private readonly IDocumentationElementExtractor xmlDocumentationElementExtractor;
 
 
-        /// <param name="xmlDocumentationElementExtractor">The element documentation extractor to use.</param>
         public MemberInfoXmlDocumentationExtractor(IDocumentationElementExtractor xmlDocumentationElementExtractor)
         {
             this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;

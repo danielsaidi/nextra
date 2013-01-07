@@ -14,9 +14,7 @@ namespace NExtra.Documentation
     /// Link:       http://danielsaidi.github.com/nextra
     /// 
     /// This class wraps the various XML extractor classes that are defined
-    /// in the Extractors sub namespace. It makes it easier to work with an
-    /// XML documented assembly and its components, since all functionality
-    /// is gathered in one class.
+    /// in this namespace.
     /// </remarks>
     public class XmlDocumentationHandler : IAssemblyDocumentationExtractor, IMemberInfoDocumentationExtractor, IMethodInfoDocumentationExtractor, ITypeDocumentationExtractor, IDocumentationElementExtractor
     {

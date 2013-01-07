@@ -7,7 +7,7 @@ namespace NExtra.Documentation
     ///<summary>
     /// This class can be used to extract documentation elements for
     /// any type, constructor, member, method etc. It is intended to
-    /// be used indirectly by the extractors in this namespace.
+    /// be used indirectly, by the various extractors in this namespace.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -24,13 +24,6 @@ namespace NExtra.Documentation
         }
 
 
-        /// <summary>
-        /// Extract documentation for an XML element.
-        /// </summary>
-        /// <param name="type">The type of interest.</param>
-        /// <param name="prefix">The type's documentation prefix.</param>
-        /// <param name="subElementName">The sub element name, if any.</param>
-        /// <returns>XML documentation element.</returns>
         public XmlElement ExtractDocumentationElement(Type type, char prefix, string subElementName)
         {
             var fullName = String.IsNullOrEmpty(subElementName) ?
