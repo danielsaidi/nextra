@@ -72,6 +72,8 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Cache\DictionaryCacheBehavior.cs" />
+    <Compile Include="Iso8601DateTimeWeekParserBehavior.cs" />
+    <Compile Include="DateTimeWeekParserBehavior.cs" />
     <Compile Include="EventArgsBehavior.cs" />
     <Compile Include="Extensions\IDictionaryExtensionsBehavior.cs" />
     <Compile Include="Extensions\WebRequestExtensionsBehavior.cs" />

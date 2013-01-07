@@ -13,7 +13,7 @@ namespace NExtra.Extensions
     public static class EnumExtensions
     {
         /// <summary>
-        /// Add a flag value to an enum value.
+        /// Add a flag value to an enum value and return the resulting value.
         /// </summary>
         public static T AddFlag<T>(this Enum value, T flag)
         {
@@ -21,7 +21,7 @@ namespace NExtra.Extensions
         }
 
         /// <summary>
-        /// Remove a flag value from an enum.
+        /// Remove a flag value from an enum value and return the resulting value.
         /// </summary>
         public static T RemoveFlag<T>(this Enum value, T flag)
         {

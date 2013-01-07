@@ -17,6 +17,10 @@ Nextra
 - I have moved IConsole, ICommandLineArgumentParser as well as the
 implementations to a new namespace, called Console.
 
+- The week methods of the DateTimeExtensions class have been moved
+to a new Interface (NExtra.IDateTimeWeekParser) as well as two new
+implementations of this interface.
+
 
 
 NExtra.Demo

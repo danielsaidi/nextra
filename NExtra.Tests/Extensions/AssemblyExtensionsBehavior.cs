@@ -18,7 +18,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetCopyrightHolder_ShouldReturnCorrectValue()
         {
-            Assert.That(Assembly.GetExecutingAssembly().GetCopyrightHolder(), Is.EqualTo("Copyright © Daniel Saidi 2009-2012"));
+            Assert.That(Assembly.GetExecutingAssembly().GetCopyrightHolder(), Is.EqualTo("Copyright © Daniel Saidi 2009-2013"));
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace NExtra.Tests.Extensions
         {
             var result = Assembly.GetExecutingAssembly().GetNamespaceTypes("NExtra.Tests").ToList();
 
-            Assert.That(result.Count, Is.EqualTo(2));
+            Assert.That(result.Count, Is.GreaterThan(2));
             Assert.That(result.Contains(typeof(EventArgsBehavior)), Is.True);
             Assert.That(result.Contains(typeof(NullableBehavior)), Is.True);
         }
