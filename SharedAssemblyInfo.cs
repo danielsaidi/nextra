@@ -5,7 +5,7 @@ using System.Reflection;
 // associated with an assembly.
 [assembly: AssemblyCompany("Daniel Saidi")]
 [assembly: AssemblyProduct("NExtra")]
-[assembly: AssemblyCopyright("Copyright © Daniel Saidi 2009-2012")]
+[assembly: AssemblyCopyright("Copyright © Daniel Saidi 2009-2013")]
 [assembly: AssemblyTrademark("")]
 
 // Make it easy to distinguish Debug and Release (i.e. Retail) builds;
@@ -25,5 +25,5 @@ using System.Reflection;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("2.6.5.0")]
-[assembly: AssemblyFileVersion("2.6.5.0")]
+[assembly: AssemblyVersion("3.0.0.0")]
+[assembly: AssemblyFileVersion("3.0.0.0")]
