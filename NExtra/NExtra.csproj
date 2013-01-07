@@ -72,8 +72,8 @@
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\MemoryCacheFacade.cs" />
     <Compile Include="Cache\DictionaryCache.cs" />
-    <Compile Include="CommandLineArgumentParser.cs" />
-    <Compile Include="ConsoleFacade.cs" />
+    <Compile Include="Console\CommandLineArgumentParser.cs" />
+    <Compile Include="Console\ConsoleFacade.cs" />
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\ProcessFacade.cs" />
     <Compile Include="Documentation\AssemblyXmlDocumentationExtractor.cs" />
@@ -98,8 +98,8 @@
     <Compile Include="Geo\IRhumbBearingCalculator.cs" />
     <Compile Include="Geo\IRhumbDistanceCalculator.cs" />
     <Compile Include="Geo\IDistanceConverter.cs" />
-    <Compile Include="ICommandLineArgumentParser.cs" />
-    <Compile Include="IConsole.cs" />
+    <Compile Include="Console\ICommandLineArgumentParser.cs" />
+    <Compile Include="Console\IConsole.cs" />
     <Compile Include="IO\FileFacade.cs" />
     <Compile Include="IO\DirectoryFacade.cs" />
     <Compile Include="IO\IDirectory.cs" />

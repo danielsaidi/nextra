@@ -5,8 +5,8 @@ using System.Runtime.Caching;
 namespace NExtra.Cache
 {
     /// <summary>
-    /// This class implements ICache and can be used as a facade
-    /// for the default System.Runtime.Caching.MemoryCache instance.
+    /// This ICache implementation can be used as a facade for
+    /// the default System.Runtime.Caching.MemoryCache instance.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

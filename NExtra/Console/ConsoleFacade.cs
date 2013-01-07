@@ -1,39 +1,40 @@
 ﻿using System;
 
-namespace NExtra
+namespace NExtra.Console
 {
     /// <summary>
-    /// This class can be used as a facade for the static Console class.
+    /// This IConsole implementation can be used as a facade
+    /// for the static Console class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
     public class ConsoleFacade : IConsole
     {
         public int Read()
         {
-            return Console.Read();
+            return System.Console.Read();
         }
 
         public ConsoleKeyInfo ReadKey()
         {
-            return Console.ReadKey();
+            return System.Console.ReadKey();
         }
 
         public string ReadLine()
         {
-            return Console.ReadLine();
+            return System.Console.ReadLine();
         }
 
         public void Write(string value)
         {
-            Console.Write(value);
+            System.Console.Write(value);
         }
 
         public void WriteLine(string value)
         {
-            Console.WriteLine(value);
+            System.Console.WriteLine(value);
         }
     }
 }
