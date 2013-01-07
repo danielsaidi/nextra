@@ -4,7 +4,8 @@ using System.Security;
 namespace NExtra.Diagnostics
 {
     /// <summary>
-    /// This class can be used as a facade for the static Process class.
+    /// This IConsole implementation can be used as a facade
+    /// for the static Process class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

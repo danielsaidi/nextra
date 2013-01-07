@@ -5,18 +5,33 @@ In this version, I have refactored large parts of the code. I have
 also been rather hard on myself, and removed stuff that I found to
 be not that general and reusable as I first believed them to be.
 
+Overall, I have modified large parts of the documentation and made
+some parts easier to understand. I have also removed documentation
+for class methods, where the documentation did not differ from the
+interface documentation.
+
+
 Nextra
 ------
 
+- I have moved IConsole, ICommandLineArgumentParser as well as the
+implementations to a new namespace, called Console.
 
 
 
-I have completely removed the NExtra demo, since maintaining it is
-insanely 
+NExtra.Demo
+-----------
+
+This project has been entirely removed, since maintaining it was a
+lot more painful than the demo was useful.
 
 
-Since I now release new versions with small changes quite often, I
+NExtra.EPiServer
+----------------
 
+This project has been entirely removed, since NExtra should not be
+about extending products. It becomes too specific, and therefore I
+decided to throw this part of NExtra far faar away.
 
 
 
