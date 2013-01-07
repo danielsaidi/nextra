@@ -1,3 +1,26 @@
+.NExtra 3.0.0.0		2012-xx-xx
+==============================
+
+In this version, I have refactored large parts of the code. I have
+also been rather hard on myself, and removed stuff that I found to
+be not that general and reusable as I first believed them to be.
+
+Nextra
+------
+
+
+
+
+I have completely removed the NExtra demo, since maintaining it is
+insanely 
+
+
+Since I now release new versions with small changes quite often, I
+
+
+
+
+
 .NExtra 2.6.5.0		2012-02-24
 ==============================
 

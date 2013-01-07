@@ -4,10 +4,9 @@ using System.Text.RegularExpressions;
 namespace NExtra
 {
     /// <summary>
-    /// This class can be used to parse any arguments that
-    /// are passed into a command line application. It can
-    /// be used to parse any argument collection where the
-    /// argument names follow any of the following formats:
+    /// This class can be used to parse arguments that are passed into
+    /// a command line application. It can handle argument collections
+    /// where the arguments follow any of the following formats:
     /// 
     /// /name=Stefan
     /// --name=Stefan
@@ -18,11 +17,10 @@ namespace NExtra
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://www.dotnextra.com
     /// 
-    /// The original implementation, made by Richard Lopes,
-    /// has been refactored to implement an interface that
-    /// replaced with other implementations.
+    /// The original implementation, made by Richard Lopes, is changed
+    /// to implement the ICommandLineArgumentParser interface. Richard
+    /// Lopes' implementation can be found at:
     /// 
-    /// The original implementation can be found at:
     /// http://www.codeproject.com/KB/recipes/command_line.aspx 
     /// </remarks>
     public class CommandLineArgumentParser : ICommandLineArgumentParser
