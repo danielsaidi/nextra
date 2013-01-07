@@ -4,12 +4,13 @@ using System.Collections.Generic;
 namespace NExtra.Cache
 {
     /// <summary>
-    /// This is a really simple implementation that caches data in a
-    /// dictionary. It should only be used in trivial scenarios.
+    /// This is a really simple ICache implementation that caches
+    /// data in a memory dictionary. It requires no configuration
+    /// at all, but should only be used in really trivial cases.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// Link:       http://www.dotnextra.com
+    /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
     public class DictionaryCache : ICache
     {
@@ -22,59 +23,38 @@ namespace NExtra.Cache
         }
 
 
-        /// <summary>
-        /// Clear the entire cache.
-        /// </summary>
         public void Clear()
         {
             cache.Clear();
         }
 
-        /// <summary>
-        /// Check whether or not a certain cache key exists.
-        /// </summary>
         public bool Contains(string key)
         {
             RemoveIfInvalid(key);
             return cache.ContainsKey(key);
         }
 
-        /// <summary>
-        /// Retrieve a certain cached value.
-        /// </summary>
         public object Get(string key)
         {
             RemoveIfInvalid(key);
             return cache[key].Obj;
         }
 
-        /// <summary>
-        /// Retrieve a certain, typed cached value.
-        /// </summary>
         public T Get<T>(string key)
         {
             return (T)Get(key);
         }
 
-        /// <summary>
-        /// Check whether or not a cache key is valid.
-        /// </summary>
         private bool IsValid(string key)
         {
             return cache[key].Expires > DateTime.Now;
         }
 
-        /// <summary>
-        /// Remove a certain cached value.
-        /// </summary>
         public void Remove(string key)
         {
             cache.Remove(key);
         }
 
-        /// <summary>
-        /// Remove a cached value, if it is invalid.
-        /// </summary>
         private void RemoveIfInvalid(string key)
         {
             if (!cache.ContainsKey(key))
@@ -92,17 +72,11 @@ namespace NExtra.Cache
             Set(key, value, new TimeSpan(0, 1, 0, 0));
         }
 
-        /// <summary>
-        /// Insert a value into the cache, using a custom timeout.
-        /// </summary>
         public void Set(string key, object value, TimeSpan timeout)
         {
             cache[key] = new DictionaryCacheItem(value, DateTime.Now.Add(timeout));
         }
 
-        /// <summary>
-        /// Try to retrieve a certain, typed cached value.
-        /// </summary>
         public T TryGet<T>(string key, T fallback)
         {
             return !Contains(key) ? fallback : Get<T>(key);
@@ -111,7 +85,7 @@ namespace NExtra.Cache
 
     
     /// <summary>
-    /// This internal class is what is stored by this cache.
+    /// This internal class is how data is stored in the dictionary cache.
     /// </summary>
     internal class DictionaryCacheItem
     {
