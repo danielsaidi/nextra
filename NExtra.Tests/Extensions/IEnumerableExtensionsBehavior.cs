@@ -33,56 +33,6 @@ namespace NExtra.Tests.Extensions
 
 
         [Test]
-        public void Contains_ShouldReturnFalseForNullCollection()
-        {
-            collection = null;
-
-            Assert.That(collection.Contains(magazineSales.First(), true), Is.False);
-        }
-
-        [Test]
-        public void Contains_ShouldReturnFalseForEmptyCollection()
-        {
-            collection = new List<KeyValuePair<string, int>>();
-
-            Assert.That(collection.Contains(magazineSales.First(), true), Is.False);
-        }
-
-        [Test]
-        public void Contains_ShouldReturnFalseForNonExistingValue()
-        {
-            Assert.That(collection.Contains(magazineSales.First(), true), Is.False);
-        }
-
-        [Test]
-        public void Contains_ShouldReturnTrueForExistingValue()
-        {
-            Assert.That(collection.Contains(collection.First(), true), Is.True);
-        }
-
-        [Test]
-        public void IsSingle_ShouldReturnFalseForEmptyCollection()
-        {
-            collection = new List<KeyValuePair<string, int>>();
-
-            Assert.That(collection.IsSingle(), Is.False);
-        }
-
-        [Test]
-        public void IsSingle_ShouldReturnFalseForMoreThanOneElement()
-        {
-            Assert.That(collection.IsSingle(), Is.False);
-        }
-
-        [Test]
-        public void IsSingle_ShouldReturnTrueForOneElement()
-        {
-            var oneCollection = new List<int> {1};
-
-            Assert.That(oneCollection.IsSingle(), Is.True);
-        }
-
-        [Test]
         public void OrderBy_ShouldApplyToCollection()
         {
             var original = magazineSales;

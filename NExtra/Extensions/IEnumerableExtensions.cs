@@ -13,29 +13,11 @@ namespace NExtra.Extensions
     public static class IEnumerableExtensions
     {
         /// <summary>
-        /// Check whether or not an IEnumerable contains a certain value.
-        /// </summary>
-        public static bool Contains<T>(this IEnumerable<T> source, T value, bool handleNullSource)
-        {
-            if (handleNullSource && source == null)
-                return false;
-            return source.Contains(value);
-        }
-
-        /// <summary>
         /// Check whether or not an IEnumerable is null or empty.
         /// </summary>
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)
         {
             return source == null || source.Count() == 0;
-        }
-        
-        /// <summary>
-        /// Check whether or not an IEnumerable contains exactly one element.
-        /// </summary>
-        public static bool IsSingle<T>(this IEnumerable<T> source)
-        {
-            return source.Count() == 1;
         }
 
         /// <summary>

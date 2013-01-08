@@ -60,6 +60,7 @@ namespace NExtra.Extensions
             return source.ApplyOrder(propertyName, "ThenByDescending");
         }
 
+
 	    /// <summary>
 	    /// Apply any given sorting on an IQueryable.
 	    /// </summary>

@@ -158,7 +158,6 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\IComparableExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Facades\FacadeBase.cs" />
     <Compile Include="IO\FileSizePresenter.cs" />
     <Compile Include="Nullable.cs" />
     <Compile Include="Testing\MetadataRegistrator.cs" />

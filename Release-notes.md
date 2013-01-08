@@ -21,6 +21,13 @@ implementations to a new namespace, called Console.
 to a new Interface (NExtra.IDateTimeWeekParser) as well as two new
 implementations of this interface.
 
+- The IEnumerableExtensions.Contains method has been removed. I am
+sorry for ever adding it. I removed IsSingle as well, since it can
+be rather easily re-implemented (can you sense the irony?).
+
+- I have removed the Facade namespace with its only class. A class
+that was nothing more than a wrapper class didn't feel relevant to
+me anymore. I hope you agree.
 
 
 NExtra.Demo

@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 
 namespace NExtra.Extensions
 {
@@ -12,8 +11,6 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class DateTimeExtensions
     {
-
-
         /// <summary>
         /// Get the first date of the month for a certain date.
         /// </summary>

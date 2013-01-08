@@ -20,7 +20,9 @@ namespace NExtra.Extensions
         public static Uri GetRootUri(this Uri uri)
         {
             var port = (uri.IsDefaultPort) ? "" : ":" + uri.Port;
-            return new Uri(string.Format("{0}://{1}{2}", uri.Scheme, uri.Host, port));
+            var root = new Uri(string.Format("{0}://{1}{2}", uri.Scheme, uri.Host, port));
+
+            return root;
         }
     }
 }

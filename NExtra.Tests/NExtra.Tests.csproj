@@ -100,7 +100,6 @@
     <Compile Include="Extensions\EnumExtensionsBehavior.cs" />
     <Compile Include="Extensions\IQueryableExtensionsBehavior.cs" />
     <Compile Include="Extensions\IEnumerableExtensionsBehavior.cs" />
-    <Compile Include="Facades\FacadeBaseBehavior.cs" />
     <Compile Include="Geo\AngleConverterBehavior.cs" />
     <Compile Include="Geo\DistanceConverterBehavior.cs" />
     <Compile Include="Geo\PositionHandlerBehavior.cs" />
