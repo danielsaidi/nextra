@@ -66,7 +66,7 @@ namespace NExtra.Testing
         }
 
         /// <summary>
-        /// Operation that is called as soon as an exception is thrown.
+        /// The operation that is called as soon as an exception is thrown.
         /// </summary>
         [ReflectionPermission(SecurityAction.Demand)]
         private static void ThrowExceptionPreservingStack(Exception exception)

@@ -5,7 +5,8 @@ using System.Text;
 namespace NExtra.Security
 {
     /// <summary>
-    /// This class can be used to generate SHA1 hash values.
+    /// This class can be used to generate SHA1 hash values,
+    /// using the native SHA1CryptoServiceProvider class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

@@ -29,6 +29,9 @@ be rather easily re-implemented (can you sense the irony?).
 that was nothing more than a wrapper class didn't feel relevant to
 me anymore. I hope you agree.
 
+- I have removed the RequiredMode class, which have caused some of
+the validation attributes to be modified.
+
 
 NExtra.Demo
 -----------

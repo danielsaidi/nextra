@@ -7,9 +7,9 @@ using NExtra.Extensions;
 namespace NExtra.Reflection
 {
     /// <summary>
-    /// This class can be used to find all types within a
-    /// single assembly or several ones that implement an
-    /// interface or inherits a base class.
+    /// This class can be used to find all types in one or
+    /// several assemblies, that inherit a certain type or
+    /// implement a certain interface.
     /// </summary>
     /// <remarks>
     /// Author:     Niklas Melinder [niklas@melinder.se]
@@ -21,19 +21,14 @@ namespace NExtra.Reflection
 
 
         /// <summary>
-        /// Creates an instance of TypeLocator from an array of assemblies.
+        /// Create an instance of the class, using a list of assemblies.
         /// </summary>
-        /// <param name="assemblies">An array of assemblies to look in.</param>
         public TypeLocator(params Assembly[] assemblies)
         {
             _assemblies = assemblies;
         }
 
 
-        /// <summary>
-        /// Finds all types implementing TType in provided array of assemblies.
-        /// </summary>
-        /// <returns>The interface type to find.</returns>
         public IEnumerable<TType> FindAll()
         {
             var implementations = new List<TType>();

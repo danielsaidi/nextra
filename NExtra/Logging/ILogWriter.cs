@@ -1,9 +1,9 @@
 ﻿namespace NExtra.Logging
 {
     /// <summary>
-    /// This interface can be implemented by any class that
-    /// can log messages in various ways. It can be used as
-    /// a facade for e.g. log4net.
+    /// This interface can be implemented by classes that can
+    /// be used to log messages. An implementation could, for
+    /// instance, wrap log4net to simplify testing.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -12,9 +12,9 @@
     public interface ILogWriter
     {
         /// <summary>
-        /// Log a message.
+        /// Log a certain message.
         /// </summary>
-        /// <param name="logLevel">Message log level.</param>
+        /// <param name="logLevel">The message log level, e.g. Debug.</param>
         /// <param name="message">The message to log.</param>
         void Log(LogLevel logLevel, string message);
     }

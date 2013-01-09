@@ -9,6 +9,9 @@ namespace NExtra.Testing
 	/// <summary>
 	/// This class can be used to register metadata for a
 	/// certain type, or for all all types in an assembly.
+	/// By default, metadata is not registered within the
+	/// test context, which may cause some things to be a
+	/// bit hard to test.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

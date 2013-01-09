@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 namespace NExtra.Testing
 {
     ///<summary>
-    /// This class can be used to validate metadata
-    /// conditions that has been placed on any type.
+    /// This class can be used to validate metadata conditions
+    /// that has been placed on a type. To use it, just create
+    /// an instance of the class, using the object you want to
+    /// validate. The object is then automatically validated.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

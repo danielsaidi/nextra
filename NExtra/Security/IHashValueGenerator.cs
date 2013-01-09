@@ -1,8 +1,8 @@
 ﻿namespace NExtra.Security
 {
     /// <summary>
-    /// This interface can be implemented by classes that
-    /// can generate a hash value for any kind of objects.
+    /// This interface can be implemented by classes that can
+    /// generate a hash value for any kind of object.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
