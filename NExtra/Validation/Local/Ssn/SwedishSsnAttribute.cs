@@ -17,33 +17,33 @@ namespace NExtra.Validation.Ssn
 	/// </remarks>
 	public class SwedishSsnAttribute : RegularExpressionAttribute, IValidator
     {
-        private const string dashExpression = "^\\b\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[-+]\\d{4}\\b$";
-        private const string noDashExpression = "^\\b\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])\\d{4}\\b$";
-        private const string optionalDashExpression = "^\\b\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[-+]?\\d{4}\\b$";
+        public const string NoDashExpression = "^\\b\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])\\d{4}\\b$";
+        public const string OptionalDashExpression = "^\\b\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[-+]?\\d{4}\\b$";
+        public const string RequiredDashExpression = "^\\b\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[-+]\\d{4}\\b$";
 
 	    private readonly IValidator checksumValidator;
 
 
-        public SwedishSsnAttribute(UseSeparator useDash)
-            : this(useDash, new SwedishSsnChecksumValidator()) { }
+        public SwedishSsnAttribute(RequiredMode separatorMode)
+            : this(separatorMode, new SwedishSsnChecksumValidator()) { }
 
-        public SwedishSsnAttribute(UseSeparator useDash, IValidator checksumValidator)
-            : base(Expression(useDash))
+        public SwedishSsnAttribute(RequiredMode separatorMode, IValidator checksumValidator)
+            : base(Expression(separatorMode))
         {
             this.checksumValidator = checksumValidator;
         }
 
 
-        public static string Expression(UseSeparator useDash)
+        public static string Expression(RequiredMode separatorMode)
         {
-            switch (useDash)
+            switch (separatorMode)
             {
-                case UseSeparator.No:
-                    return noDashExpression;
-                case UseSeparator.Yes:
-                    return dashExpression;
+                case RequiredMode.None:
+                    return NoDashExpression;
+                case RequiredMode.Required:
+                    return RequiredDashExpression;
                 default:
-                    return optionalDashExpression;
+                    return OptionalDashExpression;
             }
         }
 

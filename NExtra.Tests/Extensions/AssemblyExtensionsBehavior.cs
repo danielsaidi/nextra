@@ -35,7 +35,6 @@ namespace NExtra.Tests.Extensions
             Assert.That(result.Contains("NExtra.Tests"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Validation"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Extensions"), Is.True);
-            Assert.That(result.Contains("NExtra.Tests.Facades"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Geo"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.IO"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Localization"), Is.True);

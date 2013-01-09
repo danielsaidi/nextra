@@ -15,33 +15,33 @@ namespace NExtra.Validation.Ssn
 	/// </remarks>
 	public class FinnishSsnAttribute : RegularExpressionAttribute, IValidator
     {
-        private const string dashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]\\d{3}\\w\\b$";
-        private const string noDashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{5}\\w\\b$";
-        private const string optionalDashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]?\\d{3}\\w\\b$";
+        public const string NoSeparatorExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{5}\\w\\b$";
+        public const string OptionalSeparatorExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]?\\d{3}\\w\\b$";
+        public const string RequiredSeparatorExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]\\d{3}\\w\\b$";
 
         private readonly IValidator checksumValidator;
 
+        
+        public FinnishSsnAttribute(RequiredMode separatorMode)
+            : this(separatorMode, new FinnishSsnChecksumValidator()) { }
 
-        public FinnishSsnAttribute(UseSeparator useSeparator)
-            : this(useSeparator, new FinnishSsnChecksumValidator()) { }
-
-        public FinnishSsnAttribute(UseSeparator useSeparator, IValidator checksumValidator)
-            : base(Expression(useSeparator))
+        public FinnishSsnAttribute(RequiredMode separatorMode, IValidator checksumValidator)
+            : base(Expression(separatorMode))
         {
             this.checksumValidator = checksumValidator;
         }
 
 
-        public static string Expression(UseSeparator useSeparator)
+        public static string Expression(RequiredMode separatorMode)
         {
-            switch (useSeparator)
+            switch (separatorMode)
             {
-                case UseSeparator.No:
-                    return noDashExpression;
-                case UseSeparator.Yes:
-                    return dashExpression;
+                case RequiredMode.None:
+                    return NoSeparatorExpression;
+                case RequiredMode.Required:
+                    return RequiredSeparatorExpression;
                 default:
-                    return optionalDashExpression;
+                    return OptionalSeparatorExpression;
             }
         }
 

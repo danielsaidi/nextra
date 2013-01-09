@@ -1,16 +1,17 @@
-﻿namespace NExtra
+﻿namespace NExtra.Validation
 {
     /// <summary>
-    /// This enum describes three required state options.
+    /// This enum describes whether or not a separator is
+    /// allowed in regex validation attributes.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public enum RequiredMode
+    public enum UseSeparator
     {
-        Optional,
-        None,
-        Required
+        Yes,
+        No,
+        Optional
     }
 }

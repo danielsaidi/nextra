@@ -7,40 +7,47 @@ namespace NExtra.Tests.Validation.PostalCode
 	[TestFixture]
 	public class SwedishPostalCodeAttributeBehavior
     {
-        public IValidator GetValidator(bool optionalSpace = false)
+        public IValidator GetValidator(UseSeparator useSpace)
         {
-            return new SwedishPostalCodeAttribute(optionalSpace);
+            return new SwedishPostalCodeAttribute(useSpace);
         }
 
 
         [Test]
         public void IsValid_ShouldReturnTrueForNull()
         {
-            Assert.That(GetValidator().IsValid(null), Is.True);
-            Assert.That(GetValidator(true).IsValid(null), Is.True);
+            Assert.That(GetValidator(UseSeparator.Yes).IsValid(null), Is.True);
+            Assert.That(GetValidator(UseSeparator.No).IsValid(null), Is.True);
+            Assert.That(GetValidator(UseSeparator.Optional).IsValid(null), Is.True);
         }
-
         [Test]
         public void IsValid_ShouldReturnTrueForEmptyString()
         {
-            Assert.That(GetValidator().IsValid(string.Empty), Is.True);
-            Assert.That(GetValidator(true).IsValid(string.Empty), Is.True);
+            Assert.That(GetValidator(UseSeparator.Yes).IsValid(string.Empty), Is.True);
+            Assert.That(GetValidator(UseSeparator.No).IsValid(string.Empty), Is.True);
+            Assert.That(GetValidator(UseSeparator.Optional).IsValid(string.Empty), Is.True);
         }
 
         [Test]
-        public void IsValid_ShouldReturnFalseForSpaceWhenNotAllowed()
+        [TestCase("1 1111")]
+        [TestCase("11 111")]
+        [TestCase("111 11")]
+        [TestCase("1111 1")]
+        public void IsValid_NoSpace_ShouldReturnFalseForAllSpaces(string postalCode)
         {
-            Assert.That(GetValidator().IsValid("111 11"), Is.False);
+            Assert.That(GetValidator(UseSeparator.No).IsValid(postalCode), Is.False);
         }
 
         [Test]
         [TestCase("1 1111")]
         [TestCase("11 111")]
         [TestCase("1111 1")]
-        public void IsValid_ShouldReturnFalseForInvalidSpaceWhenAllowed(string postalCode)
+        public void IsValid_YesAndOptional_ShouldReturnFalseForInvalidSpaces(string postalCode)
         {
-            Assert.That(GetValidator(true).IsValid(postalCode), Is.False);
+            Assert.That(GetValidator(UseSeparator.Yes).IsValid(postalCode), Is.False);
+            Assert.That(GetValidator(UseSeparator.Optional).IsValid(postalCode), Is.False);
         }
+
 
         [Test]
         [TestCase("1")]
@@ -48,9 +55,9 @@ namespace NExtra.Tests.Validation.PostalCode
         [TestCase("111")]
         [TestCase("1111")]
         [TestCase("111111")]
-        public void IsValid_ShouldReturnFalseForInvalidStringLengthWhenSpaceIsNotAllowed(string postalCode)
+        public void IsValid_No_ShouldReturnFalseForInvalidStringLength(string postalCode)
         {
-            Assert.That(GetValidator().IsValid(postalCode), Is.False);
+            Assert.That(GetValidator(UseSeparator.No).IsValid(postalCode), Is.False);
         }
 
         [Test]
@@ -60,30 +67,34 @@ namespace NExtra.Tests.Validation.PostalCode
         [TestCase("1111")]
         [TestCase("111111")]
         [TestCase("111 111")]
-        public void IsValid_ShouldReturnFalseForInvalidStringLengthWhenSpaceIsAllowed(string postalCode)
+        public void IsValid_YesAndOptional_ShouldReturnFalseForInvalidStringLength(string postalCode)
         {
-            Assert.That(GetValidator(true).IsValid(postalCode), Is.False);
+            Assert.That(GetValidator(UseSeparator.Yes).IsValid(postalCode), Is.False);
+            Assert.That(GetValidator(UseSeparator.Optional).IsValid(postalCode), Is.False);
         }
-
 
         [Test]
         public void IsValid_ShouldReturnFalseForInvalidChars()
         {
-            Assert.That(GetValidator().IsValid("@2345"), Is.False);
-            Assert.That(GetValidator(true).IsValid("@2345"), Is.False);
+            Assert.That(GetValidator(UseSeparator.Yes).IsValid("@2345"), Is.False);
+            Assert.That(GetValidator(UseSeparator.No).IsValid("@2345"), Is.False);
+            Assert.That(GetValidator(UseSeparator.Optional).IsValid("@2345"), Is.False);
         }
 
         [Test]
-        public void IsValid_ShouldReturnTrueForValidPostalCodeWithoutSpace()
+        [TestCase("11111")]
+        public void IsValid_NoAndOptional_ShouldReturnTrueForValidPostalCodeWithoutSpace(string postalCode)
         {
-            Assert.That(GetValidator().IsValid("11111"), Is.True);
-            Assert.That(GetValidator(true).IsValid("11111"), Is.True);
+            Assert.That(GetValidator(UseSeparator.No).IsValid(postalCode), Is.True);
+            Assert.That(GetValidator(UseSeparator.Optional).IsValid(postalCode), Is.True);
         }
 
         [Test]
-        public void IsValid_ShouldReturnTrueForValidPostalCodeWithSpace()
+        [TestCase("111 11")]
+        public void IsValid_YesAndOptional_ShouldReturnTrueForValidPostalCodeWithSpace(string postalCode)
         {
-            Assert.That(GetValidator(true).IsValid("111 11"), Is.True);
+            Assert.That(GetValidator(UseSeparator.Yes).IsValid(postalCode), Is.True);
+            Assert.That(GetValidator(UseSeparator.Optional).IsValid(postalCode), Is.True);
         }
 	}
 }

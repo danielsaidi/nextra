@@ -15,6 +15,8 @@ namespace NExtra.Validation.Ssn
 	/// </remarks>
 	public class NorwegianSsnAttribute : RegularExpressionAttribute, IValidator
     {
+        public const string Expression = "^\\b(0[1-9]|[12]\\d|3[01])([04][1-9]|[15][0-2])\\d{7}\\b$";
+
         private readonly IValidator checksumValidator;
 
         
@@ -26,9 +28,6 @@ namespace NExtra.Validation.Ssn
         {
             this.checksumValidator = checksumValidator;
         }
-
-
-        public const string Expression = "^\\b(0[1-9]|[12]\\d|3[01])([04][1-9]|[15][0-2])\\d{7}\\b$";
 
 
         public override bool IsValid(object value)
