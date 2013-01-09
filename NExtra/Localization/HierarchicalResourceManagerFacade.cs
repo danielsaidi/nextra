@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Resources;
@@ -7,40 +8,54 @@ namespace NExtra.Localization
 {
     ///<summary>
     /// This class can translate language keys hierarchically,
-    /// using a resource file. Unlike its base class, it will
-    /// strip language keys, piece by piece, until it finds a
-    /// translation, if one exists.
+    /// using a resource file. Unlike the base class, it will
+    /// strip language keys piece by piece (using the defined
+    /// key separatator) until it finds a translation, if any.
+    /// 
+    /// This approach means that one can specify very general
+    /// translations for rather basic terms (like "Password")
+    /// and then override the general translations whenever a
+    /// more specific translation is needed.
+    /// 
+    /// If no key separator is specified, the class will make
+    /// _ the default separator.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// 
-    /// If we take the key Domain_User_UserName, for instance,
-    /// the class uses it directly, without any stripping. If
-    /// no translation is found and we use _ as key separator,
-    /// it then uses User_UserName, then finally UserName.
+    /// If we want to translate "Domain_User_UserName", using
+    /// _ as key separator, the class will first check if the
+    /// full language key ("Domain_User_UserName") exists. If
+    /// it does not, the class will strip the first part from
+    /// the key ("Domain"). It then checks if "User_UserName"
+    /// exists, then finally "UserName".
     /// </remarks>
     public class HierarchicalResourceManagerFacade : ResourceManagerFacade
     {
-        private readonly string keySeparator = "_";
-
+        /// <summary>
+        /// Create an instance of the class, using a custom
+        /// resource manager and the default _ key separator.
+        /// </summary>
+        public HierarchicalResourceManagerFacade(ResourceManager resourceManager)
+            : this(resourceManager, "_")
+        {
+        }
 
         /// <summary>
-        /// Create an instance of the class, using a
-        /// custom resource manager and key separator.
+        /// Create an instance of the class, using a custom
+        /// resource manager and a custom key separator.
         /// </summary>
-        public HierarchicalResourceManagerFacade(ResourceManager resourceManager, string keySeparator = "_")
+        public HierarchicalResourceManagerFacade(ResourceManager resourceManager, string keySeparator)
             : base(resourceManager)
         {
-            this.keySeparator = keySeparator;
+            KeySeparator = keySeparator;
         }
 
 
-        /// <summary>
-        /// Retrieve all translation keys for a certain key.
-        /// For instance, "User_UserName" will result in an
-        /// IEnumerable with "User" and "UserName".
-        /// </summary>
+        public string KeySeparator { get; private set; }
+
+
         public IEnumerable<string> GetKeys(string key)
         {
             var result = new List<string>();
@@ -49,26 +64,20 @@ namespace NExtra.Localization
             {
                 result.Add(key);
 
-                if (key.IndexOf(keySeparator) < 0)
+                if (key.IndexOf(KeySeparator) < 0)
                     break;
 
-                key = key.Substring(key.IndexOf(keySeparator) + 1);
+                key = key.Substring(key.IndexOf(KeySeparator) + 1);
             }
 
             return result;
         }
 
-        /// <summary>
-        /// Translate a certain language key for the current culture.
-        /// </summary>
         public override string Translate(string key)
         {
             return Translate(key, Thread.CurrentThread.CurrentUICulture);
         }
 
-        ///<summary>
-        /// Translate a certain language key for a certain culture.
-        ///</summary>
         public override string Translate(string key, CultureInfo cultureInfo)
         {
             var currentVerb = key;
@@ -79,10 +88,10 @@ namespace NExtra.Localization
                 if (result != null)
                     return result;
 
-                if (currentVerb.IndexOf(keySeparator) < 0)
+                if (currentVerb.IndexOf(KeySeparator) < 0)
                     return null;
 
-                currentVerb = currentVerb.Substring(currentVerb.IndexOf(keySeparator) + 1);
+                currentVerb = currentVerb.Substring(currentVerb.IndexOf(KeySeparator) + 1);
             }
         }
     }
