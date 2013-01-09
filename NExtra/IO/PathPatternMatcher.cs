@@ -6,17 +6,17 @@ using NExtra.Extensions;
 namespace NExtra.IO
 {
     /// <summary>
-    /// This class can be used to check if a file or
-    /// directory path matches a certain pattern. It
-    /// does not use regular expressions, but rather
-    /// an implementation found at stackoverflow.com.
-    /// 
-    /// The class supports operations like *.txt, b*,
-    /// a*.txt etc.
+    /// This class can be used to check if a file or directory
+    /// path matches a certain pattern. It supports operations
+    /// like *.txt, b*, a*.txt etc.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
+    /// 
+    /// This implementation was found at stackoverflow.com. I
+    /// forgot to keep the url, though, so even though I want
+    /// to thank the author...it's rather impossible.
     /// </remarks>
     public class PathPatternMatcher : IPathPatternMatcher
     {
@@ -25,12 +25,6 @@ namespace NExtra.IO
             return patterns.Any(pattern => IsMatch(path, pattern));
         }
 
-        /// <summary>
-        /// This thing was found at a blog somewhere.
-        /// I don't remember where, but a big salute
-        /// goes to the author. I have modified it a
-        /// bit, though.
-        /// </summary>
         public bool IsMatch(string path, string pattern)
         {
             if (pattern.IsNullOrEmpty() || path.IsNullOrEmpty())

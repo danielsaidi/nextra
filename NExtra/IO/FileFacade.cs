@@ -8,8 +8,7 @@ using System.Text;
 namespace NExtra.IO
 {
     /// <summary>
-    /// This class can be used as a facade for the static
-    /// File class.
+    /// This class can be used as a facade for the static File class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

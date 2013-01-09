@@ -6,6 +6,14 @@ using System.Text;
 
 namespace NExtra.IO
 {
+    /// <summary>
+    /// This interface can be implemented by classes that can
+    /// be used to work with file system files.
+    /// </summary>
+    /// <remarks>
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
+    /// Link:       http://danielsaidi.github.com/nextra
+    /// </remarks>
     public interface IFile
     {
         void AppendAllLines(string path, IEnumerable<string> lines);
