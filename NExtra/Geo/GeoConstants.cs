@@ -1,7 +1,7 @@
 ﻿namespace NExtra.Geo
 {
     /// <summary>
-    /// This static class contains geo-related constants.
+    /// This class contains geo constants that never(ish) change.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

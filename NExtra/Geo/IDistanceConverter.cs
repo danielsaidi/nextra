@@ -1,8 +1,8 @@
 ﻿namespace NExtra.Geo
 {
     /// <summary>
-    /// This interface can be implemented by all classes
-    /// that can convert distances in various ways.
+    /// This interface can be implemented by classes that can
+    /// convert distance units.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

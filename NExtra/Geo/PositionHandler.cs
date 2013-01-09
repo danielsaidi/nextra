@@ -16,18 +16,12 @@ namespace NExtra.Geo
         private readonly AngleConverter angleConverter;
 
         
-        /// <summary>
-        /// Create an instance of the class.
-        /// </summary>
         public PositionHandler()
         {
             angleConverter = new AngleConverter();
         }
 
 
-        /// <summary>
-        /// Calculate the bearing between two positions.
-        /// </summary>
         public double CalculateBearing(Position position1, Position position2)
         {
             var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
@@ -41,9 +35,6 @@ namespace NExtra.Geo
             return (angleConverter.ConvertRadiansToDegrees(brng) + 360) % 360;
         }
 
-        /// <summary>
-        /// Calculate the distance between two positions.
-        /// </summary>
         public double CalculateDistance(Position position1, Position position2, DistanceUnit distanceUnit)
         {
             var R = (distanceUnit == DistanceUnit.Miles) ? GeoConstants.EarthRadiusInMiles : GeoConstants.EarthRadiusInKilometers;
@@ -56,9 +47,6 @@ namespace NExtra.Geo
             return Math.Round(distance, 2);
         }
 
-        /// <summary>
-        /// Calculate the rhumb bearing between two positions.
-        /// </summary>
         public double CalculateRhumbBearing(Position position1, Position position2)
         {
             var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
@@ -72,9 +60,6 @@ namespace NExtra.Geo
             return (angleConverter.ConvertRadiansToDegrees(brng) + 360) % 360;
         }
 
-        /// <summary>
-        /// Calculate the rhumb distance between two positions.
-        /// </summary>
         public double CalculateRhumbDistance(Position position1, Position position2, DistanceUnit distanceUnit)
         {
             var R = (distanceUnit == DistanceUnit.Miles) ? GeoConstants.EarthRadiusInMiles : GeoConstants.EarthRadiusInKilometers;

@@ -1,8 +1,8 @@
 ﻿namespace NExtra.Geo
 {
     /// <summary>
-    /// This interface can be implemented by classes that
-    /// can calculate the rhumb bearing between two positions.
+    /// This interface can be implemented by classes that can
+    /// calculate the rhumb bearing between two positions.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

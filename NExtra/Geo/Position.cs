@@ -1,7 +1,7 @@
 namespace NExtra.Geo
 {
     /// <summary>
-    /// This class represents a position with a latitude and longitude.
+    /// This class represents a geographical position.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -9,9 +9,6 @@ namespace NExtra.Geo
     /// </remarks>
     public class Position
     {
-        /// <summary>
-        /// Create an instance of the class.
-        /// </summary>
         public Position(double latitude, double longitude)
         {
             Latitude = latitude;
@@ -19,14 +16,8 @@ namespace NExtra.Geo
         }
 
 
-        /// <summary>
-        /// The latitude of the position.
-        /// </summary>
         public double Latitude { get; set; }
 
-        /// <summary>
-        /// The longitude of the position.
-        /// </summary>
         public double Longitude { get; set; }
     }
 }

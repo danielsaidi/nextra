@@ -1,8 +1,8 @@
 ﻿namespace NExtra.Geo
 {
     /// <summary>
-    /// This interface can be implemented by all classes
-    /// that can convert angles in various ways.
+    /// This interface can be implemented by classes that can
+    /// convert angular values.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
