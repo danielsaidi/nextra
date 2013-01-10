@@ -12,11 +12,22 @@ namespace NExtra.Web.Avatar
     /// </remarks>
     public class Gravatar : IAvatarService<int>
     {
-        /// <summary>
-        /// The URL pattern for Gravatar avatars.
-        /// </summary>
-        public const string UrlPattern = "http://www.gravatar.com/avatar/{0}?s={1}";
+        private const string urlPattern = "http://www.gravatar.com/avatar/{0}?s={1}";
 
+
+        ///<summary>
+        /// Create an instance of the class, using a default avatar size.
+        ///</summary>
+        public Gravatar(int defaultSize)
+        {
+            DefaultSize = defaultSize;
+        }
+
+
+        /// <summary>
+        /// The default size of the avatars returned by this class.
+        /// </summary>
+        public int DefaultSize { get; private set; }
 
         /// <summary>
         /// Get the url of a user avatar.
@@ -33,7 +44,7 @@ namespace NExtra.Web.Avatar
         {
             var hashCreator = new Md5Generator();
 
-            return String.Format(UrlPattern, hashCreator.GenerateHashValue(emailAddress).ToLower(), size);
+            return String.Format(urlPattern, hashCreator.GenerateHashValue(emailAddress).ToLower(), size);
         }
     }
 }

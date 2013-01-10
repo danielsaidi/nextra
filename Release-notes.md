@@ -48,6 +48,13 @@ about extending products. It becomes too specific, and therefore I
 decided to throw this part of NExtra far faar away.
 
 
+NExtra.Web
+----------
+
+The Avatar namespace classes have been rewritten to take a default
+size as constructor parameter.
+
+
 
 
 .NExtra 2.6.5.0		2012-02-24

@@ -13,7 +13,7 @@ namespace NExtra.Web.Tests.Avatar
         [SetUp]
         public void SetUp()
         {
-            avatarService = new Gravatar();
+            avatarService = new Gravatar(80);
         }
 
 

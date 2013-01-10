@@ -11,26 +11,32 @@ namespace NExtra.Web.Avatar
     /// </remarks>
     public class FacebookAvatar : IAvatarService<FacebookAvatarSize>
     {
-        /// <summary>
-        /// The URL pattern for Facebook profile pictures.
-        /// </summary>
-        public const string UrlPattern = "http://graph.facebook.com/{0}/picture?type={1}";
+        private const string urlPattern = "http://graph.facebook.com/{0}/picture?type={1}";
 
 
-        /// <summary>
-        /// Get the url of a user avatar.
-        /// </summary>
-        public string GetAvatarUrl(string userName)
+        ///<summary>
+        /// Create an instance of the class, using a default avatar size.
+        ///</summary>
+        public FacebookAvatar(FacebookAvatarSize defaultSize)
         {
-            return GetAvatarUrl(userName, FacebookAvatarSize.Small);
+            DefaultSize = defaultSize;
         }
 
+
         /// <summary>
-        /// Get the url of a user avatar.
+        /// The default size of the avatars returned by this class.
         /// </summary>
+        public FacebookAvatarSize DefaultSize { get; private set; }
+        
+        
+        public string GetAvatarUrl(string userName)
+        {
+            return GetAvatarUrl(userName, DefaultSize);
+        }
+
         public string GetAvatarUrl(string userName, FacebookAvatarSize size)
         {
-            return String.Format(UrlPattern, userName, size.ToString().ToLower());
+            return String.Format(urlPattern, userName, size.ToString().ToLower());
         }
     }
 }

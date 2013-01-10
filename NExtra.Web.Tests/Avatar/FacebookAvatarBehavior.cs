@@ -12,7 +12,7 @@ namespace NExtra.Web.Tests.Avatar
         [SetUp]
         public void SetUp()
         {
-            avatarService = new FacebookAvatar();
+            avatarService = new FacebookAvatar(FacebookAvatarSize.Small);
         }
 
 

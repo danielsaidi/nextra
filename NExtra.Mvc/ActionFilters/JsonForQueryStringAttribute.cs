@@ -40,6 +40,9 @@ namespace NExtra.Mvc.ActionFilters
         }
 
 
+        /// <summary>
+        /// Called by the ASP.NET MVC framework after the action method executes.
+        /// </summary>
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             OnActionExecuted(filterContext, filterContext.HttpContext.Request);
@@ -52,6 +55,7 @@ namespace NExtra.Mvc.ActionFilters
         /// </summary>
         public void OnActionExecuted(ActionExecutedContext filterContext, HttpRequestBase httpRequest)
         {
+
             var queryString = httpRequest.QueryString[queryVariableName];
 
             if (queryString != null)
