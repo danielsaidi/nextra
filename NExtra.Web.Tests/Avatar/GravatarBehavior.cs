@@ -21,7 +21,7 @@ namespace NExtra.Web.Tests.Avatar
         public void GetAvatarUrl_ShouldUseCorrectDefaultSize()
         {
             var url = avatarService.GetAvatarUrl("foo@bar.com");
-            var md5 = new Md5Generator().GenerateHashValue("foo@bar.com").ToLower();
+            var md5 = new FormsAuthenticationBasedMd5Generator().GenerateHashValue("foo@bar.com").ToLower();
 
             Assert.That(url, Is.EqualTo(string.Format("http://www.gravatar.com/avatar/{0}?s=80", md5)));
         }
@@ -30,7 +30,7 @@ namespace NExtra.Web.Tests.Avatar
         public void GetAvatarUrl_ShouldReturnUrlWithEmailAddressMd5ValueAndCustomSize()
         {
             var url = avatarService.GetAvatarUrl("foo@bar.com", 200);
-            var md5 = new Md5Generator().GenerateHashValue("foo@bar.com").ToLower();
+            var md5 = new FormsAuthenticationBasedMd5Generator().GenerateHashValue("foo@bar.com").ToLower();
 
             Assert.That(url, Is.EqualTo(string.Format("http://www.gravatar.com/avatar/{0}?s=200", md5)));
         }

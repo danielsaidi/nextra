@@ -6,13 +6,13 @@ namespace NExtra.Web.Tests.Security
     [TestFixture]
     public class Sha1GeneratorBehavior
     {
-        private Sha1Generator hashGenerator;
+        private FormsAuthenticationBasedSha1Generator hashGenerator;
 
 
         [SetUp]
         public void SetUp()
         {
-            hashGenerator = new Sha1Generator();
+            hashGenerator = new FormsAuthenticationBasedSha1Generator();
         }
 
 

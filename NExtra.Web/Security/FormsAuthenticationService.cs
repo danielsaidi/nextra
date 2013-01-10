@@ -12,17 +12,11 @@ namespace NExtra.Web.Security
     /// </remarks>
     public class FormsAuthenticationService : IAuthenticationService
     {
-        /// <summary>
-        /// Sign in a user.
-        /// </summary>
         public void SignIn(string userName, bool createPersistentCookie)
         {
             FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);
         }
 
-        /// <summary>
-        /// Sign out the currently logged in user.
-        /// </summary>
         public void SignOut()
         {
             FormsAuthentication.SignOut();

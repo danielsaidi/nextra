@@ -54,7 +54,18 @@ NExtra.Web
 The Avatar namespace classes have been rewritten to take a default
 size as constructor parameter.
 
+The Html namespace is rather strange. I know that it has been used
+in projects where it did what it is meant to do. However, thinking
+about HTML5 support and being able to convert HTML5 to HTML4...the
+whole problem seems to become more and more nonexisting. Just drop
+me a mail and give me your opinion. Should I remove it?
 
+The MD5 and SHA1 classes in the NExtra.Web.Security namespace have
+been renamed with the FormsAuthenticationBased prefix to make them
+differ from the NExtra.Security classes.
+
+I have added a GetNumberOfUsersOnline method to IMembershipService
+from the default implementation.
 
 
 .NExtra 2.6.5.0		2012-02-24

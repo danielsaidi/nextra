@@ -134,6 +134,11 @@ namespace NExtra.Web.Security
         MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords);
 
         /// <summary>
+        /// Get the number of users currently online.
+        /// </summary>
+        int GetNumbersOfUsersOnline();
+
+        /// <summary>
         /// Get the currently logged in user.
         /// </summary>
         MembershipUser GetUser();

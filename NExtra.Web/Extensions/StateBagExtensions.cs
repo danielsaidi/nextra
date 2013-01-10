@@ -24,9 +24,9 @@ namespace NExtra.Web.Extensions
 		/// <summary>
 		/// Add a value to a StateBag instance.
 		/// </summary>
-		public static void Set<T>(this StateBag stateBag, string key, T item)
+		public static void Set<T>(this StateBag stateBag, string key, T value)
 		{
-			stateBag[key] = item;
+			stateBag[key] = value;
 		}
 	}
 }

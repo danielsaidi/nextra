@@ -6,13 +6,13 @@ namespace NExtra.Web.Tests.Security
     [TestFixture]
     public class Md5GeneratorBehavior
     {
-        private Md5Generator hashGenerator;
+        private FormsAuthenticationBasedMd5Generator hashGenerator;
 
 
         [SetUp]
         public void SetUp()
         {
-            hashGenerator = new Md5Generator();
+            hashGenerator = new FormsAuthenticationBasedMd5Generator();
         }
 
 

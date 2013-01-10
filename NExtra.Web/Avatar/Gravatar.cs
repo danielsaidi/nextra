@@ -42,7 +42,7 @@ namespace NExtra.Web.Avatar
         /// </summary>
         public string GetAvatarUrl(string emailAddress, int size)
         {
-            var hashCreator = new Md5Generator();
+            var hashCreator = new FormsAuthenticationBasedMd5Generator();
 
             return String.Format(urlPattern, hashCreator.GenerateHashValue(emailAddress).ToLower(), size);
         }
