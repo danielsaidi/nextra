@@ -14,7 +14,7 @@ namespace NExtra.Mvc.Extensions
     public static class WebViewPageExtensions
     {
         /// <summary>
-        /// Format a global resource file value for display.
+        /// Format a global resource value for display.
         /// </summary>
         public static IHtmlString GlobalResource(this WebViewPage page, string resource)
         {
@@ -22,7 +22,7 @@ namespace NExtra.Mvc.Extensions
         }
 
         /// <summary>
-        /// Format a local resource file value for display.
+        /// Format a local resource value for display.
         /// </summary>
         public static IHtmlString LocalResource(this WebViewPage page, string resourceKeyName)
         {

@@ -4,7 +4,9 @@ namespace NExtra.Mvc.HtmlHelpers
 {
     /// <summary>
     /// This class can be used to return one of two possible
-    /// return, values depending on a boolean expression.
+    /// return values, depending on a boolean expression. If
+    /// the expression is true, the first result is returned.
+    /// If it is false, the second is returned.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -13,7 +15,7 @@ namespace NExtra.Mvc.HtmlHelpers
     public static class ConditionalHelper
     {
         /// <summary>
-        /// Return one of two possible return values, depending on a boolean expression.
+        /// Return one of two return values, depending on the boolean expression.
         /// </summary>
         public static T Conditional<T>(this HtmlHelper helper, bool expression, T trueResult, T falseResult)
         {

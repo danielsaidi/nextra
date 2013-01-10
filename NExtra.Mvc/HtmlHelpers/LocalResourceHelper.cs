@@ -4,7 +4,8 @@ using System.Web.Mvc;
 namespace NExtra.Mvc.HtmlHelpers
 {
     /// <summary>
-    /// This helper can be used to handle local resources for views.
+    /// This helper can be used to access local resource
+    /// values from within views.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

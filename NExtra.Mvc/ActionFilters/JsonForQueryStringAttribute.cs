@@ -4,9 +4,11 @@ using System.Web.Mvc;
 namespace NExtra.Mvc.ActionFilters
 {
     /// <summary>
-    /// This action filter can be applied to any action. It
-    /// is triggered by a custom query variable and returns
-    /// the view model as JSON data if the condition is met.
+    /// This attribute can be applied to any controller action.
+    /// It is triggered by a certain query variable, either if
+    /// the variable just exists, or if it has a certain value.
+    /// If the condition is met, the attribute will return the
+    /// current view model to JSON data.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -19,8 +21,8 @@ namespace NExtra.Mvc.ActionFilters
 
 
         /// <summary>
-        /// Create a filter that requires that a certain
-        /// query string variable exists.
+        /// Create an attribute that requires that a certain
+        /// query string key exists.
         /// </summary>
         public JsonForQueryStringAttribute(string queryVariableName)
             : this(queryVariableName, null)
@@ -28,9 +30,8 @@ namespace NExtra.Mvc.ActionFilters
         }
 
         /// <summary>
-        /// Create a filter that requires that a certain
-        /// query string variable exists and that it has
-        /// a certain value.
+        /// Create an attribute that requires that a certain
+        /// query string key with a certain value exists.
         /// </summary>
         public JsonForQueryStringAttribute(string queryVariableName, string queryVariableValue)
         {
@@ -44,6 +45,11 @@ namespace NExtra.Mvc.ActionFilters
             OnActionExecuted(filterContext, filterContext.HttpContext.Request);
         }
 
+        /// <summary>
+        /// This method is called by the overridden base method. It
+        /// has a HTTP request parameter as well, so that it can be
+        /// easily tested. The test class calls this method.
+        /// </summary>
         public void OnActionExecuted(ActionExecutedContext filterContext, HttpRequestBase httpRequest)
         {
             var queryString = httpRequest.QueryString[queryVariableName];

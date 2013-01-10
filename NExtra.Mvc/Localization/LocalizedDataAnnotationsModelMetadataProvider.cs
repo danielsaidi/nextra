@@ -9,14 +9,15 @@ namespace NExtra.Mvc.Localization
 {
     ///<summary>
     /// This class can be used instead of the default metadata
-    /// provider. It will auto-translate properties as well as
-    /// error messages for a model that is displayed in a view.
+    /// provider specified in Global.asax. It is automatically 
+    /// translating all property display values as well as all
+    /// model error messages, using a resource file.
     ///</summary>
     /// <remarks>
     /// With this class, you do not have to decorate an entity
     /// with DisplayName or provide an ErrorMessage text for a
     /// validation attribute. The class uses a convention that
-    /// it automatically applies to entities.
+    /// it automatically applies.
     /// 
     /// So, just provide translations that use this convention
     /// and your entities will (almost) translate themselves. 
@@ -29,16 +30,18 @@ namespace NExtra.Mvc.Localization
     ///     [Type.FullName]_[PropertyName]_[AttributeName]
     ///     e.g. MyCoolProject_Domain_User_UserName_RequiredError
     /// 
-    /// Depending on which translator that is used, these keys
-    /// can be translated in various ways. It depends on which
-    /// ITranslator implementation you are using.
+    /// Depending on which ITranslator implementation that the
+    /// class is given, these keys are translated in different
+    /// ways. If you look in NExtra.Localization, you have two
+    /// translators there that you can use.
     /// 
     /// If overrideMode is set to true, already defined values
-    /// for DisplayName and ErrorMessage will be overridden.
+    /// for DisplayName and ErrorMessage are overridden. If it
+    /// is set to false, the original values will be kept.
     /// 
     /// The dotReplacement will be used to convert the dots in
     /// the full name of a class or property. User.UserName is
-    /// by default converted to Domain_User_UserName.
+    /// by default converted to User_UserName.
     /// 
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
@@ -74,6 +77,7 @@ namespace NExtra.Mvc.Localization
         /// </summary>
         public ITranslator Translator { get; private set; }
 
+
         /// <summary>
         /// Create metadata for the specifie property.
         /// </summary>
@@ -89,7 +93,6 @@ namespace NExtra.Mvc.Localization
 
             return meta;
         }
-
 
         /// <summary>
         /// Retrieve the language key for the display name for

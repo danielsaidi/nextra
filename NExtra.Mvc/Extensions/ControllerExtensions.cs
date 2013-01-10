@@ -12,7 +12,7 @@ namespace NExtra.Mvc.Extensions
 	public static class ControllerExtensions
     {
         /// <summary>
-        /// Get the name of the current action for a certain controller.
+        /// The name of the current action.
         /// </summary>
         public static string Action(this Controller controller)
         {
@@ -20,7 +20,7 @@ namespace NExtra.Mvc.Extensions
         }
 
         /// <summary>
-        /// Get the name of a certain controller.
+        /// The name of the controller.
         /// </summary>
         public static string Name(this Controller controller)
         {

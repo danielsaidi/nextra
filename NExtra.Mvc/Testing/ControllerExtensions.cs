@@ -16,9 +16,13 @@ namespace NExtra.Mvc.Testing
     {
         /// <summary>
         /// Use this method to automatically apply model validation,
-        /// when calling actions that require it. By default, model
-        /// validation is not applied if actions are called outside
-        /// the MVC context, e.g. in testing.
+        /// when calling actions that require it.
+        /// 
+        /// By default, model validation is not executed if actions
+        /// are called outside the MVC context, e.g. in testing. To
+        /// make sure that validation is executed, call this method
+        /// and let it call the action instead of calling an action
+        /// directly.
         /// </summary>
         public static ActionResult CallWithModelValidation<C, R, T>(this C controller, Func<C, R> action, T model)
             where C : Controller
