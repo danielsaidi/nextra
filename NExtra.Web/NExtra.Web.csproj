@@ -93,12 +93,12 @@
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Security\IMembershipService.cs" />
     <Compile Include="Security\IRoleService.cs" />
-    <Compile Include="Security\Md5Generator.cs" />
+    <Compile Include="Security\FormsAuthenticationBasedMd5Generator.cs" />
     <Compile Include="Security\MembershipFacade.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Security\RolesFacade.cs" />
-    <Compile Include="Security\Sha1Generator.cs" />
+    <Compile Include="Security\FormsAuthenticationBasedSha1Generator.cs" />
     <Compile Include="Testing\FakeHttpResponse.cs" />
     <Compile Include="Testing\FakeMembershipUser.cs" />
     <Compile Include="Testing\FakeHttpContext.cs" />

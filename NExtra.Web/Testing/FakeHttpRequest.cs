@@ -18,6 +18,9 @@ namespace NExtra.Web.Testing
         private Uri urlReferrer;
 
 
+        /// <summary>
+        /// Create a fake HTTP request with a certain url and authentication state.
+        /// </summary>
         public FakeHttpRequest(string url, bool isAuthenticated)
         {
             this.url = new Uri(url);

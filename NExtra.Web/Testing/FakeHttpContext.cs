@@ -17,11 +17,17 @@ namespace NExtra.Web.Testing
         private readonly IPrincipal user;
 
 
+        /// <summary>
+        /// Create a fake HTTP context with a custom request and response.
+        /// </summary>
         public FakeHttpContext(HttpRequestBase request, HttpResponseBase response)
             : this(request, response, new GenericPrincipal(new GenericIdentity("someUser"), null /* roles */))
         {
         }
 
+        /// <summary>
+        /// Create a fake HTTP context with a custom request, response and user.
+        /// </summary>
         public FakeHttpContext(HttpRequestBase request, HttpResponseBase response, IPrincipal user)
         {
             this.request = request;
