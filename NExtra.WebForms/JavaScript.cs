@@ -6,16 +6,16 @@ using System.Web.UI.WebControls;
 namespace NExtra.WebForms
 {
 	/// <summary>
-	/// The JavaScript class defines certain scripts that can be used
-	/// server-side. The Scripts are properly registered and can thus 
-	/// be used in asynchronous postbacks.
+	/// This class defines certain scripts that can be used server-
+	/// side. The scripts are properly registered, and can thus be
+	/// used in asynchronous postbacks as well.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// 
-    /// The class randomizes the script IDs, which means that scripts
-    /// can be added several times without overwriting eachother.
+    /// The class randomizes script IDs, which means that a script
+    /// can be added several times without overwriting itself.
 	/// </remarks>
 	public static class JavaScript
 	{

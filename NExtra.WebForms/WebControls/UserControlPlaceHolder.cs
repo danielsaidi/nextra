@@ -8,12 +8,15 @@ using NExtra.Web.Extensions;
 namespace NExtra.WebForms.WebControls
 {
 	/// <summary>
-	/// This class can be used to dynamically load and unload user
-	/// controls to and from the page. All dynamically loaded user
-	/// controls are automatically reloaded at postback.
+	/// This class can be used to dynamically load and unload
+	/// user controls to and from the page. However, unlike a
+	/// regular dynamic load (where user controls are removed
+	/// at postback), this class ensures that each control is
+	/// automatically reloaded after a postback.
 	/// 
-	/// If you want to apply events to dynamically loaded controls,
-	/// you must do so in Page_Load.
+	/// If you want to apply any events to dynamically loaded
+	/// user controls, or modify them in any way, you must do
+	/// so in Page_Load.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -22,8 +25,8 @@ namespace NExtra.WebForms.WebControls
 	public class UserControlPlaceHolder : PlaceHolder
 	{
 		/// <summary>
-		/// Override LoadViewState to make sure that all dynamically
-		/// loaded controls are properly reloaded after any postback.
+		/// This overridden method ensures that all dynamically
+		/// loaded user controls are automatically reloaded.
 		/// </summary>
 		protected override void LoadViewState(object savedState)
 		{
@@ -34,7 +37,7 @@ namespace NExtra.WebForms.WebControls
 
 
 		/// <summary>
-		/// A comma-separated string with the IDs of the controls
+		/// A comma-separated string with IDs of the controls
 		/// that have been added to the place holder.
 		/// </summary>
 		protected List<String> LoadedControls
@@ -48,8 +51,8 @@ namespace NExtra.WebForms.WebControls
 		}
 
 
-		/// <summary>
-		/// Retrieve a control that has been added to the place holder.
+        /// <summary>
+        /// Retrieve a control that has been added to the place holder.
 		/// </summary>
 		public Control GetControl(String controlId)
 		{
@@ -57,7 +60,7 @@ namespace NExtra.WebForms.WebControls
 		}
 
 		/// <summary>
-		/// Retrieve a control that has been added to the place holder.
+		/// Retrieve a typed control that has been added to the place holder.
 		/// </summary>
 		public T GetControl<T>(String controlId)
 			where T : Control
@@ -67,12 +70,12 @@ namespace NExtra.WebForms.WebControls
 		}
 
 		/// <summary>
-		/// Dynamically load any user control to the place holder. If the
-		/// control is already added, it will not be loaded a second time.
+		/// Dynamically load a user control to the place holder. If the
+		/// control is already added, it is not be loaded a second time.
 		/// </summary>
 		public Control LoadControl(String controlId, String controlUrl)
 		{
-			//Add the control key to viewstate if it is not already added
+			//Add the control key to viewstate, if is not already added
 			if (!LoadedControls.Contains(controlId + "," + controlUrl))
 				LoadedControls.Add(controlId + "," + controlUrl);
 
@@ -88,9 +91,9 @@ namespace NExtra.WebForms.WebControls
 			return uc;
 		}
 
-		/// <summary>
-		/// Dynamically load any user control to the place holder. If the
-		/// control is already added, it will not be loaded a second time.
+        /// <summary>
+        /// Dynamically load a user control to the place holder. If the
+        /// control is already added, it is not be loaded a second time.
 		/// </summary>
 		public T LoadControl<T>(String controlId, String controlUrl)
 			where T : Control

@@ -28,6 +28,5 @@ namespace NExtra.WebForms.Extensions
 
 			return stringWriter.GetStringBuilder().ToString();
 		}
-		
 	}
 }

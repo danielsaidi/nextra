@@ -8,10 +8,10 @@ using NExtra.Web.Extensions;
 namespace NExtra.WebForms.WebControls
 {
     /// <summary>
-    /// The IFrame class can be used to embed an iframe to the page.
-    /// The class does not support auto scaling of the frame to fit
-    /// the frame content, since it behaved incorrectly in IE. Also,
-    /// adding HTML content to the iframe requires JavaScript.
+    /// This class can be used to embed an iframe to the page.
+    /// It does not support auto scaling, but that can be set
+    /// client-side. Also, adding HTML to the iframe requires
+    /// JavaScript as well.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -20,7 +20,8 @@ namespace NExtra.WebForms.WebControls
     public class IFrame : WebControl
     {
         /// <summary>
-        /// Override OnPreRender to add a Literal to the control collection.
+        /// This overriden method will add a Literal to the
+        /// control collection and register a startup script.
         /// </summary>
         protected override void OnPreRender(EventArgs e)
         {

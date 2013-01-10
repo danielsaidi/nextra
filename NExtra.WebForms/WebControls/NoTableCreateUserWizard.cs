@@ -20,13 +20,14 @@ namespace NExtra.WebForms.WebControls
         /// </summary>
         protected override void Render(HtmlTextWriter writer)
         {
-            var htmlTableRemover = HtmlRemover ?? new HtmlRemover();
+            if (HtmlRemover == null)
+                HtmlRemover = new HtmlRemover();
 
             var sw = new StringWriter();
             var hw = new HtmlTextWriter(sw);
             base.Render(hw);
 
-            var html = htmlTableRemover.RemoveHtmlTableElements(sw.ToString());
+            var html = HtmlRemover.RemoveHtmlTableElements(sw.ToString());
 
             hw.Close();
             sw.Close();
@@ -36,9 +37,9 @@ namespace NExtra.WebForms.WebControls
 
 
         /// <summary>
-        /// The ICanRemoveHtml instance that will be used to
-        /// remove the HTML code. If no instance is set, the
-        /// control will automatically use a new HtmlRemover.
+        /// The component that will be used to remove HTML
+        /// code for the control. If no instance is set, a
+        /// new HtmlRemover instance is used by default.
         /// </summary>
         public IHtmlRemover HtmlRemover { get; set; }
     }
