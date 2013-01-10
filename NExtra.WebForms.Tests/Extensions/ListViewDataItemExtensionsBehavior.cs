@@ -10,10 +10,10 @@ namespace NExtra.WebForms.Tests.Extensions
 		[Test]
 		public void RowCssClass_ShouldReturnCorrectDefaultValues()
 		{
-			Assert.That(new ListViewDataItem(0, 1).RowCssClass(), Is.EqualTo("odd"));
-			Assert.That(new ListViewDataItem(0, 2).RowCssClass(), Is.EqualTo("even"));
-			Assert.That(new ListViewDataItem(0, 99).RowCssClass(), Is.EqualTo("odd"));
-			Assert.That(new ListViewDataItem(0, 100).RowCssClass(), Is.EqualTo("even"));
+			Assert.That(new ListViewDataItem(0, 1).RowCssClass("odd", "even"), Is.EqualTo("odd"));
+			Assert.That(new ListViewDataItem(0, 2).RowCssClass("odd", "even"), Is.EqualTo("even"));
+			Assert.That(new ListViewDataItem(0, 99).RowCssClass("odd", "even"), Is.EqualTo("odd"));
+			Assert.That(new ListViewDataItem(0, 100).RowCssClass("odd", "even"), Is.EqualTo("even"));
 		}
 
 		[Test]

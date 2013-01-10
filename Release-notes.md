@@ -51,28 +51,33 @@ decided to throw this part of NExtra far faar away.
 NExtra.Web
 ----------
 
-- The Avatar namespace classes have been rewritten to take a default
+- The Avatar namespace classes have been changed to take a default
 size as constructor parameter.
 
-- The Html namespace is rather strange. I know that it has been used
-in projects where it did what it is meant to do. However, thinking
-about HTML5 support and being able to convert HTML5 to HTML4...the
-whole problem seems to become more and more nonexisting. Just drop
-me a mail and give me your opinion. Should I remove it?
+- I have some doubts about the Html namespace classes. Things move
+fast and HTML5 support and being able to convert HTML5 to HTML4 is
+perhaps not that needed anymore. Should I remove it?
 
-- The MD5 and SHA1 classes in the NExtra.Web.Security namespace have
-been renamed with the FormsAuthenticationBased prefix to make them
+- I have renamed the MD5 and SHA1 class in the NExtra.Web.Security
+namespace, adding the FormsAuthenticationBased prefix to make them
 differ from the NExtra.Security classes.
 
-- I have added a GetNumberOfUsersOnline method to IMembershipService
-from the default implementation.
+- I have added a GetNumberOfUsersOnline method that was added to a
+IMembershipService instance before, but that I for some reason did
+miss to add to the interface.
 
 
 NExtra.WebForms
 ---------------
 
-- I have removed the properties for the SubmittableUserControl class.
+No changes, except cleaning up and improving class documentation.
 
+
+NExtra.WebForms
+---------------
+
+- The Dialog namespace interfaces have been renamed so that they are
+no longer suffixed with Facade.
 
 
 

@@ -7,7 +7,7 @@ using NExtra.WinForms.Dialogs;
 namespace NExtra.WinForms.Printing
 {
     /// <summary>
-    /// This class can be used to print the content of a RichTextBox instance.
+    /// This class can be used to print RichTextBox content.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

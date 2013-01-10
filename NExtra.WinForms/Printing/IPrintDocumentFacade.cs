@@ -14,7 +14,7 @@ namespace NExtra.WinForms.Printing
     public interface IPrintDocumentFacade
     {
         /// <summary>
-        /// The base PrintDocument instance.
+        /// The wrapped PrintDocument instance.
         /// </summary>
         PrintDocument PrintDocument { get; }
 

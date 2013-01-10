@@ -25,11 +25,25 @@ namespace NExtra.WebForms.WebControls
 
 
         /// <summary>
+        /// Whether or not the latest submit was cancelled.
+        /// </summary>
+	    public bool Cancelled { get; private set; }
+
+        /// <summary>
+        /// Whether or not the latest submit was completed.
+        /// </summary>
+        public bool Submitted { get; private set; }
+
+
+        /// <summary>
         /// Trigger the Cancel event.
         /// </summary>
         /// <param name="e">Event arguments.</param>
 	    public virtual void OnCancel(EventArgs e)
 	    {
+	        Cancelled = true;
+	        Submitted = false;
+
 	        if (Cancel != null)
 	            Cancel(this, e);
 	    }

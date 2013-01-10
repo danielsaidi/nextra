@@ -3,9 +3,8 @@
 namespace NExtra.WinForms.Dialogs
 {
     /// <summary>
-    /// This interface can be implemented by classes that
-    /// should be able to be used as facade classes for a
-    /// PrintPreviewDialog instance.
+    /// This interface can be implemented by classes that can
+    /// be used to wrap a PrintPreviewDialog instance.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -14,7 +13,7 @@ namespace NExtra.WinForms.Dialogs
     public interface IPrintPreviewDialogFacade
     {
         /// <summary>
-        /// Base PrintPreviewDialog instance.
+        /// The wrapped PrintPreviewDialog instance.
         /// </summary>
         PrintPreviewDialog PrintPreviewDialog { get; }
     }

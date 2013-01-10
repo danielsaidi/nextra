@@ -3,8 +3,7 @@
 namespace NExtra.WinForms.Dialogs
 {
     /// <summary>
-    /// This class can be used as facade for the
-    /// PrintPreviewDialog class.
+    /// This class can be used to wrap PrintPreviewDialog instances.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -21,9 +20,6 @@ namespace NExtra.WinForms.Dialogs
         }
 
 
-        /// <summary>
-        /// The print preview dialog that is wrapped by the facade.
-        /// </summary>
         public PrintPreviewDialog PrintPreviewDialog { get; private set; }
     }
 }

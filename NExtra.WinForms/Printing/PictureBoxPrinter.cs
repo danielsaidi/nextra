@@ -6,7 +6,7 @@ using NExtra.WinForms.Dialogs;
 namespace NExtra.WinForms.Printing
 {
     /// <summary>
-    /// This class can be used to print the content of a PictureBox.
+    /// This class can be used to print PictureBox content.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -18,6 +18,7 @@ namespace NExtra.WinForms.Printing
         private readonly IPrintDialogFacade printDialogFacade;
         private readonly IPrintDocumentFacade printDocumentFacade;
         private readonly IPrintPreviewDialogFacade printPreviewDialogFacade;
+
 
         /// <summary>
         /// Create an instance of the class, using default dialogs.
