@@ -4,8 +4,8 @@ using System.Web;
 namespace NExtra.Web.Cookies
 {
     /// <summary>
-    /// This interface can be implemented by classes that
-    /// can be used to handle HTTP cookies.
+    /// This interface can be implemented by classes that can
+    /// be used to handle HTTP cookies.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

@@ -44,18 +44,12 @@ namespace NExtra.Web.Cookies
         }
 
 
-        /// <summary>
-        /// Invalidate all existing cookies.
-        /// </summary>
         public void InvalidateAllCookies()
         {
             foreach (string cookieName in cookieHandler.GetRequestCookies())
                 InvalidateCookie(cookieName);
         }
 
-        /// <summary>
-        /// Invalidate a certain cookie.
-        /// </summary>
         public void InvalidateCookie(string cookieName)
         {
             if (httpContext == null || httpContext.Request == null || httpContext.Request.Url == null)

@@ -1,8 +1,8 @@
 ﻿namespace NExtra.Web.Cookies
 {
     /// <summary>
-    /// This interface can be implemented by classes that
-    /// can be used to invalidate cookies.
+    /// This interface can be implemented by classes that can
+    /// be used to invalidate cookies.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

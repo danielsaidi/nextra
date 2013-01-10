@@ -35,9 +35,6 @@ namespace NExtra.Web.Cookies
         }
 
 
-        /// <summary>
-        /// Add a custom cookie to the current request and response.
-        /// </summary>
         public void AddCookie(HttpCookie cookie)
         {
             httpContext.Request.Cookies.Remove(cookie.Name);
@@ -47,33 +44,21 @@ namespace NExtra.Web.Cookies
             httpContext.Response.Cookies.Add(cookie);
         }
 
-        /// <summary>
-        /// Check if a certain cookie exists.
-        /// </summary>
         public bool CookieExists(string cookieName)
         {
             return GetCookie(cookieName) != null;
         }
 
-        /// <summary>
-        /// Get a certain cookie.
-        /// </summary>
         public HttpCookie GetCookie(string cookieName)
         {
             return httpContext.Request.Cookies[cookieName];
         }
 
-        /// <summary>
-        /// Get the string value of a certain cookie.
-        /// </summary>
         public string GetCookieValue(string cookieName)
         {
             return GetCookieValue<string>(cookieName);
         }
 
-        /// <summary>
-        /// Get the typed value of a certain cookie.
-        /// </summary>
         public T GetCookieValue<T>(string cookieName)
         {
             var cookie = GetCookie(cookieName);
@@ -85,47 +70,26 @@ namespace NExtra.Web.Cookies
             return serializer.Deserialize<T>(cookie.Value);
         }
 
-        /// <summary>
-        /// Get all cookies that are sent from the client.
-        /// </summary>
         public HttpCookieCollection GetRequestCookies()
         {
             return httpContext.Request.Cookies;
         }
 
-        /// <summary>
-        /// Get all cookies that will be sent to the client.
-        /// </summary>
         public HttpCookieCollection GetResponseCookies()
         {
             return httpContext.Response.Cookies;
         }
 
-        /// <summary>
-        /// Invalidate a certain cookie by setting the value
-        /// to null and expires to an already passed day.
-        /// </summary>
-        /// <param name="cookieName"></param>
         public void InvalidateCookie(string cookieName)
         {
             SetCookieValue(cookieName, "", DateTime.MinValue);
         }
 
-        /// <summary>
-        /// Set a cookie value with a session-based expire time.
-        /// To make the get methods work, tha method will set a
-        /// cookie in both the response and request collections.
-        /// </summary>
         public void SetCookieValue(string cookieName, object data)
         {
             SetCookieValue(cookieName, data, null);
         }
 
-        /// <summary>
-        /// Set a cookie value with an optional expiration date.
-        /// To make the get methods work, tha method will set a
-        /// cookie in both the response and request collections.
-        /// </summary>
         public void SetCookieValue(string cookieName, object data, DateTime? expires)
         {
             var serializer = new JavaScriptSerializer();

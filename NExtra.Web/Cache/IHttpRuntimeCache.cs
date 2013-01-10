@@ -5,10 +5,9 @@ using NExtra.Cache;
 namespace NExtra.Web.Cache
 {
     ///<summary>
-    /// This interface can be implemented by classes that
-    /// can cache data in a way similar to a HTTP runtime
-    /// cache. Method naming differ from HttpRuntimeCache,
-    /// since it extends the general ICache.
+    /// This interface extends the base ICache interface in
+    /// NExtra.Cache. It can be implemented by classes that
+    /// can cache data in similar to the HTTP runtime cache.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
