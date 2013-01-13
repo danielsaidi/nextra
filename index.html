@@ -2,24 +2,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
 	<title>NExtra</title>
+
+	<meta charset="utf-8">
 	<meta name="author" content="Daniel Saidi - daniel.saidi@gmail.com" />
 	<meta name="keywords" content="NExtra, .NET Framework, Visual Studio, NuGet, Web, WebForms, WinForms, WPF" />
-	<meta name="description" content="NExtra is a library with extended functionality for the .NET Framework" />
+	<meta name="description" content="NExtra is a C# library with extended functionality for the .NET Framework" />
 	
 	<script type="text/javascript" src="static/js/jquery-1.8.0.min.js"></script>
-	<script type="text/javascript" src="static/js/jquery.youtubepopup.min.js"></script>
-	<script type="text/javascript" src="static/js/github.js"></script>
+	<script type="text/javascript" src="static/js/jquery.json-2.4.min.js"></script>
 	<script type="text/javascript" src="static/js/site.js"></script>
 	
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	
-	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="static/css/framework.css" />
+	<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/site.css" />
 	<link rel="stylesheet" type="text/css" href="static/css/animate.css" />
+
+	<link href="http://fonts.googleapis.com/css?family=Lekton" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
 	
 	<link rel="shortcut icon" href="static/img/favicon.ico">
   
@@ -35,10 +39,105 @@
 	</script>
 </head>
 
-<body>
+
+<body data-spy="scroll" data-target=".navbar">
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="#">NExtra</a>
+				<ul class="nav">
+				<li><a href="#features">Features</a></li>
+				<li><a href="#get-started">Get started</a></li>
+				<li><a href="#examples">Examples</a></li>
+				<li><a href="#contribute">Contribute</a></li>
+				<li><a href="#license">License</a></li>
+				</ul>
+				<ul class="nav pull-right">
+				<li><a href="mailto:daniel.saidi@gmail.com"><i class="icon-envelope"></i> Contact me</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hero-unit">
+		<div class="container">
+			<h1>NExtra</h1>
+			<p>C# library with extra stuff for the .NET Framework.</p>
+			<div class="buttons">
+				<a href="http://github.com/danielsaidi/nextra/downloads" rel="external">
+					<button class="btn btn-warning download animated bounceIn">
+						<i class="icon-cloud-download"></i>Download NExtra <span class="version-target"></span>
+					</button>
+				</a>
+				<a href="http://github.com/danielsaidi/nextra" rel="external">
+					<button class="btn btn-info github">
+						<i class="icon-wrench"></i>View GitHub project
+					</button>
+				</a>
+				<a href="http://nuget.org/packages?q=nextra" rel="external">
+					<button class="btn btn-default nuget">
+						...or grab it from NuGet
+					</button>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="social well">
+		<div class="container">
+			<a class="btn btn-mini" href="http://github.com/danielsaidi/nextra" rel="external"><i class="icon-github icon-large"></i> Watch</a>
+			
+			<a class="btn btn-mini" href="http://github.com/danielsaidi/nextra" rel="external"><i class="icon-github icon-large"></i> Fork</a>
+
+			<a class="btn btn-mini" href="http://twitter.com/danielsaidi/" target="_blank"><i class="icon-twitter icon-large"></i> Follow @danielsaidi</a>
+		</div>
+	</div>
+
+
+	<div class="container">
+
+		<div class="row" id="features">
+			<span class="span4">
+				<h3><i class="icon-comment-alt"></i>Interfaces</h3>
+				<p>Templates that describe useful stuff that you probably need every once in a while.</p>
+			</span>
+			<span class="span4">
+				<h3><i class="icon-comment"></i>Implementations</h3>
+				<p>General implementations of useful stuff that you probably need every once in a while.</p>
+			</span>
+			<span class="span4">
+				<h3><i class="icon-plus"></i>Extensions</h3>
+				<p>Extension methods to native classes, that make them do more than they do.</p>
+			</span>
+		</div>
+
+		<div class="row" id="features">
+			<span class="span4">
+				<h3><i class="icon-cog"></i>Utilities</h3>
+				<p>Validation, XML documentation extraction, Windows Forms control print. We've got it!</p>
+			</span>
+		</div>
+
+		<h2>Get started</h2>
+		<p>geauhegwhigewhgewhaui</p>
+
+		<h2>License</h2>
+		<p>
+			NExtra is released under the <a href="http://www.opensource.org/licenses/mit-license.php" rel="external" title="Read more about the MIT license">MIT license</a>, which means that you can do much about anything you want with it.
+		</p>
+	</div>
+
+
+
+
+
+
+
+<p>NExtra contains interfaces, implementations, extensions and utilities for .NET, ASP.NET MVC, ASP.NET, WPF and Windows Forms XNA.</p>
+
 	<div class="topbar">
-		<a href="http://danielsaidi.github.com/nextra"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub"></a>
-	
 		<div class="fill">
 			<div class="container">
 				<a class="logo" href="index.html">
@@ -57,20 +156,6 @@
 	<div class="hero-unit content">
 		<div class="main container">
 			<div class="row lines download">
-				<div class="span8">
-					<h1>NExtra</h1>
-					<h2>NExtra is a library with extended functionality for the .NET Framework.</h2>
-					<p>NExtra contains interfaces, implementations, extensions and utilities for .NET, ASP.NET MVC, ASP.NET, WPF and Windows Forms XNA. </p>
-				</div>
-				<div class="span8">
-					<h3>Download the latest version</h3>
-					<p class="download">
-						<a href="http://github.com/danielsaidi/nextra/downloads" class="button animated bounceIn" rel="external">
-							Download NExtra <span id="version"></span>
-						</a>
-					</p>
-					<p class="nuget">..or grab it directly from Visual Studio, using <a href="http://nuget.org/packages?q=nextra" rel="external">NuGet</a></p>
-				</div>
 			</div>
 			
 			<hr/>
@@ -103,9 +188,6 @@
 			
 			<hr />
 			
-			<div class="row license">
-				NExtra is released under the <a href="http://www.opensource.org/licenses/mit-license.php" rel="external" title="Read more about the MIT license">MIT license</a>, which means that you can do much about anything you want with it.
-			</div>
 		</div>
 	</div>
 	

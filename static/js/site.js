@@ -1,6 +1,18 @@
 $(document).ready(function() {
-  //var repo = new gh.repo("danielsaidi", "nextra");
-  //var tags = repo.getLatestRelease(function(result){ $("#version").html("(v. " + result + ")"); });
   
-  $("a[rel='external']").attr("target", "_blank");
+	function setupExternalLinks() {
+		$("a[rel='external']").attr("target", "_blank");
+	}
+
+	function updateGitHubInfo() {
+		var api_base = "https://api.github.com/repos/danielsaidi/nextra";
+		var api_tags = api_base + "/tags?callback=?";
+
+		$.get(api_tags, function(data) {
+			$(".version-target").html("(v. " + data[0]["name"] + ")");
+		});
+	}
+
+	setupExternalLinks();
+	updateGitHubInfo();
 });
