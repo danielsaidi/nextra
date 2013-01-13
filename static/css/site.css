@@ -11,6 +11,10 @@ h3 i { margin-right: 0.8em; }
    margin-left: 1em;
 }
 
+.navbar .active {
+   color: red;
+}
+
 
 .hero-unit {
    background: url(../img/bg-blue.png) #4a699d;
@@ -20,6 +24,21 @@ h3 i { margin-right: 0.8em; }
    padding-top: 40px;
    text-align: center;
    text-shadow: rgba(0, 0, 0, 0.8) 1px 2px 2px;
+}
+
+.hero-unit h1 {
+   font-size: 7em;
+   font-weight: normal;
+}
+
+.hero-unit p {
+   font-size: 2em;
+   margin-top: 20px;
+}
+
+.hero-unit p + p {
+   font-size: 1.1em;
+   margin-top: 40px;
 }
 
 .hero-unit .container {
@@ -63,19 +82,9 @@ h3 i { margin-right: 0.8em; }
    background: -moz-linear-gradient( center top, #fff 50%, #e6e6e6 50% ); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#e6e6e6'); background: -webkit-gradient( linear, left top, left bottom, color-stop(0.5, #fff), color-stop(0.5, #e6e6e6) );
 }
 
-.hero-unit h1 {
-   font-size: 7em;
-   font-weight: normal;
-}
-
-.hero-unit p {
-   font-size: 2em;
-   margin-top: 20px;
-}
-
-.hero-unit p + p {
-   font-size: 1.1em;
-   margin-top: 40px;
+.hero-unit .version-info {
+   margin-top: 2em;
+   font-size: 0.7em;
 }
 
 
