@@ -3,8 +3,7 @@
 namespace NExtra.WinForms.Dialogs
 {
     /// <summary>
-    /// This class can be used as a facade for the
-    /// PageSetupDialog class.
+    /// This class can be used to wrap PageSetupDialog instances.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -21,9 +20,6 @@ namespace NExtra.WinForms.Dialogs
         }
 
 
-        /// <summary>
-        /// The page setup dialog that is wrapped by the facade.
-        /// </summary>
         public PageSetupDialog PageSetupDialog { get; private set; }
     }
 }

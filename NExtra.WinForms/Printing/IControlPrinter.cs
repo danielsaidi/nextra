@@ -4,8 +4,8 @@ using System.Windows.Forms;
 namespace NExtra.WinForms.Printing
 {
     /// <summary>
-    /// This interface can be implemented by classes that
-    /// should be able to print a certain type of control.
+    /// This interface can be implemented by classes that can
+    /// print a certain type of control.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

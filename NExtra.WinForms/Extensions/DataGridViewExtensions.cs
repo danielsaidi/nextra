@@ -14,7 +14,7 @@ namespace NExtra.WinForms.Extensions
 	public static class DataGridViewExtensions
 	{
 		/// <summary>
-		/// Evaluate whether or not the first row, if any, is selected in the data grid view.
+		/// Evaluate whether or not the first row, if any, is selected.
 		/// </summary>
 		public static bool IsFirstRowSelected(this DataGridView dataGridView)
 		{
@@ -22,7 +22,7 @@ namespace NExtra.WinForms.Extensions
 		}
 
 		/// <summary>
-		/// Evaluate whether or not the last row, if any, is selected in the data grid view.
+		/// Evaluate whether or not the last row, if any, is selected.
 		/// </summary>
 		public static bool IsLastRowSelected(this DataGridView dataGridView)
 		{
@@ -30,7 +30,7 @@ namespace NExtra.WinForms.Extensions
 		}
 
 		/// <summary>
-		/// Select and show a row in a DataGridView.
+		/// Select and show a certain row.
 		/// </summary>
 		public static void SelectAndShowRow(this DataGridView dataGridView, int rowIndex)
 		{
@@ -39,7 +39,7 @@ namespace NExtra.WinForms.Extensions
 		}
 
 		/// <summary>
-		/// Select a row in a DataGridView.
+		/// Select a certain row.
 		/// </summary>
 		public static void SelectRow(this DataGridView dataGridView, int selectIndex)
 		{
@@ -56,7 +56,7 @@ namespace NExtra.WinForms.Extensions
 		}
 
 		/// <summary>
-		/// Shows a row in a DataGridView.
+		/// Shows a certain row.
 		/// </summary>
 		public static void ShowRow(this DataGridView dataGridView, int showIndex)
 		{
@@ -73,12 +73,13 @@ namespace NExtra.WinForms.Extensions
 
 
 		/// <summary>
-		/// Repaint an image cell with an image in an image list. Run
-		/// this method in the CellPainting event of the DataGridView.
+		/// Repaint an image cell with an image in an image
+		/// list. Run this method in the CellPainting event
+		/// of the DataGridView.
 		/// 
-		/// This method ignores invalid parameters. Providing it with
-		/// empty or non-existing indices will simply cause the event
-		/// to abort.
+		/// This method ignores invalid parameters. Provide
+		/// it with empty or invalid indices to cause it to
+		/// abort.
 		/// </summary>
 		public static void PaintImageCell(this DataGridView dataGridView, DataGridViewCellPaintingEventArgs e, ImageList imageList, String imageKey)
 		{

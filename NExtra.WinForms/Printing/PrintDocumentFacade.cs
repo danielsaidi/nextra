@@ -3,8 +3,7 @@
 namespace NExtra.WinForms.Printing
 {
     /// <summary>
-    /// This class can be used as facade for the
-    /// PrintDocument class.
+    /// This class can be used to wrap PrintDocument instances.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -21,9 +20,6 @@ namespace NExtra.WinForms.Printing
         }
 
 
-        /// <summary>
-        /// The print document that is wrapped by the facade.
-        /// </summary>
         public PrintDocument PrintDocument { get; private set; }
 
 

@@ -14,12 +14,11 @@ namespace NExtra.WebForms.Extensions
 	{
 		/// <summary>
 		/// Get the css class for a ListViewDataItem instance.
+		/// Specify one class to use for odd rows and one for
+		/// even rows and the method return the correct class
+		/// depending on if the display index is even or odd.
 		/// </summary>
-		/// <param name="item">The item instance.</param>
-		/// <param name="oddCssClass">The class to apply to odd rows; default "odd".</param>
-		/// <param name="evenCssClass">The class to apply to even rows; default "even".</param>
-		/// <returns>A string with the correct css class applied.</returns>
-		public static string RowCssClass(this ListViewDataItem item, string oddCssClass = "odd", string evenCssClass = "even")
+		public static string RowCssClass(this ListViewDataItem item, string oddCssClass, string evenCssClass)
 		{
 			return item.DisplayIndex.IsEven() ? evenCssClass : oddCssClass;
 		}
