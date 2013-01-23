@@ -40,11 +40,8 @@ target publish, (zip, publish_nuget, publish_github):
 target compile:
    msbuild(file: "${project_name}.sln", configuration: build_config, version: "4")
       
-   //Probably a really crappy way to retrieve assembly
-   //version, but I cannot use System.Reflection since
-   //Phantom is old and if I recompile Phantom it does
-   //not work. Also, since Phantom is old, it does not
-   //find my plugin that can get new assembly versions.
+   //Probably a reaaally crappy way to retrieve assembly version,
+   //but I cannot use System.Reflection since Phantom is too old.
    content = File.ReadAllText("${assembly_file}")
    start_index = content.IndexOf("AssemblyVersion(") + 17
    content = content.Substring(start_index)
