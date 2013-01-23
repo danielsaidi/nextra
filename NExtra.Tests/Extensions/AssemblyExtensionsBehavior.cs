@@ -39,6 +39,7 @@ namespace NExtra.Tests.Extensions
             Assert.That(result.Contains("NExtra.Tests.IO"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Localization"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Pagination"), Is.True);
+            Assert.That(result.Contains("NExtra.Tests.Week"), Is.True);
         }
 
         [Test]
@@ -46,7 +47,7 @@ namespace NExtra.Tests.Extensions
         {
             var result = Assembly.GetExecutingAssembly().GetNamespaceTypes("NExtra.Tests").ToList();
 
-            Assert.That(result.Count, Is.GreaterThan(2));
+            Assert.That(result.Count, Is.EqualTo(2));
             Assert.That(result.Contains(typeof(EventArgsBehavior)), Is.True);
             Assert.That(result.Contains(typeof(NullableBehavior)), Is.True);
         }

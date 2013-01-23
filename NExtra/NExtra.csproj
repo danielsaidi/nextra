@@ -74,7 +74,7 @@
     <Compile Include="Cache\DictionaryCache.cs" />
     <Compile Include="Console\CommandLineArgumentParser.cs" />
     <Compile Include="Console\ConsoleFacade.cs" />
-    <Compile Include="DateTimeWeekParser.cs" />
+    <Compile Include="Week\WeekParser.cs" />
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\ProcessFacade.cs" />
     <Compile Include="Documentation\AssemblyXmlDocumentationExtractor.cs" />
@@ -101,7 +101,7 @@
     <Compile Include="Geo\IDistanceConverter.cs" />
     <Compile Include="Console\ICommandLineArgumentParser.cs" />
     <Compile Include="Console\IConsole.cs" />
-    <Compile Include="IDateTimeWeekParser.cs" />
+    <Compile Include="Week\IWeekParser.cs" />
     <Compile Include="IO\FileFacade.cs" />
     <Compile Include="IO\DirectoryFacade.cs" />
     <Compile Include="IO\IDirectory.cs" />
@@ -109,7 +109,7 @@
     <Compile Include="IO\IFileSizePresenter.cs" />
     <Compile Include="IO\IPathPatternMatcher.cs" />
     <Compile Include="IO\PathPatternMatcher.cs" />
-    <Compile Include="Iso8601DateTimeWeekParser.cs" />
+    <Compile Include="Week\Iso8601WeekParser.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerFacade.cs" />
     <Compile Include="Localization\ITranslator.cs" />
     <Compile Include="Localization\ResourceManagerFacade.cs" />

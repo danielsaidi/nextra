@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace NExtra
+namespace NExtra.Week
 {
     /// <summary>
     /// This IDateTimeWeekParser implementation can be used to
@@ -22,14 +22,14 @@ namespace NExtra
     /// a Swede (and needed a default constructor), I took the
     /// bold decision to make that the default behavior.
     /// </remarks>
-    public class DateTimeWeekParser : IDateTimeWeekParser
+    public class WeekParser : IWeekParser
     {
-        public DateTimeWeekParser()
+        public WeekParser()
             : this(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday)
         {
         }
 
-        public DateTimeWeekParser(CalendarWeekRule weekRule, DayOfWeek firstDayOfWeek)
+        public WeekParser(CalendarWeekRule weekRule, DayOfWeek firstDayOfWeek)
         {
             WeekRule = weekRule;
             FirstDayOfWeek = firstDayOfWeek;

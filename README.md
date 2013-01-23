@@ -4,8 +4,8 @@ NExtra
 	Author:		Daniel Saidi [daniel.saidi@gmail.com]
 
 NExtra is an open-source library that contains extended functionality
-for the .NET Framework. I continously add reusable interfaces/classes
-that I develop, that can be reused in projects of all kinds.
+for the .NET Framework. I continously add interfaces and classes that
+I develop, that could be reused in other projects of all kinds.
 
 If I add code that I found on blogs or other web resources, I include
 a link to the original implementation in the source code.
@@ -57,9 +57,13 @@ E.g. only use NExtra.Web in projects that depend on System.Web.
 Documentation
 -------------
 
-I will extract and publish documentation for the NExtra library every
-now and then. This is a manual procedure, so if I haven't updated the
-online documentation, just let me know and I'll fix it.
+From version 3.0, I have decided to not extract any documentation for
+NExtra. I believe that it is easier to grab the source code and check
+it out, than it is to plow through page after page within a generated
+HTML structure.
+
+Let me know if you think that I am wrong. Extracting documentation is
+a piece of cake, so if you need it, it is easily done.
 
 
 License
@@ -72,9 +76,6 @@ http://www.opensource.org/licenses/mit-license.php
 
 What it means is basically this: If you use NExtra and happen to like
 it, please spread the word. Also, do not take credit for other's work.
-I add links to all implementations that I use, and assume that you do
-the same.
-
 If you take anything out of NExtra, let the author information remain
 in the source code.
 

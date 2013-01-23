@@ -53,7 +53,10 @@ namespace NExtra.WebForms.WebControls
         /// </summary>
         /// <param name="e">Submit arguments.</param>
 	    public virtual void OnSubmit(EventArgs e)
-	    {
+        {
+            Cancelled = false;
+            Submitted = true;
+
 			if (Submit != null)
 				Submit(this, e);
 		}

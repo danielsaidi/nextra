@@ -6,14 +6,14 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <iconUrl>http://dotnextra.com/content/img/icon_uniform.png</iconUrl>
-    <projectUrl>http://dotnextra.com</projectUrl>
+    <iconUrl>http://danielsaidi.github.com/nextra/static/img/icon_uniform.png</iconUrl>
+    <projectUrl>http://danielsaidi.github.com/nextra</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <summary>.NExtra is an open-source library with extended functionality for the .NET Framework.</summary>
-    <description>This package contains the .NExtra WPF library, which can be used in WPF projects.</description>
+    <description>This package contains the .NExtra WPF library. It can be used in WPF projects.</description>
     <releaseNotes>See http://github.com/danielsaidi/NExtra/blob/master/Release-notes.txt</releaseNotes>
-    <copyright>Copyright 2009-2012, Daniel Saidi</copyright>
+    <copyright>Copyright 2009-2013, Daniel Saidi</copyright>
     <tags>.net net c# windows wpf</tags>
     
 	<dependencies>

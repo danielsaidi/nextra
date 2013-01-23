@@ -1,18 +1,20 @@
 ﻿using System;
+using System.Globalization;
+using NExtra.Week;
 using NUnit.Framework;
 
-namespace NExtra.Tests
+namespace NExtra.Tests.Week
 {
     [TestFixture]
-    public class Iso8601DateTimeWeekParserBehavior
+    public class WeekParserBehavior
     {
-        private IDateTimeWeekParser parser;
+        private IWeekParser parser;
 
 
         [SetUp]
         public void SetUp()
         {
-            parser = new Iso8601DateTimeWeekParser();
+            parser = new WeekParser(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
 
 
@@ -53,9 +55,9 @@ namespace NExtra.Tests
         }
 
         [Test]
-        public void GetFirstDateOfWeek_090101ShouldReturn081229()
+        public void GetFirstDateOfWeek_090101ShouldReturn090101()
         {
-            Assert.That(parser.GetFirstDateOfWeek(new DateTime(2009, 01, 01)), Is.EqualTo(new DateTime(2008, 12, 29)));
+            Assert.That(parser.GetFirstDateOfWeek(new DateTime(2009, 01, 01)), Is.EqualTo(new DateTime(2009, 01, 01)));
         }
 
 
@@ -90,9 +92,9 @@ namespace NExtra.Tests
         }
 
         [Test]
-        public void GetLastDateOfWeek_081231ShouldReturn090104()
+        public void GetLastDateOfWeek_081231ShouldReturn081231()
         {
-            Assert.That(parser.GetLastDateOfWeek(new DateTime(2008, 12, 31)), Is.EqualTo(new DateTime(2009, 01, 04)));
+            Assert.That(parser.GetLastDateOfWeek(new DateTime(2008, 12, 31)), Is.EqualTo(new DateTime(2008, 12, 31)));
         }
 
         [Test]
@@ -100,6 +102,9 @@ namespace NExtra.Tests
         {
             Assert.That(parser.GetLastDateOfWeek(new DateTime(2009, 01, 01)), Is.EqualTo(new DateTime(2009, 01, 04)));
         }
+
+
+
         [Test]
         public void GetWeekNumber_ShouldHandleMinValue()
         {
@@ -141,9 +146,9 @@ namespace NExtra.Tests
         }
 
         [Test]
-        public void GetWeekNumber_081231ShouldReturn1()
+        public void GetWeekNumber_081231ShouldReturn53()
         {
-            Assert.That(parser.GetWeekNumber(new DateTime(2008, 12, 31)), Is.EqualTo(1));
+            Assert.That(parser.GetWeekNumber(new DateTime(2008, 12, 31)), Is.EqualTo(53));
         }
 
         [Test]

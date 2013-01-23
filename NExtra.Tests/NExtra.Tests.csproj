@@ -72,8 +72,6 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Cache\DictionaryCacheBehavior.cs" />
-    <Compile Include="Iso8601DateTimeWeekParserBehavior.cs" />
-    <Compile Include="DateTimeWeekParserBehavior.cs" />
     <Compile Include="EventArgsBehavior.cs" />
     <Compile Include="Extensions\IDictionaryExtensionsBehavior.cs" />
     <Compile Include="Extensions\WebRequestExtensionsBehavior.cs" />
@@ -113,6 +111,8 @@
     <Compile Include="Extensions\StringExtensionsBehavior.cs" />
     <Compile Include="Extensions\UriExtensionsBehavior.cs" />
     <Compile Include="Validation\PostalCode\SwedishPostalCodeAttributeBehavior.cs" />
+    <Compile Include="Week\Iso8601WeekParserBehavior.cs" />
+    <Compile Include="Week\WeekParserBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NExtra\NExtra.csproj">

@@ -19,7 +19,7 @@ implementations to a new namespace, called Console.
 
 - The week methods of the DateTimeExtensions class have been moved
 to a new Interface (NExtra.IDateTimeWeekParser) as well as two new
-implementations of this interface.
+implementations of this interface. They are  moved to NExtra.Week.
 
 - The IEnumerableExtensions.Contains method has been removed. I am
 sorry for ever adding it. I removed IsSingle as well, since it can

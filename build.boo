@@ -32,7 +32,7 @@ target deploy, (compile, test, copy):
       file.CopyToDirectory("{project_name}.${build_version}")
    rmdir(build_folder)
 
-target publish, (zip, publish_nuget, publish_github):
+target publish, (publish_nuget, publish_github):
    pass
 
 
@@ -74,19 +74,19 @@ target publish_nuget:
    File.Copy("README.md", "Resources\\README.txt", true)
    File.Copy("Release-notes.md", "Resources\\Release-notes.txt", true)
    
-   exec("nuget" , "pack ${project_name}\\${project_name}.csproj -prop configuration=release")
-   exec("nuget" , "pack ${project_name}.web\\${project_name}.web.csproj -prop configuration=release")
-   exec("nuget" , "pack ${project_name}.mvc\\${project_name}.mvc.csproj -prop configuration=release")
-   exec("nuget" , "pack ${project_name}.wpf\\${project_name}.wpf.csproj -prop configuration=release")
-   exec("nuget" , "pack ${project_name}.webforms\\${project_name}.webforms.csproj -prop configuration=release")
-   exec("nuget" , "pack ${project_name}.winforms\\${project_name}.winforms.csproj -prop configuration=release")
+   exec("Resources\\nuget" , "pack ${project_name}\\${project_name}.csproj -prop configuration=release")
+   exec("Resources\\nuget" , "pack ${project_name}.web\\${project_name}.web.csproj -prop configuration=release")
+   exec("Resources\\nuget" , "pack ${project_name}.mvc\\${project_name}.mvc.csproj -prop configuration=release")
+   exec("Resources\\nuget" , "pack ${project_name}.wpf\\${project_name}.wpf.csproj -prop configuration=release")
+   exec("Resources\\nuget" , "pack ${project_name}.webforms\\${project_name}.webforms.csproj -prop configuration=release")
+   exec("Resources\\nuget" , "pack ${project_name}.winforms\\${project_name}.winforms.csproj -prop configuration=release")
    
-   exec("nuget push ${project_name}.${build_version}.nupkg")
-   exec("nuget push ${project_name}.web.${build_version}.nupkg")
-   exec("nuget push ${project_name}.mvc.${build_version}.nupkg")
-   exec("nuget push ${project_name}.wpf.${build_version}.nupkg")
-   exec("nuget push ${project_name}.webforms.${build_version}.nupkg")
-   exec("nuget push ${project_name}.winforms.${build_version}.nupkg")
+   exec("Resources\\nuget push ${project_name}.${build_version}.nupkg")
+   exec("Resources\\nuget push ${project_name}.web.${build_version}.nupkg")
+   exec("Resources\\nuget push ${project_name}.mvc.${build_version}.nupkg")
+   exec("Resources\\nuget push ${project_name}.wpf.${build_version}.nupkg")
+   exec("Resources\\nuget push ${project_name}.webforms.${build_version}.nupkg")
+   exec("Resources\\nuget push ${project_name}.winforms.${build_version}.nupkg")
    
    exec("del *.nupkg")
    exec("del Resources\\README.txt")

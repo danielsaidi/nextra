@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NExtra
+namespace NExtra.Week
 {
     /// <summary>
     /// This interface can be implemented by classes that can
@@ -10,7 +10,7 @@ namespace NExtra
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public interface IDateTimeWeekParser
+    public interface IWeekParser
     {
         /// <summary>
         /// Get the first date of the week for a certain date.

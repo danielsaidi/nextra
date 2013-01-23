@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NExtra
+namespace NExtra.Week
 {
     /// <summary>
     /// This IDateTimeWeekParser implementation can be used to
@@ -10,7 +10,7 @@ namespace NExtra
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public class Iso8601DateTimeWeekParser : DateTimeWeekParser
+    public class Iso8601WeekParser : WeekParser
     {
         const int JAN = 1;
         const int DEC = 12;

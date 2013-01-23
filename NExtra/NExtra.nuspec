@@ -6,15 +6,15 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <iconUrl>http://dotnextra.com/content/img/icon_uniform.png</iconUrl>
-    <projectUrl>http://dotnextra.com</projectUrl>
+    <iconUrl>http://danielsaidi.github.com/nextra/static/img/icon_uniform.png</iconUrl>
+    <projectUrl>http://danielsaidi.github.com/nextra</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <summary>.NExtra is an open-source library with extended functionality for the .NET Framework.</summary>
-    <description>This package contains the .NExtra core library, which can be used in most kinds of .NET applications.</description>
-    <releaseNotes>See http://github.com/danielsaidi/NExtra/blob/master/Release-notes.txt</releaseNotes>
-    <copyright>Copyright 2009-2012, Daniel Saidi</copyright>
-    <tags>net .net c#</tags>
+    <description>This package contains the .NExtra base library. It extends System and can be used in most kinds of .NET projects.</description>
+    <releaseNotes>See http://github.com/danielsaidi/nextra/blob/master/Release-notes.md</releaseNotes>
+    <copyright>Copyright 2009-2013, Daniel Saidi</copyright>
+    <tags>net .net system c#</tags>
   </metadata>
   <files>
 	<file src="..\Resources\README.txt" target="" />
