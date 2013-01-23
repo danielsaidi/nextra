@@ -32,7 +32,7 @@ target deploy, (compile, test, copy):
       file.CopyToDirectory("{project_name}.${build_version}")
    rmdir(build_folder)
 
-target publish, (publish_nuget, publish_github):
+target publish, (zip, publish_nuget, publish_github):
    pass
 
 
