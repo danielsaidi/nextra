@@ -64,7 +64,7 @@ target copy:
     .Include("**/bin/${build_config}/*.pdb")
     .Include("**/bin/${build_config}/*.xml")
     .Exclude("**/bin/${build_config}/*.Tests.*")
-    .Exclude("**/bin/${build_config}/nunit.framework.*"
+    .Exclude("**/bin/${build_config}/nunit.framework.*")
     .Exclude("**/bin/${build_config}/nsubstitute.*")
     .ForEach def(file):
       File.Copy(file.FullName, "${build_folder}/${file.Name}", true)

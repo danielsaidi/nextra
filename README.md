@@ -4,10 +4,11 @@ NExtra
 	Author:		Daniel Saidi [daniel.saidi@gmail.com]
 
 NExtra is an open-source library that contains extended functionality
-for the .NET Framework. I continously add interfaces and classes that
-I develop, that could be reused in other projects of all kinds.
+for the .NET Framework. I continously add things that I create in the
+various projects I work with, if I find that they are relevant enough
+for others and general enough to be reusable in other projects.
 
-If I add code that I found on blogs or other web resources, I include
+If I add stuff that I find on a blog or other web resources, I include
 a link to the original implementation in the source code.
 
 
@@ -18,28 +19,33 @@ You can find more information about NExtra at the following resources:
 
 	Web site:		http://danielsaidi.github.com/NExtra
 	Source code:	http://github.com/danielsaidi/NExtra
-	Downloads:		http://github.com/danielsaidi/NExtra/downloads
+	Downloads:		http://github.com/danielsaidi/NExtra/tags
 	Issues:			http://github.com/danielsaidi/NExtra/issues
-	Blog:			http://danielsaidi.wordpress.com/category/nextra/
-	Documentation:	http://danielsaidi.github.com/nextra/documentation
+	Blog:			http://danielsaidi.wordpress.com/category/nextra
+	
+Do not hesitate to contact me if you have any questions that you need
+to ask, any bugs or issues that you need help with, or if you want to
+give me feedback, suggestions etc. Bugs can easily be reported, using
+the issue page.
 
-Do not hesitate to contact me if you have any questions. To report an
-issue or a bug, either use the issues page or drop me an e-mail.
-
-Contributions to the library are more than welcome. Just send me pull
-requests via GitHub or attach your code in an e-mail. Anything goes :)
+Contributions to NExtra are more than welcome. If you build something
+that you wish to share, fix a bug, improve a unit test etc. just send
+me a pull request requests via GitHub or simply attach your code in a
+regular e-mail.
 
 
 Getting started
 ---------------
 
-You can grab the source code from GitHub or get pre-compiled binaries
-either from NuGet or from the download page. If you are new to NExtra,
-however, I would advice you to just grab the source code and pick out
-the parts that you need instead of fumbling around with compiled code.
+You can grab the source code directly from GitHub, download a certain
+version of the source code from the download page or get pre-compiled
+binaries directly from within Visual Studio, using NuGet.
 
-If you decide to go with the precompiled DLLs, NExtra consists of the
-following projects:
+If you are new to NExtra, I would definitively advice you to grab the
+latest source code, browse through it and pick out the parts you need,
+instead of starting out with the compiled DLLs.
+
+NExtra consists of the following projects:
 
 	NExtra
 	NExtra.Web
@@ -48,10 +54,9 @@ following projects:
 	NExtra.WebForms
 	NExtra.WinForms
 	
-The NExtra namespace extends System, and can be used in most projects,
-provided that it use the required .NET version. The other libs should
-only be used in projects that depend on the corresponding System libs.
-E.g. only use NExtra.Web in projects that depend on System.Web.
+The NExtra namespace extends System, and can be used in most projects.
+The other projects depend on the corresponding System libraries. This
+means that NExtra.Web requires System.Web etc.
 
 
 Documentation
@@ -59,8 +64,8 @@ Documentation
 
 From version 3.0, I have decided to not extract any documentation for
 NExtra. I believe that it is easier to grab the source code and check
-it out, than it is to plow through page after page within a generated
-HTML structure.
+it out, or even browse through the code on GitHub, than it is to plow
+through page after page within a generated HTML structure.
 
 Let me know if you think that I am wrong. Extracting documentation is
 a piece of cake, so if you need it, it is easily done.
