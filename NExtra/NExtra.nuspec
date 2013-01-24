@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <summary>.NExtra is an open-source library with extended functionality for the .NET Framework.</summary>
-    <description>This package contains the .NExtra base library. It extends System and can be used in most kinds of .NET projects.</description>
+    <description>This library extends System and can be used in most kinds of .NET projects.</description>
     <releaseNotes>See http://github.com/danielsaidi/nextra/blob/master/Release-notes.md</releaseNotes>
     <copyright>Copyright 2009-2013, Daniel Saidi</copyright>
     <tags>net .net system c#</tags>

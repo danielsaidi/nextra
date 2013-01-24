@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <summary>.NExtra is an open-source library with extended functionality for the .NET Framework.</summary>
-    <description>This package contains the .NExtra WinForms library. It extends System.Windows.Forms.</description>
+    <description>This library extends System.Windows.Forms.</description>
     <releaseNotes>See http://github.com/danielsaidi/NExtra/blob/master/Release-notes.txt</releaseNotes>
     <copyright>Copyright 2009-2013, Daniel Saidi</copyright>
     <tags>.net net c# windows forms system.windows.forms</tags>
@@ -21,8 +21,6 @@
     </dependencies>
   </metadata>
   <files>
-	<file src="..\Resources\README.txt" target="" />
-	<file src="..\Resources\Release-notes.txt" target="" />
 	<file src="bin\Release\NExtra.WinForms.dll" target="lib\net40" />
   </files>
 </package>

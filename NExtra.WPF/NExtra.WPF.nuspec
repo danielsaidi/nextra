@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <summary>.NExtra is an open-source library with extended functionality for the .NET Framework.</summary>
-    <description>This package contains the .NExtra WPF library. It can be used in WPF projects.</description>
+    <description>This library extends Microsoft's PresentationFramework library (WPF).</description>
     <releaseNotes>See http://github.com/danielsaidi/NExtra/blob/master/Release-notes.txt</releaseNotes>
     <copyright>Copyright 2009-2013, Daniel Saidi</copyright>
     <tags>.net net c# windows wpf</tags>
