@@ -23,7 +23,19 @@ namespace NExtra.Extensions
         }
 
         /// <summary>
-        /// Check whether or not a string is empty, using String.IsNullOrEmpty.
+        /// Check whether or not a certain string contains any text, after
+        /// it has been trimmed. 
+        /// </summary>
+        public static bool HasContent(this string str)
+        {
+            if (str == null)
+                return false;
+
+            return str.Trim().Length > 0;
+        }
+
+        /// <summary>
+        /// Check whether or not a string is empty.
         /// </summary>
         public static bool IsNullOrEmpty(this string str)
         {

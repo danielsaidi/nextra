@@ -32,6 +32,30 @@ namespace NExtra.Tests.Extensions
         }
 
         [Test]
+        public void HasContent_ShouldReturnFalseForNullString()
+        {
+            string str = null;
+
+            Assert.That(str.HasContent(), Is.False);
+        }
+
+        [Test]
+        public void HasContent_ShouldReturnFalseForEmptyString()
+        {
+            const string str = "    ";
+
+            Assert.That(str.HasContent(), Is.False);
+        }
+
+        [Test]
+        public void HasContent_ShouldReturnTrueForNonEmptyString()
+        {
+            const string str = "  fewafewaewf  ";
+
+            Assert.That(str.HasContent(), Is.True);
+        }
+
+        [Test]
         public void IsNullOrEmpty_ShouldHandleNull()
         {
             StringCollection testCollection = null;

@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="Cache\DictionaryCacheBehavior.cs" />
     <Compile Include="EventArgsBehavior.cs" />
+    <Compile Include="Extensions\NameValueCollectionExtensionsBehavior.cs" />
     <Compile Include="Extensions\IDictionaryExtensionsBehavior.cs" />
     <Compile Include="Extensions\WebRequestExtensionsBehavior.cs" />
     <Compile Include="IO\PathPatternMatcherBehavior.cs" />

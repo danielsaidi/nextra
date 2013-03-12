@@ -46,5 +46,11 @@ namespace NExtra.Tests.Validation
 			Assert.That(validator.IsValid("foobar@foobar.com"), Is.True);
 			Assert.That(validator.IsValid("foo.bar@foobar.com"), Is.True);
 		}
+
+        [Test]
+        public void IsValid_ShouldReturnTrueForShortEmail()
+        {
+            Assert.That(validator.IsValid("a@foobar.com"), Is.True);
+        }
 	}
 }

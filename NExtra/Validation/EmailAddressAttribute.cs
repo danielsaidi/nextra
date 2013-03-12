@@ -15,7 +15,6 @@ namespace NExtra.Validation
 		public EmailAddressAttribute()
 			: base(Expression) { }
 
-        public const string Expression =
-            @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$";
+        public const string Expression = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
 	}
 }

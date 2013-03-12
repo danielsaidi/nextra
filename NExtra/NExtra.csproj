@@ -74,6 +74,7 @@
     <Compile Include="Cache\DictionaryCache.cs" />
     <Compile Include="Console\CommandLineArgumentParser.cs" />
     <Compile Include="Console\ConsoleFacade.cs" />
+    <Compile Include="Extensions\NameValueCollectionExtensions.cs" />
     <Compile Include="Week\WeekParser.cs" />
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\ProcessFacade.cs" />

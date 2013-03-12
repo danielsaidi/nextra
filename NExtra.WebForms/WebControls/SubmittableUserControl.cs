@@ -38,11 +38,9 @@ namespace NExtra.WebForms.WebControls
         /// <summary>
         /// Trigger the Cancel event.
         /// </summary>
-        /// <param name="e">Event arguments.</param>
 	    public virtual void OnCancel(EventArgs e)
-	    {
-	        Cancelled = true;
-	        Submitted = false;
+        {
+            SetSubmitStatus(false);
 
 	        if (Cancel != null)
 	            Cancel(this, e);
@@ -51,14 +49,19 @@ namespace NExtra.WebForms.WebControls
         /// <summary>
         /// Trigger the Submit event.
         /// </summary>
-        /// <param name="e">Submit arguments.</param>
 	    public virtual void OnSubmit(EventArgs e)
         {
-            Cancelled = false;
-            Submitted = true;
+            SetSubmitStatus(true);
 
 			if (Submit != null)
 				Submit(this, e);
 		}
+
+
+        private void SetSubmitStatus(bool status)
+        {
+            Cancelled = status;
+            Submitted = !status;
+        }
 	}
 }

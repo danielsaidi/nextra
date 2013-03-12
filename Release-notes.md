@@ -1,4 +1,32 @@
-.NExtra 3.0.0.0		2012-xx-xx
+NExtra 3.1.0.0		2013-03-11
+==============================
+
+In this version, I have added some new features, complete with the
+unit tests needed to be a proud developer.
+
+
+NExtra
+------
+
+- I have added a Extensions/NameValueCollectionExtensions class to
+the NExtra project.
+
+- I have added a Extensions/StringExtensions.HasContent method. It
+checks if a string contains any text.
+
+- I have replaced the regexp for Validation/EmailAddressAttribute.
+The new regexp supports short e-mail addresses as well.
+
+
+NExtra.WebForms
+---------------
+
+- I have added a missing property flip when SubmittableUserControl
+calls the OnSubmit method.
+
+
+
+NExtra 3.0.0.0		2013-01-23
 ==============================
 
 In this version, I have refactored large parts of the code. I have
