@@ -24,6 +24,9 @@ namespace NExtra.Web.Testing
         }
         
 
+        /// <summary>
+        /// Get a fake cookie collection for the fake response.
+        /// </summary>
         public override HttpCookieCollection Cookies
         {
             get { return cookies; }

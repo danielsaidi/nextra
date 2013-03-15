@@ -13,7 +13,7 @@ namespace NExtra.Localization
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public class ResourceManagerFacade : ITranslator
+    public class ResourceManagerTranslator : ITranslator
     {
         private readonly ResourceManager resourceManager;
 
@@ -21,7 +21,7 @@ namespace NExtra.Localization
         /// <summary>
         /// Create an instance of the class, using a custom resource manager.
         /// </summary>
-        public ResourceManagerFacade(ResourceManager resourceManager)
+        public ResourceManagerTranslator(ResourceManager resourceManager)
         {
             this.resourceManager = resourceManager;
         }

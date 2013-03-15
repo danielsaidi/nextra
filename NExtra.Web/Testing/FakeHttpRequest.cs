@@ -30,28 +30,41 @@ namespace NExtra.Web.Testing
         }
 
 
+        /// <summary>
+        /// Get a fake cookie collection for the request.
+        /// </summary>
         public override HttpCookieCollection Cookies
         {
             get { return cookies; }
         }
 
+        /// <summary>
+        /// Get the fake, manually set authentication status for the request.
+        /// </summary>
         public override bool IsAuthenticated
         {
             get { return isAuthenticated; }
         }
 
+        /// <summary>
+        /// Get the fake, manually set url for the request.
+        /// </summary>
         public override Uri Url
         {
             get { return url; }
         }
 
+        /// <summary>
+        /// Get the manually set url referrer for the request.
+        /// </summary>
         public override Uri UrlReferrer
         {
             get { return urlReferrer; }
         }
 
-
-
+        /// <summary>
+        /// Set the url referrer for the request.
+        /// </summary>
         public void SetUrlReferrer(Uri newValue)
         {
             urlReferrer = newValue;

@@ -11,18 +11,31 @@ NExtra
 - I have added a Extensions/NameValueCollectionExtensions class to
 the NExtra project.
 
-- I have added a Extensions/StringExtensions.HasContent method. It
-checks if a string contains any text.
+- NExtra.Web.Security.IAuthenticationService has been moved to the
+NExtra.Security namespace, so that it can be used in a wider scope.
+The interface has a new Authenticate method as well.
 
-- I have replaced the regexp for Validation/EmailAddressAttribute.
-The new regexp supports short e-mail addresses as well.
+- The Extensions.StringExtensions class has been extended with new
+HasContent method. It checks if a string contains any text besides
+spaces (sorry for disrespecting space, not counting it as content).
+
+- The Validation.EmailAddressAttribute class's regex expression is
+replaced with a new expression that supports tiny e-mail addresses.
+
+
+NExtra.WebForms
+---------------
+
+- The FormsAuthenticationService has been extended with additional
+features, which has been added to the IAuthenticationServcie class
+as well.
 
 
 NExtra.WebForms
 ---------------
 
 - I have added a missing property flip when SubmittableUserControl
-calls the OnSubmit method.
+calls the OnSubmit method. Call it a bug fix...or a feature change.
 
 
 

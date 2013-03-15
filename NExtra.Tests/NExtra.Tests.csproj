@@ -77,7 +77,7 @@
     <Compile Include="Extensions\IDictionaryExtensionsBehavior.cs" />
     <Compile Include="Extensions\WebRequestExtensionsBehavior.cs" />
     <Compile Include="IO\PathPatternMatcherBehavior.cs" />
-    <Compile Include="Localization\HierarchicalResourceManagerFacadeBehavior.cs" />
+    <Compile Include="Localization\HierarchicalResourceManagerTranslatorBehavior.cs" />
     <Compile Include="Reflection\TypeLocatorBehavior.cs" />
     <Compile Include="Security\Md5GeneratorBehavior.cs" />
     <Compile Include="Security\Sha1GeneratorBehavior.cs" />

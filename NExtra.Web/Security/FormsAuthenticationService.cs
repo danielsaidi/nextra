@@ -1,4 +1,6 @@
+using System.Web;
 using System.Web.Security;
+using NExtra.Security;
 
 namespace NExtra.Web.Security
 {
@@ -12,6 +14,16 @@ namespace NExtra.Web.Security
     /// </remarks>
     public class FormsAuthenticationService : IAuthenticationService
     {
+        public bool Authenticate(string userName, string password)
+        {
+            return FormsAuthentication.Authenticate(userName, password);
+        }
+
+        public bool IsAuthenticated()
+        {
+            return HttpContext.Current.Request.IsAuthenticated;
+        }
+
         public void SignIn(string userName, bool createPersistentCookie)
         {
             FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);

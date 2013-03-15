@@ -30,13 +30,13 @@ namespace NExtra.Localization
     /// the key ("Domain"). It then checks if "User_UserName"
     /// exists, then finally "UserName".
     /// </remarks>
-    public class HierarchicalResourceManagerFacade : ResourceManagerFacade
+    public class HierarchicalResourceManagerTranslator : ResourceManagerTranslator
     {
         /// <summary>
         /// Create an instance of the class, using a custom
         /// resource manager and the default _ key separator.
         /// </summary>
-        public HierarchicalResourceManagerFacade(ResourceManager resourceManager)
+        public HierarchicalResourceManagerTranslator(ResourceManager resourceManager)
             : this(resourceManager, "_")
         {
         }
@@ -45,7 +45,7 @@ namespace NExtra.Localization
         /// Create an instance of the class, using a custom
         /// resource manager and a custom key separator.
         /// </summary>
-        public HierarchicalResourceManagerFacade(ResourceManager resourceManager, string keySeparator)
+        public HierarchicalResourceManagerTranslator(ResourceManager resourceManager, string keySeparator)
             : base(resourceManager)
         {
             KeySeparator = keySeparator;
