@@ -60,8 +60,8 @@ namespace NExtra.WebForms.WebControls
 
         private void SetSubmitStatus(bool status)
         {
-            Cancelled = status;
-            Submitted = !status;
+            Cancelled = !status;
+            Submitted = status;
         }
 	}
 }

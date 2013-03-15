@@ -38,7 +38,7 @@ target publish, (zip, publish_nuget, publish_github):
 
 
 target compile:
-   msbuild(file: "${project_name}.sln", configuration: build_config, version: "4")
+   msbuild(file: "${project_name}.sln", configuration: "${build_config}", version: "4")
       
    //Probably a reaaally crappy way to retrieve assembly version,
    //but I cannot use System.Reflection since Phantom is too old.
