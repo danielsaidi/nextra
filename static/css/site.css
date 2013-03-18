@@ -1,15 +1,15 @@
-
 body { }
 
 h1, h2, h3, h1 + p { font-family: 'Molengo', Georgia, Times, serif; }
 
-h2 { border-bottom: 1px solid #EEE; }
-h3 { font-weight: normal; }
+h2 { font-size: 2.0em; border-bottom: 1px solid #EEE; margin-bottom: 1em; }
+h2 i { margin-right: 1em; }
+h3 { font-size: 1.5em; font-weight: normal; }
 h3 i { margin-right: 0.8em; }
 
-section { padding-top: 50px; }
-section h2 { margin-bottom: 1em; }
-section h2 i { margin-right: 1em; }
+section { padding-top: 20px; }
+section + section { padding-top: 50px; }
+
 
 footer {
    background: url(../img/bg-blue.png) #4a699d;
@@ -19,92 +19,73 @@ footer {
    text-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px;
 }
 
-footer a { color: #D87406; }
+footer a { color: #F89406; }
 footer i { margin-right: 1em; }
 
 
-.navbar .nav {
-   margin-left: 1em;
-}
 
-.navbar .active {
-   color: red !important;
-}
-
-
-.hero-unit {
+.jumbotron {
    background: url(../img/bg-blue.png) #4a699d;
-   border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px;
    color: white;
-   margin-bottom: 0px;
    padding-top: 40px;
    text-align: center;
-   text-shadow: rgba(0, 0, 0, 0.8) 1px 2px 2px;
+   text-shadow: rgba(0, 50, 96, 0.8) 2px 3px 2px;
 }
 
-.hero-unit a {
-   text-decoration: none;
-}
-
-.hero-unit h1 {
-   font-size: 7em;
-   font-weight: normal;
-}
-
-.hero-unit p {
-   font-size: 2em;
-   margin-top: 20px;
-}
-
-.hero-unit p + p {
-   font-size: 1.1em;
-   margin-top: 40px;
-}
-
-.hero-unit .container {
+.jumbotron .container {
    padding: 80px 0 40px 0;
    background: url(../img/content_glow.png) top center no-repeat; 
 }
 
-.hero-unit .buttons {
-   margin-top: 3em;
+.jumbotron h1 {
+   font-size: 6em;
+   font-weight: normal;
+   margin-bottom: 0.6em;
 }
 
-.hero-unit .buttons .btn {
+.jumbotron h1 + p {
+   font-size: 2em;
+}
+
+.jumbotron p {
+   font-size: 1em;
+}
+
+.jumbotron .buttons {
+   margin: 4em 0 3em 0;
+}
+
+.jumbotron .buttons .btn {
    border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
-   font-size: 1.1em;
+   color: white;
+   font-size: 1.4em;
    font-weight: lighter;
    height: 70px;
-   width: 30%;
+   width: 28%;
 }
 
-.hero-unit .buttons .btn i {
-   margin-right: 0.7em;
+.jumbotron .buttons .btn i {
+   font-size: 1.4em;
+   margin-right: 1em;
 }
 
-.hero-unit .buttons > a + a {
-   margin-left: 1em;
+.jumbotron .buttons > a + a {
+   margin-left: 1.2em;
 }
 
-.hero-unit .btn.download {
-   text-shadow: #D87406 -0.1em -0.15em 0.1em;
+.jumbotron .btn.download {
+   text-shadow: #F89406 -0.15em -0.15em 0.1em;
    background: -moz-linear-gradient( center top, #FBB450 50%, #F89406 50% ); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBB450', endColorstr='#F89406'); background: -webkit-gradient( linear, left top, left bottom, color-stop(0.5, #FBB450), color-stop(0.5, #F89406) );
 }
 
-.hero-unit .btn.github {
-   text-shadow: #102d5f -0.1em -0.15em 0.1em;
+.jumbotron .btn.github {
+   text-shadow: #102d5f -0.15em -0.15em 0.1em;
    background: -moz-linear-gradient( center top, #3b5487 50%, #203d6f 50% ); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b5487', endColorstr='#203d6f'); background: -webkit-gradient( linear, left top, left bottom, color-stop(0.5, #3b5487), color-stop(0.5, #203d6f) );
 }
 
-.hero-unit .btn.nuget {
-   font-size: 0.9em;
-   font-weight: normal;
-   background: -moz-linear-gradient( center top, #fff 50%, #e6e6e6 50% ); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#e6e6e6'); background: -webkit-gradient( linear, left top, left bottom, color-stop(0.5, #fff), color-stop(0.5, #e6e6e6) );
-}
-
-.hero-unit .version-info {
-   margin-top: 2em;
-   font-size: 0.7em;
+.jumbotron .btn.nuget {
+   text-shadow: #000 -0.15em -0.15em 0.1em;
+   background: -moz-linear-gradient( center top, #333 50%, #000 50% ); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333', endColorstr='#000'); background: -webkit-gradient( linear, left top, left bottom, color-stop(0.5, #333), color-stop(0.5, #000) );
 }
 
 
@@ -119,19 +100,10 @@ footer i { margin-right: 1em; }
 }
 
 .social.well .icon-large {
-   margin-right: 0.2em;
+   margin-right: 0.5em;
 }
 
-
-/* License well */
-
-#license.well {
-   margin-top: -10px;
-}
-
-
-
-.icon-large {
+.social.well .icon-large {
    font-size: 1.2em;
 }
 
