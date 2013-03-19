@@ -19,7 +19,8 @@ footer {
    text-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px;
 }
 
-footer a { color: #F89406; }
+.jumbotron a, footer a { color: #F89406; }
+.jumbotron a:hover, footer a:hover { color: #Ffab3c; }
 footer i { margin-right: 1em; }
 
 
