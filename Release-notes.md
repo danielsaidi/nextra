@@ -8,27 +8,25 @@ unit tests needed to be a proud developer.
 NExtra
 ------
 
-- I have added a Extensions/NameValueCollectionExtensions class to
-the NExtra project.
+- Added a new NExtra.Extensions.NameValueCollectionExtensions type,
+together with corresponsing unit tests.
 
-- NExtra.Web.Security.IAuthenticationService has been moved to the
-NExtra.Security namespace, so that it can be used in a wider scope.
-The interface has a new Authenticate method as well.
+- Added a new HasContent method to the Extensions.StringExtensions
+class, together with corresponsing unit tests.
 
-- The Extensions.StringExtensions class has been extended with new
-HasContent method. It checks if a string contains any text besides
-spaces (sorry for disrespecting space, not counting it as content).
+- Moved NExtra.Web.Security.IAuthenticationService into the NExtra
+project, to make is useable in a wider context. Added an Authorize
+method to is as well.
 
-- The Validation.EmailAddressAttribute class's regex expression is
-replaced with a new expression that supports tiny e-mail addresses.
+- Replaced the Validation.EmailAddressAttribute expression with an
+expression that supports tiny e-mail addresses.
 
 
 NExtra.WebForms
 ---------------
 
-- The FormsAuthenticationService has been extended with additional
-features, which has been added to the IAuthenticationServcie class
-as well.
+- Extended the FormsAuthenticationService with additional features.
+These were added to the IAuthorizeService class as well.
 
 
 NExtra.WebForms
