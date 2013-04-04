@@ -20,6 +20,7 @@ footer {
 }
 
 .jumbotron a, footer a { color: #F89406; }
+.jumbotron a { text-decoration: none; }
 .jumbotron a:hover, footer a:hover { color: #Ffab3c; }
 footer i { margin-right: 1em; }
 
