@@ -4,15 +4,28 @@ NExtra 3.1.0.0		2013-03-11
 In this version, I have added some new features, complete with the
 unit tests needed to be a proud developer.
 
+I will also start to add extension methods in separate files, if a
+currently existing extension file contains methods that are not at
+all related with the new one. The Extensions.StringExtensions, for
+instance, contains general string related extension methods, while
+the new Extensions.StringAsciiExtensions file contains methods for
+ASCII operations only.
+
 
 NExtra
 ------
 
-- Added a new NExtra.Extensions.NameValueCollectionExtensions type,
-together with corresponsing unit tests.
+- Added a new Extensions.NameValueCollectionExtensions class, with
+corresponsing unit tests.
+
+- Added a new Extensions.StringAsciiExtensions class that contains
+a ReplaceInternationalChars method. It replaces å with a, ô with o
+etc. and is used by the Extensions.StringUrlExtensions class.
 
 - Added a new HasContent method to the Extensions.StringExtensions
 class, together with corresponsing unit tests.
+
+- Added a new Extensions
 
 - Moved NExtra.Web.Security.IAuthenticationService into the NExtra
 project, to make is useable in a wider context. Added an Authorize

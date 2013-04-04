@@ -75,6 +75,7 @@
     <Compile Include="Console\CommandLineArgumentParser.cs" />
     <Compile Include="Console\ConsoleFacade.cs" />
     <Compile Include="Extensions\NameValueCollectionExtensions.cs" />
+    <Compile Include="Extensions\StringAsciiExtensions.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Serialization\IObjectSerializer.cs" />
     <Compile Include="Week\WeekParser.cs" />
