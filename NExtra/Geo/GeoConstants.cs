@@ -1,7 +1,8 @@
 ﻿namespace NExtra.Geo
 {
     /// <summary>
-    /// This class contains geo constants that never(ish) change.
+    /// This class contains geo constants that never(ish)
+    /// will change.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -9,14 +10,7 @@
     /// </remarks>
     public static class GeoConstants
     {
-        /// <summary>
-        /// The rough earth radius in kilometers.
-        /// </summary>
         public const double EarthRadiusInKilometers = 6367.0;
-
-        /// <summary>
-        /// The rough earth radius in miles.
-        /// </summary>
         public const double EarthRadiusInMiles = 3956.0;
     }
 }

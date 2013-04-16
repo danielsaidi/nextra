@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace NExtra.Cache
 {
     /// <summary>
-    /// This is a really simple ICache implementation that caches
-    /// data in a memory dictionary. It requires no configuration
-    /// at all, but should only be used in really trivial cases.
+    /// This is a really simple ICache implementation that
+    /// caches data in a memory dictionary. It requires no
+    /// setup, but should only be used in trivial cases.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

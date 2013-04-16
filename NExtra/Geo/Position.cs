@@ -1,13 +1,14 @@
 namespace NExtra.Geo
 {
     /// <summary>
-    /// This class represents a geographical position.
+    /// This class represents a geographical position. It
+    /// has a latitude and longitude, but no meta data.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public class Position
+    public class Position : IPosition
     {
         public Position(double latitude, double longitude)
         {
@@ -16,8 +17,8 @@ namespace NExtra.Geo
         }
 
 
-        public double Latitude { get; set; }
+        public double Latitude { get; private set; }
 
-        public double Longitude { get; set; }
+        public double Longitude { get; private set; }
     }
 }

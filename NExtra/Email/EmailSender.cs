@@ -8,7 +8,8 @@ namespace NExtra.Email
     /// messages, using the default SmtpClient.
     /// 
     /// To enable it, make CredentialCache.DefaultNetworkCredentials
-    /// return valid credentials.
+    /// return valid credentials, e.g. by defining the smtp settings 
+    /// in your configuration file.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -23,7 +24,7 @@ namespace NExtra.Email
 
         public void SendEmail(MailMessage mailMessage)
         {
-            new SmtpClient { Timeout = 500, Credentials = CredentialCache.DefaultNetworkCredentials }.Send(mailMessage);
+            new SmtpClient { Credentials = CredentialCache.DefaultNetworkCredentials }.Send(mailMessage);
         }
     }
 }

@@ -1,3 +1,35 @@
+NExtra 3.1.1.0		2013-04-11
+==============================
+
+In this small update, I have added some bug fixes and new features.
+
+I have also started splitting large extension files into extension
+files that correspond to a certain context, like it is done in iOS.
+The naming convention for these context-based extension classes is
+<Type>_<Context>Extensions (String_AsciiExtensions).
+
+General extensions classes will be named <Type>_Extensions, but it
+will be done incrementally. This means that NExtra will have files
+that use both the new and old (<Type>Extensions) convention.
+
+Note that this will not affect how to use the extensions. Just use
+the namespace, and you'll be good to go.
+
+
+NExtra
+------
+
+- Removed SMTP timeout definition in NExtra.Email.EmailSender. The
+timeout was set to a very(!) small value, so consider it a bug fix.
+
+- Renamed the String.To<> methods in StringExtensions to ConvertTo.
+Also added a new ConvertTo method, with a fallback value.
+
+- Split the PositionHandler into four separate classes. Why have a
+monster class when you can have tiny ones, eh?
+
+
+
 NExtra 3.1.0.0		2013-04-04
 ==============================
 

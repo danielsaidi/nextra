@@ -20,18 +20,6 @@ namespace NExtra.Tests.Geo
 
 
         [Test]
-        public void CalculateBearing_ShouldReturnZeroForSamePosition()
-        {
-            Assert.That(handler.CalculateBearing(pos1, pos1), Is.EqualTo(0));
-        }
-
-        [Test]
-        public void CalculateBearing_ShouldReturnCorrectForDifferentPositions()
-        {
-            Assert.That(handler.CalculateBearing(pos1, pos2), Is.EqualTo(44.53932685198231d));
-        }
-
-        [Test]
         public void CalculateDistance_ShouldReturnZeroKilometersForSamePosition()
         {
             Assert.That(handler.CalculateDistance(pos1, pos1, DistanceUnit.Kilometers), Is.EqualTo(0));
