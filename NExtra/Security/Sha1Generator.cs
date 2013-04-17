@@ -14,9 +14,6 @@ namespace NExtra.Security
     /// </remarks>
     public class Sha1Generator : IHashValueGenerator
     {
-        /// <summary>
-        /// Generate an SHA1 hash value.
-        /// </summary>
         public string GenerateHashValue(object value)
         {
             var md5 = new SHA1CryptoServiceProvider();

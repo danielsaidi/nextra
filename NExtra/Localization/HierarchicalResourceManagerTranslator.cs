@@ -13,8 +13,8 @@ namespace NExtra.Localization
     /// 
     /// This approach means that one can specify very general
     /// translations for rather basic terms (like "Password")
-    /// and then override the general translations whenever a
-    /// more specific translation is needed.
+    /// and then override the general translation with a more
+    /// specific one (like "User_Password").
     /// 
     /// If no key separator is specified, the class will make
     /// _ the default separator.
@@ -32,19 +32,11 @@ namespace NExtra.Localization
     /// </remarks>
     public class HierarchicalResourceManagerTranslator : ResourceManagerTranslator
     {
-        /// <summary>
-        /// Create an instance of the class, using a custom
-        /// resource manager and the default _ key separator.
-        /// </summary>
         public HierarchicalResourceManagerTranslator(ResourceManager resourceManager)
             : this(resourceManager, "_")
         {
         }
 
-        /// <summary>
-        /// Create an instance of the class, using a custom
-        /// resource manager and a custom key separator.
-        /// </summary>
         public HierarchicalResourceManagerTranslator(ResourceManager resourceManager, string keySeparator)
             : base(resourceManager)
         {

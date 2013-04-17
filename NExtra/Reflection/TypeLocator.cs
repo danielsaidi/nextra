@@ -7,9 +7,9 @@ using NExtra.Extensions;
 namespace NExtra.Reflection
 {
     /// <summary>
-    /// This class can be used to find all types in one or
-    /// several assemblies, that inherit a certain type or
-    /// implement a certain interface.
+    /// This class can be used to find all types in one
+    /// or several assemblies, that implement a certain
+    /// interface or inherit a certain type.
     /// </summary>
     /// <remarks>
     /// Author:     Niklas Melinder [niklas@melinder.se]
@@ -20,9 +20,6 @@ namespace NExtra.Reflection
         private readonly Assembly[] _assemblies;
 
 
-        /// <summary>
-        /// Create an instance of the class, using a list of assemblies.
-        /// </summary>
         public TypeLocator(params Assembly[] assemblies)
         {
             _assemblies = assemblies;

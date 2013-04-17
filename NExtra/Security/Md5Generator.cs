@@ -14,9 +14,6 @@ namespace NExtra.Security
     /// </remarks>
     public class Md5Generator : IHashValueGenerator
     {
-        /// <summary>
-        /// Generate an MD5 hash value for an object.
-        /// </summary>
         public string GenerateHashValue(object value)
         {
             var md5 = new MD5CryptoServiceProvider();

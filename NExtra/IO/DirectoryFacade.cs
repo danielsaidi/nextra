@@ -6,7 +6,8 @@ using System.Security.AccessControl;
 namespace NExtra.IO
 {
     /// <summary>
-    /// This class can be used as a facade for the static Directory class.
+    /// This class can be used as a facade for the static
+    /// Directory class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

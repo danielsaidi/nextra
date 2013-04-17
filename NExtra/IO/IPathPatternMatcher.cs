@@ -3,8 +3,8 @@
 namespace NExtra.IO
 {
     /// <summary>
-    /// This interface can be implemented by classes that can
-    /// be used to match file and directory paths (e.g. *.txt).
+    /// This interface can be implemented by classes that
+    /// can be used to match file and directory paths.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

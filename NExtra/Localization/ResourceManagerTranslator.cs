@@ -5,9 +5,9 @@ using System.Threading;
 namespace NExtra.Localization
 {
     ///<summary>
-    /// This class can be used to translate language keys, using
-    /// a resource file. It requires an exact match to translate
-    /// a language key.
+    /// This class can be used to translate language keys,
+    /// using a resource file. It requires an exact match
+    /// to translate a language key.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -18,9 +18,6 @@ namespace NExtra.Localization
         private readonly ResourceManager resourceManager;
 
 
-        /// <summary>
-        /// Create an instance of the class, using a custom resource manager.
-        /// </summary>
         public ResourceManagerTranslator(ResourceManager resourceManager)
         {
             this.resourceManager = resourceManager;

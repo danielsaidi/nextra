@@ -32,8 +32,12 @@ monster class when you can have tiny ones, right?
 - Removed the default timespan Set method from ICache. It was only
 causing a larger interface.
 
-- Removed the AdjustContent method in WebRequest_Extensions. It is
-a good example of a too specific method that should not be in here.
+- Removed AdjustContent method in Extensions.WebRequest_Extensions.
+It is a good example of a far too specific method, that should not
+be in NExtra.
+
+- Removed all the default constructor parameter values for the old
+Pagination.PaginationContext class and also extracted an interface.
 
 
 

@@ -1,10 +1,10 @@
 ﻿namespace NExtra.Serialization
 {
     /// <summary>
-    /// This interface can be implemented by classes that can
-    /// be used to serialize objects. An implementation could,
-    /// for instance, use Newtonsoft.Json JsonConvert to make
-    /// it possible to serialize to and deserialize from JSON.
+    /// This interface can be implemented by classes that
+    /// can be used to serialize objects. Implementations
+    /// could, for instance, use Newtonsoft.Json, to make
+    /// it possible to serialize to and from JSON.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

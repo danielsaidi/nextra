@@ -6,17 +6,23 @@ using NExtra.Extensions;
 namespace NExtra.IO
 {
     /// <summary>
-    /// This class can be used to check if a file or directory
-    /// path matches a certain pattern. It supports operations
-    /// like *.txt, b*, a*.txt etc.
+    /// This class can be used to match file and folder
+    /// name patterns. It supports patterns like *.txt,
+    /// b*, a*.txt etc.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// 
-    /// This implementation was found at stackoverflow.com. I
-    /// forgot to keep the url, though, so even though I want
-    /// to thank the author...it's rather impossible.
+    /// This implementation was found at stackoverflow. I
+    /// forgot the url though, so even though I'd like to
+    /// thank the author...it's rather impossible.
+    /// 
+    /// I will, however, replace this implementation with
+    /// another one. This is by far the largest method in
+    /// NExtra...and pretty impossible to understand.
+    /// 
+    /// I mark this as a TODO.
     /// </remarks>
     public class PathPatternMatcher : IPathPatternMatcher
     {

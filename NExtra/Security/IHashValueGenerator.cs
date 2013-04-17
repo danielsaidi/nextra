@@ -1,8 +1,8 @@
 ﻿namespace NExtra.Security
 {
     /// <summary>
-    /// This interface can be implemented by classes that can
-    /// generate a hash value for any kind of object.
+    /// This interface can be implemented by classes that
+    /// can generate a hash value for a certain object.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -10,9 +10,6 @@
     /// </remarks>
     public interface IHashValueGenerator
     {
-        /// <summary>
-        /// Generate a hash value for an object.
-        /// </summary>
         string GenerateHashValue(object value);
     }
 }

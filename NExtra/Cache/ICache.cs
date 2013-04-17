@@ -3,9 +3,10 @@
 namespace NExtra.Cache
 {
     /// <summary>
-    /// This interface can be implemented by classes that can
-    /// cache data in various ways. It's simple and describes
-    /// only the most basic caching functionality.
+    /// This interface can be implemented by classes that
+    /// can cache data in various ways. It is very simple,
+    /// thoguh, and describes only the most basic caching
+    /// functionality.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

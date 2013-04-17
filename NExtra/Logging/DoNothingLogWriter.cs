@@ -1,9 +1,9 @@
 namespace NExtra.Logging
 {
     /// <summary>
-    /// This class can be used to handle log messages, but
-    /// will not do anything with the ones it receives. It
-    /// just swallows them with no action whatsoever.
+    /// This class can be used to handle logging, but will
+    /// not do anything. It just swallows log messages and
+    /// pretends like everything went just fine.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

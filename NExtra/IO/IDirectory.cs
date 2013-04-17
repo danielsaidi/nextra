@@ -6,8 +6,8 @@ using System.Security.AccessControl;
 namespace NExtra.IO
 {
     /// <summary>
-    /// This interface can be implemented by classes that can
-    /// be used to work with file system directories.
+    /// This interface can be implemented by classes that
+    /// can be used to work with file system directories.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
