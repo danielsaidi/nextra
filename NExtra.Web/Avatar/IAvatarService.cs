@@ -1,8 +1,8 @@
 ﻿namespace NExtra.Web.Avatar
 {
     /// <summary>
-    /// This interface can be implemented by classes that can
-    /// provide avatars for users accounts, e.g. Gravatar.
+    /// This interface can be implemented by classes that
+    /// provides user avatars, like Gravatar and Facebook.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -10,14 +10,6 @@
     /// </remarks>
     public interface IAvatarService<in SizeType>
     {
-        /// <summary>
-        /// Get the url of a user avatar with default size.
-        /// </summary>
-        string GetAvatarUrl(string userName);
-
-        /// <summary>
-        /// Get the url of a user avatar with a given size.
-        /// </summary>
         string GetAvatarUrl(string userName, SizeType size);
     }
 }

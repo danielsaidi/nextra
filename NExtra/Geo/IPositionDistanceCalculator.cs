@@ -10,7 +10,7 @@
     /// </remarks>
     public interface IPositionDistanceCalculator
     {
-        double CalculatePositionDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit);
-        double CalculatePositionRhumbDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit);
+        double CalculateDistance(IPosition pos1, IPosition pos2, DistanceUnit unit);
+        double CalculateRhumbDistance(IPosition pos1, IPosition pos2, DistanceUnit unit);
     }
 }

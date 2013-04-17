@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 namespace NExtra.Validation
 {
 	/// <summary>
-	/// This attribute can be used to validate whether or
-	/// not a string represents a valid IP address.
+    /// This attribute can be used to verify if a string
+    /// represents a valid IP address.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]

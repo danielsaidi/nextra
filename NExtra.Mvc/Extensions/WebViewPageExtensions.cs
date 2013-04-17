@@ -13,17 +13,11 @@ namespace NExtra.Mvc.Extensions
     /// </remarks>
     public static class WebViewPageExtensions
     {
-        /// <summary>
-        /// Format a global resource value for display.
-        /// </summary>
         public static IHtmlString GlobalResource(this WebViewPage page, string resource)
         {
             return page.Html.GlobalResource(resource);
         }
 
-        /// <summary>
-        /// Format a local resource value for display.
-        /// </summary>
         public static IHtmlString LocalResource(this WebViewPage page, string resourceKeyName)
         {
             return page.Html.LocalResource(page, resourceKeyName);

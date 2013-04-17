@@ -39,6 +39,18 @@ be in NExtra.
 - Removed all the default constructor parameter values for the old
 Pagination.PaginationContext class and also extracted an interface.
 
+- Removed the default constructor for the WeekParser class. Now, I
+force everyone to specify exactly what they want, instead of doing
+the auto-Swede assume that is bound to go wrong.
+
+
+NExtra.Web
+----------
+
+- Drastically simplified the avatar services in NExtra.Web.Avatar.
+Now, the interface does not support a default size. This may seem
+like a bad restriction, but it makes the model way cleaner.
+
 
 
 NExtra 3.1.0.0		2013-04-04

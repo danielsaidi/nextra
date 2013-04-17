@@ -5,8 +5,9 @@ using System.Web.Script.Serialization;
 namespace NExtra.Web.Cookies
 {
     /// <summary>
-    /// This class is a shortcut to working with cookies for the
-    /// current HttpContext. It supports strongly typed data, so
+    /// This class can be used to work with HTTP context
+    /// cookies. It supports strongly typed data, so you
+    /// can store complex objects in there as well. Just
     /// make sure to keep within the cookie size limit.
     /// </summary>
     /// <remarks>
@@ -18,17 +19,11 @@ namespace NExtra.Web.Cookies
         private readonly HttpContextBase httpContext;
 
 
-        /// <summary>
-        /// Create a default instance that uses the current HttpContext.
-        /// </summary>
         public HttpContextCookieHandler(HttpContext httpContext)
             : this(new HttpContextWrapper(httpContext))
         {
         }
 
-        /// <summary>
-        /// Create a custom instance that uses a custom HttpContextBase.
-        /// </summary>
         public HttpContextCookieHandler(HttpContextBase httpContext)
         {
             this.httpContext = httpContext;

@@ -21,9 +21,6 @@ namespace NExtra.Web.Html
         protected const string HTML5_ELEMENTS_ENDTAG_REPLACEMENT = @"$1$3";
 
 
-        /// <summary>
-        /// Convert all HTML5 elements in a string to div and span elements.
-        /// </summary>
         public string ConvertHtml(string htmlString)
         {
             htmlString = Regex.Replace(htmlString, HTML5_BLOCK_ELEMENTS, HTML5_BLOCK_ELEMENTS_REPLACEMENT);

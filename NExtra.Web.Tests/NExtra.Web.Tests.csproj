@@ -68,8 +68,8 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Avatar\FacebookAvatarBehavior.cs" />
-    <Compile Include="Avatar\GravatarBehavior.cs" />
+    <Compile Include="Avatar\FacebookAvatarServiceBehavior.cs" />
+    <Compile Include="Avatar\GravatarServiceBehavior.cs" />
     <Compile Include="Cookies\DomainCookieInvalidatorBehavior.cs" />
     <Compile Include="Cookies\HttpContextCookieHandlerBehavior.cs" />
     <Compile Include="Extensions\StateBagExtensionsBehavior.cs" />

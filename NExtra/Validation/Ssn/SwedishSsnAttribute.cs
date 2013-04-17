@@ -3,17 +3,17 @@
 namespace NExtra.Validation.Ssn
 {
 	/// <summary>
-	/// This attribute can be used to validate whether or not a string
-	/// represents a valid Swedish Social Security Number, on the form
-	/// yymmdd-xxxx or yymmddxxxx.
+	/// This attribute can be used to verify if a string
+	/// represents a Swedish Social Security Number. The
+	/// format is yymmdd-xxxx with various dash modes.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://danielsaidi.github.com/nextra
     /// 
-    /// The SSN must conform to the Luhn algorithm. To validate a more
-    /// complex scenario like correct sex or region, create a separate
-    /// class and override the IsValid method.
+    /// The SSN must conform to the Luhn algorithm. This
+    /// algorithm will verify the checksum, and will run
+    /// server-side, in the IsValid method.
 	/// </remarks>
 	public class SwedishSsnAttribute : RegularExpressionAttribute, IValidator
     {

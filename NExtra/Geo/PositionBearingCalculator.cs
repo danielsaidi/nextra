@@ -21,11 +21,11 @@ namespace NExtra.Geo
         }
 
 
-        public double CalculatePositionBearing(IPosition position1, IPosition position2)
+        public double CalculateBearing(IPosition pos1, IPosition pos2)
         {
-            var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
-            var lat2 = angleConverter.ConvertDegreesToRadians(position2.Latitude);
-            var dLon = angleConverter.ConvertDegreesToRadians(position2.Longitude) - angleConverter.ConvertDegreesToRadians(position1.Longitude);
+            var lat1 = angleConverter.ConvertDegreesToRadians(pos1.Latitude);
+            var lat2 = angleConverter.ConvertDegreesToRadians(pos2.Latitude);
+            var dLon = angleConverter.ConvertDegreesToRadians(pos2.Longitude) - angleConverter.ConvertDegreesToRadians(pos1.Longitude);
 
             var y = Math.Sin(dLon) * Math.Cos(lat2);
             var x = Math.Cos(lat1) * Math.Sin(lat2) - Math.Sin(lat1) * Math.Cos(lat2) * Math.Cos(dLon);
@@ -34,11 +34,11 @@ namespace NExtra.Geo
             return (angleConverter.ConvertRadiansToDegrees(brng) + 360) % 360;
         }
 
-        public double CalculatePositionRhumbBearing(IPosition position1, IPosition position2)
+        public double CalculateRhumbBearing(IPosition pos1, IPosition pos2)
         {
-            var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
-            var lat2 = angleConverter.ConvertDegreesToRadians(position2.Latitude);
-            var dLon = angleConverter.ConvertDegreesToRadians(position2.Longitude - position1.Longitude);
+            var lat1 = angleConverter.ConvertDegreesToRadians(pos1.Latitude);
+            var lat2 = angleConverter.ConvertDegreesToRadians(pos2.Latitude);
+            var dLon = angleConverter.ConvertDegreesToRadians(pos2.Longitude - pos1.Longitude);
 
             var dPhi = Math.Log(Math.Tan(lat2 / 2 + Math.PI / 4) / Math.Tan(lat1 / 2 + Math.PI / 4));
             if (Math.Abs(dLon) > Math.PI) dLon = (dLon > 0) ? -(2 * Math.PI - dLon) : (2 * Math.PI + dLon);

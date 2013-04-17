@@ -85,6 +85,7 @@
     <Compile Include="Geo\PositionBearingCalculator.cs" />
     <Compile Include="Geo\PositionDistanceCalculator.cs" />
     <Compile Include="Geo\IPosition.cs" />
+    <Compile Include="Pagination\IPaginationContext.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Serialization\IObjectSerializer.cs" />
     <Compile Include="Week\WeekParser.cs" />

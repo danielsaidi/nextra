@@ -15,29 +15,10 @@ namespace NExtra.Web.Cache
     /// </remarks>
     public interface IHttpRuntimeCache : ICache
     {
-        /// <summary>
-        /// Add a value to the cache.
-        /// </summary>
         object Add(string key, object value, CacheDependency dependencies, DateTime absoluteExpiration, TimeSpan slidingExpiration, CacheItemPriority priority);
-
-        /// <summary>
-        /// Insert a value into the cache.
-        /// </summary>
         void Set(string key, object value, CacheDependency dependencies);
-
-        /// <summary>
-        /// Insert a value into the cache.
-        /// </summary>
         void Set(string key, object value, CacheDependency dependencies, DateTime absoluteExpires, TimeSpan slidingExpiration);
-
-        /// <summary>
-        /// Insert a value into the cache.
-        /// </summary>
         void Set(string key, object value, CacheDependency dependencies, DateTime absoluteExpires, TimeSpan slidingExpiration, CacheItemPriority priority, CacheItemRemovedCallback removedCallback);
-
-        /// <summary>
-        /// Insert a value into the cache.
-        /// </summary>
         void Set(string key, object value, CacheDependency dependencies, DateTime absoluteExpires, TimeSpan slidingExpiration, CacheItemUpdateCallback updateCallback);
     }
 }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace NExtra.Validation.Ssn
 {
 	/// <summary>
@@ -22,11 +24,14 @@ namespace NExtra.Validation.Ssn
             return ValidateFirstCheckDigit(stringValue) && ValidateSecondCheckDigit(stringValue);
         }
 
-	    private static int CalculateMod(string value, int[] multipliers)
+	    private static int CalculateMod(string value, IList<int> multipliers)
 	    {
 	        var sum = 0;
-	        for (var i = 0; i < multipliers.Length; i++)
-	            sum += int.Parse(value[i].ToString()) * multipliers[i];
+	        for (var i = 0; i < multipliers.Count; i++)
+	        {
+	            var parse = int.Parse(value[i].ToString());
+                sum += parse * multipliers[i];
+	        }
 
 	        var result = 11 - sum%11;
 	        if (result == 11)

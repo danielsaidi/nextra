@@ -37,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\NExtra.Web.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -83,9 +84,9 @@
     <Compile Include="Html\IHtml5ElementSupportEvaluator.cs" />
     <Compile Include="Html\IHtmlRemover.cs" />
     <Compile Include="Html\IHtmlReplacer.cs" />
-    <Compile Include="Avatar\FacebookAvatar.cs" />
+    <Compile Include="Avatar\FacebookAvatarService.cs" />
     <Compile Include="Avatar\FacebookAvatarSize.cs" />
-    <Compile Include="Avatar\Gravatar.cs" />
+    <Compile Include="Avatar\GravatarService.cs" />
     <Compile Include="Cache\HttpRuntimeCacheFacade.cs" />
     <Compile Include="Extensions\StateBagExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

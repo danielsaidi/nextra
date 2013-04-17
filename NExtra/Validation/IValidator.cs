@@ -1,7 +1,7 @@
 ﻿namespace NExtra.Validation
 {
     /// <summary>
-    /// This interface can be implemented by classes
+    /// This interface can be implemented by any classes
     /// that can be used to validate an object.
     /// </summary>
     /// <remarks>

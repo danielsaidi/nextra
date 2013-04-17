@@ -2,16 +2,13 @@
 
 namespace NExtra.Validation.Ssn
 {
-	/// <summary>
-	/// This attribute can be used to validate whether or not a string
-	/// represents a valid Finnish Social Security Number.
+    /// <summary>
+    /// This attribute can be used to verify if a string
+	/// represents a Finnish Social Security Number.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
-    /// 
-    /// To validate more complex scenarios, like correct sex or region,
-    /// create a separate class and override the IsValid method.
 	/// </remarks>
 	public class FinnishSsnAttribute : RegularExpressionAttribute, IValidator
     {

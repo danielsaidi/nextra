@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 namespace NExtra.Validation
 {
 	/// <summary>
-	/// This attribute can be used to validate whether or
-	/// not a string represents a valid GUID.
+    /// This attribute can be used to verify if a string
+    /// represents a valid GUID.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]

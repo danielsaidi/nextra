@@ -11,17 +11,11 @@ namespace NExtra.Mvc.Extensions
 	/// </remarks>
 	public static class ControllerExtensions
     {
-        /// <summary>
-        /// The name of the current action.
-        /// </summary>
         public static string Action(this Controller controller)
         {
             return controller.ValueProvider.GetValue("action").RawValue.ToString();
         }
 
-        /// <summary>
-        /// The name of the controller.
-        /// </summary>
         public static string Name(this Controller controller)
         {
             return controller.ValueProvider.GetValue("controller").RawValue.ToString();

@@ -7,7 +7,7 @@ using System.Web.Caching;
 namespace NExtra.Web.Cache
 {
     /// <summary>
-    /// This class can be used as a facade for the
+    /// This class can be used as a facade for the static
     /// HttpRuntime.Cache instance.
     /// </summary>
     /// <remarks>

@@ -24,21 +24,15 @@ namespace NExtra.Week
     /// </remarks>
     public class WeekParser : IWeekParser
     {
-        public WeekParser()
-            : this(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday)
-        {
-        }
+        private readonly DayOfWeek firstDayOfWeek;
+        private readonly CalendarWeekRule weekRule;
+
 
         public WeekParser(CalendarWeekRule weekRule, DayOfWeek firstDayOfWeek)
         {
-            WeekRule = weekRule;
-            FirstDayOfWeek = firstDayOfWeek;
+            this.weekRule = weekRule;
+            this.firstDayOfWeek = firstDayOfWeek;
         }
-
-
-        private DayOfWeek FirstDayOfWeek { get; set; }
-
-        private CalendarWeekRule WeekRule { get; set; }
 
 
         public DateTime GetFirstDateOfWeek(DateTime date)
@@ -65,7 +59,7 @@ namespace NExtra.Week
 
         public virtual int GetWeekNumber(DateTime date)
         {
-            return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date, WeekRule, FirstDayOfWeek);
+            return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date, weekRule, firstDayOfWeek);
         }
     }
 }

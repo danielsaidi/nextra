@@ -19,23 +19,11 @@ namespace NExtra.Web.Cookies
         private readonly IHttpCookieHandler cookieHandler;
 
 
-        /// <summary>
-        /// Create an instance that uses the current HttpContext.
-        /// </summary>
-        /// <param name="domainHost">The domain host of interest, e.g. foo.bar.com.</param>
-        /// <param name="httpContext">The HTTP context to use.</param>
-        /// <param name="cookieHandler">The cookie handler to use for cookie invalidation.</param>
         public DomainCookieInvalidator(string domainHost, HttpContext httpContext, IHttpCookieHandler cookieHandler)
             : this(domainHost, new HttpContextWrapper(httpContext), cookieHandler)
         {
         }
 
-        /// <summary>
-        /// Create an instance that uses a custom HttpContextBase.
-        /// </summary>
-        /// <param name="domainHost">The domain host of interest, e.g. foo.bar.com.</param>
-        /// <param name="httpContext">The HTTP context to use.</param>
-        /// <param name="cookieHandler">The cookie handler to use for cookie invalidation.</param>
         public DomainCookieInvalidator(string domainHost, HttpContextBase httpContext, IHttpCookieHandler cookieHandler)
         {
             this.domainHost = domainHost;

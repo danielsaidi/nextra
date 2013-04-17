@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Globalization;
 
 namespace NExtra.Week
 {
     /// <summary>
-    /// This IDateTimeWeekParser implementation can be used to
-    /// calculate the week number for a certain ISO8601 date.
+    /// This class can be used to calculate week numbers
+    /// for ISO8601 dates.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -17,6 +18,13 @@ namespace NExtra.Week
         const int LASTDAYOFDEC = 31;
         const int FIRSTDAYOFJAN = 1;
         const int THURSDAY = 4;
+
+
+        public Iso8601WeekParser()
+            : base(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday)
+        {
+        }
+
 
         public override int GetWeekNumber(DateTime date)
         {

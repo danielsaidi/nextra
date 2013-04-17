@@ -27,20 +27,9 @@ namespace NExtra.Tests.Pagination
 			};
 
 			queryable = searchResult.AsQueryable();
-			context = new PaginationContext<KeyValuePair<string, int>>(queryable);
+			context = new PaginationContext<KeyValuePair<string, int>>(queryable, 1, 25, 10);
 		}
 
-
-		[Test]
-		public void Constructor_IEnumerable_ShouldApplyDefaultParameters()
-		{
-			context = new PaginationContext<KeyValuePair<string, int>>(queryable.AsEnumerable());
-
-			Assert.That(context.Collection, Is.EqualTo(searchResult.AsQueryable()));
-			Assert.That(context.PageNumber, Is.EqualTo(1));
-			Assert.That(context.PageSize, Is.EqualTo(25));
-			Assert.That(context.PageLinkMaxCount, Is.EqualTo(10));
-		}
 
 		[Test]
 		public void Constructor_IEnumerable_ShouldApplyCustomParameters()
@@ -105,7 +94,7 @@ namespace NExtra.Tests.Pagination
 			for (var i=0; i<500; i++)
 				searchResult.Add(new KeyValuePair<string, int>(i.ToString(), i));
 
-			context = new PaginationContext<KeyValuePair<string, int>>(searchResult.AsQueryable()) { PageLinkMaxCount = 9, PageSize = 50 };
+			context = new PaginationContext<KeyValuePair<string, int>>(searchResult.AsQueryable(), 1, 50, 9);
 
 			Assert.That(context.PageCount, Is.EqualTo(10));
 			Assert.That(context.PageLinkCount, Is.EqualTo(9));

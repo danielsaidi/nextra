@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace NExtra.Validation
 {
     /// <summary>
-    /// This attribute can be used to validate if a string
+    /// This attribute can be used to verify if a string
     /// is long enough, given a minimum length. 
     /// </summary>
     /// <remarks>
