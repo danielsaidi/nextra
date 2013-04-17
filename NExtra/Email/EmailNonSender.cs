@@ -3,9 +3,8 @@ using System.Net.Mail;
 namespace NExtra.Email
 {
     /// <summary>
-    /// This ICanSendEmail implementation simulates sending e-mail
-    /// messages, but does not actually send anything. It provides
-    /// an easy way to temporarily disable e-mails from being sent.
+    /// This class simulates sending e-mail messages, but
+    /// does not actually send anything.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

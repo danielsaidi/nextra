@@ -3,8 +3,8 @@
 namespace NExtra.Email
 {
     /// <summary>
-    /// This interface can be implemented by classes that can
-    /// be used to send e-mail messages.
+    /// This interface can be implemented by classes that
+    /// can be used to send e-mail messages.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -12,14 +12,7 @@ namespace NExtra.Email
     /// </remarks>
     public interface IEmailSender
     {
-        /// <summary>
-        /// Send an e-mail message.
-        /// </summary>
         void SendEmail(string fromName, string fromEmail, string toEmail, string subject, string body);
-
-        /// <summary>
-        /// Send an e-mail message.
-        /// </summary>
         void SendEmail(MailMessage mailMessage);
     }
 }

@@ -5,7 +5,7 @@ using System.Runtime.Caching;
 namespace NExtra.Cache
 {
     /// <summary>
-    /// This ICache implementation can be used as a facade for
+    /// This ICache implementation can be used as a wrapper for
     /// the default System.Runtime.Caching.MemoryCache instance.
     /// </summary>
     /// <remarks>
@@ -47,11 +47,6 @@ namespace NExtra.Cache
         public void Remove(string key)
         {
             cache.Remove(key);
-        }
-
-        public void Set(string key, object value)
-        {
-            Set(key, value, new TimeSpan(0, 1, 0, 0));
         }
 
         public void Set(string key, object value, TimeSpan timeout)

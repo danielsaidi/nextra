@@ -13,7 +13,7 @@ namespace NExtra.Extensions
     public static class Object_CloneExtensions
     {
         /// <summary>
-        /// Clone a serializable object.
+        /// Clone a serializable object to a copy.
         /// </summary>
         public static object Clone(this object original)
         {

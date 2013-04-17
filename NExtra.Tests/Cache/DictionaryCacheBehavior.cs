@@ -18,11 +18,6 @@ namespace NExtra.Tests.Cache
             cache = new DictionaryCache();
         }
 
-        public void SetValue(string key, object value)
-        {
-            cache.Set(key, value);
-        }
-
         public void SetValidValue(string key, object value)
         {
             cache.Set(key, value, new TimeSpan(0, 1, 0, 0));
@@ -58,8 +53,8 @@ namespace NExtra.Tests.Cache
         [Test]
         public void Clear_ShouldClearTheEntireCache()
         {
-            SetValue("foo", "bar");
-            SetValue("bar", "foo");
+            cache.Set("foo", "bar", new TimeSpan(0, 1, 0, 0));
+            cache.Set("bar", "foo", new TimeSpan(0, 1, 0, 0));
 
             ValueShouldExist("foo");
             ValueShouldExist("bar");
@@ -87,7 +82,7 @@ namespace NExtra.Tests.Cache
         [Test]
         public void Contains_ShouldReturnTrueForExistingKey()
         {
-            cache.Set("foo", "bar");
+            cache.Set("foo", "bar", new TimeSpan(0, 1, 0, 0));
 
             Assert.That(cache.Contains("foo"), Is.True);
         }
@@ -109,16 +104,16 @@ namespace NExtra.Tests.Cache
         [Test]
         public void Get_ShouldReturnExistingKeyValue()
         {
-            cache.Set("foo", true);
+            cache.Set("foo", true, new TimeSpan(0, 1, 0, 0));
             Assert.That(cache.Get<bool>("foo"), Is.True);
 
-            cache.Set("foo", 1.8);
+            cache.Set("foo", 1.8, new TimeSpan(0, 1, 0, 0));
             Assert.That(cache.Get<double>("foo"), Is.EqualTo(1.8));
 
-            cache.Set("foo", 1);
+            cache.Set("foo", 1, new TimeSpan(0, 1, 0, 0));
             Assert.That(cache.Get<int>("foo"), Is.EqualTo(1));
 
-            cache.Set("foo", "bar");
+            cache.Set("foo", "bar", new TimeSpan(0, 1, 0, 0));
             Assert.That(cache.Get<string>("foo"), Is.EqualTo("bar"));
         }
 
@@ -145,30 +140,7 @@ namespace NExtra.Tests.Cache
         [TestCase("foo", 3)]
         [TestCase("foo", 7.8)]
         [TestCase("foo", "bar")]
-        public void Set_ShouldInsertSimpleValueWithDefaultTimeout(string key, object value)
-        {
-            cache.Set(key, value);
-
-            Assert.That(cache.Get<object>(key), Is.EqualTo(value));
-        }
-
-        [Test]
-        public void Set_ShouldInsertComplexValueWithDefaultTimeout()
-        {
-            var obj = new StringBuilder { Capacity = 1010 };
-            cache.Set("foo", obj);
-            var cachedObject = cache.Get<StringBuilder>("foo");
-
-            Assert.That(cachedObject, Is.EqualTo(obj));
-            Assert.That(cachedObject.Capacity, Is.EqualTo(1010));
-        }
-
-        [Test]
-        [TestCase("foo", true)]
-        [TestCase("foo", 3)]
-        [TestCase("foo", 7.8)]
-        [TestCase("foo", "bar")]
-        public void Set_ShouldInsertSimpleValueWithCustomTimeout(string key, object value)
+        public void Set_ShouldInsertSimpleValue(string key, object value)
         {
             cache.Set(key, value, new TimeSpan(0, 1, 0, 0));
 
@@ -176,7 +148,7 @@ namespace NExtra.Tests.Cache
         }
 
         [Test]
-        public void Set_ShouldInsertComplexValueWithCustomTimeout()
+        public void Set_ShouldInsertComplexValue()
         {
             var obj = new StringBuilder { Capacity = 1010 };
             cache.Set("foo", obj, new TimeSpan(0, 1, 0, 0));
@@ -217,16 +189,16 @@ namespace NExtra.Tests.Cache
         [Test]
         public void TryGet_ShouldReturnExistingKeyValue()
         {
-            cache.Set("foo", true);
+            cache.Set("foo", true, new TimeSpan(0, 1, 0, 0));
             Assert.That(cache.TryGet("foo", false), Is.True);
 
-            cache.Set("foo", 1.8);
+            cache.Set("foo", 1.8, new TimeSpan(0, 1, 0, 0));
             Assert.That(cache.TryGet("foo", 3.6), Is.EqualTo(1.8));
 
-            cache.Set("foo", 2);
+            cache.Set("foo", 2, new TimeSpan(0, 1, 0, 0));
             Assert.That(cache.TryGet("foo", 9), Is.EqualTo(2));
 
-            cache.Set("foo", "bar");
+            cache.Set("foo", "bar", new TimeSpan(0, 1, 0, 0));
             Assert.That(cache.TryGet("foo", "foobar"), Is.EqualTo("bar"));
         }
     }

@@ -19,9 +19,6 @@ namespace NExtra.Documentation
         private static Dictionary<Assembly, XmlDocument> cache;
 
 
-        /// <summary>
-        /// Create an instance of the class.
-        /// </summary>
         public AssemblyXmlDocumentationExtractor()
         {
             cache = new Dictionary<Assembly, XmlDocument>();
@@ -45,6 +42,10 @@ namespace NExtra.Documentation
             return ExtractDocumentation(assembly, xmlDocumentationFile);
         }
 
+        /// <summary>
+        /// Extract XML documentation for an assembly, using
+        /// a custom documentation file location.
+        /// </summary>
         public XmlDocument ExtractDocumentation(Assembly assembly, string xmlFilePath)
         {
             if (!File.Exists(xmlFilePath))

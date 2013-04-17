@@ -1,28 +1,28 @@
-using System;
+﻿using System;
 
 namespace NExtra.Geo
 {
     /// <summary>
     /// This class can be used to calculate the distance
-    /// and bearing between two positions.
+    /// between two positions.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
-    /// Link:       http://myxaab.wordpress.com/2010/09/02/calculate-distance-bearing-between-geolocation/
     /// </remarks>
-    public class PositionHandler : IDistanceCalculator, IRhumbBearingCalculator, IRhumbDistanceCalculator
+    public class PositionDistanceCalculator : IPositionDistanceCalculator
     {
-        private readonly AngleConverter angleConverter;
+        private readonly IAngleConverter angleConverter;
 
-        
-        public PositionHandler()
+
+        public PositionDistanceCalculator(IAngleConverter angleConverter)
         {
-            angleConverter = new AngleConverter();
+            this.angleConverter = angleConverter;
+            this.angleConverter = angleConverter;
         }
 
 
-        public double CalculateDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit)
+        public double CalculatePositionDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit)
         {
             var R = (distanceUnit == DistanceUnit.Miles) ? GeoConstants.EarthRadiusInMiles : GeoConstants.EarthRadiusInKilometers;
             var dLat = angleConverter.ConvertDegreesToRadians(position2.Latitude) - angleConverter.ConvertDegreesToRadians(position1.Latitude);
@@ -34,20 +34,7 @@ namespace NExtra.Geo
             return Math.Round(distance, 2);
         }
 
-        public double CalculateRhumbBearing(IPosition position1, IPosition position2)
-        {
-            var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
-            var lat2 = angleConverter.ConvertDegreesToRadians(position2.Latitude);
-            var dLon = angleConverter.ConvertDegreesToRadians(position2.Longitude - position1.Longitude);
-
-            var dPhi = Math.Log(Math.Tan(lat2 / 2 + Math.PI / 4) / Math.Tan(lat1 / 2 + Math.PI / 4));
-            if (Math.Abs(dLon) > Math.PI) dLon = (dLon > 0) ? -(2 * Math.PI - dLon) : (2 * Math.PI + dLon);
-            var brng = Math.Atan2(dLon, dPhi);
-
-            return (angleConverter.ConvertRadiansToDegrees(brng) + 360) % 360;
-        }
-
-        public double CalculateRhumbDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit)
+        public double CalculatePositionRhumbDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit)
         {
             var R = (distanceUnit == DistanceUnit.Miles) ? GeoConstants.EarthRadiusInMiles : GeoConstants.EarthRadiusInKilometers;
             var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);

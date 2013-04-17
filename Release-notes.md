@@ -1,19 +1,20 @@
-NExtra 3.1.1.0		2013-04-11
+NExtra 3.2.0.0		2013-04-11
 ==============================
 
-In this small update, I have added some bug fixes and new features.
+This update contains new features, file changes and some bug fixes.
 
-I have also started splitting large extension files into extension
-files that correspond to a certain context, like it is done in iOS.
-The naming convention for these context-based extension classes is
-<Type>_<Context>Extensions (String_AsciiExtensions).
+I have started splitting larger extension files into smaller files
+that correspond to a certain context. The name convention for this
+new structure is is <Type>_<Context>Extensions (for instance, take
+String_AsciiExtensions).
 
-General extensions classes will be named <Type>_Extensions, but it
-will be done incrementally. This means that NExtra will have files
-that use both the new and old (<Type>Extensions) convention.
+This change will be done incrementally, which means that there are
+classes that use both the new and the old (<Type>Extensions) names.
+Splitting the files will result in smaller, more lightweight and a
+lot more modular classes.
 
-Note that this will not affect how to use the extensions. Just use
-the namespace, and you'll be good to go.
+Note that this change will not affect how to use the classes. Just
+use the namespace, like before and you'll be good to go.
 
 
 NExtra
@@ -26,7 +27,13 @@ timeout was set to a very(!) small value, so consider it a bug fix.
 Also added a new ConvertTo method, with a fallback value.
 
 - Split the PositionHandler into four separate classes. Why have a
-monster class when you can have tiny ones, eh?
+monster class when you can have tiny ones, right?
+
+- Removed the default timespan Set method from ICache. It was only
+causing a larger interface.
+
+- Removed the AdjustContent method in WebRequest_Extensions. It is
+a good example of a too specific method that should not be in here.
 
 
 

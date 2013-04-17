@@ -70,6 +70,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Cache\DictionaryCacheItem.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\MemoryCacheFacade.cs" />
     <Compile Include="Cache\DictionaryCache.cs" />
@@ -81,7 +82,8 @@
     <Compile Include="Extensions\String_ExtractExtensions.cs" />
     <Compile Include="Extensions\NameValueCollection_Extensions.cs" />
     <Compile Include="Extensions\String_AsciiExtensions.cs" />
-    <Compile Include="Geo\BearingCalculator.cs" />
+    <Compile Include="Geo\PositionBearingCalculator.cs" />
+    <Compile Include="Geo\PositionDistanceCalculator.cs" />
     <Compile Include="Geo\IPosition.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Serialization\IObjectSerializer.cs" />
@@ -105,10 +107,8 @@
     <Compile Include="Extensions\XmlElement_Extensions.cs" />
     <Compile Include="Geo\GeoConstants.cs" />
     <Compile Include="Geo\IAngleConverter.cs" />
-    <Compile Include="Geo\IBearingCalculator.cs" />
-    <Compile Include="Geo\IDistanceCalculator.cs" />
-    <Compile Include="Geo\IRhumbBearingCalculator.cs" />
-    <Compile Include="Geo\IRhumbDistanceCalculator.cs" />
+    <Compile Include="Geo\IPositionBearingCalculator.cs" />
+    <Compile Include="Geo\IPositionDistanceCalculator.cs" />
     <Compile Include="Geo\IDistanceConverter.cs" />
     <Compile Include="Console\ICommandLineArgumentParser.cs" />
     <Compile Include="Console\IConsole.cs" />
@@ -157,7 +157,6 @@
     <Compile Include="Geo\DistanceConverter.cs" />
     <Compile Include="Geo\DistanceUnit.cs" />
     <Compile Include="Geo\Position.cs" />
-    <Compile Include="Geo\PositionHandler.cs" />
     <Compile Include="Testing\CrossThreadTestRunner.cs" />
     <Compile Include="Email\EmailNonSender.cs" />
     <Compile Include="Email\EmailSender.cs" />

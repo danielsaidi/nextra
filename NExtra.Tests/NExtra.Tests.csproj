@@ -79,8 +79,8 @@
     <Compile Include="Extensions\NameValueCollection_ExtensionsBehavior.cs" />
     <Compile Include="Extensions\IDictionary_ExtensionsBehavior.cs" />
     <Compile Include="Extensions\String_ExtractExtensionsBehavior.cs" />
-    <Compile Include="Extensions\WebRequest_ExtensionsBehavior.cs" />
-    <Compile Include="Geo\BearingCalculatorBehavior.cs" />
+    <Compile Include="Geo\PositionBearingCalculatorBehavior.cs" />
+    <Compile Include="Geo\PositionDistanceCalculatorBehavior.cs" />
     <Compile Include="IO\PathPatternMatcherBehavior.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerTranslatorBehavior.cs" />
     <Compile Include="Reflection\TypeLocatorBehavior.cs" />
@@ -106,7 +106,6 @@
     <Compile Include="Extensions\IEnumerable_ExtensionsBehavior.cs" />
     <Compile Include="Geo\AngleConverterBehavior.cs" />
     <Compile Include="Geo\DistanceConverterBehavior.cs" />
-    <Compile Include="Geo\PositionHandlerBehavior.cs" />
     <Compile Include="IO\FileSizePresenterBehavior.cs" />
     <Compile Include="NullableBehavior.cs" />
     <Compile Include="Extensions\Int_ExtensionsBehavior.cs" />

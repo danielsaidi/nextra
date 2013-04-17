@@ -12,9 +12,6 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class XmlElement_Extensions
     {
-        /// <summary>
-        /// Get the inner text of any tag, or an empty string if the tag is not found.
-        /// </summary>
         public static string GetElementInnerText(this XmlElement xmlElement, string elementName)
         {
             var innerElement = xmlElement[elementName];

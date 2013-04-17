@@ -12,26 +12,6 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class WebRequest_Extensions
     {
-        /// <summary>
-        /// Adjust content that has been received from a web request.
-        /// </summary>
-        /// <remarks>
-        /// TODO: The method should handle non-absolute, local paths.
-        /// </remarks>
-        public static string AdjustContent(this WebRequest webRequest, string content)
-        {
-            content = content.Replace("\r", "");
-            content = content.Replace("\n", "");
-            content = content.Replace("src=\"/", "src=\"" + webRequest.RequestUri.GetRootUri());
-            content = content.Replace("href=\"/", "href=\"" + webRequest.RequestUri.GetRootUri());
-
-            return content;
-        }
-
-
-        /// <summary>
-        /// Get the response string (the content) of a web request.
-        /// </summary>
         public static string GetResponseString(this WebRequest webRequest)
         {
             var response = webRequest.GetResponse();

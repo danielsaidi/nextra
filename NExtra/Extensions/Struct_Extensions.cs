@@ -9,9 +9,6 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class Struct_Extensions
     {
-        ///<summary>
-        ///Check whether or not a struct has its default value.
-        ///</summary>
         public static bool IsDefault<T>(this T value) where T : struct
         {
             return value.Equals(default(T));

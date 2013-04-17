@@ -10,18 +10,18 @@ namespace NExtra.Geo
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public class BearingCalculator : IBearingCalculator
+    public class PositionBearingCalculator : IPositionBearingCalculator
     {
         private readonly IAngleConverter angleConverter;
 
 
-        public BearingCalculator(IAngleConverter angleConverter)
+        public PositionBearingCalculator(IAngleConverter angleConverter)
         {
             this.angleConverter = angleConverter;
         }
 
 
-        public double CalculateBearing(IPosition position1, IPosition position2)
+        public double CalculatePositionBearing(IPosition position1, IPosition position2)
         {
             var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
             var lat2 = angleConverter.ConvertDegreesToRadians(position2.Latitude);
@@ -30,6 +30,19 @@ namespace NExtra.Geo
             var y = Math.Sin(dLon) * Math.Cos(lat2);
             var x = Math.Cos(lat1) * Math.Sin(lat2) - Math.Sin(lat1) * Math.Cos(lat2) * Math.Cos(dLon);
             var brng = Math.Atan2(y, x);
+
+            return (angleConverter.ConvertRadiansToDegrees(brng) + 360) % 360;
+        }
+
+        public double CalculatePositionRhumbBearing(IPosition position1, IPosition position2)
+        {
+            var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
+            var lat2 = angleConverter.ConvertDegreesToRadians(position2.Latitude);
+            var dLon = angleConverter.ConvertDegreesToRadians(position2.Longitude - position1.Longitude);
+
+            var dPhi = Math.Log(Math.Tan(lat2 / 2 + Math.PI / 4) / Math.Tan(lat1 / 2 + Math.PI / 4));
+            if (Math.Abs(dLon) > Math.PI) dLon = (dLon > 0) ? -(2 * Math.PI - dLon) : (2 * Math.PI + dLon);
+            var brng = Math.Atan2(dLon, dPhi);
 
             return (angleConverter.ConvertRadiansToDegrees(brng) + 360) % 360;
         }

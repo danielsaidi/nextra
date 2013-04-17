@@ -11,12 +11,6 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class String_ConvertExtensions
     {
-        /// <summary>
-        /// Try to convert a string to any struct type.
-        /// </summary>
-        /// <remarks>
-        /// Returns null if the conversion fails.
-        /// </remarks>
         public static T? ConvertTo<T>(this string str)
             where T : struct
         {
@@ -27,12 +21,6 @@ namespace NExtra.Extensions
             catch { return null; }
         }
 
-        /// <summary>
-        /// Try to convert a string to any struct type.
-        /// </summary>
-        /// <remarks>
-        /// Returns fallback if the conversion fails.
-        /// </remarks>
         public static T ConvertTo<T>(this string str, T fallback)
             where T : struct
         {
@@ -43,12 +31,6 @@ namespace NExtra.Extensions
             catch { return fallback; }
         }
 
-		/// <summary>
-		/// Try to convert a string to any enum type.
-		/// </summary>
-		/// <remarks>
-		/// Returns fallback if the conversion fails.
-		/// </remarks>
 		public static T ConvertToEnum<T>(this string str, T fallback)
 		{
 			try { return (T)Enum.Parse(typeof(T), str, true); }

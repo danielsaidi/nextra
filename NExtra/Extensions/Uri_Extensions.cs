@@ -12,11 +12,9 @@ namespace NExtra.Extensions
     public static class Uri_Extensions
     {
         /// <summary>
-        /// Get the root url for a web-based Uri, e.g. http://www.foobar.com:8080
-        /// for http://www.foobar.com:8080/foo/bar.
+        /// Get the root url for an Uri, including scheme,
+        /// host and port.
         /// </summary>
-        /// <param name="uri">The Uri of interest.</param>
-        /// <returns>The root url for the Uri.</returns>
         public static Uri GetRootUri(this Uri uri)
         {
             var port = (uri.IsDefaultPort) ? "" : ":" + uri.Port;

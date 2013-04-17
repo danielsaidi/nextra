@@ -16,54 +16,32 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class IQueryable_Extensions
     {
-	    /// <summary>
-        /// Sort an IQueryable, ascending by any property.
-        /// </summary>
-        public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string propertyName)
+	    public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string propertyName)
         {
             return source.ApplyOrder(propertyName, "OrderBy");
         }
 
-        /// <summary>
-        /// Sort an IQueryable, descending by any property.
-        /// </summary>
         public static IQueryable<T> OrderByDescending<T>(this IQueryable<T> source, string propertyName)
         {
             return source.ApplyOrder(propertyName, "OrderByDescending");
         }
 
-	    /// <summary>
-	    /// Paginate a certain collection.
-	    /// </summary>
-        /// <param name="source">The IQueryable to paginate.</param>
-	    /// <param name="pageNumber">The page number for the items to retrieve, starting at 1.</param>
-	    /// <param name="pageSize">The max numbers of items that are displayed per page.</param>
-	    /// <returns>The resulting value.</returns>
 	    public static IQueryable<T> Paginate<T>(this IQueryable<T> source, int pageNumber, int pageSize)
 	    {
 	        return source.Skip((pageNumber - 1) * pageSize).Take(pageSize);
 	    }
 
-        /// <summary>
-        /// Continue sorting an IQueryable, ascending by any property.
-        /// </summary>
         public static IQueryable<T> ThenBy<T>(this IQueryable<T> source, string propertyName)
         {
             return source.ApplyOrder(propertyName, "ThenBy");
         }
 
-        /// <summary>
-        /// Continue sorting an IQueryable, descending by any property.
-        /// </summary>
         public static IQueryable<T> ThenByDescending<T>(this IQueryable<T> source, string propertyName)
         {
             return source.ApplyOrder(propertyName, "ThenByDescending");
         }
 
 
-	    /// <summary>
-	    /// Apply any given sorting on an IQueryable.
-	    /// </summary>
 	    private static IQueryable<T> ApplyOrder<T>(this IQueryable<T> source, string propertyName, string methodName)
 	    {
 	        var type = typeof(T);

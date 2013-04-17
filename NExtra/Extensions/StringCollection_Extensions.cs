@@ -13,17 +13,11 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class StringCollection_Extensions
     {
-        /// <summary>
-        /// Convert a string collection to an IEnumerable.
-        /// </summary>
         public static IEnumerable<string> AsEnumerable(this StringCollection collection)
         {
             return collection == null ? null : collection.Cast<string>().ToList();
         }
 
-        /// <summary>
-        /// Check whether or not a string collection is null or empty.
-        /// </summary>
         public static bool IsNullOrEmpty(this StringCollection collection)
         {
             return collection == null || collection.Count == 0;

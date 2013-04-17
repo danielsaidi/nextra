@@ -8,8 +8,9 @@
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public interface IBearingCalculator
+    public interface IPositionBearingCalculator
     {
-        double CalculateBearing(IPosition position1, IPosition position2);
+        double CalculateBearing(IPosition pos1, IPosition pos2);
+        double CalculateRhumbBearing(IPosition pos1, IPosition pos2);
     }
 }

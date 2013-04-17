@@ -72,8 +72,7 @@ namespace NExtra.Extensions
 	    }
 
 	    /// <summary>
-	    /// Calculate the final split result, using
-	    /// previously calculated offset data.
+	    /// Calculate split result, using previously calculated offset data.
 	    /// </summary>
 	    private static IEnumerable<string> Split_CalculateResult(string str, string separator, int offset, IList<int> offsets)
 	    {

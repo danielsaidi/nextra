@@ -59,17 +59,8 @@ namespace NExtra.Cache
         {
             if (!cache.ContainsKey(key))
                 return;
-
             if (!IsValid(key))
                 Remove(key);
-        }
-
-        /// <summary>
-        /// Insert a value into the cache, using a default timeout of one hour.
-        /// </summary>
-        public void Set(string key, object value)
-        {
-            Set(key, value, new TimeSpan(0, 1, 0, 0));
         }
 
         public void Set(string key, object value, TimeSpan timeout)
@@ -81,21 +72,5 @@ namespace NExtra.Cache
         {
             return !Contains(key) ? fallback : Get<T>(key);
         }
-    }
-
-    
-    /// <summary>
-    /// This internal class is how data is stored in the dictionary cache.
-    /// </summary>
-    internal class DictionaryCacheItem
-    {
-        public DictionaryCacheItem(object obj, DateTime expires)
-        {
-            Obj = obj;
-            Expires = expires;
-        }
-
-        public object Obj { get; set; }
-        public DateTime Expires { get; set; }
     }
 }

@@ -4,9 +4,8 @@ using System.Text.RegularExpressions;
 namespace NExtra.Console
 {
     /// <summary>
-    /// This ICommandLineArgumentParser implementation can parse command
-    /// line arguments that follow any of the following formats:
-    /// 
+    /// This class can be used to parse command line args
+    /// that follow any of the following formats:
     /// /name=Stefan
     /// --name=Stefan
     /// --name="Multiple words"
@@ -16,10 +15,12 @@ namespace NExtra.Console
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// 
-    /// The original implementation by Richard Lopes has been changed to
-    /// implement the ICommandLineArgumentParser interface. The original
-    /// implementation can be found at:
+    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// 
+    /// The original implementation by Richard Lopes has
+    /// been changed so that it implements the interface
+    /// ICommandLineArgumentParser. The original classes
+    /// can be found at:
     /// http://www.codeproject.com/KB/recipes/command_line.aspx 
     /// </remarks>
     public class CommandLineArgumentParser : ICommandLineArgumentParser
@@ -32,7 +33,6 @@ namespace NExtra.Console
         {
             splitter = new Regex(@"^-{1,2}|^/|=|:", RegexOptions.IgnoreCase | RegexOptions.Compiled);
             remover = new Regex(@"^['""]?(.*?)['""]?$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-
         }
 
 

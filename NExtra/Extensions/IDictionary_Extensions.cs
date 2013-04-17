@@ -12,9 +12,6 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class IDictionary_Extensions
     {
-        ///<summary>
-        /// Add a range of items to a dictionary.
-        ///</summary>
         public static void AddRange<T, K>(this IDictionary<T, K> dictionary, IDictionary<T, K> range)
         {
             foreach (var dictionaryEntry in range.Where(dictionaryEntry => !dictionary.ContainsKey(dictionaryEntry.Key)))
@@ -23,9 +20,6 @@ namespace NExtra.Extensions
             }
         }
         
-        /// <summary>
-        /// Retrieve a value from the dictionary.
-        /// </summary>
         public static K Get<T, K>(this IDictionary<T, K> dictionary, T key)
         {
             return dictionary[key];

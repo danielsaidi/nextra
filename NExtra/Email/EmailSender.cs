@@ -4,12 +4,12 @@ using System.Net.Mail;
 namespace NExtra.Email
 {
     /// <summary>
-    /// This ICanSendEmail implementation can be used to send e-mail
-    /// messages, using the default SmtpClient.
+    /// This class can be used to send an e-mail message,
+    /// using the default SmtpClient.
     /// 
-    /// To enable it, make CredentialCache.DefaultNetworkCredentials
-    /// return valid credentials, e.g. by defining the smtp settings 
-    /// in your configuration file.
+    /// To enable it, configure the SMTP settings in the
+    /// configuration file for the project, e.g. in your
+    /// web.config file.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

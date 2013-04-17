@@ -3,8 +3,7 @@
 namespace NExtra.Extensions
 {
     /// <summary>
-    /// This class contains a set of extension methods for
-    /// System.Collections.Specialized.NameValueCollection.
+    /// Extension methods for System.Collections.Specialized.NameValueCollection.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

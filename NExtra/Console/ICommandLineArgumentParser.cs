@@ -3,12 +3,12 @@
 namespace NExtra.Console
 {
     ///<summary>
-    /// This interface can be implemented by classes that can
-    /// be used to parse command line arguments.
+    /// This interface can be implemented by classes that
+    /// can be used to parse command line arguments.
     /// 
-    /// Due to the expected return result of the parse method,
-    /// this interface should only be used when the arguments
-    /// are expected to be keys and values.
+    /// Due to the expected parse method return result, I
+    /// advice you only to use this interface when you do
+    /// expect keys and values as return values.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -16,10 +16,6 @@ namespace NExtra.Console
     /// </remarks>
     public interface ICommandLineArgumentParser
     {
-        /// <summary>
-        /// Parse a collection of command line arguments into
-        /// a key/value collection.
-        /// </summary>
         IDictionary<string, string> ParseCommandLineArguments(IEnumerable<string> args);
     }
 }

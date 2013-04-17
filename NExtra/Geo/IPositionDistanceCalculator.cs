@@ -8,8 +8,9 @@
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public interface IDistanceCalculator
+    public interface IPositionDistanceCalculator
     {
-        double CalculateDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit);
+        double CalculatePositionDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit);
+        double CalculatePositionRhumbDistance(IPosition position1, IPosition position2, DistanceUnit distanceUnit);
     }
 }
