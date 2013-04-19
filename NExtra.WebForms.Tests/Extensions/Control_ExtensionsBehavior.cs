@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NExtra.WebForms.Tests.Extensions
 {
 	[TestFixture]
-	public class ControlExtensionsBehavior
+	public class Control_ExtensionsBehavior
 	{
 		[Test]
 		public void Html_ShouldHandleNull()

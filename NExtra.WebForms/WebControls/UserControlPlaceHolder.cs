@@ -8,15 +8,20 @@ using NExtra.Web.Extensions;
 namespace NExtra.WebForms.WebControls
 {
 	/// <summary>
-	/// This class can be used to dynamically load and unload
-	/// user controls to and from the page. However, unlike a
-	/// regular dynamic load (where user controls are removed
-	/// at postback), this class ensures that each control is
-	/// automatically reloaded after a postback.
+	/// This class can be used to dynamically load/unload
+	/// user controls to and from a page. However, unlike
+	/// a regular dynamic load where controls are removed
+	/// at postback, this class ensures that each control
+	/// is automatically reloaded after a postback.
 	/// 
-	/// If you want to apply any events to dynamically loaded
-	/// user controls, or modify them in any way, you must do
-	/// so in Page_Load.
+	/// Use the Add method to add a user control into the
+	/// placeholder. It will then be automatically loaded
+	/// on each postback. Use the Remove method to remove
+	/// any added user controls from the placeholder.
+	/// 
+	/// If you want to apply events to dynamically loaded
+	/// user controls or modify them in any way, you must
+	/// do so in Page_Load.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -24,22 +29,14 @@ namespace NExtra.WebForms.WebControls
 	/// </remarks>
 	public class UserControlPlaceHolder : PlaceHolder
 	{
-		/// <summary>
-		/// This overridden method ensures that all dynamically
-		/// loaded user controls are automatically reloaded.
-		/// </summary>
 		protected override void LoadViewState(object savedState)
 		{
 			base.LoadViewState(savedState);
 			foreach (var tmpString in LoadedControls)
-				LoadControl(tmpString.Split(',')[0], tmpString.Split(',')[1]);
+				Add(tmpString.Split(',')[0], tmpString.Split(',')[1]);
 		}
 
 
-		/// <summary>
-		/// A comma-separated string with IDs of the controls
-		/// that have been added to the place holder.
-		/// </summary>
 		protected List<String> LoadedControls
 		{
 			get
@@ -51,60 +48,52 @@ namespace NExtra.WebForms.WebControls
 		}
 
 
-        /// <summary>
-        /// Retrieve a control that has been added to the place holder.
-		/// </summary>
-		public Control GetControl(String controlId)
-		{
-			return Controls.Cast<Control>().FirstOrDefault(control => control.ID == controlId);
-		}
+	    public Control Add(String controlId, String filePath)
+	    {
+	        //Add the control key to viewstate, if is not already added
+	        if (!LoadedControls.Contains(controlId + "," + filePath))
+	            LoadedControls.Add(controlId + "," + filePath);
 
-		/// <summary>
-		/// Retrieve a typed control that has been added to the place holder.
-		/// </summary>
-		public T GetControl<T>(String controlId)
+	        //Return a previously loaded instance, if any
+	        var tmpControl = GetControl(controlId);
+	        if (tmpControl != null)
+	            return tmpControl;
+
+	        //Add the control to the target container and return it
+	        var uc = Page.LoadControl(filePath);
+	        uc.ID = controlId;
+	        Controls.Add(uc);
+	        return uc;
+	    }
+
+	    /// <summary>
+	    /// Dynamically load a user control to the place holder. If the
+	    /// control is already added, it is not be loaded a second time.
+	    /// </summary>
+	    public T Add<T>(String controlId, String filePath)
+	        where T : Control
+	    {
+	        return (T)Add(controlId, filePath);
+	    }
+
+	    public Control GetControl(String controlId)
+        {
+            return GetControls().FirstOrDefault(control => control.ID == controlId);
+        }
+
+        public T GetControl<T>(String controlId)
 			where T : Control
 		{
 			var control = GetControl(controlId);
 			return control == null ? null : (T) GetControl(controlId);
 		}
 
-		/// <summary>
-		/// Dynamically load a user control to the place holder. If the
-		/// control is already added, it is not be loaded a second time.
-		/// </summary>
-		public Control LoadControl(String controlId, String controlUrl)
-		{
-			//Add the control key to viewstate, if is not already added
-			if (!LoadedControls.Contains(controlId + "," + controlUrl))
-				LoadedControls.Add(controlId + "," + controlUrl);
+        public IEnumerable<Control> GetControls()
+        {
+            return Controls.Cast<Control>();
+        }
 
-			//Return a previously loaded instance, if any
-			var tmpControl = GetControl(controlId);
-			if (tmpControl != null)
-				return tmpControl;
-
-			//Add the control to the target container and return it
-			var uc = Page.LoadControl(controlUrl);
-			uc.ID = controlId;
-			Controls.Add(uc);
-			return uc;
-		}
-
-        /// <summary>
-        /// Dynamically load a user control to the place holder. If the
-        /// control is already added, it is not be loaded a second time.
-		/// </summary>
-		public T LoadControl<T>(String controlId, String controlUrl)
-			where T : Control
-		{
-			return (T)LoadControl(controlId, controlUrl);
-		}
-
-		/// <summary>
-		/// Unload a previously loaded user control.
-		/// </summary>
-		public void UnloadControl(String controlId)
+		public void Remove(String controlId)
 		{
 			//Retrieve the full control ID (inluding control url)
 			var fullId = "";

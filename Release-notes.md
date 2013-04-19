@@ -20,7 +20,6 @@ I have also removed some old, outdated classes like the HTML5 ones
 in NExtra.Web.Html.
 
 
-
 NExtra
 ------
 
@@ -58,6 +57,14 @@ like a bad restriction, but it makes the model way cleaner.
 - Removed all HTML5 related classes from NExtra.Web.Html, since I
 find them to be outdated. So, HTML5 support check, HTML5 -> HTML4
 conversion - bye bye.
+
+
+NExtra.WebForms
+---------------
+
+- The Load and Unload methods of the UserControlPlaceHolder class
+has been renamed to Add and Remove and the GetControls method has
+been made public.
 
 
 

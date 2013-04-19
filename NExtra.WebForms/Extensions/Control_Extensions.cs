@@ -10,7 +10,7 @@ namespace NExtra.WebForms.Extensions
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://danielsaidi.github.com/nextra
 	/// </remarks>
-	public static class ControlExtensions
+	public static class Control_Extensions
 	{
 		/// <summary>
 		/// Retrieve the HTML code for a certain control.

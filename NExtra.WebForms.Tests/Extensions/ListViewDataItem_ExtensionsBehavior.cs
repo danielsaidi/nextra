@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace NExtra.WebForms.Tests.Extensions
 {
 	[TestFixture]
-	public class ListViewDataItemExtensionsBehavior
+	public class ListViewDataItem_ExtensionsBehavior
 	{
 		[Test]
 		public void RowCssClass_ShouldReturnCorrectDefaultValues()

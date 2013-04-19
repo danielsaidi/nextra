@@ -6,8 +6,8 @@ using NExtra.Web.Html;
 namespace NExtra.WebForms.WebControls
 {
     /// <summary>
-    /// This control inherits CreateUserWizard, but does
-    /// not generate any table elements.
+    /// This control inherits from CreateUserWizard, but
+    /// does not generate any table elements.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -15,9 +15,20 @@ namespace NExtra.WebForms.WebControls
     /// </remarks>
     public class NoTableCreateUserWizard : CreateUserWizard
     {
-        /// <summary>
-        /// Override the base Render method.
-        /// </summary>
+        public NoTableCreateUserWizard()
+            : this(new HtmlRemover())
+        {
+        }
+
+        public NoTableCreateUserWizard(IHtmlRemover htmlRemover)
+        {
+            HtmlRemover = htmlRemover;
+        }
+
+
+        public IHtmlRemover HtmlRemover { get; set; }
+
+
         protected override void Render(HtmlTextWriter writer)
         {
             if (HtmlRemover == null)
@@ -34,13 +45,5 @@ namespace NExtra.WebForms.WebControls
 
             writer.Write(html);
         }
-
-
-        /// <summary>
-        /// The component that will be used to remove HTML
-        /// code for the control. If no instance is set, a
-        /// new HtmlRemover instance is used by default.
-        /// </summary>
-        public IHtmlRemover HtmlRemover { get; set; }
     }
 }

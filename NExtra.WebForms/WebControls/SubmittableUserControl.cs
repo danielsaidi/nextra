@@ -4,8 +4,8 @@ using System.Web.UI;
 namespace NExtra.WebForms.WebControls
 {
 	/// <summary>
-	/// This class represents a submittable as well as
-	/// cancelable user control.
+	/// This class represents a submittable / cancelable
+	/// user control.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -13,32 +13,14 @@ namespace NExtra.WebForms.WebControls
 	/// </remarks>
 	public class SubmittableUserControl : UserControl
 	{
-		///<summary>
-		/// This event is triggered when a control cancels.
-		///</summary>
 		public event EventHandler Cancel;
+        public event EventHandler Submit;
 
-        ///<summary>
-        /// This event is triggered when a control submits.
-        ///</summary>
-		public event EventHandler Submit;
-
-
-        /// <summary>
-        /// Whether or not the latest submit was cancelled.
-        /// </summary>
-	    public bool Cancelled { get; private set; }
-
-        /// <summary>
-        /// Whether or not the latest submit was completed.
-        /// </summary>
+        public bool Cancelled { get; private set; }
         public bool Submitted { get; private set; }
 
 
-        /// <summary>
-        /// Trigger the Cancel event.
-        /// </summary>
-	    public virtual void OnCancel(EventArgs e)
+        public virtual void OnCancel(EventArgs e)
         {
             SetSubmitStatus(false);
 
@@ -46,10 +28,7 @@ namespace NExtra.WebForms.WebControls
 	            Cancel(this, e);
 	    }
 
-        /// <summary>
-        /// Trigger the Submit event.
-        /// </summary>
-	    public virtual void OnSubmit(EventArgs e)
+        public virtual void OnSubmit(EventArgs e)
         {
             SetSubmitStatus(true);
 
