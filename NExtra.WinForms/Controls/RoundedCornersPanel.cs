@@ -6,7 +6,8 @@ namespace NExtra.WinForms.Controls
 {
     /// <summary>
     /// This control inherits System.Windows.Forms.Panel
-    /// and adds the ability to apply rounded corners.
+    /// and adds the ability to apply rounded corners to
+    /// the panel.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -14,24 +15,20 @@ namespace NExtra.WinForms.Controls
     /// </remarks>
     public class RoundedCornersPanel : Panel
     {
-        /// <summary>
-        /// Create an instance of the control.
-        /// </summary>
         public RoundedCornersPanel()
+            : this(20)
         {
-            CornerRadius = 20;
+        }
+
+        public RoundedCornersPanel(int cornerRadius)
+        {
+            CornerRadius = cornerRadius;
         }
 
 
-        /// <summary>
-        /// The corner radius to apply to the panel.
-        /// </summary>
         public int CornerRadius { get; set; }
 
 
-        /// <summary>
-        /// Raise the paint event.
-        /// </summary>
         protected override void OnPaint(PaintEventArgs e)
         {
             var ptr = CreateRoundRectRgn(0, 0, Width, Height, CornerRadius, CornerRadius);

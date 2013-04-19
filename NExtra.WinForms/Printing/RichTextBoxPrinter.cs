@@ -25,23 +25,14 @@ namespace NExtra.WinForms.Printing
         private readonly IPrintPreviewDialogFacade printPreviewDialogFacade;
 
         
-        /// <summary>
-        /// Create an instance of the class, using default dialogs.
-        /// </summary>
         public RichTextBoxPrinter(RichTextBox RichTextBox)
             : this(RichTextBox, new PageSetupDialogFacade(new PageSetupDialog()), new PrintPreviewDialogFacade(new PrintPreviewDialog()), new PrintDialogFacade(new PrintDialog()), new PrintDocumentFacade(new PrintDocument())) 
         { }
 
-        /// <summary>
-        /// Create an instance of the class, using custom dialogs.
-        /// </summary>
         public RichTextBoxPrinter(RichTextBox RichTextBox, PageSetupDialog pageSetupDialog, PrintPreviewDialog printPreviewDialog, PrintDialog printDialog, PrintDocument printDocument)
             : this(RichTextBox, new PageSetupDialogFacade(pageSetupDialog), new PrintPreviewDialogFacade(printPreviewDialog), new PrintDialogFacade(printDialog), new PrintDocumentFacade(printDocument))
         { }
 
-        /// <summary>
-        /// Create an instance of the class, using abstract dialogs.
-        /// </summary>
         public RichTextBoxPrinter(RichTextBox RichTextBox, IPageSetupDialogFacade pageSetupDialogFacade, IPrintPreviewDialogFacade printPreviewDialogFacade, IPrintDialogFacade printDialogFacade, IPrintDocumentFacade printDocumentFacade)
         {
             TargetControl = RichTextBox;
@@ -57,55 +48,27 @@ namespace NExtra.WinForms.Printing
         }
 
 
-        /// <summary>
-        /// The PageSetupDialog instance to use.
-        /// </summary>
         public PageSetupDialog PageSetupDialog { get { return pageSetupDialogFacade.PageSetupDialog; } }
 
-        /// <summary>
-        /// The margins that were used before the latest print operation started.
-        /// </summary>
         public Margins PrePrintPrinterMargins { get; private set; }
 
-        /// <summary>
-        /// The PrintDialog instance to use.
-        /// </summary>
         public PrintDialog PrintDialog { get { return printDialogFacade.PrintDialog; } }
 
-        /// <summary>
-        /// The PrintDocument instance to use.
-        /// </summary>
         public PrintDocument PrintDocument { get { return printDocumentFacade.PrintDocument; } }
 
-        /// <summary>
-        /// The PrintPreviewDialog instance to use.
-        /// </summary>
         public PrintPreviewDialog PrintPreviewDialog { get { return printPreviewDialogFacade.PrintPreviewDialog; } }
 
-        /// <summary>
-        /// The start index of the latest print operation.
-        /// </summary>
         public int RtbCharIndex { get; private set; }
 
-        /// <summary>
-        /// The control to print.
-        /// </summary>
         public RichTextBox TargetControl { get; set; }
 
 
-        /// <summary>
-        /// Print the target control.
-        /// </summary>
         public void Print()
         {
             if (printDialogFacade.ShowDialog() == DialogResult.OK)
                 printDocumentFacade.Print();
         }
 
-        /// <summary>
-        /// Continue printing the control.
-        /// </summary>
-        /// <returns>The last character printed + 1 (printing start from this point for next page)</returns>
         public int Print(int charFrom, int charTo, PrintPageEventArgs e)
         {
             //Abort if either charFrom or charTo is invalid
@@ -142,9 +105,6 @@ namespace NExtra.WinForms.Printing
             return result;
         }
 
-        /// <summary>
-        /// Setup the printing format
-        /// </summary>
         private static FORMATRANGE Print_GetFmtRange(int charFrom, int charTo, PrintPageEventArgs e, IntPtr hdc)
         {
             FORMATRANGE fmtRange;
@@ -157,9 +117,6 @@ namespace NExtra.WinForms.Printing
             return fmtRange;
         }
 
-        /// <summary>
-        /// Calculate the size of the page.
-        /// </summary>
         private static RECT Print_GetRectPage(PrintPageEventArgs e)
         {
             RECT rectPage;
@@ -170,9 +127,6 @@ namespace NExtra.WinForms.Printing
             return rectPage;
         }
 
-        /// <summary>
-        /// Calculate the area to render and print
-        /// </summary>
         private static RECT Print_GetRectToPrint(PrintPageEventArgs e)
         {
             RECT rectToPrint;
@@ -183,26 +137,18 @@ namespace NExtra.WinForms.Printing
             return rectToPrint;
         }
 
-        /// <summary>
-        /// The event method that is called when the printing begins. 
-        /// </summary>
+        
         public void PrintDocument_BeginPrint(object sender, PrintEventArgs e)
         {
             PrePrintPrinterMargins = printDocumentFacade.PrintDocument.DefaultPageSettings.Margins;
             RtbCharIndex = 0;
         }
 
-        /// <summary>
-        /// The event method that is called when the printing ends. 
-        /// </summary>
         public void PrintDocument_EndPrint(object sender, PrintEventArgs e)
         {
             printDocumentFacade.PrintDocument.DefaultPageSettings.Margins = PrePrintPrinterMargins;
         }
 
-        /// <summary>
-        /// The event method that is called when each page is printed. 
-        /// </summary>
         public void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.HasMorePages = false;

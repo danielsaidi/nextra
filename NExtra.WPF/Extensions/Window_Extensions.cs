@@ -12,11 +12,8 @@ namespace NExtra.WPF.Extensions
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public static class WindowExtensions
+    public static class Window_Extensions
     {
-        /// <summary>
-        /// Hide the close button of any window.
-        /// </summary>
         public static void HideCloseButton(this Window window)
         {
             var hwnd = new WindowInteropHelper(window).Handle;

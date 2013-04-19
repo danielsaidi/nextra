@@ -10,19 +10,13 @@ namespace NExtra.WinForms.Extensions
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://danielsaidi.github.com/nextra
 	/// </remarks>
-	public static class RichTextBoxExtensions
+	public static class RichTextBox_Extensions
 	{
-		/// <summary>
-		/// Print the control, using a default ControlPrinter instance.
-		/// </summary>
 		public static void Print(this RichTextBox richTextBox)
 		{
 			richTextBox.Print(new RichTextBoxPrinter(richTextBox));
 		}
 
-		/// <summary>
-        /// Print the control, using a custom IControlPrinter instance.
-		/// </summary>
         public static void Print(this RichTextBox richTextBox, IControlPrinter<RichTextBox> controlPrinter)
 		{
 			controlPrinter.TargetControl = richTextBox;

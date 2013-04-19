@@ -10,19 +10,13 @@ namespace NExtra.WinForms.Extensions
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://danielsaidi.github.com/nextra
 	/// </remarks>
-	public static class PictureBoxExtensions
+	public static class PictureBox_Extensions
 	{
-		/// <summary>
-        /// Print the control, using a default PictureBoxPrinter instance.
-		/// </summary>
 		public static void Print(this PictureBox pictureBox)
 		{
 			pictureBox.Print(new PictureBoxPrinter(pictureBox));
 		}
 
-		/// <summary>
-        /// Print the control, using a custom IControlPrinter instance.
-		/// </summary>
         public static void Print(this PictureBox pictureBox, IControlPrinter<PictureBox> controlPrinter)
 		{
 			controlPrinter.TargetControl = pictureBox;

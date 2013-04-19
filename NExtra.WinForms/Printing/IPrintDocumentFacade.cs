@@ -4,8 +4,8 @@ namespace NExtra.WinForms.Printing
 {
     /// <summary>
     /// This interface can be implemented by classes that
-    /// should be able to be used as facade classes for a
-    /// PrintDocument instance.
+    /// can be used as facade classes for a PrintDocument
+    /// instance.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -13,30 +13,11 @@ namespace NExtra.WinForms.Printing
     /// </remarks>
     public interface IPrintDocumentFacade
     {
-        /// <summary>
-        /// The wrapped PrintDocument instance.
-        /// </summary>
         PrintDocument PrintDocument { get; }
 
-
-        /// <summary>
-        /// Bind begin print event for a control printer.
-        /// </summary>
         void BindBeginPrintEvent<T>(IControlPrinter<T> controlPrinter);
-
-        /// <summary>
-        /// Bind print page event for a control printer.
-        /// </summary>
         void BindPrintPageEvent<T>(IControlPrinter<T> controlPrinter);
-
-        /// <summary>
-        /// Bind end print event for a control printer.
-        /// </summary>
         void BindEndPrintEvent<T>(IControlPrinter<T> controlPrinter);
-
-        /// <summary>
-        /// Print the PrintDocument instance.
-        /// </summary>
         void Print();
     }
 }

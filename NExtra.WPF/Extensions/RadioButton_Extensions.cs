@@ -1,6 +1,7 @@
 using System.Windows.Controls;
+using NExtra.WPF.Controls;
 
-namespace NExtra.WPF.Controls.Extensions
+namespace NExtra.WPF.Extensions
 {
     /// <summary>
     /// Extension methods for System.Windows.Controls.RadioButton.
@@ -9,11 +10,8 @@ namespace NExtra.WPF.Controls.Extensions
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public static class RadioButtonExtensions
+    public static class RadioButton_Extensions
     {
-        /// <summary>
-        /// Get the ThreeState state of a radio button.
-        /// </summary>
         public static ThreeState State(this RadioButton radioButton)
         {
             if (!radioButton.IsChecked.HasValue)

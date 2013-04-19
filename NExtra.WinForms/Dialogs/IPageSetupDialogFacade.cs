@@ -3,8 +3,8 @@
 namespace NExtra.WinForms.Dialogs
 {
     /// <summary>
-    /// This interface can be implemented by classes that can
-    /// be used to wrap a PageSetupDialog instance.
+    /// This interface can be implemented by classes that
+    /// can be used to wrap a PageSetupDialog instance.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -12,9 +12,6 @@ namespace NExtra.WinForms.Dialogs
     /// </remarks>
     public interface IPageSetupDialogFacade
     {
-        /// <summary>
-        /// The wrapped PageSetupDialog instance.
-        /// </summary>
         PageSetupDialog PageSetupDialog { get; }
     }
 }

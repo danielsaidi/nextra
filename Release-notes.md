@@ -67,6 +67,13 @@ has been renamed to Add and Remove and the GetControls method has
 been made public.
 
 
+NExtra.WPF
+----------
+
+- The Controls/Extensions classes are moved to the root Extension
+folder to gather all extension classes in one place.
+
+
 
 NExtra 3.1.0.0		2013-04-04
 ==============================

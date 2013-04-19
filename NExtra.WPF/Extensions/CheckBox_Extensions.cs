@@ -1,6 +1,7 @@
 using System.Windows.Controls;
+using NExtra.WPF.Controls;
 
-namespace NExtra.WPF.Controls.Extensions
+namespace NExtra.WPF.Extensions
 {
     /// <summary>
     /// Extension methods for System.Windows.Controls.CheckBox.
@@ -9,11 +10,8 @@ namespace NExtra.WPF.Controls.Extensions
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public static class CheckBoxExtensions
+    public static class CheckBox_Extensions
     {
-        /// <summary>
-        /// Get the ThreeState state of a checkbox.
-        /// </summary>
         public static ThreeState State(this CheckBox checkBox)
         {
             if (!checkBox.IsChecked.HasValue)

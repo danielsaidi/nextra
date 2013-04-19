@@ -11,36 +11,24 @@ namespace NExtra.WinForms.Extensions
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://danielsaidi.github.com/nextra
 	/// </remarks>
-	public static class DataGridViewExtensions
+	public static class DataGridView_Extensions
 	{
-		/// <summary>
-		/// Evaluate whether or not the first row, if any, is selected.
-		/// </summary>
 		public static bool IsFirstRowSelected(this DataGridView dataGridView)
 		{
 			return (dataGridView.SelectedRows.Count > 0 && dataGridView.SelectedRows[0].Index == 0);
 		}
 
-		/// <summary>
-		/// Evaluate whether or not the last row, if any, is selected.
-		/// </summary>
 		public static bool IsLastRowSelected(this DataGridView dataGridView)
 		{
 			return (dataGridView.SelectedRows.Count > 0 && dataGridView.SelectedRows[0].Index == dataGridView.Rows.Count - 1);
 		}
 
-		/// <summary>
-		/// Select and show a certain row.
-		/// </summary>
 		public static void SelectAndShowRow(this DataGridView dataGridView, int rowIndex)
 		{
 			dataGridView.SelectRow(rowIndex);
 			dataGridView.ShowRow(rowIndex);
 		}
 
-		/// <summary>
-		/// Select a certain row.
-		/// </summary>
 		public static void SelectRow(this DataGridView dataGridView, int selectIndex)
 		{
 			//Abort if the data grid view does not have any rows
@@ -55,9 +43,6 @@ namespace NExtra.WinForms.Extensions
 			dataGridView.CurrentCell = dataGridView.Rows[selectIndex].Cells[0];
 		}
 
-		/// <summary>
-		/// Shows a certain row.
-		/// </summary>
 		public static void ShowRow(this DataGridView dataGridView, int showIndex)
 		{
 			//Abort if the data grid view does not have any rows
