@@ -73,13 +73,12 @@
     <Compile Include="Cookies\DomainCookieInvalidatorBehavior.cs" />
     <Compile Include="Cookies\HttpContextCookieHandlerBehavior.cs" />
     <Compile Include="Extensions\StateBagExtensionsBehavior.cs" />
-    <Compile Include="Html\Html5ElementConverterBehavior.cs" />
-    <Compile Include="Html\Html5ElementSupportBehavior.cs" />
     <Compile Include="Html\HtmlRemoverBehavior.cs" />
     <Compile Include="Html\HtmlReplacerBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Md5GeneratorBehavior.cs" />
     <Compile Include="Security\Sha1GeneratorBehavior.cs" />
+    <Compile Include="Serialization\NativeJsonSerializerTests.cs" />
     <Compile Include="Testing\FakeMembershipUserBehavior.cs" />
   </ItemGroup>
   <ItemGroup>

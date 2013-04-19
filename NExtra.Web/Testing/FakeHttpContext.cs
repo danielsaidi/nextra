@@ -17,17 +17,11 @@ namespace NExtra.Web.Testing
         private readonly IPrincipal user;
 
 
-        /// <summary>
-        /// Create a fake HTTP context with a custom request and response.
-        /// </summary>
         public FakeHttpContext(HttpRequestBase request, HttpResponseBase response)
             : this(request, response, new GenericPrincipal(new GenericIdentity("someUser"), null /* roles */))
         {
         }
 
-        /// <summary>
-        /// Create a fake HTTP context with a custom request, response and user.
-        /// </summary>
         public FakeHttpContext(HttpRequestBase request, HttpResponseBase response, IPrincipal user)
         {
             this.request = request;
@@ -38,30 +32,18 @@ namespace NExtra.Web.Testing
 
         public override HttpRequestBase Request
         {
-            get
-            {
-                return request;
-            }
+            get { return request; }
         }
 
         public override HttpResponseBase Response
         {
-            get
-            {
-                return response;
-            }
+            get { return response; }
         }
 
         public override IPrincipal User
         {
-            get
-            {
-                return user;
-            }
-            set
-            {
-                base.User = value;
-            }
+            get { return user; }
+            set { base.User = value; }
         }
     }
 }

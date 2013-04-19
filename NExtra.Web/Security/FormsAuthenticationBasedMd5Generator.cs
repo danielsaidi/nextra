@@ -4,7 +4,8 @@ using NExtra.Security;
 namespace NExtra.Web.Security
 {
     /// <summary>
-    /// This class can be used to generate MD5 hash values.
+    /// This class can be used to generate MD5 hash values,
+    /// using FormsAuthentication functionality.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -12,9 +13,6 @@ namespace NExtra.Web.Security
     /// </remarks>
     public class FormsAuthenticationBasedMd5Generator : IHashValueGenerator
     {
-        /// <summary>
-        /// Generate an MD5 hash value for an object.
-        /// </summary>
         public string GenerateHashValue(object value)
         {
             return FormsAuthentication.HashPasswordForStoringInConfigFile(value.ToString(), "md5");

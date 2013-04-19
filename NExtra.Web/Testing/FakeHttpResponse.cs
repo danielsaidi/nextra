@@ -15,18 +15,12 @@ namespace NExtra.Web.Testing
         private readonly HttpCookieCollection cookies;
 
 
-        /// <summary>
-        /// Create a fake HTTP response.
-        /// </summary>
         public FakeHttpResponse()
         {
             cookies = new HttpCookieCollection();
         }
         
 
-        /// <summary>
-        /// Get a fake cookie collection for the fake response.
-        /// </summary>
         public override HttpCookieCollection Cookies
         {
             get { return cookies; }

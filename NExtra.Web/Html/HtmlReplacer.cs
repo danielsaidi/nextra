@@ -12,13 +12,10 @@ namespace NExtra.Web.Html
     /// </remarks>
     public class HtmlReplacer : IHtmlReplacer
     {
-        /// <summary>
-        /// Replace one element type with another.
-        /// </summary>
-        public string ReplaceHtmlElement(string str, string originalElementName, string replacementElementName)
+        public string ReplaceHtmlElement(string str, string fromElementName, string toElementName)
         {
-            str = Regex.Replace(str, @"<" + originalElementName, @"<" + replacementElementName);
-            str = Regex.Replace(str, @"</" + originalElementName, @"</" + replacementElementName);
+            str = Regex.Replace(str, "<" + fromElementName, "<" + toElementName);
+            str = Regex.Replace(str, "</" + fromElementName, "</" + toElementName);
             return str;
         }
     }

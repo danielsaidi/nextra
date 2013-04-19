@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Script.Serialization;
+﻿using System.Web.Script.Serialization;
 using NExtra.Serialization;
 
 namespace NExtra.Web.Serialization
 {
     /// <summary>
-    /// This class can be used to serialize objects using the 
-    /// System.Web.Script.Serialization.JavaScriptSerializer.
+    /// This class can be used to serialize objects using
+    /// the native JavaScriptSerializer class that can be
+    /// found in System.Web.Script.Serialization.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -17,16 +14,12 @@ namespace NExtra.Web.Serialization
     /// </remarks>
     public class NativeJsonSerializer : IObjectSerializer
     {
-        private JavaScriptSerializer serializer;
+        private readonly JavaScriptSerializer serializer;
 
-
-        /// <summary>
-        /// Create an instance of the class.
-        /// </summary>
+        
         public NativeJsonSerializer()
         {
-            serializer = new JavaScriptSerializer();
-            
+            serializer = new JavaScriptSerializer();   
         }
 
         
@@ -37,17 +30,17 @@ namespace NExtra.Web.Serialization
 
         public string SerializeObject<T>(T obj)
         {
-            throw new NotImplementedException();
+            return serializer.Serialize(obj);
         }
 
         public object DeserializeObject(string objectString)
         {
-            throw new NotImplementedException();
+            return serializer.Deserialize<object>(objectString);
         }
 
         public T DeserializeObject<T>(string objectString)
         {
-            throw new NotImplementedException();
+            return serializer.Deserialize<T>(objectString);
         }
     }
 }

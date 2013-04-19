@@ -10,9 +10,6 @@ namespace NExtra.Web.Html
     /// </remarks>
     public interface IHtmlReplacer
     {
-        /// <summary>
-        /// Replace one HTML element with another one.
-        /// </summary>
-        string ReplaceHtmlElement(string str, string originalElementName, string replacementElementName);
+        string ReplaceHtmlElement(string str, string fromElementName, string toElementName);
     }
 }

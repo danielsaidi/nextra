@@ -16,6 +16,10 @@ lot more modular classes.
 Note that this change will not affect how to use the classes. Just
 use the namespace, like before and you'll be good to go.
 
+I have also removed some old, outdated classes like the HTML5 ones
+in NExtra.Web.Html.
+
+
 
 NExtra
 ------
@@ -50,6 +54,10 @@ NExtra.Web
 - Drastically simplified the avatar services in NExtra.Web.Avatar.
 Now, the interface does not support a default size. This may seem
 like a bad restriction, but it makes the model way cleaner.
+
+- Removed all HTML5 related classes from NExtra.Web.Html, since I
+find them to be outdated. So, HTML5 support check, HTML5 -> HTML4
+conversion - bye bye.
 
 
 

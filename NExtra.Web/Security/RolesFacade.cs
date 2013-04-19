@@ -5,8 +5,8 @@ using System.Web.Security;
 namespace NExtra.Web.Security
 {
     /// <summary>
-    /// This class can be used as a facade for the
-    /// static Roles class.
+    /// This class can be used as a facade for the static
+    /// Roles class.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

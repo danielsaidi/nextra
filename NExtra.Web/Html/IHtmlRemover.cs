@@ -12,24 +12,9 @@ namespace NExtra.Web.Html
     /// </remarks>
     public interface IHtmlRemover
     {
-        /// <summary>
-        /// Remove all HTML code within a string.
-        /// </summary>
         string RemoveHtml(string str);
-
-        /// <summary>
-        /// Remove all occurances of a certain elements within a string.
-        /// </summary>
         string RemoveHtmlElement(string str, string elementName);
-
-        /// <summary>
-        /// Remove all occurances of certain HTML elements within a string.
-        /// </summary>
         string RemoveHtmlElements(string str, IEnumerable<string> elementNames);
-
-        /// <summary>
-        /// Remove all HTML table elements within a string.
-        /// </summary>
         string RemoveHtmlTableElements(string str);
     }
 }

@@ -4,7 +4,8 @@ using NExtra.Security;
 namespace NExtra.Web.Security
 {
     /// <summary>
-    /// This class can be used to generate SHA1 hash values.
+    /// This class can be used to generate SHA1 hash values,
+    /// using FormsAuthentication functionality.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -12,9 +13,6 @@ namespace NExtra.Web.Security
     /// </remarks>
     public class FormsAuthenticationBasedSha1Generator : IHashValueGenerator
     {
-        /// <summary>
-        /// Generate an SHA1 hash value.
-        /// </summary>
         public string GenerateHashValue(object value)
         {
             return FormsAuthentication.HashPasswordForStoringInConfigFile(value.ToString(), "sha1");

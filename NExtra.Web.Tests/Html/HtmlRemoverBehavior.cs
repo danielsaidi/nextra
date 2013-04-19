@@ -15,6 +15,7 @@ namespace NExtra.Web.Tests.Html
             remover = new HtmlRemover();
         }
 
+
         [Test]
         public void RemoveHtml_ShouldNotAffectNonHtmlString()
         {
