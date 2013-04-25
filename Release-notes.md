@@ -5,19 +5,16 @@ This update contains new features, file changes and some bug fixes.
 
 I have started splitting larger extension files into smaller files
 that correspond to a certain context. The name convention for this
-new structure is is <Type>_<Context>Extensions (for instance, take
-String_AsciiExtensions).
+new structure is is <Type>_<Context>Extensions. General extensions
+will be named <Type>_Extensions.
 
-This change will be done incrementally, which means that there are
-classes that use both the new and the old (<Type>Extensions) names.
 Splitting the files will result in smaller, more lightweight and a
-lot more modular classes.
+lot more modular classes. Also, a good thing is that the change in
+no way affects how you use the extensions. Use the namespace, like
+before, and you'll be good to go.
 
-Note that this change will not affect how to use the classes. Just
-use the namespace, like before and you'll be good to go.
-
-I have also removed some old, outdated classes like the HTML5 ones
-in NExtra.Web.Html.
+The file and class changes involve renaming namespaces and classes,
+removing outdated classes, removing default constructor etc.
 
 
 NExtra
