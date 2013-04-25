@@ -65,7 +65,7 @@ namespace NExtra.Tests.Extensions
         }
 
         [Test]
-        public void GetTitle_ShouldReturnFileNameFOrMissingTitle()
+        public void GetTitle_ShouldReturnFileNameForMissingTitle()
         {
             Assert.That(Assembly.GetCallingAssembly().GetTitle(), Is.EqualTo("nunit.core"));
         }

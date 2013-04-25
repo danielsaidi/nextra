@@ -81,14 +81,14 @@
     <Compile Include="Extensions\String_SplitExtensions.cs" />
     <Compile Include="Extensions\String_ExtractExtensions.cs" />
     <Compile Include="Extensions\NameValueCollection_Extensions.cs" />
-    <Compile Include="Extensions\String_AsciiExtensions.cs" />
+    <Compile Include="Extensions\Char_AsciiExtensions.cs" />
     <Compile Include="Geo\PositionBearingCalculator.cs" />
     <Compile Include="Geo\PositionDistanceCalculator.cs" />
     <Compile Include="Geo\IPosition.cs" />
     <Compile Include="Pagination\IPaginationContext.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Serialization\IObjectSerializer.cs" />
-    <Compile Include="Week\WeekParser.cs" />
+    <Compile Include="Date\WeekResolver.cs" />
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\ProcessFacade.cs" />
     <Compile Include="Documentation\AssemblyXmlDocumentationExtractor.cs" />
@@ -113,7 +113,7 @@
     <Compile Include="Geo\IDistanceConverter.cs" />
     <Compile Include="Console\ICommandLineArgumentParser.cs" />
     <Compile Include="Console\IConsole.cs" />
-    <Compile Include="Week\IWeekParser.cs" />
+    <Compile Include="Date\IWeekResolver.cs" />
     <Compile Include="IO\FileFacade.cs" />
     <Compile Include="IO\DirectoryFacade.cs" />
     <Compile Include="IO\IDirectory.cs" />
@@ -121,7 +121,7 @@
     <Compile Include="IO\IFileSizePresenter.cs" />
     <Compile Include="IO\IPathPatternMatcher.cs" />
     <Compile Include="IO\PathPatternMatcher.cs" />
-    <Compile Include="Week\Iso8601WeekParser.cs" />
+    <Compile Include="Date\Iso8601WeekResolver.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerTranslator.cs" />
     <Compile Include="Localization\ITranslator.cs" />
     <Compile Include="Localization\ResourceManagerTranslator.cs" />
@@ -136,6 +136,8 @@
     <Compile Include="Syndication\ISyndicationFeedLoader.cs" />
     <Compile Include="Syndication\SyndicationFeedLoader.cs" />
     <Compile Include="Testing\MetadataValidator.cs" />
+    <Compile Include="Url\IUrlifier.cs" />
+    <Compile Include="Url\StringUrlifier.cs" />
     <Compile Include="Validation\IValidator.cs" />
     <Compile Include="Validation\LuhnAttribute.cs" />
     <Compile Include="Validation\PhoneNumberAttribute.cs" />

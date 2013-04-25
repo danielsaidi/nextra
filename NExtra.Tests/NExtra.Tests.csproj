@@ -74,6 +74,7 @@
     <Compile Include="Cache\DictionaryCacheBehavior.cs" />
     <Compile Include="EventArgsBehavior.cs" />
     <Compile Include="Extensions\Assembly_TypeExtensionsBehavior.cs" />
+    <Compile Include="Extensions\Char_AsciiExtensionsBehavior.cs" />
     <Compile Include="Extensions\String_ConvertExtensionsBehavior.cs" />
     <Compile Include="Extensions\String_SplitExtensionsBehavior.cs" />
     <Compile Include="Extensions\NameValueCollection_ExtensionsBehavior.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Security\Md5GeneratorBehavior.cs" />
     <Compile Include="Security\Sha1GeneratorBehavior.cs" />
     <Compile Include="Syndication\SyndicationFeedLoaderBehavior.cs" />
+    <Compile Include="Url\StringUrlifierBehavior.cs" />
     <Compile Include="Validation\LuhnAttributeBehavior.cs" />
     <Compile Include="Validation\PhoneNumberAttributeBehavior.cs" />
     <Compile Include="Validation\MinLengthAttributeBehavior.cs" />
@@ -116,8 +118,8 @@
     <Compile Include="Extensions\String_ExtensionsBehavior.cs" />
     <Compile Include="Extensions\Uri_ExtensionsBehavior.cs" />
     <Compile Include="Validation\PostalCode\SwedishPostalCodeAttributeBehavior.cs" />
-    <Compile Include="Week\Iso8601WeekParserBehavior.cs" />
-    <Compile Include="Week\WeekParserBehavior.cs" />
+    <Compile Include="Date\Iso8601WeekResolverBehavior.cs" />
+    <Compile Include="Date\WeekResolverBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NExtra\NExtra.csproj">

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace NExtra.Week
+namespace NExtra.Date
 {
     /// <summary>
     /// This class can be used to calculate week numbers
@@ -11,7 +11,7 @@ namespace NExtra.Week
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public class Iso8601WeekParser : WeekParser
+    public class Iso8601WeekResolver : WeekResolver
     {
         const int JAN = 1;
         const int DEC = 12;
@@ -20,7 +20,7 @@ namespace NExtra.Week
         const int THURSDAY = 4;
 
 
-        public Iso8601WeekParser()
+        public Iso8601WeekResolver()
             : base(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday)
         {
         }

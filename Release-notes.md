@@ -23,24 +23,39 @@ in NExtra.Web.Html.
 NExtra
 ------
 
+New stuff:
+
+- Added new Char_AsciiExtensions extension class with a method for
+converting international chars to ASCII strings. It is used by the
+new StringUrlifyer class.
+
+- Added IPositionBearingCalculator and IPositionDistanceCalculator
+interfaces as well as default implementations to NExtra.Geo.
+
+- Added new Url namespace with an IUrlifier interface and a string
+urlifier implementation.
+
+
+Changes:
+
+- Removed the default timespan Set method from NExtra.Cache.ICache.
+It was only resulting in a larger interface with no benefits.
+
 - Adjusted NExtra.Cache.MemoryCacheFacade so that the timeout does
 not fail for certain times and time zones.
 
 - Removed SMTP timeout definition in NExtra.Email.EmailSender. The
 timeout was set to a very(!) small value, so consider it a bug fix.
 
-- Renamed the String.To<> methods in StringExtensions to ConvertTo.
-Also added a new ConvertTo method, with a fallback value.
+- Renamed the NExtra.Extensions.StringExtensions String.To methods
+to ConvertTo. Also added a new ConvertTo method, with a fallback.
 
-- Split the PositionHandler into four separate classes. Why have a
-monster class when you can have tiny ones, right?
-
-- Removed the default timespan Set method from ICache. It was only
-causing a larger interface.
+- Split the NExtra.Geo.PositionHandler class into two classes (see
+the "added" section). Why have a monster class when you can have a
+set of smaller ones, right?
 
 - Removed AdjustContent method in Extensions.WebRequest_Extensions.
-It is a good example of a far too specific method, that should not
-be in NExtra.
+It was a far too specific method to fit into the NExtra model.
 
 - Removed all the default constructor parameter values for the old
 Pagination.PaginationContext class and also extracted an interface.

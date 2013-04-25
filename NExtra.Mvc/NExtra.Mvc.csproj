@@ -57,11 +57,13 @@
     <Compile Include="Extensions\Controller_Extensions.cs" />
     <Compile Include="Extensions\IEnumerable_SelectListExtensions.cs" />
     <Compile Include="Extensions\WebViewPage_Extensions.cs" />
+    <Compile Include="HtmlHelpers\UrlifyHelper.cs" />
     <Compile Include="HtmlHelpers\FormBlockForHelper.cs" />
     <Compile Include="HtmlHelpers\ConditionalHelper.cs" />
     <Compile Include="HtmlHelpers\GlobalResourceHelper.cs" />
     <Compile Include="HtmlHelpers\ResourceFileValueHelper.cs" />
     <Compile Include="HtmlHelpers\LocalResourceHelper.cs" />
+    <Compile Include="HtmlHelpers\TranslateHelper.cs" />
     <Compile Include="Localization\LocalizedDataAnnotationsModelMetadataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Testing\ControllerExtensions.cs" />
