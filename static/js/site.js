@@ -6,13 +6,11 @@ $(document).ready(function() {
 
 	function updateGitHubInfo() {
 		var api_base = "https://api.github.com/repos/danielsaidi/nextra";
-		var api_tags = api_base + "/tags?callback=?";
+		var api_tags = api_base + "/tags";
 
-		updateVersionInfo("3.1.0");
-
-		/*$.get(api_tags, function(data) {
+		$.get(api_tags, function(data) {
 			updateVersionInfo(data[0]["name"]);
-		});*/
+		});
 	}
 
 	function updateVersionInfo(version) {
