@@ -3,7 +3,9 @@ using System.Web.UI;
 namespace NExtra.Web.Extensions
 {
 	/// <summary>
-	/// Extension methods for System.Web.UI.StateBag.
+	/// Extension methods for the System.Web.UI.StateBag
+	/// class. They apply to all sub classes of StateBag,
+	/// like ViewState.
 	/// </summary>
 	/// <remarks>
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]

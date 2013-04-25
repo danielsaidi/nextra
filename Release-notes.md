@@ -23,6 +23,9 @@ in NExtra.Web.Html.
 NExtra
 ------
 
+- Adjusted NExtra.Cache.MemoryCacheFacade so that the timeout does
+not fail for certain times and time zones.
+
 - Removed SMTP timeout definition in NExtra.Email.EmailSender. The
 timeout was set to a very(!) small value, so consider it a bug fix.
 
@@ -42,9 +45,20 @@ be in NExtra.
 - Removed all the default constructor parameter values for the old
 Pagination.PaginationContext class and also extracted an interface.
 
-- Removed the default constructor for the WeekParser class. Now, I
-force everyone to specify exactly what they want, instead of doing
-the auto-Swede assume that is bound to go wrong.
+- Renamed NExtra.Week to NExtra.Date and renamed parser classes to
+resolver instead.
+
+- Removed the default constructor for the WeekResolver class. This
+forces everyone to specify exactly what they want instead of doing
+the auto-Swede assume (that is bound to go wrong).
+
+
+NExtra.Mvc
+----------
+
+- Added the NExtra.Mvc.ExtensionsIEnumerable_SelectListExtensions
+extensions class. For now, it has a method that converts a string
+collection to a SelectList instance.
 
 
 NExtra.Web

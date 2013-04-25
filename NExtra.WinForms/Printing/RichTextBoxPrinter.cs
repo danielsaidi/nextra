@@ -157,7 +157,6 @@ namespace NExtra.WinForms.Printing
 
 
 
-
         [StructLayout(LayoutKind.Sequential)]
         private struct RECT
         {

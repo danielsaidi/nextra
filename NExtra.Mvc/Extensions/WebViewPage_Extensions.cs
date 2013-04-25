@@ -11,7 +11,7 @@ namespace NExtra.Mvc.Extensions
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// </remarks>
-    public static class WebViewPageExtensions
+    public static class WebViewPage_Extensions
     {
         public static IHtmlString GlobalResource(this WebViewPage page, string resource)
         {

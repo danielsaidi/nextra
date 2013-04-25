@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace NExtra.Mvc.Tests.Extensions
 {
     [TestFixture]
-    public class ControllerExtensionsBehavior
+    public class Controller_ExtensionsBehavior
     {
         private ControllerTestClass controller;
 

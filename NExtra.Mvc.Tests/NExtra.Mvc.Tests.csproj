@@ -54,7 +54,8 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ActionFilters\JsonForQueryStringAttributeBehavior.cs" />
-    <Compile Include="Extensions\ControllerExtensionsBehavior.cs" />
+    <Compile Include="Extensions\Controller_ExtensionsBehavior.cs" />
+    <Compile Include="Extensions\IEnumerable_SelectListExtensionsBehavior.cs" />
     <Compile Include="Localization\LocalizedDataAnnotationsModelMetadataProviderBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

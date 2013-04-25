@@ -9,7 +9,7 @@ namespace NExtra.Mvc.Extensions
 	/// Author:     Daniel Saidi [daniel.saidi@gmail.com]
 	/// Link:       http://danielsaidi.github.com/nextra
 	/// </remarks>
-	public static class ControllerExtensions
+	public static class Controller_Extensions
     {
         public static string Action(this Controller controller)
         {

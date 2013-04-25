@@ -4,7 +4,7 @@ using NExtra.WPF.Controls;
 using NExtra.WPF.Extensions;
 using NUnit.Framework;
 
-namespace NExtra.WPF.Tests.Controls.Extensions
+namespace NExtra.WPF.Tests.Extensions
 {
     [TestFixture]
     public class CheckBox_ExtensionsBehavior

@@ -54,8 +54,9 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ActionFilters\JsonForQueryStringAttribute.cs" />
-    <Compile Include="Extensions\ControllerExtensions.cs" />
-    <Compile Include="Extensions\WebViewPageExtensions.cs" />
+    <Compile Include="Extensions\Controller_Extensions.cs" />
+    <Compile Include="Extensions\IEnumerable_SelectListExtensions.cs" />
+    <Compile Include="Extensions\WebViewPage_Extensions.cs" />
     <Compile Include="HtmlHelpers\FormBlockForHelper.cs" />
     <Compile Include="HtmlHelpers\ConditionalHelper.cs" />
     <Compile Include="HtmlHelpers\GlobalResourceHelper.cs" />

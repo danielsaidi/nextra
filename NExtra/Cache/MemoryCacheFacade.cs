@@ -5,8 +5,8 @@ using System.Runtime.Caching;
 namespace NExtra.Cache
 {
     /// <summary>
-    /// This ICache implementation can be used as a wrapper for
-    /// the default System.Runtime.Caching.MemoryCache instance.
+    /// This class can be used as a facade for the default
+    /// System.Runtime.Caching.MemoryCache instance.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -51,7 +51,8 @@ namespace NExtra.Cache
 
         public void Set(string key, object value, TimeSpan timeout)
         {
-            cache.Set(key, value, new DateTimeOffset(DateTime.Now, timeout));
+            var offset = DateTime.Now.Add(timeout);
+            cache.Set(key, value, new DateTimeOffset(offset));
         }
 
         public T TryGet<T>(string key, T fallback)
