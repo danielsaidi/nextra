@@ -15,15 +15,13 @@ namespace NExtra.Console
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// 
-    /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
-    /// 
     /// The original implementation by Richard Lopes has
     /// been changed so that it implements the interface
     /// ICommandLineArgumentParser. The original classes
     /// can be found at:
     /// http://www.codeproject.com/KB/recipes/command_line.aspx 
     /// </remarks>
-    public class CommandLineArgumentParser : ICommandLineArgumentParser
+    public class CommandLineArgumentParser : ICommandLineArgumentParser<IDictionary<string, string>>
     {
         private readonly Regex splitter;
         private readonly Regex remover;

@@ -4,7 +4,8 @@ using System.Security;
 namespace NExtra.Diagnostics
 {
     ///<summary>
-    /// This interface represents the static Process class.
+    /// This interface can be implemented by classes that
+    /// can be used to work with the static Process class.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

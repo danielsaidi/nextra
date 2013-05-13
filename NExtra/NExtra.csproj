@@ -75,7 +75,10 @@
     <Compile Include="Cache\MemoryCacheFacade.cs" />
     <Compile Include="Cache\DictionaryCache.cs" />
     <Compile Include="Console\CommandLineArgumentParser.cs" />
+    <Compile Include="Console\CommandLineArguments.cs" />
     <Compile Include="Console\ConsoleFacade.cs" />
+    <Compile Include="Console\TypedCommandLineArgumentParser.cs" />
+    <Compile Include="Extensions\Assembly_FileExtensions.cs" />
     <Compile Include="Extensions\Assembly_TypeExtensions.cs" />
     <Compile Include="Extensions\String_ConvertExtensions.cs" />
     <Compile Include="Extensions\String_SplitExtensions.cs" />
@@ -85,6 +88,10 @@
     <Compile Include="Geo\PositionBearingCalculator.cs" />
     <Compile Include="Geo\PositionDistanceCalculator.cs" />
     <Compile Include="Geo\IPosition.cs" />
+    <Compile Include="IO\IFileEncodingResolver.cs" />
+    <Compile Include="IO\KlerksFileEncodingResolver.cs" />
+    <Compile Include="IO\KlerksSoftFileEncodingDetector.cs" />
+    <Compile Include="IO\StreamReaderFileEncodingResolver.cs" />
     <Compile Include="Pagination\IPaginationContext.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Serialization\IObjectSerializer.cs" />

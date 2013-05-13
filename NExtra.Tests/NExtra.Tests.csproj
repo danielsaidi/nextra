@@ -72,6 +72,8 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Cache\DictionaryCacheBehavior.cs" />
+    <Compile Include="Console\CommandLineArgumentsBehavior.cs" />
+    <Compile Include="Console\TypedCommandLineArgumentParserBehavior.cs" />
     <Compile Include="EventArgsBehavior.cs" />
     <Compile Include="Extensions\Assembly_TypeExtensionsBehavior.cs" />
     <Compile Include="Extensions\Char_AsciiExtensionsBehavior.cs" />
@@ -82,7 +84,9 @@
     <Compile Include="Extensions\String_ExtractExtensionsBehavior.cs" />
     <Compile Include="Geo\PositionBearingCalculatorBehavior.cs" />
     <Compile Include="Geo\PositionDistanceCalculatorBehavior.cs" />
+    <Compile Include="IO\KlerksFileEncodingResolverBehavior.cs" />
     <Compile Include="IO\PathPatternMatcherBehavior.cs" />
+    <Compile Include="IO\StreamReaderFileEncodingResolverBehavior.cs" />
     <Compile Include="Localization\HierarchicalResourceManagerTranslatorBehavior.cs" />
     <Compile Include="Reflection\TypeLocatorBehavior.cs" />
     <Compile Include="Security\Md5GeneratorBehavior.cs" />
@@ -149,7 +153,14 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\EncodingTest.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\EncodingTest.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

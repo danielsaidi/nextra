@@ -1,3 +1,27 @@
+NExtra 3.2.1.0		2013-04-11
+==============================
+
+NExtra
+------
+
+New stuff:
+
+- Added a new NExtra.Console.TypedCommandLineArgumentParser, which
+parses command line arguments into a CommandLineArguments instance.
+The old CommandLineArgumentParser, which parses args into a string
+dictionary, can be used by this new one.
+
+- Added a new NExtra.Extensions.Assembly_FileExtensions extensions
+class, with methods to find where assembly files are located.
+
+- Added new file encoding resolver classes to NExtra.IO. There are
+two IFileEncodingResolver implementations and a static class, that
+can be used to detect what encoding that is used by a certain file.
+However, the resolvers will still fail at resolving some encodings,
+so share if you have a better implementation. Share, shaaaaare!
+
+
+
 NExtra 3.2.0.0		2013-04-11
 ==============================
 

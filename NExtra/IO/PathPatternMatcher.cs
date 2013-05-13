@@ -6,9 +6,8 @@ using NExtra.Extensions;
 namespace NExtra.IO
 {
     /// <summary>
-    /// This class can be used to match file and folder
-    /// name patterns. It supports patterns like *.txt,
-    /// b*, a*.txt etc.
+    /// This class can be used to match name patterns of
+    /// files and folders, like *.txt, b*, a*.txt etc.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
@@ -20,9 +19,7 @@ namespace NExtra.IO
     /// 
     /// I will, however, replace this implementation with
     /// another one. This is by far the largest method in
-    /// NExtra...and pretty impossible to understand.
-    /// 
-    /// I mark this as a TODO.
+    /// NExtra and pretty impossible to understand (TODO).
     /// </remarks>
     public class PathPatternMatcher : IPathPatternMatcher
     {

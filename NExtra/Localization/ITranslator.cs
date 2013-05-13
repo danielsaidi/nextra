@@ -4,8 +4,8 @@ namespace NExtra.Localization
 {
     /// <summary>
     /// This interface can be implemented by classes that
-    /// can translate language keys in any way, either by
-    /// using the current or a specific culture.
+    /// can translate language keys, using the current or
+    /// a specific culture.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]

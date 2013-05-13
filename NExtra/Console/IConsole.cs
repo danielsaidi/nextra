@@ -3,9 +3,10 @@
 namespace NExtra.Console
 {
     ///<summary>
-    /// This interface represents the most basic parts of
-    /// the static Console class. If more methods from it
-    /// are needed, simply add them to the interface.
+    /// This interface can be implemented by classes that
+    /// can be used to work with the static Console class.
+    /// It only contains some of the methods. If more are
+    /// needed, simply add them to the interface.
     ///</summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
