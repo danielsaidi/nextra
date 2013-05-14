@@ -54,6 +54,7 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ActionFilters\JsonForQueryStringAttribute.cs" />
+    <Compile Include="ActionFilters\RequireBasicAuthenticationAttribute.cs" />
     <Compile Include="Extensions\Controller_Extensions.cs" />
     <Compile Include="Extensions\IEnumerable_SelectListExtensions.cs" />
     <Compile Include="Extensions\WebViewPage_Extensions.cs" />
@@ -69,6 +70,10 @@
     <Compile Include="Testing\ControllerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NExtra.Web\NExtra.Web.csproj">
+      <Project>{8EFC2C13-62EC-4A27-8D9A-CD01DE68CA06}</Project>
+      <Name>NExtra.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NExtra\NExtra.csproj">
       <Project>{0366F0F5-D14B-4262-A862-EFDE39CA68F2}</Project>
       <Name>NExtra</Name>

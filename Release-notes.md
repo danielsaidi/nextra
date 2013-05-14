@@ -1,10 +1,21 @@
-NExtra 3.2.1.0		2013-04-11
+NExtra 3.2.2.0		2013-05-xx
 ==============================
 
-NExtra
-------
+- Added classes for basic authentication to NExtra.Web.Secutiry. I
+first considered adding the interface to the core library, but the
+whole concept of basic authentication is entirely web-based, so it
+ended up in NExtra.Web.
 
-New stuff:
+- Together with the basic authentication stuff, I also added a new
+
+
+
+
+
+NExtra 3.2.1.0		2013-05-13
+==============================
+
+This version contains a couple of new stuff for the NExtra project.
 
 - Added a new NExtra.Console.TypedCommandLineArgumentParser, which
 parses command line arguments into a CommandLineArguments instance.

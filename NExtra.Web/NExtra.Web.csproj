@@ -84,7 +84,10 @@
     <Compile Include="Cache\HttpRuntimeCacheFacade.cs" />
     <Compile Include="Extensions\StateBagExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\BasicAuthenticationCredentials.cs" />
+    <Compile Include="Security\BasicAuthenticationProvider.cs" />
     <Compile Include="Security\FormsAuthenticationService.cs" />
+    <Compile Include="Security\IBasicAuthenticationProvider.cs" />
     <Compile Include="Security\IMembershipService.cs" />
     <Compile Include="Security\IRoleService.cs" />
     <Compile Include="Security\FormsAuthenticationBasedMd5Generator.cs" />

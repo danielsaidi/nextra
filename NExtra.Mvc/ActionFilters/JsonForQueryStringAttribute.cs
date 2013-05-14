@@ -4,10 +4,9 @@ using System.Web.Mvc;
 namespace NExtra.Mvc.ActionFilters
 {
     /// <summary>
-    /// This attribute can be added to controller actions,
-    /// and will cause the model to output as JSON. It is
-    /// either set to trigger on if a query variable just
-    /// exists or if it has a certain value.
+    /// This attribute can be added to controller actions
+    /// and will send the view model as JSON, if either a
+    /// query var simply exists or if has a certain value.
     /// </summary>
     /// <remarks>
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
