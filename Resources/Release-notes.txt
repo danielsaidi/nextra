@@ -1,4 +1,4 @@
-NExtra 3.2.2.0		2013-05-14
+NExtra 3.2.2.0		2013-05-xx
 ==============================
 
 - Added classes for basic authentication to NExtra.Web.Secutiry. I
@@ -7,9 +7,8 @@ whole concept of basic authentication is entirely web-based, so it
 ended up in NExtra.Web.
 
 - Together with the basic authentication stuff, I also added a new
-action filter that can be used to make ASP.NET MVC actions require
-basic authentication. It's located in NExtra.Mvc.ActionFilters and
-is named RequireBasicAuthenticationAttribute.
+
+
 
 
 
