@@ -18,7 +18,7 @@ test_assemblies = (
 
 
 
-target default, (compile, test):
+target default, (test):
    pass
 
 target zip, (compile, test, copy):
@@ -48,7 +48,7 @@ target compile:
    end_index = content.IndexOf("\"")
    build_version = content.Substring(0, end_index)
 
-target test:
+target test, (compile):
    nunit(assemblies: test_assemblies, enableTeamCity: true, toolPath: "resources/phantom/lib/nunit/nunit-console.exe", teamCityArgs: "v4.0 x86 NUnit-2.5.5")
    exec("del TestResult.xml")
 
