@@ -80,6 +80,7 @@
     <Compile Include="Console\TypedCommandLineArgumentParser.cs" />
     <Compile Include="Extensions\Assembly_FileExtensions.cs" />
     <Compile Include="Extensions\Assembly_TypeExtensions.cs" />
+    <Compile Include="Extensions\Object_PropertyExtensions.cs" />
     <Compile Include="Extensions\String_ConvertExtensions.cs" />
     <Compile Include="Extensions\String_SplitExtensions.cs" />
     <Compile Include="Extensions\String_ExtractExtensions.cs" />

@@ -1,3 +1,15 @@
+NExtra 3.2.3.0		2013-05-xx
+==============================
+
+- Added a NExtra.Extensions.Object_PropertyExtensions class, which
+has an object extension method, that can resolve the full property
+path string for a property expression. For instance:
+
+var obj = new User();
+obj.GetFullPropertyPath(x => x.Address.StreetName) returns Address.StreetName
+
+
+
 NExtra 3.2.2.0		2013-05-14
 ==============================
 

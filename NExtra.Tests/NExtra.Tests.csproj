@@ -77,6 +77,7 @@
     <Compile Include="EventArgsBehavior.cs" />
     <Compile Include="Extensions\Assembly_TypeExtensionsBehavior.cs" />
     <Compile Include="Extensions\Char_AsciiExtensionsBehavior.cs" />
+    <Compile Include="Extensions\Object_PropertyExtensionsBehavior.cs" />
     <Compile Include="Extensions\String_ConvertExtensionsBehavior.cs" />
     <Compile Include="Extensions\String_SplitExtensionsBehavior.cs" />
     <Compile Include="Extensions\NameValueCollection_ExtensionsBehavior.cs" />
