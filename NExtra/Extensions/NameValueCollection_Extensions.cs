@@ -1,4 +1,6 @@
-﻿using System.Collections.Specialized;
+﻿using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
 
 namespace NExtra.Extensions
 {
@@ -11,6 +13,11 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class NameValueCollection_Extensions
     {
+        public static IEnumerable<KeyValuePair<string, string>> AsKeyValuePairs(this NameValueCollection collection)
+        {
+            return collection.AllKeys.Select(key => new KeyValuePair<string, string>(key, collection.Get(key)));
+        }
+
         public static string TryGetValue(this NameValueCollection collection, string key, string fallback)
         {
             return collection[key] ?? fallback;

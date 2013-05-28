@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NExtra.Extensions
 {
@@ -11,10 +13,33 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class Uri_Extensions
     {
-        /// <summary>
-        /// Get the root url for an Uri, including scheme,
-        /// host and port.
-        /// </summary>
+        public static Uri SetQueryParameter(this Uri uri, string key, string value)
+        {
+            var parameters = uri.GetQueryParameters();
+            parameters[key] = value;
+
+            var pairs = parameters.Select(x => string.Format("{0}={1}", x.Key, x.Value));
+            var query = string.Join("&", pairs);
+            var result = new UriBuilder(uri) { Query = query }.Uri;
+
+            return result;
+        }
+
+        public static IDictionary<string, string> GetQueryParameters(this Uri uri)
+        {
+            var result = new Dictionary<string, string>();
+
+            var rawQuery = uri.Query.Replace("?", "");
+            if (string.IsNullOrWhiteSpace(rawQuery))
+                return result;
+
+            result = rawQuery.Split('&')
+               .Select(part => part.Split('='))
+               .ToDictionary(split => split[0], split => split.Length > 1 ? split[1] : String.Empty);
+
+            return result;
+        }
+
         public static Uri GetRootUri(this Uri uri)
         {
             var port = (uri.IsDefaultPort) ? "" : ":" + uri.Port;

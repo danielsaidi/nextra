@@ -1,12 +1,11 @@
-NExtra 3.2.3.0		2013-05-xx
+NExtra 3.2.3.0		2013-05-28
 ==============================
 
-- Added a NExtra.Extensions.Object_PropertyExtensions class, which
-has an object extension method, that can resolve the full property
-path string for a property expression. For instance:
+- Added a NExtra.Extensions.Object_PropertyExtensions class with a
+GetFullPropertyPath extension method that finds the full path name
+for an object property.
 
-var obj = new User();
-obj.GetFullPropertyPath(x => x.Address.StreetName) returns Address.StreetName
+- Added query parameter methods to NExtra.Extensions.UriExtensions.
 
 
 
