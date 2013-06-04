@@ -1,9 +1,20 @@
-NExtra 3.2.3.0		2013-05-28
+NExtra 3.3.0.0		2013-06-04
 ==============================
+
+In this version, note that the Pagination namespace is renamed. It
+is now named Collections.
+
+- Renamed the NExtra.Pagination namespace to NExtra.Collections. I
+also added a new OrderContext class to it.
 
 - Added a NExtra.Extensions.Object_PropertyExtensions class with a
 GetFullPropertyPath extension method that finds the full path name
 for an object property.
+
+- Added new OrderBy and ThenBy methods with descending argument to
+IEnumerable_OrderByExtensions and IQueryable_OrderByExtensions. It
+makes it easier to work with ordering, since it is now possible to
+call one method instead of choosing between two.
 
 - Added query parameter methods to NExtra.Extensions.UriExtensions.
 

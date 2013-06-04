@@ -9,6 +9,42 @@ namespace NExtra.Tests.Extensions
     public class Uri_ExtensionsBehavior
     {
         [Test]
+        public void GetQueryParameter_ShouldReturnNullForNoParameters()
+        {
+            var uri = new Uri("http://www.foo.bar/index.htm");
+            var result = uri.GetQueryParameter("foo");
+
+            Assert.That(result, Is.EqualTo(string.Empty));
+        }
+
+        [Test]
+        public void GetQueryParameter_ShouldReturnMatchForSingleParameter()
+        {
+            var uri = new Uri("http://www.foo.bar/index.htm?foo=bar");
+            var result = uri.GetQueryParameter("foo");
+
+            Assert.That(result, Is.EqualTo("bar"));
+        }
+
+        [Test]
+        public void GetQueryParameter_ShouldReturnMatchForMultipleParameters()
+        {
+            var uri = new Uri("http://www.foo.bar/index.htm?foo=bar&bar=foo");
+            var result = uri.GetQueryParameter("foo");
+
+            Assert.That(result, Is.EqualTo("bar"));
+        }
+
+        [Test]
+        public void GetQueryParameter_ShouldHandleBrokenParameter()
+        {
+            var uri = new Uri("http://www.foo.bar/index.htm?foo");
+            var result = uri.GetQueryParameter("foo");
+
+            Assert.That(result, Is.EqualTo(string.Empty));
+        }
+
+        [Test]
         public void GetQueryParameters_ShouldReturnEmptyDictionaryForNoParameters()
         {
             var uri = new Uri("http://www.foo.bar/index.htm");

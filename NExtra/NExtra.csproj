@@ -74,12 +74,18 @@
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\MemoryCacheFacade.cs" />
     <Compile Include="Cache\DictionaryCache.cs" />
+    <Compile Include="Collections\IOrderContext.cs" />
+    <Compile Include="Collections\OrderContext.cs" />
     <Compile Include="Console\CommandLineArgumentParser.cs" />
     <Compile Include="Console\CommandLineArguments.cs" />
     <Compile Include="Console\ConsoleFacade.cs" />
     <Compile Include="Console\TypedCommandLineArgumentParser.cs" />
     <Compile Include="Extensions\Assembly_FileExtensions.cs" />
     <Compile Include="Extensions\Assembly_TypeExtensions.cs" />
+    <Compile Include="Extensions\IQueryable_PaginateExtensions.cs" />
+    <Compile Include="Extensions\IQueryable_OrderByExtensions.cs" />
+    <Compile Include="Extensions\IEnumerable_PaginateExtensions.cs" />
+    <Compile Include="Extensions\IEnumerable_OrderByExtensions.cs" />
     <Compile Include="Extensions\Object_PropertyExtensions.cs" />
     <Compile Include="Extensions\String_ConvertExtensions.cs" />
     <Compile Include="Extensions\String_SplitExtensions.cs" />
@@ -93,7 +99,7 @@
     <Compile Include="IO\KlerksFileEncodingResolver.cs" />
     <Compile Include="IO\KlerksSoftFileEncodingDetector.cs" />
     <Compile Include="IO\StreamReaderFileEncodingResolver.cs" />
-    <Compile Include="Pagination\IPaginationContext.cs" />
+    <Compile Include="Collections\IPaginationContext.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Serialization\IObjectSerializer.cs" />
     <Compile Include="Date\WeekResolver.cs" />
@@ -172,7 +178,6 @@
     <Compile Include="Email\EmailNonSender.cs" />
     <Compile Include="Email\EmailSender.cs" />
     <Compile Include="Extensions\Assembly_Extensions.cs" />
-    <Compile Include="Extensions\IQueryable_Extensions.cs" />
     <Compile Include="Extensions\IEnumerable_Extensions.cs" />
     <Compile Include="Extensions\Int_Extensions.cs" />
     <Compile Include="Extensions\DateTime_Extensions.cs" />
@@ -181,7 +186,7 @@
     <Compile Include="IO\FileSizePresenter.cs" />
     <Compile Include="Nullable.cs" />
     <Compile Include="Testing\MetadataRegistrator.cs" />
-    <Compile Include="Pagination\PaginationContext.cs" />
+    <Compile Include="Collections\PaginationContext.cs" />
     <Compile Include="Extensions\String_Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\Uri_Extensions.cs" />

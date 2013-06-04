@@ -13,16 +13,13 @@ namespace NExtra.Extensions
     /// </remarks>
     public static class Uri_Extensions
     {
-        public static Uri SetQueryParameter(this Uri uri, string key, string value)
+        public static string GetQueryParameter(this Uri uri, string key)
         {
             var parameters = uri.GetQueryParameters();
-            parameters[key] = value;
-
-            var pairs = parameters.Select(x => string.Format("{0}={1}", x.Key, x.Value));
-            var query = string.Join("&", pairs);
-            var result = new UriBuilder(uri) { Query = query }.Uri;
-
-            return result;
+            string result;
+            parameters.TryGetValue(key, out result);
+            
+            return result ?? string.Empty;
         }
 
         public static IDictionary<string, string> GetQueryParameters(this Uri uri)
@@ -46,6 +43,18 @@ namespace NExtra.Extensions
             var root = new Uri(string.Format("{0}://{1}{2}", uri.Scheme, uri.Host, port));
 
             return root;
+        }
+
+        public static Uri SetQueryParameter(this Uri uri, string key, string value)
+        {
+            var parameters = uri.GetQueryParameters();
+            parameters[key] = value;
+
+            var pairs = parameters.Select(x => string.Format("{0}={1}", x.Key, x.Value));
+            var query = string.Join("&", pairs);
+            var result = new UriBuilder(uri) { Query = query }.Uri;
+
+            return result;
         }
     }
 }

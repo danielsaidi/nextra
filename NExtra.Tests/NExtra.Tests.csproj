@@ -72,11 +72,15 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Cache\DictionaryCacheBehavior.cs" />
+    <Compile Include="Collections\OrderContextTests.cs" />
     <Compile Include="Console\CommandLineArgumentsBehavior.cs" />
     <Compile Include="Console\TypedCommandLineArgumentParserBehavior.cs" />
     <Compile Include="EventArgsBehavior.cs" />
     <Compile Include="Extensions\Assembly_TypeExtensionsBehavior.cs" />
     <Compile Include="Extensions\Char_AsciiExtensionsBehavior.cs" />
+    <Compile Include="Extensions\IQueryable_OrderByExtensionsBehavior.cs" />
+    <Compile Include="Extensions\IEnumerable_OrderByExtensionsBehavior.cs" />
+    <Compile Include="Extensions\IEnumerable_PaginateExtensionsBehavior.cs" />
     <Compile Include="Extensions\Object_PropertyExtensionsBehavior.cs" />
     <Compile Include="Extensions\String_ConvertExtensionsBehavior.cs" />
     <Compile Include="Extensions\String_SplitExtensionsBehavior.cs" />
@@ -109,7 +113,7 @@
     <Compile Include="Extensions\Object_CloneExtensionsBehavior.cs" />
     <Compile Include="Extensions\StringCollection_ExtensionsBehavior.cs" />
     <Compile Include="Extensions\Enum_ExtensionsBehavior.cs" />
-    <Compile Include="Extensions\IQueryable_ExtensionsBehavior.cs" />
+    <Compile Include="Extensions\IQueryable_PaginateExtensionsBehavior.cs" />
     <Compile Include="Extensions\IEnumerable_ExtensionsBehavior.cs" />
     <Compile Include="Geo\AngleConverterBehavior.cs" />
     <Compile Include="Geo\DistanceConverterBehavior.cs" />
@@ -119,7 +123,7 @@
     <Compile Include="Extensions\DateTime_ExtensionsBehavior.cs" />
     <Compile Include="Extensions\IComparable_ExtensionsBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pagination\PaginationContextBehavior.cs" />
+    <Compile Include="Collections\PaginationContextBehavior.cs" />
     <Compile Include="Extensions\String_ExtensionsBehavior.cs" />
     <Compile Include="Extensions\Uri_ExtensionsBehavior.cs" />
     <Compile Include="Validation\PostalCode\SwedishPostalCodeAttributeBehavior.cs" />
