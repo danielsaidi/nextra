@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NExtra.Extensions;
 using NUnit.Framework;
 
@@ -57,25 +58,33 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void Clone_ShouldCloneComplexObject()
         {
-            var original = new ComplexObject {Name = "Foo", Children = new List<ComplexObject>() };
-            original.Children.Add(new ComplexObject { Name = "Bar", Children = new List<ComplexObject>{new ComplexObject(), new ComplexObject()}});
+            var original = new ComplexObject {Name = "Foo" };
+            var child = new ComplexObject { Name = "Bar" };
+            child.Children.Add(new ComplexObject());
+            child.Children.Add(new ComplexObject());
+            original.Children.Add(child);
 
             var copy = original.Clone<ComplexObject>();
 
             Assert.That(copy.Name, Is.EqualTo("Foo"));
             Assert.That(copy.Children.Count, Is.EqualTo(1));
 
-            Assert.That(copy.Children[0].Name, Is.EqualTo("Bar"));
-            Assert.That(copy.Children[0].Children.Count, Is.EqualTo(2));
+            Assert.That(copy.Children.First().Name, Is.EqualTo("Bar"));
+            Assert.That(copy.Children.First().Children.Count, Is.EqualTo(2));
         }
     }
 
 
     [Serializable]
-    class ComplexObject
+    internal class ComplexObject
     {
+        public ComplexObject()
+        {
+            Children = new List<ComplexObject>();
+        }
+
         public string Name { get; set; }
 
-        public List<ComplexObject> Children { get; set; }
+        public IList<ComplexObject> Children { get; private set; }
     }
 }

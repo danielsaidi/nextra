@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Resources;
@@ -55,10 +56,10 @@ namespace NExtra.Localization
             {
                 result.Add(key);
 
-                if (key.IndexOf(KeySeparator) < 0)
+                if (key.IndexOf(KeySeparator, StringComparison.Ordinal) < 0)
                     break;
 
-                key = key.Substring(key.IndexOf(KeySeparator) + 1);
+                key = key.Substring(key.IndexOf(KeySeparator, StringComparison.Ordinal) + 1);
             }
 
             return result;
@@ -79,10 +80,11 @@ namespace NExtra.Localization
                 if (result != null)
                     return result;
 
-                if (currentVerb.IndexOf(KeySeparator) < 0)
+                var index = currentVerb.IndexOf(KeySeparator, StringComparison.Ordinal);
+                if (index < 0)
                     return null;
 
-                currentVerb = currentVerb.Substring(currentVerb.IndexOf(KeySeparator) + 1);
+                currentVerb = currentVerb.Substring(index + 1);
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <NDepend AppName="NExtra" Platform="DotNet">
   <OutputDir KeepHistoric="True" KeepXmlFiles="False">C:\Projects\nextra\Resources\NDependOut</OutputDir>
   <Assemblies>
@@ -18,10 +18,8 @@
   <FrameworkAssemblies>
     <Name>mscorlib</Name>
     <Name>System.ComponentModel.DataAnnotations</Name>
-    <Name>System.Runtime.Caching</Name>
     <Name>System</Name>
     <Name>System.Core</Name>
-    <Name>System.Xml</Name>
     <Name>System.ServiceModel</Name>
     <Name>nunit.framework</Name>
     <Name>NSubstitute</Name>
@@ -33,6 +31,8 @@
     <Name>System.Web.Mvc</Name>
     <Name>System.Web.WebPages</Name>
     <Name>System.Web.ApplicationServices</Name>
+    <Name>System.Runtime.Caching</Name>
+    <Name>System.Xml</Name>
   </FrameworkAssemblies>
   <Dirs>
     <Dir>C:\Windows\Microsoft.NET\Framework\v4.0.30319</Dir>
@@ -51,7 +51,7 @@
     <Dir>C:\Projects\nextra\NExtra.Web.Tests\bin\Debug</Dir>
     <Dir>C:\Projects\nextra</Dir>
   </Dirs>
-  <Report Kind="0" SectionsEnabled="45055" XslPath="" Flags="64512" />
+  <Report Kind="0" SectionsEnabled="45055" XslPath="" Flags="64768" />
   <BuildComparisonSetting ProjectMode="DontCompare" BuildMode="MostRecentAnalysisResultAvailable" ProjectFileToCompareWith="" BuildFileToCompareWith="" NDaysAgo="1" FocusOnRecentRulesViolations="False" />
   <BaselineInUISetting ProjectMode="DontCompare" BuildMode="MostRecentAnalysisResultAvailable" ProjectFileToCompareWith="" BuildFileToCompareWith="" NDaysAgo="1" FocusOnRecentRulesViolations="False" />
   <CoverageFiles UncoverableAttribute="" />
@@ -94,8 +94,7 @@
       <Serie MetricName="# Third-Party Fields Used" MetricUnit="Fields" Color="#FFFFD700" ChartType="Line" ScaleExp="1" />
     </Chart>
   </TrendMetrics>
-  <SourceFileRebasing FromPath="" ToPath="" />
-  <Queries>
+  <SourceFileRebasing FromPath="" ToPath="" /><Queries>
     <Group Name="Code Quality" Active="True" ShownInReport="False">
       <Query Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="True"><![CDATA[// <Name>Types too big - critical</Name>
 warnif count > 0 from t in JustMyCode.Types where 
@@ -4054,5 +4053,4 @@ warnif count > 0 from n in Application.Namespaces where
 select new { n, n.NbLinesOfCode } ]]></Query>
       </Group>
     </Group>
-  </Queries>
-</NDepend>
+  </Queries></NDepend>
