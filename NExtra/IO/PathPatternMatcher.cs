@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using NExtra.Extensions;
 
 namespace NExtra.IO
@@ -13,16 +14,21 @@ namespace NExtra.IO
     /// Author:     Daniel Saidi [daniel.saidi@gmail.com]
     /// Link:       http://danielsaidi.github.com/nextra
     /// 
-    /// This implementation was found at stackoverflow. I
-    /// forgot the url though, so even though I'd like to
-    /// thank the author...it's rather impossible.
+    /// The original implementation was found at this URL:
+    /// http://stackoverflow.com/questions/652037/how-do-i-check-if-a-filename-matches-a-wildcard-pattern
+    /// Original author: http://stackoverflow.com/users/145211/sprite
     /// 
-    /// I will, however, replace this implementation with
-    /// another one. This is by far the largest method in
-    /// NExtra and pretty impossible to understand (TODO).
+    /// I have tweaked the original implementation to fit
+    /// the coding style of NExtra.
     /// </remarks>
     public class PathPatternMatcher : IPathPatternMatcher
     {
+        public static Regex CatchExtentionRegex = new Regex(@"^\s*.+\.([^\.]+)\s*$", RegexOptions.Compiled);
+        public static Regex HasQuestionMarkRegEx = new Regex(@"\?", RegexOptions.Compiled);
+        public static Regex IlegalCharactersRegex = new Regex("[" + @"\/:<>|" + "\"]", RegexOptions.Compiled);
+        public static string NonDotCharacters = @"[^.]*";
+
+
         public bool IsAnyMatch(string path, IEnumerable<string> patterns)
         {
             return patterns.Any(pattern => IsMatch(path, pattern));
@@ -30,179 +36,53 @@ namespace NExtra.IO
 
         public bool IsMatch(string path, string pattern)
         {
-            if (pattern.IsNullOrEmpty() || path.IsNullOrEmpty())
-                return false;
+            var regex = GetRegexForPattern(pattern);
+            return (regex.IsMatch(path));
+        }
 
-            pattern = pattern.ToLowerInvariant();
-            path = path.ToLowerInvariant();
 
-            if (pattern.Equals("*") || pattern.Equals("*.*"))
+        private static Regex GetRegexForPattern(string pattern)
+        {
+            if (pattern == null)
+                throw new ArgumentNullException();
+
+            pattern = pattern.Trim();
+            if (pattern.Length == 0)
+                throw new ArgumentException("Pattern is empty.");
+
+            if (IlegalCharactersRegex.IsMatch(pattern))
+                throw new ArgumentException("Patterns contains ilegal characters.");
+
+            var hasExtension = CatchExtentionRegex.IsMatch(pattern);
+            var matchExact = ShouldMatchExact(pattern, hasExtension);
+            var regexString = GetRegexString(pattern, matchExact, hasExtension);
+
+            var regex = new Regex(regexString, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            return regex;
+        }
+
+        private static string GetRegexString(string pattern, bool matchExact, bool hasExtension)
+        {
+            var regexString = Regex.Escape(pattern);
+            regexString = "^" + Regex.Replace(regexString, @"\\\*", ".*");
+            regexString = Regex.Replace(regexString, @"\\\?", ".");
+
+            if (!matchExact && hasExtension)
+                regexString += NonDotCharacters;
+
+            regexString += "$";
+            return regexString;
+        }
+
+        private static bool ShouldMatchExact(string pattern, bool hasExtension)
+        {
+            if (HasQuestionMarkRegEx.IsMatch(pattern))
                 return true;
+            
+            if (hasExtension)
+                return CatchExtentionRegex.Match(pattern).Groups[1].Length != 3;
 
-            if ((pattern[0] == '*') && (pattern.IndexOf('*', 1) == -1))
-            {
-                var length = pattern.Length - 1;
-                if ((path.Length >= length) && (String.Compare(pattern, 1, path, path.Length - length, length, StringComparison.OrdinalIgnoreCase) == 0))
-                    return true;
-            }
-
-            var num = 0;
-            var num7 = 1;
-            var num8 = pattern.Length * 2;
-            int num9;
-
-            var ch = '\0';
-            var sourceArray = new int[16];
-            var numArray2 = new int[16];
-            var flag = false;
-
-            sourceArray[0] = 0;
-
-            while (!flag)
-            {
-                if (num < path.Length)
-                {
-                    ch = path[num];
-                    num++;
-                }
-                else
-                {
-                    flag = true;
-                    if (sourceArray[num7 - 1] == num8)
-                    {
-                        break;
-                    }
-                }
-
-                var index = 0;
-                var num5 = 0;
-                var num6 = 0;
-
-                while (index < num7)
-                {
-                    var num2 = (sourceArray[index++] + 1) / 2;
-                    var num3 = 0;
-
-                Label_00F2:
-                    if (num2 != pattern.Length)
-                    {
-                        num2 += num3;
-                        num9 = num2 * 2;
-                        if (num2 == pattern.Length)
-                        {
-                            numArray2[num5++] = num8;
-                        }
-                        else
-                        {
-                            var ch2 = pattern[num2];
-                            num3 = 1;
-                            if (num5 >= 14)
-                            {
-                                var num11 = numArray2.Length * 2;
-                                var destinationArray = new int[num11];
-                                Array.Copy(numArray2, destinationArray, numArray2.Length);
-                                numArray2 = destinationArray;
-                                destinationArray = new int[num11];
-                                Array.Copy(sourceArray, destinationArray, sourceArray.Length);
-                                sourceArray = destinationArray;
-                            }
-                            if (ch2 == '*')
-                            {
-                                numArray2[num5++] = num9;
-                                numArray2[num5++] = num9 + 1;
-                                goto Label_00F2;
-                            }
-                            if (ch2 == '>')
-                            {
-                                var flag2 = false;
-                                if (!flag && (ch == '.'))
-                                {
-                                    var num13 = path.Length;
-                                    for (var i = num; i < num13; i++)
-                                    {
-                                        var ch3 = path[i];
-                                        num3 = 1;
-                                        if (ch3 != '.')
-                                            continue;
-
-                                        flag2 = true;
-                                        break;
-                                    }
-                                }
-                                if ((flag || (ch != '.')) || flag2)
-                                {
-                                    numArray2[num5++] = num9;
-                                    numArray2[num5++] = num9 + 1;
-                                }
-                                else
-                                {
-                                    numArray2[num5++] = num9 + 1;
-                                }
-                                goto Label_00F2;
-                            }
-
-                            num9 += num3 * 2;
-
-                            switch (ch2)
-                            {
-                                case '<':
-                                    if (flag || (ch == '.'))
-                                        goto Label_00F2;
-                                    numArray2[num5++] = num9;
-                                    goto Label_028D;
-
-                                case '"':
-                                    if (flag)
-                                        goto Label_00F2;
-                                    if (ch == '.')
-                                    {
-                                        numArray2[num5++] = num9;
-                                        goto Label_028D;
-                                    }
-                                    break;
-                            }
-
-                            if (!flag)
-                            {
-                                if (ch2 == '?')
-                                {
-                                    numArray2[num5++] = num9;
-                                }
-                                else if (ch2 == ch)
-                                {
-                                    numArray2[num5++] = num9;
-                                }
-                            }
-                        }
-                    }
-
-                Label_028D:
-                    if ((index >= num7) || (num6 >= num5))
-                        continue;
-
-                    while (num6 < num5)
-                    {
-                        var num14 = sourceArray.Length;
-                        while ((index < num14) && (sourceArray[index] < numArray2[num6]))
-                            index++;
-                        num6++;
-                    }
-                }
-
-                if (num5 == 0)
-                {
-                    return false;
-                }
-
-                var numArray4 = sourceArray;
-                sourceArray = numArray2;
-                numArray2 = numArray4;
-                num7 = num5;
-            }
-
-            num9 = sourceArray[num7 - 1];
-
-            return (num9 == num8);
+            return false;
         }
     }
 }

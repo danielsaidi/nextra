@@ -46,11 +46,11 @@ namespace NExtra.Url
                 else if (c == ' ' || c == ',' || c == '.' || c == '/' ||
                          c == '\\' || c == '-' || c == '_' || c == '=')
                 {
-                    if (!prevdash && sb.Length > 0)
-                    {
-                        sb.Append('-');
-                        prevdash = true;
-                    }
+                    if (prevdash || sb.Length <= 0)
+                        continue;
+
+                    sb.Append('-');
+                    prevdash = true;
                 }
                 else if (c >= 128)
                 {
@@ -58,12 +58,9 @@ namespace NExtra.Url
                     sb.Append(c.RemapInternationalCharToAscii());
                     if (prevlen != sb.Length) prevdash = false;
                 }
-                //if (sb.Length == maxLength) break;
             }
 
             var result = prevdash ? sb.ToString().Substring(0, sb.Length - 1) : sb.ToString();
-            //if (result.Length > maxLength)
-              //  result = result.Substring(0, maxLength);
 
             return result;
         }

@@ -14,6 +14,7 @@ namespace NExtra.IO
     /// 
     /// The original implementation can be found here:
     /// http://www.architectshack.com/TextFileEncodingDetector.ashx
+    /// It has been adjusted to fit the NExtra interface.
     /// </remarks>
     public static class KlerksSoftFileEncodingDetector
     {

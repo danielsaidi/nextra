@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<InfoWarnings>
+  <Info>11-14-2013 12:24:51 Begin full analysis with NDepend v5.0.0.8085</Info>
+  <Info>No Baseline for Comparison loaded.</Info>
+  <Warning>Can't load the assembly {System.Web.Mvc}:
+Can't find the .NET assembly {System.Web.Mvc} in specified folders. 
+Has it been compiled properly? 
+Is the NDepend project missing the containing folder of the .NET assembly?</Warning>
+  <Warning>Can't load the assembly {System.Web.WebPages}:
+Can't find the .NET assembly {System.Web.WebPages} in specified folders. 
+Has it been compiled properly? 
+Is the NDepend project missing the containing folder of the .NET assembly?</Warning>
+  <Info>Concurrent mode</Info>
+  <Info>.NET Assemblies loaded from {C:\Windows\Microsoft.NET\Framework\v4.0.30319} 
+   mscorlib.dll   v4.0.0.0
+   System.ComponentModel.DataAnnotations.dll   v4.0.0.0
+   System.Runtime.Caching.dll   v4.0.0.0
+   System.dll   v4.0.0.0
+   System.Core.dll   v4.0.0.0
+   System.Xml.dll   v4.0.0.0
+   System.ServiceModel.dll   v4.0.0.0
+   System.Windows.Forms.dll   v4.0.0.0
+   System.Drawing.dll   v4.0.0.0
+   System.Web.dll   v4.0.0.0
+   System.Web.Extensions.dll   v4.0.0.0
+   System.Web.ApplicationServices.dll   v4.0.0.0</Info>
+  <Info>.NET Assembly loaded from {C:\Windows\Microsoft.NET\Framework\v4.0.30319\WPF} 
+   PresentationFramework.dll   v4.0.0.0</Info>
+  <Info>.NET Assembly loaded from {C:\Projects\nextra\NExtra\bin\Debug} 
+   NExtra.dll   v3.3.0.0</Info>
+  <Info>.NET Assemblies loaded from {C:\Projects\nextra\NExtra.Tests\bin\Debug} 
+   NExtra.Tests.dll   v3.3.0.0
+   nunit.framework.dll   v2.5.9.10348
+   NSubstitute.dll   v0.9.0.1</Info>
+  <Info>.NET Assembly loaded from {C:\Projects\nextra\NExtra.WinForms\bin\Debug} 
+   NExtra.WinForms.dll   v3.3.0.0</Info>
+  <Info>.NET Assembly loaded from {C:\Projects\nextra\NExtra.WinForms.Tests\bin\Debug} 
+   NExtra.WinForms.Tests.dll   v3.3.0.0</Info>
+  <Info>.NET Assemblies loaded from {C:\Projects\nextra\NExtra.WebForms\bin\Debug} 
+   NExtra.Web.dll   v3.3.0.0
+   NExtra.WebForms.dll   v3.3.0.0</Info>
+  <Info>.NET Assembly loaded from {C:\Projects\nextra\NExtra.WebForms.Tests\bin\Debug} 
+   NExtra.WebForms.Tests.dll   v3.3.0.0</Info>
+  <Info>.NET Assemblies loaded from {C:\Projects\nextra\NExtra.WPF.Tests\bin\Debug} 
+   NExtra.WPF.Tests.dll   v3.3.0.0
+   NExtra.WPF.dll   v3.3.0.0</Info>
+  <Warning>No application or third party assembly found in folder {C:\Projects\nextra\NExtra.WPF\bin\Debug}</Warning>
+  <Info>.NET Assembly loaded from {C:\Projects\nextra\NExtra.Mvc\bin\Debug} 
+   NExtra.Mvc.dll   v3.3.0.0</Info>
+  <Info>.NET Assembly loaded from {C:\Projects\nextra\NExtra.Mvc.Tests\bin\Debug} 
+   NExtra.Mvc.Tests.dll   v3.3.0.0</Info>
+  <Warning>No application or third party assembly found in folder {C:\Projects\nextra\NExtra.Web\bin\Debug}</Warning>
+  <Info>.NET Assembly loaded from {C:\Projects\nextra\NExtra.Web.Tests\bin\Debug} 
+   NExtra.Web.Tests.dll   v3.3.0.0</Info>
+  <Warning>No application or third party assembly found in folder {C:\Projects\nextra}</Warning>
+  <Warning>Assembly {System.Web.Mvc} is referenced by {NExtra.Mvc} but is not found.</Warning>
+  <Warning>Assembly {System.Web.WebPages} is referenced by {NExtra.Mvc} but is not found.</Warning>
+  <Warning>Assembly {System.Web.Mvc} is referenced by {NExtra.Mvc.Tests} but is not found.</Warning>
+  <Info>301 source files parsed ; all source files found ; all source files in-sync with PDB</Info>
+  <Info>0 code rule has been extracted from code.</Info>
+  <Info>No dependency cycle detected in assemblies referencement graph.</Info>
+  <Info>11-14-2013 12:24:53 Log trend metrics values.</Info>
+</InfoWarnings>

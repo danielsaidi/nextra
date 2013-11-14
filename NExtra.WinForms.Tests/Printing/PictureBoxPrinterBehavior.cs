@@ -70,7 +70,7 @@ namespace NExtra.WinForms.Tests.Printing
         public void Constructor_ShouldOnlyBindBeginPrintEvent()
         {
             printer = new PictureBoxPrinter(pictureBox, pageSetupDialogFacade, printPreviewDialogFacade, printDialogFacade, printDocumentFacade);
-
+            
             printDocumentFacade.DidNotReceive().BindBeginPrintEvent(Arg.Any<IControlPrinter<PictureBox>>());
             printDocumentFacade.DidNotReceive().BindEndPrintEvent(Arg.Any<IControlPrinter<PictureBox>>());
             printDocumentFacade.Received().BindPrintPageEvent(printer);
