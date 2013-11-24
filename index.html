@@ -13,6 +13,7 @@
 	<![endif]-->
 	
 	<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap-responsive.min.css" />
 	<link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="static/css/site.css" />
 	<link rel="stylesheet" type="text/css" href="static/css/animate.css" />
@@ -35,62 +36,63 @@
 </head>
 
 
-<body data-spy="scroll" data-target=".navbar">
-
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="brand" href="#">NExtra</a>
-				<ul class="nav">
-					<li><a href="#features">Features</a></li>
-					<li><a href="#get-started">Get started</a></li>
-					<li><a href="#documentation">Documentation</a></li>
-					<li><a href="#contribute">Contribute</a></li>
-					<li><a href="#license">License</a></li>
-				</ul>
-				<ul class="nav pull-right">
-				<li><a href="#contact"><i class="icon-envelope"></i></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="jumbotron">
+<body>
+	<div class="top"></div>
+	<header>
 		<div class="container">
 			<h1>NExtra</h1>
-			<p>C# library with extra stuff for the .NET Framework.</p>
+			<p>A C# library with extra stuff for the .NET Framework.</p>
 			<div class="buttons">
-				<a href="http://github.com/danielsaidi/nextra/tags" rel="external">
-					<button class="btn btn-warning download animated bounceIn">
-						<i class="icon icon-cloud-download"></i>Download NExtra
-					</button>
-				</a>
-				<a href="http://github.com/danielsaidi/nextra" rel="external">
-					<button class="btn btn-info github">
-						<i class="icon-wrench"></i>Visit project page
-					</button>
-				</a>
-				<a href="http://nuget.org/packages?q=nextra" rel="external">
-					<button class="btn btn-default nuget">
-						Get NuGet Package
-					</button>
-				</a>
+				<div class="row">
+					<span class="span4">
+						<a href="http://github.com/danielsaidi/nextra/tags" rel="external">
+							<button class="btn btn-large btn-warning download animated bounceIn">
+								Download NExtra
+							</button>
+						</a>
+					</span>
+					<span class="span4">
+						<a href="http://github.com/danielsaidi/nextra" rel="external">
+							<button class="btn btn-large btn-info github">
+								Grab the code
+							</button>
+						</a>
+					</span>
+					<span class="span4">
+						<a href="http://nuget.org/packages?q=nextra" rel="external">
+							<button class="btn btn-large btn-inverse nuget">
+								Get NuGet package
+							</button>
+						</a>
+					</span>
+				</div>
 			</div>
+
 
 			<p class="version-info">
 				Current version <span class="version-target"></span>
-				• Created and maintained by Daniel Saidi
-				• Analyzed by <a href="http://www.ndepend.com/">NDepend</a>
+				&nbsp;&nbsp; • &nbsp;&nbsp;
+				Created and maintained by <a href="http://danielsaidi.com">Daniel Saidi</a>
 			</p>
+		</div>
+	</header>
+
+
+	<div class="social-links">
+		<div class="container">
+			<a class="btn btn-mini" href="http://github.com/danielsaidi/nextra" rel="external"><i class="icon-github icon-large"></i> Watch</a>
+			<a class="btn btn-mini" href="http://github.com/danielsaidi/nextra/fork" rel="external"><i class="icon-github icon-large"></i> Fork</a>
+			<a class="btn btn-mini" href="http://twitter.com/danielsaidi/" target="_blank"><i class="icon-twitter icon-large"></i> Follow @danielsaidi</a>
 		</div>
 	</div>
 
-
-	<div class="social well">
+	<div class="gratitude-links">
 		<div class="container">
-			<a class="btn btn-mini" href="http://github.com/danielsaidi/nextra" rel="external"><i class="icon-github icon-large"></i> Watch</a>
-			<a class="btn btn-mini" href="http://github.com/danielsaidi/nextra" rel="external"><i class="icon-github icon-large"></i> Fork</a>
-			<a class="btn btn-mini" href="http://twitter.com/danielsaidi/" target="_blank"><i class="icon-twitter icon-large"></i> Follow @danielsaidi</a>
+			<p>Big thanks to</p>
+			<a href="http://ndepend.com" rel="external">
+				<img src="static/img/ndepend.png" />
+			</a>
+			<p>for helping us analyze and improve NExtra</p>
 		</div>
 	</div>
 
@@ -100,7 +102,7 @@
 			<div class="row">
 				<span class="span4">
 					<h3><i class="icon-comment-alt"></i>Interfaces</h3>
-					<p>Templates that describe useful stuff that you will probably need every once in a while.</p>
+					<p>Templates for useful stuff that you will probably need every once in a while.</p>
 				</span>
 				<span class="span4">
 					<h3><i class="icon-comment"></i>Implementations</h3>
@@ -115,7 +117,7 @@
 			<div class="row">
 				<span class="span4">
 					<h3><i class="icon-cog"></i>Utilities</h3>
-					<p>Validation, documentation extraction, Windows Forms control printing etc. etc. NExtra has it!</p>
+					<p>Validation, membership stuff, documentation extraction, Windows Forms printing etc. etc. NExtra has it!</p>
 				</span>
 
 				<span class="span4">
@@ -132,22 +134,14 @@
 
 		<section id="get-started">
 			<h2><i class="icon-play"></i>Get started</h2>
+			<p>To get started, either</p>
+			<ul>
+				<li>grab the <a href="http://github.com/danielsaidi/nextra" rel="external">source code</a> from GitHub</li>
+				<li>download a certain version from the <a href="http://github.com/danielsaidi/nextra/tags" rel="external">download page</a></li>
+				<li>grab the libraries you need directly from within Visual Studio, using <a href="http://nuget.org/packages/NExtra">NuGet</a></li>
+			</ul>
 			<p>
-				<div class="row">
-					<span class="span2">
-						To get started, either
-					</span>
-					<span class="span10">
-						<ul>
-							<li>grab the <a href="http://github.com/danielsaidi/nextra" rel="external">source code</a> from GitHub</li>
-							<li>download a certain version from the <a href="http://github.com/danielsaidi/nextra/tags" rel="external">download page</a></li>
-							<li>grab the libraries you need directly from within Visual Studio, using <a href="http://nuget.org/packages/NExtra">NuGet</a></li>
-						</ul>
-					</span>
-				</div>
-			</p>
-			<p>
-				If you are new to NExtra, I would advice you to grab the source code and pick out the parts you need, instead of starting out with NuGet approach, where you will just get pre-compiled DLLs.
+				If you are new to NExtra, I would advice you to grab the source code and pick out the parts you need. If you start out with a NuGet package, you will just get pre-compiled DLLs.
 			</p>
 		</section>
 
@@ -161,7 +155,7 @@
 		<section id="contribute">
 			<h2><i class="icon-user"></i>Contribute</h2>
 			<p>
-				Contributions to NExtra are more than welcome. Just send me a pull request, attach the code in an e-mail or whatever. I'd love to have a look at it.
+				Contributions to NExtra are more than welcome. If you want to contribute, just send me a pull request, attach code in an e-mail or whatever. I'd love to have a look at it.
 			</p>
 		</section>
 
@@ -178,11 +172,11 @@
 		<div class="container">
 		<a href="#" name="contact"></a>
 		<h3>Contact</h3>
-			<p><i class="icon-home"></i> Site: <a href="http://saidi.se">saidi.se</a></p>
+			<p><i class="icon-home"></i> Site: <a href="http://danielsaidi.com">danielsaidi.com</a></p>
 			<p><i class="icon-envelope-alt"></i> Email: <a href="mailto:daniel.saidi@gmail.com">daniel.saidi@gmail.com</a></p>
 			<p><i class="icon-twitter"></i> Twitter: <a href="http://twitter.com/danielsaidi/">@danielsaidi</a></p>
 			<p><i class="icon-pencil"></i> Blog: <a href="http://danielsaidi.wordpress.com">danielsaidi.wordpress.com</a></p>
-			<p><i class="icon-wrench"></i> Work: System Developer @ <a href="http://cloudnine.se">Cloud Nine</a></p>
+			<p><i class="icon-wrench"></i> Work: <a href="http://tradera.com">eBay Sweden / Tradera</a></p>
 		</div>
 	</footer>
 
