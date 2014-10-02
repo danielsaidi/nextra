@@ -9,20 +9,20 @@ namespace NExtra.WPF.Tests.Extensions
     [TestFixture]
     public class RadioButton_ExtensionsBehavior
     {
-        CrossThreadTestRunner runner;
+        CrossThreadTestRunner _runner;
 
 
         [SetUp]
         public void SetUp()
         {
-            runner = new CrossThreadTestRunner();
+            _runner = new CrossThreadTestRunner();
         }
 
 
         [Test]
         public void State_ShouldReturnCorrectValue()
         {
-            runner.RunInSTA(delegate
+            _runner.RunInSTA(delegate
             {
                 Assert.That(new RadioButton { IsChecked = null }.State(), Is.EqualTo(ThreeState.Undetermined));
                 Assert.That(new RadioButton { IsChecked = false }.State(), Is.EqualTo(ThreeState.Unchecked));

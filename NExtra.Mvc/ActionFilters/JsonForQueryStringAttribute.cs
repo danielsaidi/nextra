@@ -14,8 +14,8 @@ namespace NExtra.Mvc.ActionFilters
     /// </remarks>
     public class JsonForQueryStringAttribute : ActionFilterAttribute
     {
-        private readonly string queryVariableName;
-        private readonly string queryVariableValue;
+        private readonly string _queryVariableName;
+        private readonly string _queryVariableValue;
 
 
         public JsonForQueryStringAttribute(string queryVariableName)
@@ -25,8 +25,8 @@ namespace NExtra.Mvc.ActionFilters
 
         public JsonForQueryStringAttribute(string queryVariableName, string queryVariableValue)
         {
-            this.queryVariableName = queryVariableName;
-            this.queryVariableValue = queryVariableValue;
+            _queryVariableName = queryVariableName;
+            _queryVariableValue = queryVariableValue;
         }
 
 
@@ -37,11 +37,11 @@ namespace NExtra.Mvc.ActionFilters
 
         public void OnActionExecuted(ActionExecutedContext filterContext, HttpRequestBase httpRequest)
         {
-            var queryString = httpRequest.QueryString[queryVariableName];
+            var queryString = httpRequest.QueryString[_queryVariableName];
 
             if (queryString != null)
             {
-                if (queryVariableValue == null || queryVariableValue == queryString)
+                if (_queryVariableValue == null || _queryVariableValue == queryString)
                 {
                     var result = new JsonResult
                     {

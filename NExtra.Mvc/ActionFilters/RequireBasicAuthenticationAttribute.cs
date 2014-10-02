@@ -16,9 +16,9 @@ namespace NExtra.Mvc.ActionFilters
     /// </remarks>
     public class RequireBasicAuthenticationAttribute : ActionFilterAttribute
     {
-        private readonly IBasicAuthenticationProvider authenticator;
-        private readonly string basicRealm;
-        private readonly BasicAuthenticationCredentials requiredCredentials;
+        private readonly IBasicAuthenticationProvider _authenticator;
+        private readonly string _basicRealm;
+        private readonly BasicAuthenticationCredentials _requiredCredentials;
 
 
         public RequireBasicAuthenticationAttribute(string basicRealm)
@@ -33,18 +33,18 @@ namespace NExtra.Mvc.ActionFilters
 
         public RequireBasicAuthenticationAttribute(string basicRealm, string requiredUserName, string requiredPassword, IBasicAuthenticationProvider authenticator)
         {
-            this.basicRealm = basicRealm;
+            _basicRealm = basicRealm;
             if (requiredUserName != null || requiredPassword != null)
-                requiredCredentials = new BasicAuthenticationCredentials(requiredUserName, requiredPassword);
-            this.authenticator = authenticator;
+                _requiredCredentials = new BasicAuthenticationCredentials(requiredUserName, requiredPassword);
+            _authenticator = authenticator;
         }
 
 
         private bool IsAuthenticated()
         {
-            return requiredCredentials == null
-                       ? authenticator.IsAuthenticated()
-                       : authenticator.IsAuthenticatedWithCredentials(requiredCredentials);
+            return _requiredCredentials == null
+                       ? _authenticator.IsAuthenticated()
+                       : _authenticator.IsAuthenticatedWithCredentials(_requiredCredentials);
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -56,7 +56,7 @@ namespace NExtra.Mvc.ActionFilters
 
             var response = filterContext.HttpContext.Response;
             response.StatusCode = 401;
-            response.AddHeader("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", basicRealm));
+            response.AddHeader("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", _basicRealm));
             response.End();
         }
     }

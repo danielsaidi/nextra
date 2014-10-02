@@ -68,13 +68,14 @@ namespace NExtra.Mvc.Localization
 
         protected override ModelMetadata CreateMetadata(IEnumerable<Attribute> attributes, Type containerType, Func<object> modelAccessor, Type modelType, string propertyName)
         {
-            var meta = base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
+            var attributeList = attributes.ToList();
+            var meta = base.CreateMetadata(attributeList, containerType, modelAccessor, modelType, propertyName);
 
             if (string.IsNullOrEmpty(propertyName))
                 return meta;
 
             HandleDisplayName(meta, containerType, propertyName);
-            HandleValidationAttributes(containerType, propertyName, attributes);
+            HandleValidationAttributes(containerType, propertyName, attributeList);
 
             return meta;
         }

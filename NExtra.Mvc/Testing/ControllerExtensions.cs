@@ -23,10 +23,10 @@ namespace NExtra.Mvc.Testing
         /// make sure that validation is executed, call this method
         /// and let it call the action. Do not call it directly.
         /// </summary>
-        public static ActionResult CallWithModelValidation<C, R, T>(this C controller, Func<C, R> action, T model)
-            where C : Controller
-            where R : ActionResult
-            where T : class
+        public static ActionResult CallWithModelValidation<TC, TR, TM>(this TC controller, Func<TC, TR> action, TM model)
+            where TC : Controller
+            where TR : ActionResult
+            where TM : class
         {
             //Perform model validation
             var validator = new MetadataValidator(model);

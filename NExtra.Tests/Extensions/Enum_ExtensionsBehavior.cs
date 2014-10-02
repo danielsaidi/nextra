@@ -14,63 +14,63 @@ namespace NExtra.Tests.Extensions
         }
 
 
-	    private MessageStatus status;
+	    private MessageStatus _status;
 
 
 	    [SetUp]
 	    public void SetUp()
 	    {
-	        status = MessageStatus.New;
+	        _status = MessageStatus.New;
         }
 
 
 	    [Test]
 	    public void Enum_ShouldHaveInitialFlagState()
         {
-            Assert.That(status.HasFlag(MessageStatus.New), Is.True);
-            Assert.That(status.HasFlag(MessageStatus.Sent), Is.False);
-            Assert.That(status.HasFlag(MessageStatus.Received), Is.False);  
+            Assert.That(_status.HasFlag(MessageStatus.New), Is.True);
+            Assert.That(_status.HasFlag(MessageStatus.Sent), Is.False);
+            Assert.That(_status.HasFlag(MessageStatus.Received), Is.False);  
 	    }
 
 
         [Test]
         public void AddFlag_ShouldAddSingleFlag()
         {
-            status = status.AddFlag(MessageStatus.Sent);
+            _status = _status.AddFlag(MessageStatus.Sent);
 
-            Assert.That(status.HasFlag(MessageStatus.New), Is.True);
-            Assert.That(status.HasFlag(MessageStatus.Sent), Is.True);
-            Assert.That(status.HasFlag(MessageStatus.Received), Is.False);
+            Assert.That(_status.HasFlag(MessageStatus.New), Is.True);
+            Assert.That(_status.HasFlag(MessageStatus.Sent), Is.True);
+            Assert.That(_status.HasFlag(MessageStatus.Received), Is.False);
         }
 
         [Test]
         public void AddFlag_ShouldChainMultipleFlags()
         {
-            status = status.AddFlag(MessageStatus.Sent).AddFlag(MessageStatus.Received);
+            _status = _status.AddFlag(MessageStatus.Sent).AddFlag(MessageStatus.Received);
 
-            Assert.That(status.HasFlag(MessageStatus.New), Is.True);
-            Assert.That(status.HasFlag(MessageStatus.Sent), Is.True);
-            Assert.That(status.HasFlag(MessageStatus.Received), Is.True);
+            Assert.That(_status.HasFlag(MessageStatus.New), Is.True);
+            Assert.That(_status.HasFlag(MessageStatus.Sent), Is.True);
+            Assert.That(_status.HasFlag(MessageStatus.Received), Is.True);
         }
 
         [Test]
         public void RemoveFlag_ShouldRemoveSingleFlag()
         {
-            status = status.RemoveFlag(MessageStatus.New);
+            _status = _status.RemoveFlag(MessageStatus.New);
 
-            Assert.That(status.HasFlag(MessageStatus.New), Is.False);
-            Assert.That(status.HasFlag(MessageStatus.Sent), Is.False);
-            Assert.That(status.HasFlag(MessageStatus.Received), Is.False);
+            Assert.That(_status.HasFlag(MessageStatus.New), Is.False);
+            Assert.That(_status.HasFlag(MessageStatus.Sent), Is.False);
+            Assert.That(_status.HasFlag(MessageStatus.Received), Is.False);
         }
 
         [Test]
         public void RemoveFlag_ShouldChainMultipleFlags()
         {
-            status = status.AddFlag(MessageStatus.Sent).AddFlag(MessageStatus.Received).RemoveFlag(MessageStatus.New);
+            _status = _status.AddFlag(MessageStatus.Sent).AddFlag(MessageStatus.Received).RemoveFlag(MessageStatus.New);
 
-            Assert.That(status.HasFlag(MessageStatus.New), Is.False);
-            Assert.That(status.HasFlag(MessageStatus.Sent), Is.True);
-            Assert.That(status.HasFlag(MessageStatus.Received), Is.True);
+            Assert.That(_status.HasFlag(MessageStatus.New), Is.False);
+            Assert.That(_status.HasFlag(MessageStatus.Sent), Is.True);
+            Assert.That(_status.HasFlag(MessageStatus.Received), Is.True);
         }
         
 	}
