@@ -18,7 +18,6 @@ namespace NExtra.Geo
         public PositionDistanceCalculator(IAngleConverter angleConverter)
         {
             this.angleConverter = angleConverter;
-            this.angleConverter = angleConverter;
         }
 
 
