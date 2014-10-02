@@ -7,47 +7,48 @@ namespace NExtra.WinForms.Tests.Extensions
 {
 	[TestFixture]
 	public class DataGridViewExtensionsBehvaior
-	{
-		private DataGridView dgv;
-		private Graphics graphics;
-		private const string imageKey = "key";
-		private ImageList imageList;
-		private DataGridViewCellPaintingEventArgs paintingEventArgs;
+    {
+        private const string ImageKey = "key";
+
+		private DataGridView _dgv;
+		private Graphics _graphics;
+		private ImageList _imageList;
+		private DataGridViewCellPaintingEventArgs _paintingEventArgs;
 
 
 		[SetUp]
 		public void SetUp()
 		{
-			dgv = new DataGridView();
-			dgv.Columns.Add(new DataGridViewImageColumn());
-			dgv.Rows.Add(new DataGridViewRow());
-			dgv.Rows.Add(new DataGridViewRow());
-			dgv.Rows.Add(new DataGridViewRow());
+			_dgv = new DataGridView();
+			_dgv.Columns.Add(new DataGridViewImageColumn());
+			_dgv.Rows.Add(new DataGridViewRow());
+			_dgv.Rows.Add(new DataGridViewRow());
+			_dgv.Rows.Add(new DataGridViewRow());
 
 			using (var dummyForm = new Form())
-				graphics = dummyForm.CreateGraphics();
+				_graphics = dummyForm.CreateGraphics();
 
-			imageList = new ImageList();
-			imageList.Images.Add(imageKey, new Bitmap(16, 16));
+			_imageList = new ImageList();
+			_imageList.Images.Add(ImageKey, new Bitmap(16, 16));
 
-			paintingEventArgs = new DataGridViewCellPaintingEventArgs(dgv, graphics, new Rectangle(0, 0, 1, 1), new Rectangle(0, 0, 1, 1), 0, 0, DataGridViewElementStates.Visible, "value", "value", "", new DataGridViewCellStyle(), new DataGridViewAdvancedBorderStyle(), new DataGridViewPaintParts());
+			_paintingEventArgs = new DataGridViewCellPaintingEventArgs(_dgv, _graphics, new Rectangle(0, 0, 1, 1), new Rectangle(0, 0, 1, 1), 0, 0, DataGridViewElementStates.Visible, "value", "value", "", new DataGridViewCellStyle(), new DataGridViewAdvancedBorderStyle(), new DataGridViewPaintParts());
 		}
 
 		[TearDown]
 		public void TearDown()
 		{
-			dgv.Dispose();
-			graphics.Dispose();
-			imageList.Dispose();
-			paintingEventArgs = null;
+			_dgv.Dispose();
+			_graphics.Dispose();
+			_imageList.Dispose();
+			_paintingEventArgs = null;
 		}
 
 
 		public void UnselectAll()
 		{
-			foreach (DataGridViewRow dgvr in dgv.Rows)
+			foreach (DataGridViewRow dgvr in _dgv.Rows)
 				dgvr.Selected = false;
-			dgv.CurrentCell = null;
+			_dgv.CurrentCell = null;
 		}
 
 
@@ -62,34 +63,34 @@ namespace NExtra.WinForms.Tests.Extensions
 		{
 			UnselectAll();
 
-			Assert.That(dgv.IsFirstRowSelected(), Is.False);
+			Assert.That(_dgv.IsFirstRowSelected(), Is.False);
 		}
 
 		[Test]
 		public void IsFirstRowSelected_ShouldReturnTrueForFirstRow()
 		{
 			UnselectAll();
-			dgv.Rows[0].Selected = true;
+			_dgv.Rows[0].Selected = true;
 
-			Assert.That(dgv.IsFirstRowSelected(), Is.True);
+			Assert.That(_dgv.IsFirstRowSelected(), Is.True);
 		}
 
 		[Test]
 		public void IsFirstRowSelected_ShouldReturnFalseForMiddleRow()
 		{
 			UnselectAll();
-			dgv.Rows[1].Selected = true;
+			_dgv.Rows[1].Selected = true;
 
-			Assert.That(dgv.IsFirstRowSelected(), Is.False);
+			Assert.That(_dgv.IsFirstRowSelected(), Is.False);
 		}
 
 		[Test]
 		public void IsFirstRowSelected_ShouldReturnFalseForLastRow()
 		{
 			UnselectAll();
-			dgv.Rows[dgv.Rows.Count - 1].Selected = true;
+			_dgv.Rows[_dgv.Rows.Count - 1].Selected = true;
 
-			Assert.That(dgv.IsFirstRowSelected(), Is.False);
+			Assert.That(_dgv.IsFirstRowSelected(), Is.False);
 		}
 
 		[Test]
@@ -103,66 +104,66 @@ namespace NExtra.WinForms.Tests.Extensions
 		{
 			UnselectAll();
 
-			Assert.That(dgv.IsLastRowSelected(), Is.False);
+			Assert.That(_dgv.IsLastRowSelected(), Is.False);
 		}
 
 		[Test]
 		public void IsLastRowSelected_ShouldReturnFalseForFirstRow()
 		{
 			UnselectAll();
-			dgv.Rows[0].Selected = true;
+			_dgv.Rows[0].Selected = true;
 
-			Assert.That(dgv.IsLastRowSelected(), Is.False);
+			Assert.That(_dgv.IsLastRowSelected(), Is.False);
 		}
 
 		[Test]
 		public void IsLastRowSelected_ShouldReturnFalseForMiddleRow()
 		{
 			UnselectAll();
-			dgv.Rows[1].Selected = true;
+			_dgv.Rows[1].Selected = true;
 
-			Assert.That(dgv.IsLastRowSelected(), Is.False);
+			Assert.That(_dgv.IsLastRowSelected(), Is.False);
 		}
 
 		[Test]
 		public void IsLastRowSelected_ShouldReturnTrueForLastRow()
 		{
 			UnselectAll();
-			dgv.Rows[dgv.Rows.Count - 1].Selected = true;
+			_dgv.Rows[_dgv.Rows.Count - 1].Selected = true;
 
-			Assert.That(dgv.IsLastRowSelected(), Is.True);
+			Assert.That(_dgv.IsLastRowSelected(), Is.True);
 		}
 
 		[Test]
 		public void PaintImageCell_ShouldHandleNullEventArguments()
 		{
-			dgv.PaintImageCell(null, imageList, imageKey);
+			_dgv.PaintImageCell(null, _imageList, ImageKey);
 
-			Assert.That(paintingEventArgs.Handled, Is.False);
+			Assert.That(_paintingEventArgs.Handled, Is.False);
 		}
 
 		[Test]
 		public void PaintImageCell_ShouldHandleNullImageList()
 		{
-			dgv.PaintImageCell(paintingEventArgs, null, imageKey);
+			_dgv.PaintImageCell(_paintingEventArgs, null, ImageKey);
 
-			Assert.That(paintingEventArgs.Handled, Is.False);
+			Assert.That(_paintingEventArgs.Handled, Is.False);
 		}
 
 		[Test]
 		public void PaintImageCell_ShouldHandleNullImageKey()
 		{
-			dgv.PaintImageCell(paintingEventArgs, imageList, null);
+			_dgv.PaintImageCell(_paintingEventArgs, _imageList, null);
 
-			Assert.That(paintingEventArgs.Handled, Is.False);
+			Assert.That(_paintingEventArgs.Handled, Is.False);
 		}
 
 		[Test]
 		public void PaintImageCell_ShouldHandleInvalidImageKey()
 		{
-			dgv.PaintImageCell(paintingEventArgs, imageList, "invalid");
+			_dgv.PaintImageCell(_paintingEventArgs, _imageList, "invalid");
 
-			Assert.That(paintingEventArgs.Handled, Is.False);
+			Assert.That(_paintingEventArgs.Handled, Is.False);
 		}
 
 		[Test, Ignore("The event arguments are missing some information")]
@@ -174,84 +175,84 @@ namespace NExtra.WinForms.Tests.Extensions
 		[Test]
 		public void SelectAndShowRow_ShouldHandleEmptyList()
 		{
-			var dgv_tmp = new DataGridView();
-			dgv_tmp.SelectAndShowRow(0);
+			var dgvTmp = new DataGridView();
+			dgvTmp.SelectAndShowRow(0);
 
-			Assert.AreEqual(0, dgv_tmp.SelectedRows.Count);
-			Assert.IsNull(dgv_tmp.CurrentCell);
+			Assert.AreEqual(0, dgvTmp.SelectedRows.Count);
+			Assert.IsNull(dgvTmp.CurrentCell);
 		}
 
 		[Test]
 		public void SelectAndShowRow_ShouldHandleTooLowIndex()
 		{
-			dgv.SelectAndShowRow(-1);
+			_dgv.SelectAndShowRow(-1);
 
-			Assert.AreEqual(0, dgv.FirstDisplayedScrollingRowIndex);
-			Assert.AreEqual(1, dgv.SelectedRows.Count);
-			Assert.AreEqual(0, dgv.SelectedRows[0].Index);
-			Assert.IsNotNull(dgv.CurrentCell);
+			Assert.AreEqual(0, _dgv.FirstDisplayedScrollingRowIndex);
+			Assert.AreEqual(1, _dgv.SelectedRows.Count);
+			Assert.AreEqual(0, _dgv.SelectedRows[0].Index);
+			Assert.IsNotNull(_dgv.CurrentCell);
 		}
 
 		[Test]
 		public void SelectAndShowRow_ShouldHandleTooHighIndex()
 		{
-			dgv.SelectAndShowRow(dgv.Rows.Count);
+			_dgv.SelectAndShowRow(_dgv.Rows.Count);
 
-			Assert.That(dgv.FirstDisplayedScrollingRowIndex, Is.EqualTo(0) /* since dgv is not displayed */);
-			Assert.That(dgv.SelectedRows.Count, Is.EqualTo(1));
-			Assert.That(dgv.SelectedRows[0].Index, Is.EqualTo(dgv.Rows.Count - 1));
-			Assert.That(dgv.CurrentCell, Is.Not.Null);
+			Assert.That(_dgv.FirstDisplayedScrollingRowIndex, Is.EqualTo(0) /* since dgv is not displayed */);
+			Assert.That(_dgv.SelectedRows.Count, Is.EqualTo(1));
+			Assert.That(_dgv.SelectedRows[0].Index, Is.EqualTo(_dgv.Rows.Count - 1));
+			Assert.That(_dgv.CurrentCell, Is.Not.Null);
 		}
 
 		[Test]
 		public void SelectAndShowRow_ShouldSucceedUsingValidIndex()
 		{
-			dgv.SelectAndShowRow(1);
+			_dgv.SelectAndShowRow(1);
 
-			Assert.That(dgv.FirstDisplayedScrollingRowIndex, Is.EqualTo(0) /* since dgv is not displayed */);
-			Assert.That(dgv.SelectedRows.Count, Is.EqualTo(1));
-			Assert.That(dgv.SelectedRows[0].Index, Is.EqualTo(1));
-			Assert.That(dgv.CurrentCell, Is.Not.Null);
+			Assert.That(_dgv.FirstDisplayedScrollingRowIndex, Is.EqualTo(0) /* since dgv is not displayed */);
+			Assert.That(_dgv.SelectedRows.Count, Is.EqualTo(1));
+			Assert.That(_dgv.SelectedRows[0].Index, Is.EqualTo(1));
+			Assert.That(_dgv.CurrentCell, Is.Not.Null);
 		}
 
 		[Test]
 		public void SelectRow_ShouldHandleEmptyList()
 		{
-			var dgv_tmp = new DataGridView();
-			dgv_tmp.SelectRow(0);
+			var dgvTmp = new DataGridView();
+			dgvTmp.SelectRow(0);
 
-			Assert.That(dgv_tmp.SelectedRows.Count, Is.EqualTo(0));
-			Assert.That(dgv_tmp.CurrentCell, Is.Null);
+			Assert.That(dgvTmp.SelectedRows.Count, Is.EqualTo(0));
+			Assert.That(dgvTmp.CurrentCell, Is.Null);
 		}
 
 		[Test]
 		public void SelectRow_ShouldHandleTooLowIndex()
 		{
-			dgv.SelectRow(-1);
+			_dgv.SelectRow(-1);
 
-			Assert.That(dgv.SelectedRows.Count, Is.EqualTo(1));
-			Assert.That(dgv.SelectedRows[0].Index, Is.EqualTo(0));
-			Assert.That(dgv.CurrentCell, Is.Not.Null);
+			Assert.That(_dgv.SelectedRows.Count, Is.EqualTo(1));
+			Assert.That(_dgv.SelectedRows[0].Index, Is.EqualTo(0));
+			Assert.That(_dgv.CurrentCell, Is.Not.Null);
 		}
 
 		[Test]
 		public void SelectRow_ShouldHandleTooHighIndex()
 		{
-			dgv.SelectRow(dgv.Rows.Count);
+			_dgv.SelectRow(_dgv.Rows.Count);
 
-			Assert.That(dgv.SelectedRows.Count, Is.EqualTo(1));
-			Assert.That(dgv.SelectedRows[0].Index, Is.EqualTo(dgv.Rows.Count - 1));
-			Assert.That(dgv.CurrentCell, Is.Not.Null);
+			Assert.That(_dgv.SelectedRows.Count, Is.EqualTo(1));
+			Assert.That(_dgv.SelectedRows[0].Index, Is.EqualTo(_dgv.Rows.Count - 1));
+			Assert.That(_dgv.CurrentCell, Is.Not.Null);
 		}
 
 		[Test]
 		public void SelectRow_ShouldSelectValidIndex()
 		{
-			dgv.SelectRow(1);
+			_dgv.SelectRow(1);
 
-			Assert.That(dgv.SelectedRows.Count, Is.EqualTo(1));
-			Assert.That(dgv.SelectedRows[0].Index, Is.EqualTo(1));
-			Assert.That(dgv.CurrentCell, Is.Not.Null);
+			Assert.That(_dgv.SelectedRows.Count, Is.EqualTo(1));
+			Assert.That(_dgv.SelectedRows[0].Index, Is.EqualTo(1));
+			Assert.That(_dgv.CurrentCell, Is.Not.Null);
 		}
 	}
 }

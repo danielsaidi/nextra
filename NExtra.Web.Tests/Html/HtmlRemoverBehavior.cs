@@ -6,13 +6,13 @@ namespace NExtra.Web.Tests.Html
     [TestFixture]
     public class HtmlRemoverBehavior
     {
-        private HtmlRemover remover;
+        private HtmlRemover _remover;
 
 
         [SetUp]
         public void SetUp()
         {
-            remover = new HtmlRemover();
+            _remover = new HtmlRemover();
         }
 
 
@@ -21,7 +21,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "foo bar";
 
-            Assert.That(remover.RemoveHtml(str), Is.EqualTo(str));
+            Assert.That(_remover.RemoveHtml(str), Is.EqualTo(str));
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "foo<html><body><div>bar</div></body></html>foo";
 
-            Assert.That(remover.RemoveHtml(str), Is.EqualTo("foobarfoo"));
+            Assert.That(_remover.RemoveHtml(str), Is.EqualTo("foobarfoo"));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "foo bar";
 
-            Assert.That(remover.RemoveHtmlElement(str, "div"), Is.EqualTo(str));
+            Assert.That(_remover.RemoveHtmlElement(str, "div"), Is.EqualTo(str));
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "f<div class=\"foo\">oo ba</div>r<span></span>";
 
-            Assert.That(remover.RemoveHtmlElement(str, "p"), Is.EqualTo(str));
+            Assert.That(_remover.RemoveHtmlElement(str, "p"), Is.EqualTo(str));
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "f<div class=\"foo\">oo ba</div>r<span></span>";
 
-            Assert.That(remover.RemoveHtmlElement(str, "div"), Is.EqualTo("foo bar<span></span>"));
+            Assert.That(_remover.RemoveHtmlElement(str, "div"), Is.EqualTo("foo bar<span></span>"));
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "foo bar";
 
-            Assert.That(remover.RemoveHtmlElements(str, new[] { "div", "span" }), Is.EqualTo(str));
+            Assert.That(_remover.RemoveHtmlElements(str, new[] { "div", "span" }), Is.EqualTo(str));
         }
 
         [Test]
@@ -69,7 +69,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "f<div class=\"foo\">oo ba</div>r<span></span>";
 
-            Assert.That(remover.RemoveHtmlElements(str, new[] { "div", "span" }), Is.EqualTo("foo bar"));
+            Assert.That(_remover.RemoveHtmlElements(str, new[] { "div", "span" }), Is.EqualTo("foo bar"));
         }
 
         [Test]
@@ -77,7 +77,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "foo bar";
 
-            Assert.That(remover.RemoveHtmlTableElements(str), Is.EqualTo(str));
+            Assert.That(_remover.RemoveHtmlTableElements(str), Is.EqualTo(str));
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "f<table><tr><thead></thead><tbody></tbody><td>oo</td><td class=\"foo\">ba</td></tr></table>r";
 
-            Assert.That(remover.RemoveHtmlTableElements(str), Is.EqualTo("foobar"));
+            Assert.That(_remover.RemoveHtmlTableElements(str), Is.EqualTo("foobar"));
         }
     }
 }

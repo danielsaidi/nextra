@@ -6,41 +6,41 @@ namespace NExtra.Tests.Geo
     [TestFixture]
     public class PositionBearingCalculatorBehavior
     {
-        private readonly Position pos1 = new Position(10.1, 10.2);
-        private readonly Position pos2 = new Position(10.2, 10.3);
+        private readonly Position _pos1 = new Position(10.1, 10.2);
+        private readonly Position _pos2 = new Position(10.2, 10.3);
 
-        private PositionBearingCalculator calculator;
+        private PositionBearingCalculator _calculator;
 
 
         [SetUp]
         public void SetUp()
         {
-            calculator = new PositionBearingCalculator(new AngleConverter());
+            _calculator = new PositionBearingCalculator(new AngleConverter());
         }
 
 
         [Test]
         public void CalculateBearing_ShouldReturnZeroForSamePosition()
         {
-            Assert.That(calculator.CalculateBearing(pos1, pos1), Is.EqualTo(0));
+            Assert.That(_calculator.CalculateBearing(_pos1, _pos1), Is.EqualTo(0));
         }
 
         [Test]
         public void CalculateBearing_ShouldReturnCorrectForDifferentPositions()
         {
-            Assert.That(calculator.CalculateBearing(pos1, pos2), Is.EqualTo(44.53932685198231d));
+            Assert.That(_calculator.CalculateBearing(_pos1, _pos2), Is.EqualTo(44.53932685198231d));
         }
 
         [Test]
         public void CalculateRhumbBearing_ShouldReturnZeroForSamePosition()
         {
-            Assert.That(calculator.CalculateRhumbBearing(pos1, pos1), Is.EqualTo(0));
+            Assert.That(_calculator.CalculateRhumbBearing(_pos1, _pos1), Is.EqualTo(0));
         }
 
         [Test]
         public void CalculateRhumbBearing_ShouldReturnCorrectForDifferentPositions()
         {
-            Assert.That(calculator.CalculateRhumbBearing(pos1, pos2), Is.EqualTo(44.548123371861152d));
+            Assert.That(_calculator.CalculateRhumbBearing(_pos1, _pos2), Is.EqualTo(44.548123371861152d));
         }
 
     }

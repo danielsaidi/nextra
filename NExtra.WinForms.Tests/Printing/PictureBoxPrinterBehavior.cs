@@ -11,123 +11,123 @@ namespace NExtra.WinForms.Tests.Printing
     [TestFixture]
     public class PictureBoxPrinterBehavior
     {
-        private PictureBoxPrinter printer;
-        private PictureBox pictureBox;
-        private PageSetupDialog pageSetupDialog;
-        private IPageSetupDialogFacade pageSetupDialogFacade;
-        private PrintDialog printDialog;
-        private IPrintDialogFacade printDialogFacade;
-        private PrintDocument printDocument;
-        private IPrintDocumentFacade printDocumentFacade;
-        private PrintPreviewDialog printPreviewDialog;
-        private IPrintPreviewDialogFacade printPreviewDialogFacade;
+        private PictureBoxPrinter _printer;
+        private PictureBox _pictureBox;
+        private PageSetupDialog _pageSetupDialog;
+        private IPageSetupDialogFacade _pageSetupDialogFacade;
+        private PrintDialog _printDialog;
+        private IPrintDialogFacade _printDialogFacade;
+        private PrintDocument _printDocument;
+        private IPrintDocumentFacade _printDocumentFacade;
+        private PrintPreviewDialog _printPreviewDialog;
+        private IPrintPreviewDialogFacade _printPreviewDialogFacade;
 
 
         [SetUp]
         public void SetUp()
         {
-            pictureBox = new PictureBox();
-            pageSetupDialog = new PageSetupDialog();
-            pageSetupDialogFacade = Substitute.For<IPageSetupDialogFacade>();
-            printDialog = new PrintDialog();
-            printDialogFacade = Substitute.For<IPrintDialogFacade>();
-            printDocument = new PrintDocument();
-            printDocumentFacade = Substitute.For<IPrintDocumentFacade>();
-            printPreviewDialog = new PrintPreviewDialog();
-            printPreviewDialogFacade = Substitute.For<IPrintPreviewDialogFacade>();
+            _pictureBox = new PictureBox();
+            _pageSetupDialog = new PageSetupDialog();
+            _pageSetupDialogFacade = Substitute.For<IPageSetupDialogFacade>();
+            _printDialog = new PrintDialog();
+            _printDialogFacade = Substitute.For<IPrintDialogFacade>();
+            _printDocument = new PrintDocument();
+            _printDocumentFacade = Substitute.For<IPrintDocumentFacade>();
+            _printPreviewDialog = new PrintPreviewDialog();
+            _printPreviewDialogFacade = Substitute.For<IPrintPreviewDialogFacade>();
 
-            printer = new PictureBoxPrinter(pictureBox, pageSetupDialogFacade, printPreviewDialogFacade, printDialogFacade, printDocumentFacade);
+            _printer = new PictureBoxPrinter(_pictureBox, _pageSetupDialogFacade, _printPreviewDialogFacade, _printDialogFacade, _printDocumentFacade);
         }
 
 
         [Test]
         public void Constructor_ShouldCreateDefaultInstance()
         {
-            printer = new PictureBoxPrinter(pictureBox);
+            _printer = new PictureBoxPrinter(_pictureBox);
 
-            Assert.That(printer.TargetControl, Is.EqualTo(pictureBox));
+            Assert.That(_printer.TargetControl, Is.EqualTo(_pictureBox));
         }
 
         [Test]
         public void Constructor_ShouldCreateCustomInstance()
         {
-            printer = new PictureBoxPrinter(pictureBox, pageSetupDialog, printPreviewDialog, printDialog, printDocument);
+            _printer = new PictureBoxPrinter(_pictureBox, _pageSetupDialog, _printPreviewDialog, _printDialog, _printDocument);
 
-            Assert.That(printer.TargetControl, Is.EqualTo(pictureBox));
-            Assert.That(printer.PageSetupDialog, Is.EqualTo(pageSetupDialog));
-            Assert.That(printer.PrintPreviewDialog, Is.EqualTo(printPreviewDialog));
-            Assert.That(printer.PrintDialog, Is.EqualTo(printDialog));
-            Assert.That(printer.PrintDocument, Is.EqualTo(printDocument));
+            Assert.That(_printer.TargetControl, Is.EqualTo(_pictureBox));
+            Assert.That(_printer.PageSetupDialog, Is.EqualTo(_pageSetupDialog));
+            Assert.That(_printer.PrintPreviewDialog, Is.EqualTo(_printPreviewDialog));
+            Assert.That(_printer.PrintDialog, Is.EqualTo(_printDialog));
+            Assert.That(_printer.PrintDocument, Is.EqualTo(_printDocument));
         }
 
         [Test]
         public void Constructor_ShouldCreateTestInstance()
         {
-            new PictureBoxPrinter(pictureBox, pageSetupDialogFacade, printPreviewDialogFacade, printDialogFacade, printDocumentFacade);
+            new PictureBoxPrinter(_pictureBox, _pageSetupDialogFacade, _printPreviewDialogFacade, _printDialogFacade, _printDocumentFacade);
         }
 
         [Test]
         public void Constructor_ShouldOnlyBindBeginPrintEvent()
         {
-            printer = new PictureBoxPrinter(pictureBox, pageSetupDialogFacade, printPreviewDialogFacade, printDialogFacade, printDocumentFacade);
+            _printer = new PictureBoxPrinter(_pictureBox, _pageSetupDialogFacade, _printPreviewDialogFacade, _printDialogFacade, _printDocumentFacade);
             
-            printDocumentFacade.DidNotReceive().BindBeginPrintEvent(Arg.Any<IControlPrinter<PictureBox>>());
-            printDocumentFacade.DidNotReceive().BindEndPrintEvent(Arg.Any<IControlPrinter<PictureBox>>());
-            printDocumentFacade.Received().BindPrintPageEvent(printer);
+            _printDocumentFacade.DidNotReceive().BindBeginPrintEvent(Arg.Any<IControlPrinter<PictureBox>>());
+            _printDocumentFacade.DidNotReceive().BindEndPrintEvent(Arg.Any<IControlPrinter<PictureBox>>());
+            _printDocumentFacade.Received().BindPrintPageEvent(_printer);
         }
 
 
         [Test]
         public void Print_ShouldNotPrintIfPrintDialogResultIsNotOK()
         {
-            printDialogFacade.ShowDialog().Returns(DialogResult.Abort);
-            printer.Print();
-            printDocumentFacade.DidNotReceive().Print();
+            _printDialogFacade.ShowDialog().Returns(DialogResult.Abort);
+            _printer.Print();
+            _printDocumentFacade.DidNotReceive().Print();
 
-            printDialogFacade.ShowDialog().Returns(DialogResult.Cancel);
-            printer.Print();
-            printDocumentFacade.DidNotReceive().Print();
+            _printDialogFacade.ShowDialog().Returns(DialogResult.Cancel);
+            _printer.Print();
+            _printDocumentFacade.DidNotReceive().Print();
 
-            printDialogFacade.ShowDialog().Returns(DialogResult.Ignore);
-            printer.Print();
-            printDocumentFacade.DidNotReceive().Print();
+            _printDialogFacade.ShowDialog().Returns(DialogResult.Ignore);
+            _printer.Print();
+            _printDocumentFacade.DidNotReceive().Print();
 
-            printDialogFacade.ShowDialog().Returns(DialogResult.No);
-            printer.Print();
-            printDocumentFacade.DidNotReceive().Print();
+            _printDialogFacade.ShowDialog().Returns(DialogResult.No);
+            _printer.Print();
+            _printDocumentFacade.DidNotReceive().Print();
 
-            printDialogFacade.ShowDialog().Returns(DialogResult.None);
-            printer.Print();
-            printDocumentFacade.DidNotReceive().Print();
+            _printDialogFacade.ShowDialog().Returns(DialogResult.None);
+            _printer.Print();
+            _printDocumentFacade.DidNotReceive().Print();
 
-            printDialogFacade.ShowDialog().Returns(DialogResult.Retry);
-            printer.Print();
-            printDocumentFacade.DidNotReceive().Print();
+            _printDialogFacade.ShowDialog().Returns(DialogResult.Retry);
+            _printer.Print();
+            _printDocumentFacade.DidNotReceive().Print();
 
-            printDialogFacade.ShowDialog().Returns(DialogResult.Yes);
-            printer.Print();
-            printDocumentFacade.DidNotReceive().Print();
+            _printDialogFacade.ShowDialog().Returns(DialogResult.Yes);
+            _printer.Print();
+            _printDocumentFacade.DidNotReceive().Print();
         }
 
         [Test]
         public void Print_ShouldPrintIfPrintDialogResultIsOK()
         {
-            printDialogFacade.ShowDialog().Returns(DialogResult.OK);
-            printer.Print();
-            printDocumentFacade.Received().Print();
+            _printDialogFacade.ShowDialog().Returns(DialogResult.OK);
+            _printer.Print();
+            _printDocumentFacade.Received().Print();
         }
 
 
         [Test, ExpectedException(typeof(NotImplementedException))]
         public void PrintDocument_BeginPrint_ShouldNotBeImplemented()
         {
-            printer.PrintDocument_BeginPrint(printer, new PrintEventArgs());
+            _printer.PrintDocument_BeginPrint(_printer, new PrintEventArgs());
         }
 
         [Test, ExpectedException(typeof(NotImplementedException))]
         public void PrintDocument_EndPrint_ShouldNotBeImplemented()
         {
-            printer.PrintDocument_EndPrint(printer, new PrintEventArgs());
+            _printer.PrintDocument_EndPrint(_printer, new PrintEventArgs());
         }
     }
 }

@@ -7,20 +7,20 @@ namespace NExtra.Tests.Localization
     [TestFixture]
     public class HierarchicalResourceManagerTranslatorBehavior
     {
-        private HierarchicalResourceManagerTranslator obj;
+        private HierarchicalResourceManagerTranslator _obj;
 
 
         [SetUp]
         public void SetUp()
         {
-            obj = new HierarchicalResourceManagerTranslator(null);
+            _obj = new HierarchicalResourceManagerTranslator(null);
         }
 
 
         [Test]
         public void GetKeys_ShouldHandleSingleKey()
         {
-            var result = obj.GetKeys("User");
+            var result = _obj.GetKeys("User").ToList();
 
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result.First(), Is.EqualTo("User"));
@@ -29,7 +29,7 @@ namespace NExtra.Tests.Localization
         [Test]
         public void GetKeys_ShouldHandleMultipleKeys()
         {
-            var result = obj.GetKeys("Domain_User_UserName").ToList();
+            var result = _obj.GetKeys("Domain_User_UserName").ToList();
 
             Assert.That(result.Count(), Is.EqualTo(3));
             Assert.That(result[0], Is.EqualTo("Domain_User_UserName"));
@@ -40,9 +40,9 @@ namespace NExtra.Tests.Localization
         [Test]
         public void GetKeys_ShouldIgnoreDifferentSeparator()
         {
-            obj = new HierarchicalResourceManagerTranslator(null, "-");
+            _obj = new HierarchicalResourceManagerTranslator(null, "-");
 
-            var result = obj.GetKeys("Domain_User_UserName").ToList();
+            var result = _obj.GetKeys("Domain_User_UserName").ToList();
 
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result[0], Is.EqualTo("Domain_User_UserName"));

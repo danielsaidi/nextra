@@ -6,13 +6,13 @@ namespace NExtra.Tests.Url
     [TestFixture]
     public class StringUrlifierBehavior
     {
-        private IUrlifier<string> urlifier;
+        private IUrlifier<string> _urlifier;
 
 
         [SetUp]
         public void Setup()
         {
-            urlifier = new StringUrlifier();
+            _urlifier = new StringUrlifier();
         }
 
 
@@ -21,7 +21,7 @@ namespace NExtra.Tests.Url
         [TestCase("bar")]
         public void Urlify_ShouldNotAffectValidString(string url)
         {
-            Assert.That(urlifier.Urlify(url), Is.EqualTo(url));
+            Assert.That(_urlifier.Urlify(url), Is.EqualTo(url));
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace NExtra.Tests.Url
         [TestCase("BaR")]
         public void Urlify_ShouldAffectUpperCaseString(string url)
         {
-            Assert.That(urlifier.Urlify(url), Is.EqualTo(url.ToLower()));
+            Assert.That(_urlifier.Urlify(url), Is.EqualTo(url.ToLower()));
         }
 
         [Test]
@@ -37,14 +37,14 @@ namespace NExtra.Tests.Url
         [TestCase("bar")]
         public void Urlify_ShouldAffectInternationalString(string url)
         {
-            Assert.That(urlifier.Urlify(url), Is.EqualTo(url));
+            Assert.That(_urlifier.Urlify(url), Is.EqualTo(url));
         }
 
         [Test]
         [TestCase("foo bar", "foo-bar")]
         public void Urlify_ShouldReplaceSpaceWithDash(string url, string expected)
         {
-            Assert.That(urlifier.Urlify(url), Is.EqualTo(expected));
+            Assert.That(_urlifier.Urlify(url), Is.EqualTo(expected));
         }
     }
 }

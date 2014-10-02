@@ -9,83 +9,83 @@ namespace NExtra.Web.Tests.Cookies
     [TestFixture]
     public class HttpContextCookieHandlerBehavior
     {
-        private IHttpCookieHandler cookieHandler;
-        private HttpContextBase httpContext;
-        private HttpRequestBase httpRequest;
-        private HttpResponseBase httpResponse;
-        private HttpCookie customCookie1, customCookie2;
+        private IHttpCookieHandler _cookieHandler;
+        private HttpContextBase _httpContext;
+        private HttpRequestBase _httpRequest;
+        private HttpResponseBase _httpResponse;
+        private HttpCookie _customCookie1, _customCookie2;
 
 
         [SetUp]
         public void SetUp()
         {
-            customCookie1 = new HttpCookie("foo") { Value = "bar", Path = "/" };
-            customCookie2 = new HttpCookie("foo") { Value = "bar2", Path = "/" };
+            _customCookie1 = new HttpCookie("foo") { Value = "bar", Path = "/" };
+            _customCookie2 = new HttpCookie("foo") { Value = "bar2", Path = "/" };
 
-            httpRequest = new FakeHttpRequest("http://foo.bar", true);
-            httpResponse = new FakeHttpResponse();
-            httpContext = new FakeHttpContext(httpRequest, httpResponse);
+            _httpRequest = new FakeHttpRequest("http://foo.bar", true);
+            _httpResponse = new FakeHttpResponse();
+            _httpContext = new FakeHttpContext(_httpRequest, _httpResponse);
 
-            cookieHandler = new HttpContextCookieHandler(httpContext);
+            _cookieHandler = new HttpContextCookieHandler(_httpContext);
         }
 
 
         [Test]
         public void Constructor_ShouldSupportCustomContext()
         {
-            cookieHandler = new HttpContextCookieHandler(httpContext);
+            _cookieHandler = new HttpContextCookieHandler(_httpContext);
             
-            Assert.That(cookieHandler, Is.Not.Null);
+            Assert.That(_cookieHandler, Is.Not.Null);
         }
 
 
         [Test]
         public void AddCookie_ShouldMakeCookieInstantlyAvailable()
         {
-            cookieHandler.AddCookie(customCookie1);
+            _cookieHandler.AddCookie(_customCookie1);
 
-            Assert.That(cookieHandler.GetCookie("foo"), Is.EqualTo(customCookie1));
+            Assert.That(_cookieHandler.GetCookie("foo"), Is.EqualTo(_customCookie1));
         }
 
         [Test]
         public void AddCookie_ShouldOverwriteExistingCookie()
         {
-            cookieHandler.AddCookie(customCookie1);
-            cookieHandler.AddCookie(customCookie2);
+            _cookieHandler.AddCookie(_customCookie1);
+            _cookieHandler.AddCookie(_customCookie2);
 
-            Assert.That(cookieHandler.GetCookie("foo"), Is.EqualTo(customCookie2));
+            Assert.That(_cookieHandler.GetCookie("foo"), Is.EqualTo(_customCookie2));
         }
 
         [Test]
         public void CookieExists_ShouldReturnFalseForNonExistingCookie()
         {
-            Assert.That(cookieHandler.CookieExists("foo"), Is.False);
+            Assert.That(_cookieHandler.CookieExists("foo"), Is.False);
         }
 
         [Test]
         public void CookieExists_ShouldReturnTrueForExistingCookie()
         {
-            cookieHandler.SetCookieValue("foo", "bar");
+            _cookieHandler.SetCookieValue("foo", "bar");
 
-            Assert.That(cookieHandler.CookieExists("foo"), Is.True);
+            Assert.That(_cookieHandler.CookieExists("foo"), Is.True);
         }
 
         [Test]
         public void GetCookie_ShouldReturnCookieAddedWithAddCookie()
         {
-            cookieHandler.AddCookie(customCookie1);
+            _cookieHandler.AddCookie(_customCookie1);
 
-            var cookie = cookieHandler.GetCookie("foo");
+            var cookie = _cookieHandler.GetCookie("foo");
 
-            Assert.That(cookie, Is.EqualTo(customCookie1));
+            Assert.That(cookie, Is.EqualTo(_customCookie1));
         }
 
         [Test]
         public void GetCookie_ShouldReturnCookieAddedWithSetCookieValue()
         {
-            cookieHandler.SetCookieValue("foo", "bar");
+            _cookieHandler.SetCookieValue("foo", "bar");
 
-            var cookie = cookieHandler.GetCookie("foo");
+            var cookie = _cookieHandler.GetCookie("foo");
 
             Assert.That(cookie.Value, Is.EqualTo("\"bar\""));
         }
@@ -93,7 +93,7 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void GetCookieValue_ShouldReturnNulForNonExistingCookie()
         {
-            var value = cookieHandler.GetCookieValue("foo");
+            var value = _cookieHandler.GetCookieValue("foo");
 
             Assert.That(value, Is.Null);
         }
@@ -101,9 +101,9 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void GetCookieValue_ShouldReturnStringValue()
         {
-            cookieHandler.SetCookieValue("foo", "bar");
+            _cookieHandler.SetCookieValue("foo", "bar");
 
-            var value = cookieHandler.GetCookieValue("foo");
+            var value = _cookieHandler.GetCookieValue("foo");
 
             Assert.That(value, Is.EqualTo("bar"));
         }
@@ -112,19 +112,19 @@ namespace NExtra.Web.Tests.Cookies
         public void GetCookieValue_ShouldReturnComplexValue()
         {
             var value = new ComplexCookieValue("foo", true, 15);
-            cookieHandler.SetCookieValue("foo", value);
+            _cookieHandler.SetCookieValue("foo", value);
 
-            var result = cookieHandler.GetCookieValue<ComplexCookieValue>("foo");
+            var result = _cookieHandler.GetCookieValue<ComplexCookieValue>("foo");
 
-            Assert.That(result.name, Is.EqualTo("foo"));
-            Assert.That(result.valid, Is.EqualTo(true));
-            Assert.That(result.length, Is.EqualTo(15));
+            Assert.That(result.Name, Is.EqualTo("foo"));
+            Assert.That(result.Valid, Is.EqualTo(true));
+            Assert.That(result.Length, Is.EqualTo(15));
         }
 
         [Test]
         public void GetRequestCookies_ShouldReturnEmptyCollectionForNoExistingCookies()
         {
-            var cookies = cookieHandler.GetRequestCookies();
+            var cookies = _cookieHandler.GetRequestCookies();
 
             Assert.That(cookies.Count, Is.EqualTo(0));
         }
@@ -132,10 +132,10 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void GetRequestCookies_ShouldReturnCollectionAllExistingCookies()
         {
-            cookieHandler.SetCookieValue("foo", "1");
-            cookieHandler.SetCookieValue("bar", "2");
+            _cookieHandler.SetCookieValue("foo", "1");
+            _cookieHandler.SetCookieValue("bar", "2");
 
-            var cookies = cookieHandler.GetRequestCookies();
+            var cookies = _cookieHandler.GetRequestCookies();
 
             Assert.That(cookies.Count, Is.EqualTo(2));
         }
@@ -143,7 +143,7 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void GetResponseCookies_ShouldReturnEmptyCollectionForNoExistingCookies()
         {
-            var cookies = cookieHandler.GetResponseCookies();
+            var cookies = _cookieHandler.GetResponseCookies();
 
             Assert.That(cookies.Count, Is.EqualTo(0));
         }
@@ -151,10 +151,10 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void GetResponseCookies_ShouldReturnCollectionAllExistingCookies()
         {
-            cookieHandler.SetCookieValue("foo", "1");
-            cookieHandler.SetCookieValue("bar", "2");
+            _cookieHandler.SetCookieValue("foo", "1");
+            _cookieHandler.SetCookieValue("bar", "2");
 
-            var cookies = cookieHandler.GetResponseCookies();
+            var cookies = _cookieHandler.GetResponseCookies();
 
             Assert.That(cookies.Count, Is.EqualTo(2));
         }
@@ -162,10 +162,10 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void RemoveCookie_ShouldResetCookieValue()
         {
-            cookieHandler.SetCookieValue("foo", "bar");
-            cookieHandler.InvalidateCookie("foo");
+            _cookieHandler.SetCookieValue("foo", "bar");
+            _cookieHandler.InvalidateCookie("foo");
 
-            var value = cookieHandler.GetCookieValue("foo");
+            var value = _cookieHandler.GetCookieValue("foo");
 
             Assert.That(value, Is.EqualTo(string.Empty));
         }
@@ -173,10 +173,10 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void RemoveCookie_ShouldSetCookieToExpired()
         {
-            cookieHandler.SetCookieValue("foo", "bar");
-            cookieHandler.InvalidateCookie("foo");
+            _cookieHandler.SetCookieValue("foo", "bar");
+            _cookieHandler.InvalidateCookie("foo");
 
-            var cookie = cookieHandler.GetCookie("foo");
+            var cookie = _cookieHandler.GetCookie("foo");
 
             Assert.That(cookie.Expires, Is.EqualTo(DateTime.MinValue));
         }
@@ -184,9 +184,9 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void SetCookieValue_ShouldSetStringValue()
         {
-            cookieHandler.SetCookieValue("foo", "bar");
+            _cookieHandler.SetCookieValue("foo", "bar");
 
-            var value = cookieHandler.GetCookieValue("foo");
+            var value = _cookieHandler.GetCookieValue("foo");
 
             Assert.That(value, Is.EqualTo("bar"));
         }
@@ -194,9 +194,9 @@ namespace NExtra.Web.Tests.Cookies
         [Test]
         public void SetCookieValue_ShouldSetStringValueWithTimeout()
         {
-            cookieHandler.SetCookieValue("foo", "bar", DateTime.Now.AddDays(-1));
+            _cookieHandler.SetCookieValue("foo", "bar", DateTime.Now.AddDays(-1));
 
-            var value = cookieHandler.GetCookie("foo");
+            var value = _cookieHandler.GetCookie("foo");
 
             Assert.That(value.Expires.Date, Is.EqualTo(DateTime.Now.Date.AddDays(-1)));
         }
@@ -205,22 +205,22 @@ namespace NExtra.Web.Tests.Cookies
         public void SetCookieValue_ShouldSetComplexValue()
         {
             var value = new ComplexCookieValue("foo", true, 15);
-            cookieHandler.SetCookieValue("foo", value);
+            _cookieHandler.SetCookieValue("foo", value);
 
-            var result = cookieHandler.GetCookieValue<ComplexCookieValue>("foo");
+            var result = _cookieHandler.GetCookieValue<ComplexCookieValue>("foo");
 
-            Assert.That(result.name, Is.EqualTo("foo"));
-            Assert.That(result.valid, Is.EqualTo(true));
-            Assert.That(result.length, Is.EqualTo(15));
+            Assert.That(result.Name, Is.EqualTo("foo"));
+            Assert.That(result.Valid, Is.EqualTo(true));
+            Assert.That(result.Length, Is.EqualTo(15));
         }
 
         [Test]
         public void SetCookieValue_ShouldSetComplexValueWithTimeout()
         {
             var value = new ComplexCookieValue("foo", true, 15);
-            cookieHandler.SetCookieValue("foo", value, DateTime.Now.AddDays(-1));
+            _cookieHandler.SetCookieValue("foo", value, DateTime.Now.AddDays(-1));
 
-            var cookie = cookieHandler.GetCookie("foo");
+            var cookie = _cookieHandler.GetCookie("foo");
 
             Assert.That(cookie.Expires.Date, Is.EqualTo(DateTime.Now.Date.AddDays(-1)));
         }
@@ -229,17 +229,17 @@ namespace NExtra.Web.Tests.Cookies
 
     internal class ComplexCookieValue
     {
-        public readonly string name;
-        public readonly bool valid;
-        public readonly int length;
+        public readonly string Name;
+        public readonly bool Valid;
+        public readonly int Length;
 
         public ComplexCookieValue() {}
 
         public ComplexCookieValue(string name, bool valid, int length)
         {
-            this.name = name;
-            this.valid = valid;
-            this.length = length;
+            Name = name;
+            Valid = valid;
+            Length = length;
         }
     }
 }

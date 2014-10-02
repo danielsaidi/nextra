@@ -6,13 +6,13 @@ namespace NExtra.Web.Tests.Html
     [TestFixture]
     public class HtmlReplacerBehavior
     {
-        private HtmlReplacer replacer;
+        private HtmlReplacer _replacer;
 
 
         [SetUp]
         public void SetUp()
         {
-            replacer = new HtmlReplacer();
+            _replacer = new HtmlReplacer();
         }
 
 
@@ -21,7 +21,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "foo bar";
 
-            Assert.That(replacer.ReplaceHtmlElement(str, "p", "div"), Is.EqualTo(str));
+            Assert.That(_replacer.ReplaceHtmlElement(str, "p", "div"), Is.EqualTo(str));
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "f<div class=\"foo\">oo ba</div>r";
 
-            Assert.That(replacer.ReplaceHtmlElement(str, "p", "div"), Is.EqualTo(str));
+            Assert.That(_replacer.ReplaceHtmlElement(str, "p", "div"), Is.EqualTo(str));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace NExtra.Web.Tests.Html
         {
             const string str = "f<p class=\"foo\">oo ba</p>r";
 
-            Assert.That(replacer.ReplaceHtmlElement(str, "p", "div"), Is.EqualTo("f<div class=\"foo\">oo ba</div>r"));
+            Assert.That(_replacer.ReplaceHtmlElement(str, "p", "div"), Is.EqualTo("f<div class=\"foo\">oo ba</div>r"));
         }
     }
 }

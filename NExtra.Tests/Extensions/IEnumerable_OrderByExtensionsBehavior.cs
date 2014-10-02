@@ -8,13 +8,13 @@ namespace NExtra.Tests.Extensions
     [TestFixture]
     public class IEnumerable_OrderByExtensionsBehavior
     {
-        private List<KeyValuePair<string, int>> collection;
+        private List<KeyValuePair<string, int>> _collection;
 
 
         [SetUp]
         public void SetUp()
         {
-            collection = new List<KeyValuePair<string, int>> {
+            _collection = new List<KeyValuePair<string, int>> {
                 new KeyValuePair<string, int>("DN", 5),
                 new KeyValuePair<string, int>("SvD", 5),
                 new KeyValuePair<string, int>("DN", 1),
@@ -26,8 +26,8 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void OrderBy_ShouldApplyToCollection()
         {
-            var original = collection;
-            var result = collection.OrderBy("Key").ToList();
+            var original = _collection;
+            var result = _collection.OrderBy("Key").ToList();
 
             Assert.That(result[0], Is.EqualTo(original[0]));
             Assert.That(result[1], Is.EqualTo(original[2]));
@@ -38,8 +38,8 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void OrderBy_ShouldOverrideLastOrderBy()
         {
-            var original = collection.ToList();
-            var result = collection.OrderBy("Key").OrderBy("Value").ToList();
+            var original = _collection.ToList();
+            var result = _collection.OrderBy("Key").OrderBy("Value").ToList();
 
             Assert.That(result[0], Is.EqualTo(original[2]));
             Assert.That(result[1], Is.EqualTo(original[3]));
@@ -50,8 +50,8 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void OrderByDescending_ShouldApplyToCollection()
         {
-            var original = collection.ToList();
-            var result = collection.OrderByDescending("Key").ToList();
+            var original = _collection.ToList();
+            var result = _collection.OrderByDescending("Key").ToList();
 
             Assert.That(result[0], Is.EqualTo(original[1]));
             Assert.That(result[1], Is.EqualTo(original[3]));
@@ -62,8 +62,8 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void OrderByDescending_ShouldOverrideLastOrderByDescending()
         {
-            var original = collection.ToList();
-            var result = collection.OrderByDescending("Key").OrderByDescending("Value").ToList();
+            var original = _collection.ToList();
+            var result = _collection.OrderByDescending("Key").OrderByDescending("Value").ToList();
 
             Assert.That(result[0], Is.EqualTo(original[1]));
             Assert.That(result[1], Is.EqualTo(original[0]));

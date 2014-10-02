@@ -14,9 +14,9 @@ namespace NExtra.Web.Cookies
     /// </remarks>
     public class DomainCookieInvalidator : ICookieInvalidator
     {
-        private readonly string domainHost;
-        private readonly HttpContextBase httpContext;
-        private readonly IHttpCookieHandler cookieHandler;
+        private readonly string _domainHost;
+        private readonly HttpContextBase _httpContext;
+        private readonly IHttpCookieHandler _cookieHandler;
 
 
         public DomainCookieInvalidator(string domainHost, HttpContext httpContext, IHttpCookieHandler cookieHandler)
@@ -26,27 +26,27 @@ namespace NExtra.Web.Cookies
 
         public DomainCookieInvalidator(string domainHost, HttpContextBase httpContext, IHttpCookieHandler cookieHandler)
         {
-            this.domainHost = domainHost;
-            this.httpContext = httpContext;
-            this.cookieHandler = cookieHandler;
+            _domainHost = domainHost;
+            _httpContext = httpContext;
+            _cookieHandler = cookieHandler;
         }
 
 
         public void InvalidateAllCookies()
         {
-            foreach (string cookieName in cookieHandler.GetRequestCookies())
+            foreach (string cookieName in _cookieHandler.GetRequestCookies())
                 InvalidateCookie(cookieName);
         }
 
         public void InvalidateCookie(string cookieName)
         {
-            if (httpContext == null || httpContext.Request == null || httpContext.Request.Url == null)
+            if (_httpContext == null || _httpContext.Request == null || _httpContext.Request.Url == null)
                 return;
 
-            if (domainHost != httpContext.Request.Url.Host)
+            if (_domainHost != _httpContext.Request.Url.Host)
                 return;
             
-            cookieHandler.InvalidateCookie(cookieName);
+            _cookieHandler.InvalidateCookie(cookieName);
         }
     }
 }

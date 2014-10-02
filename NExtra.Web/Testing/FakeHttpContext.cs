@@ -12,9 +12,9 @@ namespace NExtra.Web.Testing
     /// </remarks>
     public class FakeHttpContext : HttpContextBase
     {
-        private readonly HttpRequestBase request;
-        private readonly HttpResponseBase response;
-        private readonly IPrincipal user;
+        private readonly HttpRequestBase _request;
+        private readonly HttpResponseBase _response;
+        private readonly IPrincipal _user;
 
 
         public FakeHttpContext(HttpRequestBase request, HttpResponseBase response)
@@ -24,25 +24,25 @@ namespace NExtra.Web.Testing
 
         public FakeHttpContext(HttpRequestBase request, HttpResponseBase response, IPrincipal user)
         {
-            this.request = request;
-            this.response = response;
-            this.user = user;
+            _request = request;
+            _response = response;
+            _user = user;
         }
 
 
         public override HttpRequestBase Request
         {
-            get { return request; }
+            get { return _request; }
         }
 
         public override HttpResponseBase Response
         {
-            get { return response; }
+            get { return _response; }
         }
 
         public override IPrincipal User
         {
-            get { return user; }
+            get { return _user; }
             set { base.User = value; }
         }
     }

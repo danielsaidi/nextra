@@ -7,94 +7,94 @@ namespace NExtra.WebForms.Tests.WebControls
     [TestFixture]
     public class SubmittableUserControlBehavior
     {
-        private SubmittableUserControl control;
-        private int cancelEventCount;
-        private int submitEventCount;
+        private SubmittableUserControl _control;
+        private int _cancelEventCount;
+        private int _submitEventCount;
 
 
         [SetUp]
         public void SetUp()
         {
-            control = new SubmittableUserControl();
+            _control = new SubmittableUserControl();
 
-            cancelEventCount = 0;
-            submitEventCount = 0;
+            _cancelEventCount = 0;
+            _submitEventCount = 0;
         }
 
 
         [Test]
         public void Cancel_ShouldHandleNullEventHandler()
         {
-            control.Cancel += null;
-            control.OnCancel(null);
+            _control.Cancel += null;
+            _control.OnCancel(null);
 
-            Assert.That(cancelEventCount, Is.EqualTo(0));
+            Assert.That(_cancelEventCount, Is.EqualTo(0));
         }
 
         [Test]
         public void Cancel_ShouldApplyEventHandler()
         {
-            control.Cancel += SubmittableUserControl_Cancel;
+            _control.Cancel += SubmittableUserControl_Cancel;
 
-            control.OnCancel(null);
-            control.OnCancel(null);
-            control.OnCancel(null);
+            _control.OnCancel(null);
+            _control.OnCancel(null);
+            _control.OnCancel(null);
 
-            Assert.That(cancelEventCount, Is.EqualTo(3));
+            Assert.That(_cancelEventCount, Is.EqualTo(3));
         }
 
         [Test]
         public void Cancel_ShouldSetProperty()
         {
-            control.Cancel += null;
-            control.OnCancel(null);
+            _control.Cancel += null;
+            _control.OnCancel(null);
 
-            Assert.That(control.Cancelled, Is.True);
-            Assert.That(control.Submitted, Is.False);
+            Assert.That(_control.Cancelled, Is.True);
+            Assert.That(_control.Submitted, Is.False);
         }
 
         [Test]
         public void Submit_ShouldHandleNullEventHandler()
         {
-            control.Submit += null;
+            _control.Submit += null;
 
-            control.OnCancel(null);
+            _control.OnCancel(null);
 
-            Assert.That(submitEventCount, Is.EqualTo(0));
+            Assert.That(_submitEventCount, Is.EqualTo(0));
         }
 
         [Test]
         public void Submit_ShouldApplyEventHandler()
         {
-            control.Submit += SubmittableUserControl_Submit;
+            _control.Submit += SubmittableUserControl_Submit;
 
-            control.OnSubmit(null);
-            control.OnSubmit(null);
-            control.OnSubmit(null);
+            _control.OnSubmit(null);
+            _control.OnSubmit(null);
+            _control.OnSubmit(null);
 
-            Assert.That(submitEventCount, Is.EqualTo(3));
+            Assert.That(_submitEventCount, Is.EqualTo(3));
         }
 
         [Test]
         public void Submit_ShouldSetProperty()
         {
-            control.Submit += null;
+            _control.Submit += null;
 
-            control.OnSubmit(null);
+            _control.OnSubmit(null);
 
-            Assert.That(control.Cancelled, Is.False);
-            Assert.That(control.Submitted, Is.True);
+            Assert.That(_control.Cancelled, Is.False);
+            Assert.That(_control.Submitted, Is.True);
         }
 
 
         public void SubmittableUserControl_Cancel(object sender, EventArgs e)
         {
-            cancelEventCount++;
+            _cancelEventCount++;
         }
 
         public void SubmittableUserControl_Submit(object sender, EventArgs e)
         {
-            submitEventCount++;
+            _submitEventCount++;
         }
     }
 }

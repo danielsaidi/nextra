@@ -16,7 +16,7 @@ namespace NExtra.Web.Cookies
     /// </remarks>
     public class HttpContextCookieHandler : IHttpCookieHandler
     {
-        private readonly HttpContextBase httpContext;
+        private readonly HttpContextBase _httpContext;
 
 
         public HttpContextCookieHandler(HttpContext httpContext)
@@ -26,17 +26,17 @@ namespace NExtra.Web.Cookies
 
         public HttpContextCookieHandler(HttpContextBase httpContext)
         {
-            this.httpContext = httpContext;
+            _httpContext = httpContext;
         }
 
 
         public void AddCookie(HttpCookie cookie)
         {
-            httpContext.Request.Cookies.Remove(cookie.Name);
-            httpContext.Response.Cookies.Remove(cookie.Name);
+            _httpContext.Request.Cookies.Remove(cookie.Name);
+            _httpContext.Response.Cookies.Remove(cookie.Name);
 
-            httpContext.Request.Cookies.Add(cookie);
-            httpContext.Response.Cookies.Add(cookie);
+            _httpContext.Request.Cookies.Add(cookie);
+            _httpContext.Response.Cookies.Add(cookie);
         }
 
         public bool CookieExists(string cookieName)
@@ -46,7 +46,7 @@ namespace NExtra.Web.Cookies
 
         public HttpCookie GetCookie(string cookieName)
         {
-            return httpContext.Request.Cookies[cookieName];
+            return _httpContext.Request.Cookies[cookieName];
         }
 
         public string GetCookieValue(string cookieName)
@@ -67,12 +67,12 @@ namespace NExtra.Web.Cookies
 
         public HttpCookieCollection GetRequestCookies()
         {
-            return httpContext.Request.Cookies;
+            return _httpContext.Request.Cookies;
         }
 
         public HttpCookieCollection GetResponseCookies()
         {
-            return httpContext.Response.Cookies;
+            return _httpContext.Response.Cookies;
         }
 
         public void InvalidateCookie(string cookieName)

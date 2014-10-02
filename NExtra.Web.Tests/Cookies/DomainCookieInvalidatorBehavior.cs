@@ -9,37 +9,37 @@ namespace NExtra.Web.Tests.Cookies
     [TestFixture]
     public class DomainCookieInvalidatorBehavior
     {
-        private ICookieInvalidator cookieInvalidator;
-        private IHttpCookieHandler cookieHandler;
-        private HttpContextBase httpContext;
-        private HttpRequestBase httpRequest;
-        private HttpResponseBase httpResponse;
-        private HttpCookie customCookie1, customCookie2;
+        private ICookieInvalidator _cookieInvalidator;
+        private IHttpCookieHandler _cookieHandler;
+        private HttpContextBase _httpContext;
+        private HttpRequestBase _httpRequest;
+        private HttpResponseBase _httpResponse;
+        private HttpCookie _customCookie1, _customCookie2;
 
 
         [SetUp]
         public void SetUp()
         {
-            customCookie1 = new HttpCookie("foo") { Value = "foo-value", Path = "/" };
-            customCookie2 = new HttpCookie("bar") { Value = "bar-value", Path = "/" };
-            var requestCookies = new HttpCookieCollection {customCookie1, customCookie2};
+            _customCookie1 = new HttpCookie("foo") { Value = "foo-value", Path = "/" };
+            _customCookie2 = new HttpCookie("bar") { Value = "bar-value", Path = "/" };
+            var requestCookies = new HttpCookieCollection {_customCookie1, _customCookie2};
 
-            httpRequest = new FakeHttpRequest("http://foo.bar", true);
-            httpResponse = new FakeHttpResponse();
-            httpContext = new FakeHttpContext(httpRequest, httpResponse);
+            _httpRequest = new FakeHttpRequest("http://foo.bar", true);
+            _httpResponse = new FakeHttpResponse();
+            _httpContext = new FakeHttpContext(_httpRequest, _httpResponse);
 
-            cookieHandler = Substitute.For<IHttpCookieHandler>();
-            cookieHandler.GetRequestCookies().Returns(requestCookies);
+            _cookieHandler = Substitute.For<IHttpCookieHandler>();
+            _cookieHandler.GetRequestCookies().Returns(requestCookies);
 
-            cookieInvalidator = new DomainCookieInvalidator("foo.bar", httpContext, cookieHandler);
+            _cookieInvalidator = new DomainCookieInvalidator("foo.bar", _httpContext, _cookieHandler);
         }
 
         public DomainCookieInvalidator GetInvalidatorWithNonMatchingHost()
         {
-            httpRequest = new FakeHttpRequest("http://bar.foo", true);
-            httpContext = new FakeHttpContext(httpRequest, httpResponse);
+            _httpRequest = new FakeHttpRequest("http://bar.foo", true);
+            _httpContext = new FakeHttpContext(_httpRequest, _httpResponse);
             
-            return new DomainCookieInvalidator("foo.bar", httpContext, cookieHandler);
+            return new DomainCookieInvalidator("foo.bar", _httpContext, _cookieHandler);
         }
 
 
@@ -50,16 +50,16 @@ namespace NExtra.Web.Tests.Cookies
 
             invalidator.InvalidateAllCookies();
 
-            cookieHandler.DidNotReceive().InvalidateCookie(Arg.Any<string>());
+            _cookieHandler.DidNotReceive().InvalidateCookie(Arg.Any<string>());
         }
 
         [Test]
         public void InvalidateAllCookies_ShouldInvalidateAllRequestCookiesForMatchingHost()
         {
-            cookieInvalidator.InvalidateAllCookies();
+            _cookieInvalidator.InvalidateAllCookies();
 
-            cookieHandler.Received().InvalidateCookie("foo");
-            cookieHandler.Received().InvalidateCookie("bar");
+            _cookieHandler.Received().InvalidateCookie("foo");
+            _cookieHandler.Received().InvalidateCookie("bar");
         }
 
         [Test]
@@ -69,15 +69,15 @@ namespace NExtra.Web.Tests.Cookies
 
             invalidator.InvalidateCookie("foo");
 
-            cookieHandler.DidNotReceive().InvalidateCookie(Arg.Any<string>());
+            _cookieHandler.DidNotReceive().InvalidateCookie(Arg.Any<string>());
         }
 
         [Test]
         public void InvalidateCookie_ShouldInvalidateCookieForMatchingHost()
         {
-            cookieInvalidator.InvalidateCookie("foo");
+            _cookieInvalidator.InvalidateCookie("foo");
 
-            cookieHandler.Received().InvalidateCookie("foo");
+            _cookieHandler.Received().InvalidateCookie("foo");
         }
     }
 }

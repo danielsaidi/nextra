@@ -10,8 +10,8 @@ namespace NExtra.Tests.Reflection
     [TestFixture]
     public class TypeLocatorBehavior
     {
-        private IEnumerable<ISomeInterface> implementations;
-        private IEnumerable<SomeBaseClass> descendants;
+        private IEnumerable<ISomeInterface> _implementations;
+        private IEnumerable<SomeBaseClass> _descendants;
 
 
         [SetUp]
@@ -20,35 +20,35 @@ namespace NExtra.Tests.Reflection
             var implementationLocator = new TypeLocator<ISomeInterface>(Assembly.GetExecutingAssembly());
             var descendantLocator = new TypeLocator<SomeBaseClass>(Assembly.GetExecutingAssembly());
             
-            implementations = implementationLocator.FindAll();
-            descendants = descendantLocator.FindAll();
+            _implementations = implementationLocator.FindAll();
+            _descendants = descendantLocator.FindAll();
         }
 
 
         [Test]
         public void FindAll_ShouldReturnAllImplementationsFromSingleAssembly()
         {
-            Assert.That(implementations.Count(), Is.EqualTo(2));
+            Assert.That(_implementations.Count(), Is.EqualTo(2));
         }
 
         [Test]
         public void FindAll_ShouldReturnAllImplementationsWithCorrectTypeFromSingleAssembly()
         {
-            Assert.That(implementations.Any(x => x.GetType() == typeof(SomeClass)), Is.True);
-            Assert.That(implementations.Any(x => x.GetType() == typeof(SomeOtherClass)), Is.True);
+            Assert.That(_implementations.Any(x => x.GetType() == typeof(SomeClass)), Is.True);
+            Assert.That(_implementations.Any(x => x.GetType() == typeof(SomeOtherClass)), Is.True);
         }
 
         [Test]
         public void FindAll_ShouldReturnAllDescendantsFromSingleAssembly()
         {
-            Assert.That(descendants.Count(), Is.EqualTo(2));
+            Assert.That(_descendants.Count(), Is.EqualTo(2));
         }
 
         [Test]
         public void FindAll_ShouldReturnAllDescendantsWithCorrectTypeFromSingleAssembly()
         {
-            Assert.That(descendants.Any(x => x.GetType() == typeof(SomeClass)), Is.True);
-            Assert.That(descendants.Any(x => x.GetType() == typeof(SomeOtherClass)), Is.True);
+            Assert.That(_descendants.Any(x => x.GetType() == typeof(SomeClass)), Is.True);
+            Assert.That(_descendants.Any(x => x.GetType() == typeof(SomeOtherClass)), Is.True);
         }
     }
 

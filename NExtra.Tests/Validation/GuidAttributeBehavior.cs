@@ -7,39 +7,39 @@ namespace NExtra.Tests.Validation
 	[TestFixture]
 	public class GuidAttributeBehavior
     {
-        private IValidator validator;
+        private IValidator _validator;
 
 
         [TestFixtureSetUp]
         public void SetUp()
         {
-            validator = new GuidAttribute();
+            _validator = new GuidAttribute();
         }
 
 
         [Test]
         public void IsValid_ShouldReturnTrueForNullValue()
         {
-            Assert.That(validator.IsValid(null), Is.True);
+            Assert.That(_validator.IsValid(null), Is.True);
         }
 
         [Test]
         public void IsValid_ShouldReturnTrueForEmptyString()
         {
-            Assert.That(validator.IsValid(""), Is.True);
+            Assert.That(_validator.IsValid(""), Is.True);
         }
 
 		[Test]
 		public void IsValid_ShouldReturnFalseForInvalidString()
 		{
-			Assert.That(validator.IsValid("weghighuihgaweuihgweui"), Is.False);
+			Assert.That(_validator.IsValid("weghighuihgaweuihgweui"), Is.False);
 		}
 
 		[Test]
 		public void IsValid_ShouldReturnTrueForValidStrings()
 		{
-			Assert.That(validator.IsValid(Guid.Empty), Is.True);
-			Assert.That(validator.IsValid(Guid.NewGuid()), Is.True);
+			Assert.That(_validator.IsValid(Guid.Empty), Is.True);
+			Assert.That(_validator.IsValid(Guid.NewGuid()), Is.True);
 		}
 	}
 }

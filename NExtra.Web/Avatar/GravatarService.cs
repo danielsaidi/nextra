@@ -12,13 +12,13 @@ namespace NExtra.Web.Avatar
     /// </remarks>
     public class GravatarService : IAvatarService<int>
     {
-        private const string urlPattern = "http://www.gravatar.com/avatar/{0}?s={1}";
+        private const string UrlPattern = "http://www.gravatar.com/avatar/{0}?s={1}";
 
         public string GetAvatarUrl(string emailAddress, int size)
         {
             var hashCreator = new FormsAuthenticationBasedMd5Generator();
 
-            return String.Format(urlPattern, hashCreator.GenerateHashValue(emailAddress).ToLower(), size);
+            return String.Format(UrlPattern, hashCreator.GenerateHashValue(emailAddress).ToLower(), size);
         }
     }
 }

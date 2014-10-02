@@ -12,26 +12,26 @@ namespace NExtra.WebForms.Tests.WebControls
 	[TestFixture]
 	public class UserControlPlaceHolderBehavior
 	{
-		private UserControlLoaderTestClass control;
+		private UserControlLoaderTestClass _control;
 
 
 		[SetUp]
 		public void SetUp()
 		{
-			control = new UserControlLoaderTestClass();
+			_control = new UserControlLoaderTestClass();
 		}
 
 
 		[Test]
 		public void LoadedControls_ShouldReturnEmptyListByDefault()
 		{
-			Assert.That(control.TestLoadedControls(), Is.EqualTo(new List<string>()));
+			Assert.That(_control.TestLoadedControls(), Is.EqualTo(new List<string>()));
 		}
 
 		[Test]
 		public void GetControl_ShouldReturnNullForNonexistingId()
 		{
-			Assert.That(control.GetControl("foo"), Is.Null);
+			Assert.That(_control.GetControl("foo"), Is.Null);
 		}
 	}
 }

@@ -6,26 +6,26 @@ namespace NExtra.Tests.Validation
 	[TestFixture]
 	public class PhoneNumberAttributeBehavior
     {
-        private IValidator validator;
+        private IValidator _validator;
 
 
         [TestFixtureSetUp]
         public void SetUp()
         {
-            validator = new PhoneNumberAttribute();
+            _validator = new PhoneNumberAttribute();
         }
 
         
         [Test]
         public void IsValid_ShouldReturnTrueForNullValue()
         {
-            Assert.That(validator.IsValid(null), Is.True);
+            Assert.That(_validator.IsValid(null), Is.True);
         }
 
         [Test]
         public void IsValid_ShouldReturnTrueForEmptyString()
         {
-            Assert.That(validator.IsValid(""), Is.True);
+            Assert.That(_validator.IsValid(""), Is.True);
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace NExtra.Tests.Validation
         [TestCase("+46(0)73-078 70 48")]
         public void IsValid_ShouldDeclineInvalidStrings(string value)
         {
-            Assert.That(validator.IsValid(value), Is.False, value);
+            Assert.That(_validator.IsValid(value), Is.False, value);
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace NExtra.Tests.Validation
         [TestCase("0 0 4 6 7 3 0 7 8 7 0 4 8")]
         public void IsValid_ShouldAllowValidStrings(string value)
         {
-            Assert.That(validator.IsValid(value), Is.True, value);
+            Assert.That(_validator.IsValid(value), Is.True, value);
         }
 	}
 }

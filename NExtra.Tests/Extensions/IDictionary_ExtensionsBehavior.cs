@@ -7,13 +7,13 @@ namespace NExtra.Tests.Extensions
     [TestFixture]
 	public class IDictionary_ExtensionsBehavior
     {
-        private Dictionary<string, string> obj;
+        private Dictionary<string, string> _obj;
 
 
         [SetUp]
         public void SetUp()
         {
-            obj = new Dictionary<string, string> { { "foo", "bar" }, { "bar", "foo" } };
+            _obj = new Dictionary<string, string> { { "foo", "bar" }, { "bar", "foo" } };
         }
 
 
@@ -22,9 +22,9 @@ namespace NExtra.Tests.Extensions
         {
             var items = new Dictionary<string, string> { { "foo", "bar" }, { "bar", "foo" } };
 
-            obj.AddRange(items);
+            _obj.AddRange(items);
 
-            Assert.That(obj.Count, Is.EqualTo(2));
+            Assert.That(_obj.Count, Is.EqualTo(2));
         }
 
         [Test]
@@ -32,9 +32,9 @@ namespace NExtra.Tests.Extensions
         {
             var items = new Dictionary<string, string> { { "foo", "bar" }, { "bar1", "foo" } };
 
-            obj.AddRange(items);
+            _obj.AddRange(items);
 
-            Assert.That(obj.Count, Is.EqualTo(3));
+            Assert.That(_obj.Count, Is.EqualTo(3));
         }
 
         [Test]
@@ -42,16 +42,16 @@ namespace NExtra.Tests.Extensions
         {
             var items = new Dictionary<string, string> { { "foo1", "bar" }, { "bar1", "foo" } };
 
-            obj.AddRange(items);
+            _obj.AddRange(items);
 
-            Assert.That(obj.Count, Is.EqualTo(4));
+            Assert.That(_obj.Count, Is.EqualTo(4));
         }
 
 
         [Test, ExpectedException(typeof(KeyNotFoundException))]
         public void Get_ShouldFailForNonExistingValye()
         {
-            var result = obj.Get("foobar");
+            var result = _obj.Get("foobar");
 
             Assert.That(result, Is.Null);
         }
@@ -59,7 +59,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void Get_ShouldReturnExistingValue()
         {
-            var result = obj.Get("foo");
+            var result = _obj.Get("foo");
 
             Assert.That(result, Is.EqualTo("bar"));
         }

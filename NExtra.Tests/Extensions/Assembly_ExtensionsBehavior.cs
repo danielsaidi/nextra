@@ -30,7 +30,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetNamespaces_ShouldReturnAllNamespaces()
         {
-            var result = Assembly.GetExecutingAssembly().GetNamespaces();
+            var result = Assembly.GetExecutingAssembly().GetNamespaces().ToList();
 
             Assert.That(result.Contains("NExtra.Tests"), Is.True);
             Assert.That(result.Contains("NExtra.Tests.Collections"), Is.True);

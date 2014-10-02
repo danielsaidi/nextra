@@ -12,44 +12,44 @@ namespace NExtra.Web.Testing
     /// </remarks>
     public class FakeHttpRequest : HttpRequestBase
     {
-        private readonly HttpCookieCollection cookies;
-        private readonly bool isAuthenticated;
-        private readonly Uri url;
-        private Uri urlReferrer;
+        private readonly HttpCookieCollection _cookies;
+        private readonly bool _isAuthenticated;
+        private readonly Uri _url;
+        private Uri _urlReferrer;
 
 
         public FakeHttpRequest(string url, bool isAuthenticated)
         {
-            this.url = new Uri(url);
-            this.isAuthenticated = isAuthenticated;
+            _url = new Uri(url);
+            _isAuthenticated = isAuthenticated;
 
-            cookies = new HttpCookieCollection();
+            _cookies = new HttpCookieCollection();
         }
 
 
         public override HttpCookieCollection Cookies
         {
-            get { return cookies; }
+            get { return _cookies; }
         }
 
         public override bool IsAuthenticated
         {
-            get { return isAuthenticated; }
+            get { return _isAuthenticated; }
         }
 
         public override Uri Url
         {
-            get { return url; }
+            get { return _url; }
         }
 
         public override Uri UrlReferrer
         {
-            get { return urlReferrer; }
+            get { return _urlReferrer; }
         }
 
         public void SetUrlReferrer(Uri newValue)
         {
-            urlReferrer = newValue;
+            _urlReferrer = newValue;
         }
     }
 }

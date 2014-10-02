@@ -11,12 +11,12 @@ namespace NExtra.Web.Avatar
     /// </remarks>
     public class FacebookAvatarService : IAvatarService<FacebookAvatarSize>
     {
-        private const string urlPattern = "http://graph.facebook.com/{0}/picture?type={1}";
+        private const string UrlPattern = "http://graph.facebook.com/{0}/picture?type={1}";
 
 
         public string GetAvatarUrl(string userName, FacebookAvatarSize size)
         {
-            return String.Format(urlPattern, userName, size.ToString().ToLower());
+            return String.Format(UrlPattern, userName, size.ToString().ToLower());
         }
     }
 }

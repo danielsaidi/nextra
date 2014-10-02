@@ -15,48 +15,48 @@ namespace NExtra.WinForms.Printing
     /// </remarks>
     public class RichTextBoxPrinter : IControlPrinter<RichTextBox>
     {
-        private const double anInch = 14.4;
-        private const int WM_USER = 0x0400;
-        private const int EM_FORMATRANGE = WM_USER + 57;
+        private const double AnInch = 14.4;
+        private const int WmUser = 0x0400;
+        private const int EmFormatrange = WmUser + 57;
 
-        private readonly IPageSetupDialogFacade pageSetupDialogFacade;
-        private readonly IPrintDialogFacade printDialogFacade;
-        private readonly IPrintDocumentFacade printDocumentFacade;
-        private readonly IPrintPreviewDialogFacade printPreviewDialogFacade;
+        private readonly IPageSetupDialogFacade _pageSetupDialogFacade;
+        private readonly IPrintDialogFacade _printDialogFacade;
+        private readonly IPrintDocumentFacade _printDocumentFacade;
+        private readonly IPrintPreviewDialogFacade _printPreviewDialogFacade;
 
         
-        public RichTextBoxPrinter(RichTextBox RichTextBox)
-            : this(RichTextBox, new PageSetupDialogFacade(new PageSetupDialog()), new PrintPreviewDialogFacade(new PrintPreviewDialog()), new PrintDialogFacade(new PrintDialog()), new PrintDocumentFacade(new PrintDocument())) 
+        public RichTextBoxPrinter(RichTextBox richTextBox)
+            : this(richTextBox, new PageSetupDialogFacade(new PageSetupDialog()), new PrintPreviewDialogFacade(new PrintPreviewDialog()), new PrintDialogFacade(new PrintDialog()), new PrintDocumentFacade(new PrintDocument())) 
         { }
 
-        public RichTextBoxPrinter(RichTextBox RichTextBox, PageSetupDialog pageSetupDialog, PrintPreviewDialog printPreviewDialog, PrintDialog printDialog, PrintDocument printDocument)
-            : this(RichTextBox, new PageSetupDialogFacade(pageSetupDialog), new PrintPreviewDialogFacade(printPreviewDialog), new PrintDialogFacade(printDialog), new PrintDocumentFacade(printDocument))
+        public RichTextBoxPrinter(RichTextBox richTextBox, PageSetupDialog pageSetupDialog, PrintPreviewDialog printPreviewDialog, PrintDialog printDialog, PrintDocument printDocument)
+            : this(richTextBox, new PageSetupDialogFacade(pageSetupDialog), new PrintPreviewDialogFacade(printPreviewDialog), new PrintDialogFacade(printDialog), new PrintDocumentFacade(printDocument))
         { }
 
-        public RichTextBoxPrinter(RichTextBox RichTextBox, IPageSetupDialogFacade pageSetupDialogFacade, IPrintPreviewDialogFacade printPreviewDialogFacade, IPrintDialogFacade printDialogFacade, IPrintDocumentFacade printDocumentFacade)
+        public RichTextBoxPrinter(RichTextBox richTextBox, IPageSetupDialogFacade pageSetupDialogFacade, IPrintPreviewDialogFacade printPreviewDialogFacade, IPrintDialogFacade printDialogFacade, IPrintDocumentFacade printDocumentFacade)
         {
-            TargetControl = RichTextBox;
+            TargetControl = richTextBox;
 
-            this.pageSetupDialogFacade = pageSetupDialogFacade;
-            this.printPreviewDialogFacade = printPreviewDialogFacade;
-            this.printDialogFacade = printDialogFacade;
-            this.printDocumentFacade = printDocumentFacade;
+            _pageSetupDialogFacade = pageSetupDialogFacade;
+            _printPreviewDialogFacade = printPreviewDialogFacade;
+            _printDialogFacade = printDialogFacade;
+            _printDocumentFacade = printDocumentFacade;
 
-            this.printDocumentFacade.BindBeginPrintEvent(this);
-            this.printDocumentFacade.BindEndPrintEvent(this);
-            this.printDocumentFacade.BindPrintPageEvent(this);
+            _printDocumentFacade.BindBeginPrintEvent(this);
+            _printDocumentFacade.BindEndPrintEvent(this);
+            _printDocumentFacade.BindPrintPageEvent(this);
         }
 
 
-        public PageSetupDialog PageSetupDialog { get { return pageSetupDialogFacade.PageSetupDialog; } }
+        public PageSetupDialog PageSetupDialog { get { return _pageSetupDialogFacade.PageSetupDialog; } }
 
         public Margins PrePrintPrinterMargins { get; private set; }
 
-        public PrintDialog PrintDialog { get { return printDialogFacade.PrintDialog; } }
+        public PrintDialog PrintDialog { get { return _printDialogFacade.PrintDialog; } }
 
-        public PrintDocument PrintDocument { get { return printDocumentFacade.PrintDocument; } }
+        public PrintDocument PrintDocument { get { return _printDocumentFacade.PrintDocument; } }
 
-        public PrintPreviewDialog PrintPreviewDialog { get { return printPreviewDialogFacade.PrintPreviewDialog; } }
+        public PrintPreviewDialog PrintPreviewDialog { get { return _printPreviewDialogFacade.PrintPreviewDialog; } }
 
         public int RtbCharIndex { get; private set; }
 
@@ -65,8 +65,8 @@ namespace NExtra.WinForms.Printing
 
         public void Print()
         {
-            if (printDialogFacade.ShowDialog() == DialogResult.OK)
-                printDocumentFacade.Print();
+            if (_printDialogFacade.ShowDialog() == DialogResult.OK)
+                _printDocumentFacade.Print();
         }
 
         public int Print(int charFrom, int charTo, PrintPageEventArgs e)
@@ -92,7 +92,7 @@ namespace NExtra.WinForms.Printing
             Marshal.StructureToPtr(fmtRange, lparam, false);
 
             //Send the rendered data for printing 
-            var result = SendMessage(TargetControl.Handle, EM_FORMATRANGE, wparam, lparam).ToInt32();
+            var result = SendMessage(TargetControl.Handle, EmFormatrange, wparam, lparam).ToInt32();
 
             //Free the block of memory allocated
             Marshal.FreeCoTaskMem(lparam);
@@ -105,9 +105,9 @@ namespace NExtra.WinForms.Printing
             return result;
         }
 
-        private static FORMATRANGE Print_GetFmtRange(int charFrom, int charTo, PrintPageEventArgs e, IntPtr hdc)
+        private static FormatRange Print_GetFmtRange(int charFrom, int charTo, PrintPageEventArgs e, IntPtr hdc)
         {
-            FORMATRANGE fmtRange;
+            FormatRange fmtRange;
             fmtRange.chrg.cpMax = charTo;
             fmtRange.chrg.cpMin = charFrom;
             fmtRange.hdc = hdc;
@@ -117,36 +117,36 @@ namespace NExtra.WinForms.Printing
             return fmtRange;
         }
 
-        private static RECT Print_GetRectPage(PrintPageEventArgs e)
+        private static Rect Print_GetRectPage(PrintPageEventArgs e)
         {
-            RECT rectPage;
-            rectPage.Top = (int)(e.PageBounds.Top * anInch);
-            rectPage.Bottom = (int)(e.PageBounds.Bottom * anInch);
-            rectPage.Left = (int)(e.PageBounds.Left * anInch);
-            rectPage.Right = (int)(e.PageBounds.Right * anInch);
+            Rect rectPage;
+            rectPage.Top = (int)(e.PageBounds.Top * AnInch);
+            rectPage.Bottom = (int)(e.PageBounds.Bottom * AnInch);
+            rectPage.Left = (int)(e.PageBounds.Left * AnInch);
+            rectPage.Right = (int)(e.PageBounds.Right * AnInch);
             return rectPage;
         }
 
-        private static RECT Print_GetRectToPrint(PrintPageEventArgs e)
+        private static Rect Print_GetRectToPrint(PrintPageEventArgs e)
         {
-            RECT rectToPrint;
-            rectToPrint.Top = (int)(e.MarginBounds.Top * anInch);
-            rectToPrint.Bottom = (int)(e.MarginBounds.Bottom * anInch);
-            rectToPrint.Left = (int)(e.MarginBounds.Left * anInch);
-            rectToPrint.Right = (int)(e.MarginBounds.Right * anInch);
+            Rect rectToPrint;
+            rectToPrint.Top = (int)(e.MarginBounds.Top * AnInch);
+            rectToPrint.Bottom = (int)(e.MarginBounds.Bottom * AnInch);
+            rectToPrint.Left = (int)(e.MarginBounds.Left * AnInch);
+            rectToPrint.Right = (int)(e.MarginBounds.Right * AnInch);
             return rectToPrint;
         }
 
         
         public void PrintDocument_BeginPrint(object sender, PrintEventArgs e)
         {
-            PrePrintPrinterMargins = printDocumentFacade.PrintDocument.DefaultPageSettings.Margins;
+            PrePrintPrinterMargins = _printDocumentFacade.PrintDocument.DefaultPageSettings.Margins;
             RtbCharIndex = 0;
         }
 
         public void PrintDocument_EndPrint(object sender, PrintEventArgs e)
         {
-            printDocumentFacade.PrintDocument.DefaultPageSettings.Margins = PrePrintPrinterMargins;
+            _printDocumentFacade.PrintDocument.DefaultPageSettings.Margins = PrePrintPrinterMargins;
         }
 
         public void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -158,7 +158,7 @@ namespace NExtra.WinForms.Printing
 
 
         [StructLayout(LayoutKind.Sequential)]
-        private struct RECT
+        private struct Rect
         {
             public int Left;
             public int Top;
@@ -167,20 +167,20 @@ namespace NExtra.WinForms.Printing
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        private struct CHARRANGE
+        private struct CharRange
         {
             public int cpMin;   //First character of range (0 for start of doc)
             public int cpMax;   //Last character of range (-1 for end of doc)
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        private struct FORMATRANGE
+        private struct FormatRange
         {
             public IntPtr hdc;          //Actual DC to draw on
             public IntPtr hdcTarget;    //Target DC for determining text formatting
-            public RECT rc;             //Region of the DC to draw to (in twips)
-            public RECT rcPage;         //Region of the whole DC (page size) (in twips)
-            public CHARRANGE chrg;      //Range of text to draw (see earlier declaration)
+            public Rect rc;             //Region of the DC to draw to (in twips)
+            public Rect rcPage;         //Region of the whole DC (page size) (in twips)
+            public CharRange chrg;      //Range of text to draw (see earlier declaration)
         }
 
         [DllImport("USER32.dll")]

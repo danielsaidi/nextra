@@ -13,65 +13,65 @@ namespace NExtra.Mvc.Tests.ActionFilters
     [TestFixture]
     public class JsonForQueryStringAttributeBehavior
     {
-        private ViewResult defaultActionResult;
-        private ActionExecutedContext filterContext;
-        private HttpRequestBase httpRequestBase;
-        private JsonForQueryStringAttribute jsonForQueryStringAttribute;
+        private ViewResult _defaultActionResult;
+        private ActionExecutedContext _filterContext;
+        private HttpRequestBase _httpRequestBase;
+        private JsonForQueryStringAttribute _jsonForQueryStringAttribute;
 
 
         [SetUp]
         public void SetUp()
         {
-            defaultActionResult = new ViewResult();
+            _defaultActionResult = new ViewResult();
 
-            filterContext = new ActionExecutedContext {
-                Result = defaultActionResult,
+            _filterContext = new ActionExecutedContext {
+                Result = _defaultActionResult,
                 Controller = new TempController { ViewData = new ViewDataDictionary(true) }
             };
 
-            httpRequestBase = Substitute.For<HttpRequestBase>();
-            httpRequestBase.QueryString.Returns(new NameValueCollection {{"foo", "bar"}});
+            _httpRequestBase = Substitute.For<HttpRequestBase>();
+            _httpRequestBase.QueryString.Returns(new NameValueCollection {{"foo", "bar"}});
             
-            jsonForQueryStringAttribute = new JsonForQueryStringAttribute("foo", "bar");
+            _jsonForQueryStringAttribute = new JsonForQueryStringAttribute("foo", "bar");
         }
 
 
         [Test]
         public void OnActionExecuted_ShouldNotAffectDefaultResultForMissingQueryStringVariable()
         {
-            httpRequestBase.QueryString.Returns(new NameValueCollection());
+            _httpRequestBase.QueryString.Returns(new NameValueCollection());
 
-            jsonForQueryStringAttribute.OnActionExecuted(filterContext, httpRequestBase);
+            _jsonForQueryStringAttribute.OnActionExecuted(_filterContext, _httpRequestBase);
 
-            Assert.That(filterContext.Result, Is.EqualTo(defaultActionResult));
+            Assert.That(_filterContext.Result, Is.EqualTo(_defaultActionResult));
         }
 
         [Test]
         public void OnActionExecuted_ShouldNotAffectDefaultResultForInvalidQueryStringVariableValue()
         {
-            httpRequestBase.QueryString.Returns(new NameValueCollection { { "foo", "bar2" } });
+            _httpRequestBase.QueryString.Returns(new NameValueCollection { { "foo", "bar2" } });
 
-            jsonForQueryStringAttribute.OnActionExecuted(filterContext, httpRequestBase);
+            _jsonForQueryStringAttribute.OnActionExecuted(_filterContext, _httpRequestBase);
 
-            Assert.That(filterContext.Result, Is.EqualTo(defaultActionResult));
+            Assert.That(_filterContext.Result, Is.EqualTo(_defaultActionResult));
         }
 
         [Test]
         public void OnActionExecuted_ShouldAffectResultForNullQueryStringVariableValue()
         {
-            jsonForQueryStringAttribute = new JsonForQueryStringAttribute("foo", null);
+            _jsonForQueryStringAttribute = new JsonForQueryStringAttribute("foo", null);
 
-            jsonForQueryStringAttribute.OnActionExecuted(filterContext, httpRequestBase);
+            _jsonForQueryStringAttribute.OnActionExecuted(_filterContext, _httpRequestBase);
 
-            Assert.That(((JsonResult)filterContext.Result).Data, Is.True);
+            Assert.That(((JsonResult)_filterContext.Result).Data, Is.True);
         }
 
         [Test]
         public void OnActionExecuted_ShouldAffectResultForValidQueryStringVariableValue()
         {
-            jsonForQueryStringAttribute.OnActionExecuted(filterContext, httpRequestBase);
+            _jsonForQueryStringAttribute.OnActionExecuted(_filterContext, _httpRequestBase);
 
-            Assert.That(((JsonResult)filterContext.Result).Data, Is.True);
+            Assert.That(((JsonResult)_filterContext.Result).Data, Is.True);
         }
     }
 }

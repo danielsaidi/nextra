@@ -14,10 +14,10 @@ namespace NExtra.WinForms.Printing
     /// </remarks>
     public class PictureBoxPrinter : IControlPrinter<PictureBox>
     {
-        private readonly IPageSetupDialogFacade pageSetupDialogFacade;
-        private readonly IPrintDialogFacade printDialogFacade;
-        private readonly IPrintDocumentFacade printDocumentFacade;
-        private readonly IPrintPreviewDialogFacade printPreviewDialogFacade;
+        private readonly IPageSetupDialogFacade _pageSetupDialogFacade;
+        private readonly IPrintDialogFacade _printDialogFacade;
+        private readonly IPrintDocumentFacade _printDocumentFacade;
+        private readonly IPrintPreviewDialogFacade _printPreviewDialogFacade;
 
 
         public PictureBoxPrinter(PictureBox pictureBox)
@@ -32,30 +32,30 @@ namespace NExtra.WinForms.Printing
         {
             TargetControl = pictureBox;
 
-            this.pageSetupDialogFacade = pageSetupDialogFacade;
-            this.printPreviewDialogFacade = printPreviewDialogFacade;
-            this.printDialogFacade = printDialogFacade;
-            this.printDocumentFacade = printDocumentFacade;
+            _pageSetupDialogFacade = pageSetupDialogFacade;
+            _printPreviewDialogFacade = printPreviewDialogFacade;
+            _printDialogFacade = printDialogFacade;
+            _printDocumentFacade = printDocumentFacade;
 
-            this.printDocumentFacade.BindPrintPageEvent(this);
+            _printDocumentFacade.BindPrintPageEvent(this);
         }
 
 
-        public PageSetupDialog PageSetupDialog { get { return pageSetupDialogFacade.PageSetupDialog; } }
+        public PageSetupDialog PageSetupDialog { get { return _pageSetupDialogFacade.PageSetupDialog; } }
 
-        public PrintDialog PrintDialog { get { return printDialogFacade.PrintDialog; } }
+        public PrintDialog PrintDialog { get { return _printDialogFacade.PrintDialog; } }
 
-        public PrintDocument PrintDocument { get { return printDocumentFacade.PrintDocument; } }
+        public PrintDocument PrintDocument { get { return _printDocumentFacade.PrintDocument; } }
 
-        public PrintPreviewDialog PrintPreviewDialog { get { return printPreviewDialogFacade.PrintPreviewDialog; } }
+        public PrintPreviewDialog PrintPreviewDialog { get { return _printPreviewDialogFacade.PrintPreviewDialog; } }
 
         public PictureBox TargetControl { get; set; }
 
 
         public void Print()
         {
-            if (printDialogFacade.ShowDialog() == DialogResult.OK)
-                printDocumentFacade.Print();
+            if (_printDialogFacade.ShowDialog() == DialogResult.OK)
+                _printDocumentFacade.Print();
         }
 
         public void PrintDocument_BeginPrint(object sender, PrintEventArgs e)

@@ -8,13 +8,13 @@ namespace NExtra.Tests.Extensions
 	[TestFixture]
 	public class IQueryable_PaginateExtensionsBehavior
 	{
-        private List<KeyValuePair<string, int>> collection;
+        private List<KeyValuePair<string, int>> _collection;
 
 
 		[SetUp]
 		public void SetUp()
 		{
-			collection = new List<KeyValuePair<string, int>> {
+			_collection = new List<KeyValuePair<string, int>> {
 				new KeyValuePair<string, int>("a", 99),
 				new KeyValuePair<string, int>("b", 98),
 				new KeyValuePair<string, int>("c", 97),
@@ -27,28 +27,28 @@ namespace NExtra.Tests.Extensions
 		[Test]
 		public void Result_ShouldHandleFirstItems()
 		{
-			var result = collection.AsQueryable().Paginate(1, 2);
+			var result = _collection.AsQueryable().Paginate(1, 2);
 
 			Assert.That(result.Count(), Is.EqualTo(2));
-			Assert.That(result, Is.EqualTo(collection.Skip(0).Take(2)));
+			Assert.That(result, Is.EqualTo(_collection.Skip(0).Take(2)));
 		}
 
 		[Test]
 		public void Result_ShouldHandleMiddleItems()
 		{
-			var result = collection.AsQueryable().Paginate(2, 2);
+			var result = _collection.AsQueryable().Paginate(2, 2);
 
 			Assert.That(result.Count(), Is.EqualTo(2));
-			Assert.That(result, Is.EqualTo(collection.Skip(2).Take(2)));
+			Assert.That(result, Is.EqualTo(_collection.Skip(2).Take(2)));
 		}
 
 		[Test]
 		public void Result_ShouldHandleLastItems()
 		{
-			var result = collection.AsQueryable().Paginate(3, 2);
+			var result = _collection.AsQueryable().Paginate(3, 2);
 
 			Assert.That(result.Count(), Is.EqualTo(1));
-			Assert.That(result, Is.EqualTo(collection.Skip(4).Take(2)));
+			Assert.That(result, Is.EqualTo(_collection.Skip(4).Take(2)));
         }
 	}
 }

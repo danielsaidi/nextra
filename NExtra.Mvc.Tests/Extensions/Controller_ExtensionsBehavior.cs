@@ -11,7 +11,7 @@ namespace NExtra.Mvc.Tests.Extensions
     [TestFixture]
     public class Controller_ExtensionsBehavior
     {
-        private ControllerTestClass controller;
+        private ControllerTestClass _controller;
 
 
         [SetUp]
@@ -27,20 +27,20 @@ namespace NExtra.Mvc.Tests.Extensions
             valueProvider.GetValue("action").Returns(new ValueProviderResult("CurrentAction", "CurrentAction", CultureInfo.CurrentCulture));
             valueProvider.GetValue("controller").Returns(new ValueProviderResult("CurrentController", "CurrentController", CultureInfo.CurrentCulture));
 	        
-            controller = new ControllerTestClass { ControllerContext = controllerContext, ValueProvider = valueProvider };
+            _controller = new ControllerTestClass { ControllerContext = controllerContext, ValueProvider = valueProvider };
         }
 
 
         [Test]
         public void ActionName_ShouldReturnCorrectValue()
         {
-            Assert.That(controller.Action(), Is.EqualTo("CurrentAction"));
+            Assert.That(_controller.Action(), Is.EqualTo("CurrentAction"));
         }
 
         [Test]
         public void Name_ShouldReturnCorrectValue()
         {
-            Assert.That(controller.Name(), Is.EqualTo("CurrentController"));
+            Assert.That(_controller.Name(), Is.EqualTo("CurrentController"));
         }
 
 

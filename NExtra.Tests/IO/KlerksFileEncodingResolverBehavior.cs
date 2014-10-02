@@ -10,13 +10,13 @@ namespace NExtra.Tests.IO
     [TestFixture]
     public class KlerksFileEncodingResolverBehavior
     {
-        private IFileEncodingResolver resolver;
+        private IFileEncodingResolver _resolver;
 
 
         [SetUp]
         public void Setup()
         {
-            resolver = new KlerksFileEncodingResolver(Encoding.UTF8);
+            _resolver = new KlerksFileEncodingResolver(Encoding.UTF8);
         }
 
 
@@ -26,7 +26,7 @@ namespace NExtra.Tests.IO
             var assembly = Assembly.GetExecutingAssembly();
             var folderPath = assembly.GetFolderPath();
             var filePath = Path.Combine(folderPath, "Resources", "EncodingTest.txt");
-            var encoding = resolver.ResolveFileEncoding(filePath);
+            var encoding = _resolver.ResolveFileEncoding(filePath);
 
             Assert.That(encoding, Is.EqualTo(Encoding.UTF8));
         }
@@ -37,7 +37,7 @@ namespace NExtra.Tests.IO
             var assembly = Assembly.GetExecutingAssembly();
             var folderPath = assembly.GetFolderPath();
             var filePath = Path.Combine(folderPath, "Resources", "EncodingTest.xml");
-            var encoding = resolver.ResolveFileEncoding(filePath);
+            var encoding = _resolver.ResolveFileEncoding(filePath);
 
             Assert.That(encoding, Is.EqualTo(Encoding.UTF8));
         }

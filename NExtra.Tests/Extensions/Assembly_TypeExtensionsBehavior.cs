@@ -20,7 +20,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetTypesThatInherit_SingleAssembly_ShouldReturnCorrectNumberForNoDescendants()
         {
-            var result = Assembly.GetExecutingAssembly().GetTypesThatInherit(typeof(MyParentClass));
+            var result = Assembly.GetExecutingAssembly().GetTypesThatInherit(typeof(MyParentClass)).ToList();
 
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result.First(), Is.EqualTo(typeof(MyChildClass)));
@@ -37,7 +37,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetTypesThatInherit_MultipleAssemblies_ShouldReturnCorrectNumberForNoDescendants()
         {
-            var result = AppDomain.CurrentDomain.GetAssemblies().GetTypesThatInherit(typeof(MyParentClass));
+            var result = AppDomain.CurrentDomain.GetAssemblies().GetTypesThatInherit(typeof(MyParentClass)).ToList();
 
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result.First(), Is.EqualTo(typeof(MyChildClass)));
@@ -46,7 +46,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetTypesThatImplement_SingleAssembly_ShouldReturnZeroForNoImplementors()
         {
-            var result = Assembly.GetExecutingAssembly().GetTypesThatImplement(typeof(MyNonUsedInterface));
+            var result = Assembly.GetExecutingAssembly().GetTypesThatImplement(typeof(IMyNonUsedInterface));
 
             Assert.That(result.Count(), Is.EqualTo(0));
         }
@@ -54,7 +54,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetTypesThatImplement_SingleAssembly_ShouldReturnCorrectNumberForNoDescendants()
         {
-            var result = Assembly.GetExecutingAssembly().GetTypesThatImplement(typeof(MyUsedInterface));
+            var result = Assembly.GetExecutingAssembly().GetTypesThatImplement(typeof(IMyUsedInterface)).ToList();
 
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result.First(), Is.EqualTo(typeof(MyChildClass)));
@@ -63,7 +63,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetTypesThatImplement_MultipleAssemblies_ShouldReturnZeroForNoImplementors()
         {
-            var result = AppDomain.CurrentDomain.GetAssemblies().GetTypesThatImplement(typeof(MyNonUsedInterface));
+            var result = AppDomain.CurrentDomain.GetAssemblies().GetTypesThatImplement(typeof(IMyNonUsedInterface));
 
             Assert.That(result.Count(), Is.EqualTo(0));
         }
@@ -71,7 +71,7 @@ namespace NExtra.Tests.Extensions
         [Test]
         public void GetTypesThatImplement_ShouldReturnCorrectNumberForNoDescendants()
         {
-            var result = AppDomain.CurrentDomain.GetAssemblies().GetTypesThatImplement(typeof(MyUsedInterface));
+            var result = AppDomain.CurrentDomain.GetAssemblies().GetTypesThatImplement(typeof(IMyUsedInterface)).ToList();
 
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result.First(), Is.EqualTo(typeof(MyChildClass)));
@@ -79,8 +79,8 @@ namespace NExtra.Tests.Extensions
     }
 
 
-    public interface MyNonUsedInterface { }
-    public interface MyUsedInterface { }
+    public interface IMyNonUsedInterface { }
+    public interface IMyUsedInterface { }
     public class MyParentClass {};
-    public class MyChildClass : MyParentClass, MyUsedInterface { }
+    public class MyChildClass : MyParentClass, IMyUsedInterface { }
 }

@@ -12,18 +12,18 @@ namespace NExtra.Web.Testing
     /// </remarks>
     public class FakeHttpResponse : HttpResponseBase
     {
-        private readonly HttpCookieCollection cookies;
+        private readonly HttpCookieCollection _cookies;
 
 
         public FakeHttpResponse()
         {
-            cookies = new HttpCookieCollection();
+            _cookies = new HttpCookieCollection();
         }
         
 
         public override HttpCookieCollection Cookies
         {
-            get { return cookies; }
+            get { return _cookies; }
         }
     }
 }
