@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace NExtra.Validation.Ssn
 {
 	/// <summary>
@@ -29,7 +31,7 @@ namespace NExtra.Validation.Ssn
             var stringValue = value.ToString();
 
             var separator = stringValue[6];
-            if ("-+A".Contains(separator.ToString()))
+            if ("-+A".Contains(separator.ToString(CultureInfo.InvariantCulture)))
                 stringValue = stringValue.Substring(0, 6) + stringValue.Substring(7, 4);
 
             return stringValue;

@@ -15,12 +15,12 @@ namespace NExtra.Localization
     /// </remarks>
     public class ResourceManagerTranslator : ITranslator
     {
-        private readonly ResourceManager resourceManager;
+        private readonly ResourceManager _resourceManager;
 
 
         public ResourceManagerTranslator(ResourceManager resourceManager)
         {
-            this.resourceManager = resourceManager;
+            _resourceManager = resourceManager;
         }
 
 
@@ -31,7 +31,7 @@ namespace NExtra.Localization
 
         public virtual string Translate(string key, CultureInfo cultureInfo)
         {
-            return resourceManager.GetString(key, cultureInfo);
+            return _resourceManager.GetString(key, cultureInfo);
         }
 
         public bool TranslationExists(string key)

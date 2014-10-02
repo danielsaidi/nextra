@@ -19,8 +19,8 @@ namespace NExtra.Testing
     /// </remarks>
 	public static class MetadataRegistrator
 	{
-		private static readonly object registerLock = new object();
-	    private static Dictionary<string, bool> registeredDictionary;
+		private static readonly object RegisterLock = new object();
+	    private static Dictionary<string, bool> _registeredDictionary;
 
 
         /// <summary>
@@ -28,10 +28,10 @@ namespace NExtra.Testing
         /// </summary>
         private static bool IsAssemblyRegistered(Assembly assembly)
         {
-            if (registeredDictionary == null)
-                registeredDictionary = new Dictionary<string, bool>();
+            if (_registeredDictionary == null)
+                _registeredDictionary = new Dictionary<string, bool>();
 
-            return registeredDictionary.ContainsKey(assembly.FullName);
+            return _registeredDictionary.ContainsKey(assembly.FullName);
         }
 
 
@@ -54,7 +54,7 @@ namespace NExtra.Testing
             if (IsAssemblyRegistered(assembly))
                 return;
 
-            lock (registerLock)
+            lock (RegisterLock)
             {
                 if (IsAssemblyRegistered(assembly))
                     return;
@@ -62,7 +62,7 @@ namespace NExtra.Testing
                 foreach (var type in assembly.GetTypes())
                     Register(type);
 
-                registeredDictionary.Add(assembly.FullName, true);
+                _registeredDictionary.Add(assembly.FullName, true);
             }
         }
 

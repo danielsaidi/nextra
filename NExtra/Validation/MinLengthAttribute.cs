@@ -12,19 +12,19 @@ namespace NExtra.Validation
     /// </remarks>
     public class MinLengthAttribute : ValidationAttribute, IValidator
     {
-        private readonly int minLength;
+        private readonly int _minLength;
 
 
         public MinLengthAttribute(int minLength)
         {
-            this.minLength = minLength;
+            _minLength = minLength;
         }
 
         
         public override bool IsValid(object value)
         {
             var str = value as string;
-            return str != null && str.Length >= minLength;
+            return str != null && str.Length >= _minLength;
         }
     }
 }

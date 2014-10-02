@@ -56,7 +56,7 @@ namespace NExtra.Extensions
 
 	        while (index < str.Length)
 	        {
-	            var indexOf = str.IndexOf(separator, index);
+	            var indexOf = str.IndexOf(separator, index, StringComparison.Ordinal);
 	            if (indexOf != -1)
 	            {
 	                offsets[offset++] = indexOf;

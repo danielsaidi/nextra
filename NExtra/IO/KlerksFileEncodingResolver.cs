@@ -12,18 +12,18 @@ namespace NExtra.IO
     /// </remarks>
     public class KlerksFileEncodingResolver : IFileEncodingResolver
     {
-        private readonly Encoding defaultEncoding;
+        private readonly Encoding _defaultEncoding;
 
 
         public KlerksFileEncodingResolver(Encoding defaultEncoding)
         {
-            this.defaultEncoding = defaultEncoding;
+            _defaultEncoding = defaultEncoding;
         }
 
 
         public Encoding ResolveFileEncoding(string filePath)
         {
-            return KlerksSoftFileEncodingDetector.DetectTextFileEncoding(filePath, defaultEncoding);
+            return KlerksSoftFileEncodingDetector.DetectTextFileEncoding(filePath, _defaultEncoding);
         }
     }
 }

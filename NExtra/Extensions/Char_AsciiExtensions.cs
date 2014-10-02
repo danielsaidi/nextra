@@ -1,4 +1,6 @@
-﻿namespace NExtra.Extensions
+﻿using System.Globalization;
+
+namespace NExtra.Extensions
 {
     /// <summary>
     /// ASCII-related extension methods for System.Char.
@@ -16,7 +18,7 @@
         public static string RemapInternationalCharToAscii(this char internationalChar)
         {
             var c = internationalChar;
-            var s = c.ToString().ToLowerInvariant();
+            var s = c.ToString(CultureInfo.InvariantCulture).ToLowerInvariant();
 
             if ("àåáâäãåą".Contains(s))
             {

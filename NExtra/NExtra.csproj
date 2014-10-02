@@ -176,7 +176,7 @@
     <Compile Include="Geo\Position.cs" />
     <Compile Include="Testing\CrossThreadTestRunner.cs" />
     <Compile Include="Email\EmailNonSender.cs" />
-    <Compile Include="Email\EmailSender.cs" />
+    <Compile Include="Email\SmtpClientBasedEmailSender.cs" />
     <Compile Include="Extensions\Assembly_Extensions.cs" />
     <Compile Include="Extensions\IEnumerable_Extensions.cs" />
     <Compile Include="Extensions\Int_Extensions.cs" />

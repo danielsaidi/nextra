@@ -12,11 +12,11 @@ namespace NExtra.Validation.Ssn
 	/// </remarks>
 	public class FinnishSsnAttribute : RegularExpressionAttribute, IValidator
     {
-        private const string dashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]\\d{3}\\w\\b$";
-        private const string noDashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{5}\\w\\b$";
-        private const string optionalDashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]?\\d{3}\\w\\b$";
+        private const string DashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]\\d{3}\\w\\b$";
+        private const string NoDashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{5}\\w\\b$";
+        private const string OptionalDashExpression = "^\\b(0[1-9]|[12]\\d|3[01])(0[1-9]|1[0-2])\\d{2}[-+a]?\\d{3}\\w\\b$";
 
-        private readonly IValidator checksumValidator;
+        private readonly IValidator _checksumValidator;
 
 
         public FinnishSsnAttribute(UseSeparator useSeparator)
@@ -25,7 +25,7 @@ namespace NExtra.Validation.Ssn
         public FinnishSsnAttribute(UseSeparator useSeparator, IValidator checksumValidator)
             : base(Expression(useSeparator))
         {
-            this.checksumValidator = checksumValidator;
+            this._checksumValidator = checksumValidator;
         }
 
 
@@ -34,11 +34,11 @@ namespace NExtra.Validation.Ssn
             switch (useSeparator)
             {
                 case UseSeparator.No:
-                    return noDashExpression;
+                    return NoDashExpression;
                 case UseSeparator.Yes:
-                    return dashExpression;
+                    return DashExpression;
                 default:
-                    return optionalDashExpression;
+                    return OptionalDashExpression;
             }
         }
 
@@ -48,7 +48,7 @@ namespace NExtra.Validation.Ssn
             if (value == null || value.ToString() == string.Empty)
                 return true;
 
-            return base.IsValid(value) && checksumValidator.IsValid(value);
+            return base.IsValid(value) && _checksumValidator.IsValid(value);
         }
 	}
 }

@@ -24,14 +24,13 @@ namespace NExtra.Url
             if (str == null)
                 return "";
 
-            char c;
             var len = str.Length;
             var prevdash = false;
             var sb = new StringBuilder(len);
 
             for (var i = 0; i < len; i++)
             {
-                c = str[i];
+                var c = str[i];
                 if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
                 {
                     sb.Append(c);

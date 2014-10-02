@@ -15,9 +15,6 @@ namespace NExtra.Extensions
         public static string GetResponseString(this WebRequest webRequest)
         {
             var response = webRequest.GetResponse();
-            if (response == null)
-                return string.Empty;
-
             var responseStream = response.GetResponseStream();
             if (responseStream == null)
                 return string.Empty;

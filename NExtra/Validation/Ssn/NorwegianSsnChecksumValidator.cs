@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace NExtra.Validation.Ssn
 {
@@ -13,8 +14,8 @@ namespace NExtra.Validation.Ssn
 	/// </remarks>
     internal class NorwegianSsnChecksumValidator : IValidator
     {
-        private static readonly int[] firstMultipliers = new[] { 3, 7, 6, 1, 8, 9, 4, 5, 2 };
-        private static readonly int[] secondMultipliers = new[] { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
+        private static readonly int[] FirstMultipliers = { 3, 7, 6, 1, 8, 9, 4, 5, 2 };
+        private static readonly int[] SecondMultipliers = { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
 
 
         public bool IsValid(object value)
@@ -29,7 +30,7 @@ namespace NExtra.Validation.Ssn
 	        var sum = 0;
 	        for (var i = 0; i < multipliers.Count; i++)
 	        {
-	            var parse = int.Parse(value[i].ToString());
+	            var parse = int.Parse(value[i].ToString(CultureInfo.InvariantCulture));
                 sum += parse * multipliers[i];
 	        }
 
@@ -41,16 +42,16 @@ namespace NExtra.Validation.Ssn
 
 	    private static bool ValidateFirstCheckDigit(string value)
 	    {
-	        var expected = int.Parse(value[9].ToString());
-	        var result = CalculateMod(value, firstMultipliers);
+	        var expected = int.Parse(value[9].ToString(CultureInfo.InvariantCulture));
+	        var result = CalculateMod(value, FirstMultipliers);
 
 	        return result == expected;
 	    }
 
 	    private static bool ValidateSecondCheckDigit(string value)
         {
-            var expected = int.Parse(value[10].ToString());
-            var result = CalculateMod(value, secondMultipliers);
+            var expected = int.Parse(value[10].ToString(CultureInfo.InvariantCulture));
+            var result = CalculateMod(value, SecondMultipliers);
 
             return result == expected;
         }

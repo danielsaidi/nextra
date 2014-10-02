@@ -12,7 +12,7 @@ namespace NExtra.Validation.Ssn
 	/// </remarks>
 	public class NorwegianSsnAttribute : RegularExpressionAttribute, IValidator
     {
-        private readonly IValidator checksumValidator;
+        private readonly IValidator _checksumValidator;
 
         
         public NorwegianSsnAttribute()
@@ -21,7 +21,7 @@ namespace NExtra.Validation.Ssn
         public NorwegianSsnAttribute(IValidator checksumValidator)
             : base(Expression)
         {
-            this.checksumValidator = checksumValidator;
+            _checksumValidator = checksumValidator;
         }
 
 
@@ -34,7 +34,7 @@ namespace NExtra.Validation.Ssn
             if (value == null || value.ToString() == string.Empty)
                 return true;
             
-            return base.IsValid(value) && checksumValidator.IsValid(value);
+            return base.IsValid(value) && _checksumValidator.IsValid(value);
 		}
 	}
 }
