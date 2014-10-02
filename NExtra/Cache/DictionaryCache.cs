@@ -45,6 +45,22 @@ namespace NExtra.Cache
             return (T)Get(key);
         }
 
+        public T GetOrAdd<T>(string key, Func<T> fallback, TimeSpan timeout)
+        {
+            DictionaryCacheItem item;
+            if (cache.TryGetValue(key, out item))
+            {
+                if (item.Expires > DateTime.Now)
+                {
+                    return (T) item.Obj;
+                }
+            }
+            
+            var value = fallback();
+            Set(key, value, timeout);
+            return value;
+        }
+
         private bool IsValid(string key)
         {
             return cache[key].Expires > DateTime.Now;

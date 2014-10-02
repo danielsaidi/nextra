@@ -18,6 +18,7 @@ namespace NExtra.Cache
         bool Contains(string key);
         object Get(string key);
         T Get<T>(string key);
+        T GetOrAdd<T>(string key, Func<T> fallback, TimeSpan timeout);
         void Remove(string key);
         void Set(string key, object value, TimeSpan timeout);
         T TryGet<T>(string key, T fallback);

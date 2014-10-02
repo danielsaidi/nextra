@@ -46,6 +46,18 @@ namespace NExtra.Web.Cache
             return (T) Get(key);
         }
 
+        public T GetOrAdd<T>(string key, Func<T> fallback, TimeSpan timeout)
+        {
+            if (Contains(key))
+            {
+                return Get<T>(key);
+            }
+
+            var value = fallback();
+            Set(key, value, timeout);
+            return value;
+        }
+
         public void Remove(string key)
         {
             HttpRuntime.Cache.Remove(key);
