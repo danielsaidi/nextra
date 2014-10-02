@@ -18,11 +18,11 @@ namespace NExtra.Documentation
     /// </remarks>
     public class XmlDocumentationHandler : IAssemblyDocumentationExtractor, IMemberInfoDocumentationExtractor, IMethodInfoDocumentationExtractor, ITypeDocumentationExtractor, IDocumentationElementExtractor
     {
-        private readonly IAssemblyDocumentationExtractor assemblyExtractor;
-        private readonly IDocumentationElementExtractor elementExtractor;
-        private readonly IMemberInfoDocumentationExtractor memberExtractor;
-        private readonly IMethodInfoDocumentationExtractor methodExtractor;
-        private readonly ITypeDocumentationExtractor typeExtractor;
+        private readonly IAssemblyDocumentationExtractor _assemblyExtractor;
+        private readonly IDocumentationElementExtractor _elementExtractor;
+        private readonly IMemberInfoDocumentationExtractor _memberExtractor;
+        private readonly IMethodInfoDocumentationExtractor _methodExtractor;
+        private readonly ITypeDocumentationExtractor _typeExtractor;
 
 
         /// <summary>
@@ -67,11 +67,11 @@ namespace NExtra.Documentation
             IMethodInfoDocumentationExtractor methodExtractor,
             ITypeDocumentationExtractor typeExtractor)
         {
-            this.assemblyExtractor = assemblyExtractor;
-            this.elementExtractor = elementExtractor;
-            this.memberExtractor = memberExtractor;
-            this.methodExtractor = methodExtractor;
-            this.typeExtractor = typeExtractor;
+            _assemblyExtractor = assemblyExtractor;
+            _elementExtractor = elementExtractor;
+            _memberExtractor = memberExtractor;
+            _methodExtractor = methodExtractor;
+            _typeExtractor = typeExtractor;
         }
 
 
@@ -82,7 +82,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation document.</returns>
         public XmlDocument ExtractDocumentation(Assembly assembly)
         {
-            return assemblyExtractor.ExtractDocumentation(assembly);
+            return _assemblyExtractor.ExtractDocumentation(assembly);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation document.</returns>
         public XmlDocument ExtractDocumentation(Assembly assembly, string xmlFilePath)
         {
-            return assemblyExtractor.ExtractDocumentation(assembly, xmlFilePath);
+            return _assemblyExtractor.ExtractDocumentation(assembly, xmlFilePath);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation element.</returns>
         public XmlElement ExtractDocumentation(MemberInfo memberInfo)
         {
-            return memberExtractor.ExtractDocumentation(memberInfo);
+            return _memberExtractor.ExtractDocumentation(memberInfo);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation element.</returns>
         public XmlElement ExtractDocumentation(MethodInfo methodInfo)
         {
-            return methodExtractor.ExtractDocumentation(methodInfo);
+            return _methodExtractor.ExtractDocumentation(methodInfo);
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation element.</returns>
         public XmlElement ExtractDocumentation(Type type)
         {
-            return typeExtractor.ExtractDocumentation(type);
+            return _typeExtractor.ExtractDocumentation(type);
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace NExtra.Documentation
         /// <returns>XML documentation element.</returns>
         public XmlElement ExtractDocumentationElement(Type type, char prefix, string subElementName)
         {
-            return elementExtractor.ExtractDocumentationElement(type, prefix, subElementName);
+            return _elementExtractor.ExtractDocumentationElement(type, prefix, subElementName);
         }
     }
 }

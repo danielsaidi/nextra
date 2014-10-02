@@ -12,18 +12,18 @@ namespace NExtra.Documentation
     /// </remarks>
     public class TypeXmlDocumentationExtractor : ITypeDocumentationExtractor
     {
-        private readonly IDocumentationElementExtractor xmlDocumentationElementExtractor;
+        private readonly IDocumentationElementExtractor _xmlDocumentationElementExtractor;
         
 
         public TypeXmlDocumentationExtractor(IDocumentationElementExtractor xmlDocumentationElementExtractor)
         {
-            this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
+            _xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
         }
 
 
         public XmlElement ExtractDocumentation(Type type)
         {
-            return xmlDocumentationElementExtractor.ExtractDocumentationElement(type, 'T', "");
+            return _xmlDocumentationElementExtractor.ExtractDocumentationElement(type, 'T', "");
         }
     }
 }

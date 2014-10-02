@@ -13,12 +13,12 @@ namespace NExtra.Documentation
     /// </remarks>
     public class MethodInfoXmlDocumentationExtractor : IMethodInfoDocumentationExtractor
     {
-        private readonly IDocumentationElementExtractor xmlDocumentationElementExtractor;
+        private readonly IDocumentationElementExtractor _xmlDocumentationElementExtractor;
 
 
         public MethodInfoXmlDocumentationExtractor(IDocumentationElementExtractor xmlDocumentationElementExtractor)
         {
-            this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
+            _xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
         }
 
 
@@ -33,8 +33,8 @@ namespace NExtra.Documentation
             }
 
             return parametersString.Length > 0 ?
-                xmlDocumentationElementExtractor.ExtractDocumentationElement(methodInfo.DeclaringType, 'M', methodInfo.Name + "(" + parametersString + ")") :
-                xmlDocumentationElementExtractor.ExtractDocumentationElement(methodInfo.DeclaringType, 'M', methodInfo.Name);
+                _xmlDocumentationElementExtractor.ExtractDocumentationElement(methodInfo.DeclaringType, 'M', methodInfo.Name + "(" + parametersString + ")") :
+                _xmlDocumentationElementExtractor.ExtractDocumentationElement(methodInfo.DeclaringType, 'M', methodInfo.Name);
         }
     }
 }

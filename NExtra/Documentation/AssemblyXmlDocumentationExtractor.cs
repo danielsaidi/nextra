@@ -16,12 +16,12 @@ namespace NExtra.Documentation
     /// </remarks>
     public class AssemblyXmlDocumentationExtractor : IAssemblyDocumentationExtractor
     {
-        private static Dictionary<Assembly, XmlDocument> cache;
+        private static Dictionary<Assembly, XmlDocument> _cache;
 
 
         public AssemblyXmlDocumentationExtractor()
         {
-            cache = new Dictionary<Assembly, XmlDocument>();
+            _cache = new Dictionary<Assembly, XmlDocument>();
         }
 
 
@@ -33,8 +33,8 @@ namespace NExtra.Documentation
         /// </summary>
         public XmlDocument ExtractDocumentation(Assembly assembly)
         {
-            if (cache.ContainsKey(assembly))
-                return cache[assembly];
+            if (_cache.ContainsKey(assembly))
+                return _cache[assembly];
 
             const string filePrefix = "file:///";
             var xmlDocumentationFile = Path.ChangeExtension(assembly.CodeBase.Substring(filePrefix.Length), ".xml");
@@ -56,7 +56,7 @@ namespace NExtra.Documentation
             xmlDocument.Load(streamReader);
             streamReader.Close();
 
-            cache.Add(assembly, xmlDocument);
+            _cache.Add(assembly, xmlDocument);
 
             return xmlDocument;
         }

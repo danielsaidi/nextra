@@ -15,12 +15,12 @@ namespace NExtra.Documentation
     /// </remarks>
     public class XmlDocumentationElementExtractor : IDocumentationElementExtractor
     {
-        private readonly IAssemblyDocumentationExtractor assemblyXmlDocumentationExtractor;
+        private readonly IAssemblyDocumentationExtractor _assemblyXmlDocumentationExtractor;
 
 
         public XmlDocumentationElementExtractor(IAssemblyDocumentationExtractor assemblyXmlDocumentationExtractor)
         {
-            this.assemblyXmlDocumentationExtractor = assemblyXmlDocumentationExtractor;
+            _assemblyXmlDocumentationExtractor = assemblyXmlDocumentationExtractor;
         }
 
 
@@ -30,9 +30,9 @@ namespace NExtra.Documentation
                 prefix + ":" + type.FullName :
                 prefix + ":" + type.FullName + "." + subElementName;
 
-            fullName.Replace("..", ".");
+            fullName = fullName.Replace("..", ".");
 
-            var xmlDocument = assemblyXmlDocumentationExtractor.ExtractDocumentation(type.Assembly);
+            var xmlDocument = _assemblyXmlDocumentationExtractor.ExtractDocumentation(type.Assembly);
             
             var xmlElement = xmlDocument["doc"];
             if (xmlElement == null)

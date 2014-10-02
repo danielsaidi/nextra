@@ -13,18 +13,18 @@ namespace NExtra.Documentation
     /// </remarks>
     public class MemberInfoXmlDocumentationExtractor : IMemberInfoDocumentationExtractor
     {
-        private readonly IDocumentationElementExtractor xmlDocumentationElementExtractor;
+        private readonly IDocumentationElementExtractor _xmlDocumentationElementExtractor;
 
 
         public MemberInfoXmlDocumentationExtractor(IDocumentationElementExtractor xmlDocumentationElementExtractor)
         {
-            this.xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
+            _xmlDocumentationElementExtractor = xmlDocumentationElementExtractor;
         }
 
 
         public XmlElement ExtractDocumentation(MemberInfo memberInfo)
         {
-            return xmlDocumentationElementExtractor.ExtractDocumentationElement(memberInfo.DeclaringType, memberInfo.MemberType.ToString()[0], memberInfo.Name);
+            return _xmlDocumentationElementExtractor.ExtractDocumentationElement(memberInfo.DeclaringType, memberInfo.MemberType.ToString()[0], memberInfo.Name);
         }
     }
 }
