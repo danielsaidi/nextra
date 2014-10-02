@@ -25,7 +25,7 @@ namespace NExtra.Tests.Console
         [Test]
         public void HasArgument_ShouldReturnTrueIfArgumentIsPresentInCtorArgument()
         {
-            var dict = new Dictionary<string, string> { { "foo", "bar" } };
+            var dict = new Dictionary<string, string> {{ "foo", "bar" }};
             var args = new CommandLineArguments(dict);
 
             Assert.That(args.HasArgument("foo"), Is.True);
@@ -34,7 +34,7 @@ namespace NExtra.Tests.Console
         [Test]
         public void HasArgument_ShouldReturnFalseIfArgumentIsNotPresentInCtorArgument()
         {
-            var dict = new Dictionary<string, string> { { "foo", "bar" } };
+            var dict = new Dictionary<string, string> {{ "foo", "bar" }};
             var args = new CommandLineArguments(dict);
 
             Assert.That(args.HasArgument("bar"), Is.False);
@@ -43,7 +43,7 @@ namespace NExtra.Tests.Console
         [Test]
         public void HasArgument_ShouldReturnTrueIfArgumentWithValueIsPresentInCtorArgument()
         {
-            var dict = new Dictionary<string, string> { { "foo", "bar" } };
+            var dict = new Dictionary<string, string> {{ "foo", "bar" }};
             var args = new CommandLineArguments(dict);
 
             Assert.That(args.HasArgument("foo", "bar"), Is.True);
@@ -52,7 +52,7 @@ namespace NExtra.Tests.Console
         [Test]
         public void HasArgument_ShouldReturnFalseIfArgumentWithMismatchValueIsPresentInCtorArgument()
         {
-            var dict = new Dictionary<string, string> { { "foo", "bar" } };
+            var dict = new Dictionary<string, string> {{ "foo", "bar" }};
             var args = new CommandLineArguments(dict);
 
             Assert.That(args.HasArgument("foo", "foo"), Is.False);
@@ -61,7 +61,7 @@ namespace NExtra.Tests.Console
         [Test]
         public void HasSingleArgument_ShouldReturnTrueIfArgumentIsSingleInCtorArgument()
         {
-            var dict = new Dictionary<string, string> { { "foo", "bar" } };
+            var dict = new Dictionary<string, string> {{ "foo", "bar" }};
             var args = new CommandLineArguments(dict);
 
             Assert.That(args.HasSingleArgument("foo"), Is.True);
@@ -70,7 +70,7 @@ namespace NExtra.Tests.Console
         [Test]
         public void HasSingleArgument_ShouldReturnFalseIfArgumentIsNotPresentInCtorArgument()
         {
-            var dict = new Dictionary<string, string> { { "foo", "bar" } };
+            var dict = new Dictionary<string, string> {{ "foo", "bar" }};
             var args = new CommandLineArguments(dict);
 
             Assert.That(args.HasSingleArgument("bar"), Is.False);
@@ -104,7 +104,7 @@ namespace NExtra.Tests.Console
         }
 
         [Test]
-        public void HasSingleArgument_ShouldReturnTrueIfArgumentWithValueIsNotSingleInCtorArgument()
+        public void HasSingleArgument_ShouldReturnFalseIfArgumentWithValueIsNotSingleInCtorArgument()
         {
             var dict = new Dictionary<string, string> {{"foo", "bar"}, {"foo2", "bar"}};
             var args = new CommandLineArguments(dict);

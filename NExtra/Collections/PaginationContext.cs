@@ -15,9 +15,9 @@ namespace NExtra.Collections
     /// </remarks>
 	public class PaginationContext<T> : IPaginationContext<T>
     {
-		private int pageLinkMaxCount;
-		private int pageNumber;
-		private int pageSize;
+		private int _pageLinkMaxCount;
+		private int _pageNumber;
+		private int _pageSize;
 
 
 		public PaginationContext(IEnumerable<T> collection, int pageNumber, int pageSize, int pageLinkMaxCount)
@@ -60,8 +60,8 @@ namespace NExtra.Collections
 
 		public int PageLinkMaxCount
 		{
-			get { return pageLinkMaxCount; }
-			set { pageLinkMaxCount = value.Limit(1, value); }
+			get { return _pageLinkMaxCount; }
+			set { _pageLinkMaxCount = value.Limit(1, value); }
 		}
 
         public List<int> PageLinks
@@ -84,14 +84,14 @@ namespace NExtra.Collections
 
 		public int PageNumber
 		{
-			get { return pageNumber.Limit(1, PageCount); }
-			set { pageNumber = value.Limit(1, PageCount); }
+			get { return _pageNumber.Limit(1, PageCount); }
+			set { _pageNumber = value.Limit(1, PageCount); }
 		}
 
 		public int PageSize
 		{
-			get { return pageSize; }
-			set { pageSize = value.Limit(1, value); }
+			get { return _pageSize; }
+			set { _pageSize = value.Limit(1, value); }
 		}
 
         public int PreviousPageLink

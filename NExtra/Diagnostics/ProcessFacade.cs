@@ -45,12 +45,12 @@ namespace NExtra.Diagnostics
 
         public Process[] GetProcessesByName(string processName)
         {
-            return GetProcessesByName(processName);
+            return Process.GetProcessesByName(processName);
         }
 
         public Process[] GetProcessesByName(string processName, string machineName)
         {
-            return GetProcessesByName(processName, machineName);
+            return Process.GetProcessesByName(processName, machineName);
         }
 
         public void LeaveDebugMode()

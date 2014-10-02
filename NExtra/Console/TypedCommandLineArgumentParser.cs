@@ -12,18 +12,18 @@ namespace NExtra.Console
     /// </remarks>
     public class TypedCommandLineArgumentParser : ICommandLineArgumentParser<CommandLineArguments>
     {
-        private readonly ICommandLineArgumentParser<IDictionary<string, string>> baseParser;
+        private readonly ICommandLineArgumentParser<IDictionary<string, string>> _baseParser;
 
         
         public TypedCommandLineArgumentParser(ICommandLineArgumentParser<IDictionary<string, string>> baseParser)
         {
-            this.baseParser = baseParser;
+            _baseParser = baseParser;
         }
 
         
         public CommandLineArguments ParseCommandLineArguments(IEnumerable<string> args)
         {
-            var dict = baseParser.ParseCommandLineArguments(args);
+            var dict = _baseParser.ParseCommandLineArguments(args);
             var result = new CommandLineArguments(dict);
 
             return result;

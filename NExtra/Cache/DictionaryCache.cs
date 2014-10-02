@@ -14,30 +14,30 @@ namespace NExtra.Cache
     /// </remarks>
     public class DictionaryCache : ICache
     {
-        private readonly Dictionary<string, DictionaryCacheItem> cache;
+        private readonly Dictionary<string, DictionaryCacheItem> _cache;
 
 
         public DictionaryCache()
         {
-            cache = new Dictionary<string, DictionaryCacheItem>();
+            _cache = new Dictionary<string, DictionaryCacheItem>();
         }
 
 
         public void Clear()
         {
-            cache.Clear();
+            _cache.Clear();
         }
 
         public bool Contains(string key)
         {
             RemoveIfInvalid(key);
-            return cache.ContainsKey(key);
+            return _cache.ContainsKey(key);
         }
 
         public object Get(string key)
         {
             RemoveIfInvalid(key);
-            return cache[key].Obj;
+            return _cache[key].Obj;
         }
 
         public T Get<T>(string key)
@@ -48,7 +48,7 @@ namespace NExtra.Cache
         public T GetOrAdd<T>(string key, Func<T> fallback, TimeSpan timeout)
         {
             DictionaryCacheItem item;
-            if (cache.TryGetValue(key, out item))
+            if (_cache.TryGetValue(key, out item))
             {
                 if (item.Expires > DateTime.Now)
                 {
@@ -63,17 +63,17 @@ namespace NExtra.Cache
 
         private bool IsValid(string key)
         {
-            return cache[key].Expires > DateTime.Now;
+            return _cache[key].Expires > DateTime.Now;
         }
 
         public void Remove(string key)
         {
-            cache.Remove(key);
+            _cache.Remove(key);
         }
 
         private void RemoveIfInvalid(string key)
         {
-            if (!cache.ContainsKey(key))
+            if (!_cache.ContainsKey(key))
                 return;
             if (!IsValid(key))
                 Remove(key);
@@ -81,7 +81,7 @@ namespace NExtra.Cache
 
         public void Set(string key, object value, TimeSpan timeout)
         {
-            cache[key] = new DictionaryCacheItem(value, DateTime.Now.Add(timeout));
+            _cache[key] = new DictionaryCacheItem(value, DateTime.Now.Add(timeout));
         }
 
         public T TryGet<T>(string key, T fallback)

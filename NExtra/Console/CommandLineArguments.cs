@@ -12,39 +12,39 @@ namespace NExtra.Console
     /// </remarks>
     public class CommandLineArguments
     {
-        private readonly IDictionary<string, string> args;
+        private readonly IDictionary<string, string> _args;
 
 
         public CommandLineArguments(IDictionary<string, string> args)
         {
-            this.args = args;
+            _args = args;
         }
 
 
         public IDictionary<string, string> Raw
         {
-            get { return args; }
+            get { return _args; }
         }
 
 
         public bool HasArgument(string key)
         {
-            return (args.ContainsKey(key));
+            return (_args.ContainsKey(key));
         }
 
         public bool HasArgument(string key, string value)
         {
-            return (args.ContainsKey(key) && args[key] == value);
+            return (_args.ContainsKey(key) && _args[key] == value);
         }
 
         public bool HasSingleArgument(string key)
         {
-            return args.Count == 1 && HasArgument(key);
+            return _args.Count == 1 && HasArgument(key);
         }
 
         public bool HasSingleArgument(string key, string value)
         {
-            return args.Count == 1 && HasArgument(key, value);
+            return _args.Count == 1 && HasArgument(key, value);
         }
     }
 }

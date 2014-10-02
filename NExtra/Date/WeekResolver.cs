@@ -24,14 +24,14 @@ namespace NExtra.Date
     /// </remarks>
     public class WeekResolver : IWeekResolver
     {
-        private readonly DayOfWeek firstDayOfWeek;
-        private readonly CalendarWeekRule weekRule;
+        private readonly DayOfWeek _firstDayOfWeek;
+        private readonly CalendarWeekRule _weekRule;
 
 
         public WeekResolver(CalendarWeekRule weekRule, DayOfWeek firstDayOfWeek)
         {
-            this.weekRule = weekRule;
-            this.firstDayOfWeek = firstDayOfWeek;
+            _weekRule = weekRule;
+            _firstDayOfWeek = firstDayOfWeek;
         }
 
 
@@ -42,7 +42,9 @@ namespace NExtra.Date
 
             var week = GetWeekNumber(date);
             while (week == GetWeekNumber(date))
+            {
                 date = date.AddDays(-1);
+            }
             return date.AddDays(1);
         }
 
@@ -53,13 +55,15 @@ namespace NExtra.Date
 
             var week = GetWeekNumber(date);
             while (week == GetWeekNumber(date))
+            {
                 date = date.AddDays(1);
+            }
             return date.AddDays(-1);
         }
 
         public virtual int GetWeekNumber(DateTime date)
         {
-            return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date, weekRule, firstDayOfWeek);
+            return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date, _weekRule, _firstDayOfWeek);
         }
     }
 }
