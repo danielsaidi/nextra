@@ -42,7 +42,7 @@ Contact
 For more info about this project and other things that I'm working on:
 
 	Web site:		http://danielsaidi.github.com/NExtra
-	Project site:		http://github.com/danielsaidi/NExtra
+	Project site:	http://github.com/danielsaidi/NExtra
 	Blog:			http://danielsaidi.wordpress.com
 	Twitter:		http://twitter.com/danielsaidi
 	
