@@ -5,12 +5,11 @@ NExtra
 [![](https://img.shields.io/nuget/dt/NExtra.svg)](https://www.nuget.org/packages/NExtra/)
 
 NExtra is an open-source library that contains extended functionality
-for the .NET Framework. I continously add things that I create in the
-various projects I work with, if I find that they are relevant enough
-for others and general enough to be reusable in other projects.
+for the .NET Framework. I continously add things from my various .NET
+projects, if I find that they are relevant enough.
 
-If I add stuff that I find on a blog or other web resources, I include
-a link to the original implementation in the source code.
+If I add stuff that I find on blogs or other web resources, I include
+links to the original implementation.
 
 
 Web resources
