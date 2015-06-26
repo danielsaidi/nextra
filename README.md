@@ -31,13 +31,13 @@ regular e-mail.
 Getting started
 ---------------
 
-You can grab the source code directly from GitHub, download a certain
-version of the source code from the download page or get pre-compiled
-binaries directly from within Visual Studio, using NuGet.
+You can grab the source code directly from GitHub or get pre-compiled
+binaries from NuGet. If you are new to NExtra, I advice you to grab a
+source code bundle, browse through it and pick out the parts you need.
 
-If you are new to NExtra, I would definitively advice you to grab the
-latest source code, browse through it and pick out the parts you need,
-instead of starting out with the compiled DLLs.
+
+NExtra Projects
+---------------
 
 NExtra consists of the following projects:
 
@@ -60,21 +60,4 @@ From version 3.0, I have decided to not extract any documentation for
 NExtra. I believe that it is easier to grab the source code and check
 it out, or even browse through the code on GitHub, than it is to plow
 through page after page within a generated HTML structure.
-
-Let me know if you think that I am wrong. Extracting documentation is
-a piece of cake, so if you need it, it is easily done.
-
-
-License
--------
-
-NExtra is released under the MIT License, which means that you can do
-much anything you want with it. Read more about the MIT license here:
-
-http://www.opensource.org/licenses/mit-license.php
-
-What it means is basically this: If you use NExtra and happen to like
-it, please spread the word. Also, do not take credit for other's work.
-If you take anything out of NExtra, let the author information remain
-in the source code.
 
