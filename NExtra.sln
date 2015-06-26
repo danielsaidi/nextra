@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra", "NExtra\NExtra.csproj", "{0366F0F5-D14B-4262-A862-EFDE39CA68F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.Tests", "NExtra.Tests\NExtra.Tests.csproj", "{C1879A65-F761-4AE0-A621-22AC5CD58B41}"
@@ -11,10 +13,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.WebForms", "NExtra.WebForms\NExtra.WebForms.csproj", "{18666F4D-C942-4F12-901F-BD66E90DF0C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.WebForms.Tests", "NExtra.WebForms.Tests\NExtra.WebForms.Tests.csproj", "{0C40C759-0386-42D7-8D2A-0AB255726BED}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.WPF.Tests", "NExtra.WPF.Tests\NExtra.WPF.Tests.csproj", "{EC13C808-9258-4B47-889E-9E96B5CD42F1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.WPF", "NExtra.WPF\NExtra.WPF.csproj", "{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NExtra.Mvc", "NExtra.Mvc\NExtra.Mvc.csproj", "{24BF5860-AAB0-4110-82F8-23390BC9ECE3}"
 EndProject
@@ -103,26 +101,6 @@ Global
 		{0C40C759-0386-42D7-8D2A-0AB255726BED}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0C40C759-0386-42D7-8D2A-0AB255726BED}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0C40C759-0386-42D7-8D2A-0AB255726BED}.Release|x86.ActiveCfg = Release|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{EC13C808-9258-4B47-889E-9E96B5CD42F1}.Release|x86.ActiveCfg = Release|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{01C8AFD3-E0E9-42CC-BF9D-62AAAF3C9739}.Release|x86.ActiveCfg = Release|Any CPU
 		{24BF5860-AAB0-4110-82F8-23390BC9ECE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24BF5860-AAB0-4110-82F8-23390BC9ECE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24BF5860-AAB0-4110-82F8-23390BC9ECE3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
