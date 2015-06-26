@@ -43,7 +43,6 @@ NExtra consists of the following projects:
 	NExtra
 	NExtra.Web
 	NExtra.Mvc
-	NExtra.Wpf
 	NExtra.WebForms
 	NExtra.WinForms
 	
