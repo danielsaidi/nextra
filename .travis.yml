@@ -1,5 +1,7 @@
 language: csharp
 solution: NExtra.sln
+mono:
+  - 3.12.0
 
 before_install:
   - sudo apt-get install nunit-console
