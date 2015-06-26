@@ -1,13 +1,14 @@
 language: csharp
 solution: NExtra.sln
+
 before_install:
   - sudo apt-get install nunit-console
 before_script:
   - nuget restore NExtra.sln
 after_script:
+  - xbuild ./src/NExtra.sln
   - nunit-console NExtra.Tests/bin/Release/NExtra.Tests.dll
   - nunit-console NExtra.Web.Tests/bin/Release/NExtra.Web.Tests.dll
   - nunit-console NExtra.Mvc.Tests/bin/Release/NExtra.Mvc.Tests.dll
-  - nunit-console NExtra.WPF.Tests/bin/Release/NExtra.WPF.Tests.dll
   - nunit-console NExtra.WebForms.Tests/bin/Release/NExtra.WebForms.Tests.dll
   - nunit-console NExtra.WinForms.Tests/bin/Release/NExtra.WinForms.Tests.dll
