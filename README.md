@@ -12,8 +12,8 @@ If I add stuff that I find on blogs or other web resources, I include
 links to the original implementation.
 
 
-Web resources
--------------
+Resources
+---------
 
 You can find more information about NExtra at the following resources:
 
