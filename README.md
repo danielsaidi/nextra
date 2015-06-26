@@ -1,7 +1,8 @@
 NExtra
 ======
 
-	Author:		Daniel Saidi [daniel.saidi@gmail.com]
+[![](https://img.shields.io/nuget/v/Nextra.svg)](https://www.nuget.org/packages/NExtra/)
+[![](https://img.shields.io/nuget/dt/NExtra.svg)](https://www.nuget.org/packages/NExtra/)
 
 NExtra is an open-source library that contains extended functionality
 for the .NET Framework. I continously add things that I create in the
