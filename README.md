@@ -18,16 +18,10 @@ Web resources
 You can find more information about NExtra at the following resources:
 
 	Web site:		http://danielsaidi.github.com/NExtra
-	Source code:	http://github.com/danielsaidi/NExtra
-	Downloads:		http://github.com/danielsaidi/NExtra/tags
-	Issues:			http://github.com/danielsaidi/NExtra/issues
-	Blog:			http://danielsaidi.wordpress.com/category/nextra
+	Project:		http://github.com/danielsaidi/NExtra
+	Blog:			http://danielsaidi.wordpress.com
+	Twitter:		@danielsaidi
 	
-Do not hesitate to contact me if you have any questions that you need
-to ask, any bugs or issues that you need help with, or if you want to
-give me feedback, suggestions etc. Bugs can easily be reported, using
-the issue page.
-
 Contributions to NExtra are more than welcome. If you build something
 that you wish to share, fix a bug, improve a unit test etc. just send
 me a pull request requests via GitHub or simply attach your code in a
