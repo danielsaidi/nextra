@@ -28,7 +28,6 @@ NExtra consists of the following projects:
 	NExtra
 	NExtra.Web
 	NExtra.Mvc
-	NExtra.Wpf
 	NExtra.WebForms
 	NExtra.WinForms
 	
@@ -40,7 +39,7 @@ means that NExtra.Web requires System.Web etc.
 Contact
 -------
 
-You can find more information about NExtra at the following resources:
+For more info about this project and other things that I'm working on:
 
 	Web site:		http://danielsaidi.github.com/NExtra
 	Project site:		http://github.com/danielsaidi/NExtra
