@@ -47,8 +47,7 @@ For more info about this project and other things that I'm working on:
 	Blog:			http://danielsaidi.wordpress.com
 	Twitter:		http://twitter.com/danielsaidi
 	
-Contributions to NExtra are more than welcome. If you build something
-that you wish to share, fix a bug, improve a unit test etc. just send
-me a pull request requests via GitHub or simply attach your code in a
-regular e-mail.
+Contributions to this project are more than welcome. If you build the
+next great feature, fix a bug, improve a unit test etc., just send me
+a pull request or get in touch.
 
