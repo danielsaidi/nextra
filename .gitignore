@@ -12,4 +12,6 @@ _ReSharper*
 **/obj
 **/*.nupkg
 
+packages
+
 TestResult.xml
